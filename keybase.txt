@@ -1,0 +1,54 @@
+==================================================================
+https://keybase.io/krusin
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://nathiss.github.io
+  * I am krusin (https://keybase.io/krusin) on keybase.
+  * I have a public key ASB-msaVnlYWy2DeKcAa2Xza-qMMisBjF5vGVKXYbfYjUAo
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "01207e9ac6959e5616cb60de29c01ad97cdafaa30c8ac063179bc654a5d86df623500a",
+            "host": "keybase.io",
+            "kid": "01207e9ac6959e5616cb60de29c01ad97cdafaa30c8ac063179bc654a5d86df623500a",
+            "uid": "94112906d2fbba6832c93c461e351919",
+            "username": "krusin"
+        },
+        "service": {
+            "hostname": "nathiss.github.io",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "client": {
+        "name": "keybase.io go client",
+        "version": "1.0.18"
+    },
+    "ctime": 1485958927,
+    "expire_in": 504576000,
+    "merkle_root": {
+        "ctime": 1485958905,
+        "hash": "4e80585ad7a21d2d70ccf47cd685fe8ac32efc286609bff9f1178720c87a0488cb4e54aecd4e0c5da551fe08f50bf676e8e1ee7bf39727c8ef334a9a05493fbf",
+        "seqno": 828939
+    },
+    "prev": "f3ef8526d24494285ce68f177163bab4f60738eca4bc635978104195f42826e8",
+    "seqno": 12,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgfprGlZ5WFstg3inAGtl82vqjDIrAYxebxlSl2G32I1AKp3BheWxvYWTFAvh7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwN2U5YWM2OTU5ZTU2MTZjYjYwZGUyOWMwMWFkOTdjZGFmYWEzMGM4YWMwNjMxNzliYzY1NGE1ZDg2ZGY2MjM1MDBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwN2U5YWM2OTU5ZTU2MTZjYjYwZGUyOWMwMWFkOTdjZGFmYWEzMGM4YWMwNjMxNzliYzY1NGE1ZDg2ZGY2MjM1MDBhIiwidWlkIjoiOTQxMTI5MDZkMmZiYmE2ODMyYzkzYzQ2MWUzNTE5MTkiLCJ1c2VybmFtZSI6ImtydXNpbiJ9LCJzZXJ2aWNlIjp7Imhvc3RuYW1lIjoibmF0aGlzcy5naXRodWIuaW8iLCJwcm90b2NvbCI6Imh0dHBzOiJ9LCJ0eXBlIjoid2ViX3NlcnZpY2VfYmluZGluZyIsInZlcnNpb24iOjF9LCJjbGllbnQiOnsibmFtZSI6ImtleWJhc2UuaW8gZ28gY2xpZW50IiwidmVyc2lvbiI6IjEuMC4xOCJ9LCJjdGltZSI6MTQ4NTk1ODkyNywiZXhwaXJlX2luIjo1MDQ1NzYwMDAsIm1lcmtsZV9yb290Ijp7ImN0aW1lIjoxNDg1OTU4OTA1LCJoYXNoIjoiNGU4MDU4NWFkN2EyMWQyZDcwY2NmNDdjZDY4NWZlOGFjMzJlZmMyODY2MDliZmY5ZjExNzg3MjBjODdhMDQ4OGNiNGU1NGFlY2Q0ZTBjNWRhNTUxZmUwOGY1MGJmNjc2ZThlMWVlN2JmMzk3MjdjOGVmMzM0YTlhMDU0OTNmYmYiLCJzZXFubyI6ODI4OTM5fSwicHJldiI6ImYzZWY4NTI2ZDI0NDk0Mjg1Y2U2OGYxNzcxNjNiYWI0ZjYwNzM4ZWNhNGJjNjM1OTc4MTA0MTk1ZjQyODI2ZTgiLCJzZXFubyI6MTIsInRhZyI6InNpZ25hdHVyZSJ9o3NpZ8RAA92dzf1DuMEigFx+5s+0DJHjIjPihCOT2itBwiWjzi4/Vq2cjBS2O0c5CuBHtgMSq4YNgxoxAEmWGRFRiRIjA6hzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIKXYx6ARs5mkJdhf+q4Q6Aa6/hZmip4dPSZJT3CRAyR2o3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/krusin
+
+==================================================================
