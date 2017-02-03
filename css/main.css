@@ -39,7 +39,7 @@ body
 
 #banner
 {
-    background-image: url('../img/bg2.2.png');
+    background-image: url('../img/banner.png');
     background-position: center;
     background-attachment: fixed;
     color: #eee;
@@ -134,4 +134,72 @@ body
     color: #ffb03b;
     border-color: #ffb03b;
     outline: none;
+}
+
+#about
+{
+    background-image: url('../img/code.jpg');
+    background-position: center;
+    background-attachment: fixed;
+}
+
+#about .section-title
+{
+    color: #eee;
+}
+
+.about-content
+{
+    background-color: rgba(238,238,238,0.9);
+    color: #333;
+    border-radius: 12px;
+    padding: 30px 40px;
+    margin: 70px;
+}
+
+#contact
+{
+    background-color: #eee;
+}
+
+.contact-msg
+{
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 50px 0;
+}
+
+.contact-item a
+{
+    text-align: center;
+    transition: color .2s ease;
+    display: block;
+    color: #333;
+    text-decoration: none;
+    padding: 20px 0;
+}
+
+.facebook:hover, .facebook:focus
+{
+    background-color: #3b5999;
+}
+
+.twitter:hover, .twitter:focus
+{
+    background-color: #55acee;
+}
+
+.github:hover, .github:focus
+{
+    background-color: #000;
+}
+
+.copyright
+{
+    padding: 15px 0;
+    background-color: #333;
+    color: #eee;
+    text-align: center;
+    box-shadow: 0 -5px 12px 2px #333;
 }
