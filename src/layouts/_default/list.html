@@ -1,0 +1,21 @@
+{{ define "main" }}
+    {{ partial "breadcrumb" . }}
+    <div class="entry">
+        <header>
+            <h1>{{ .Title }}</h1>
+        </header>
+    </div>
+
+    {{ $articles := where .Pages "Type" "Article" }}
+    {{ if eq (len $articles) 0 }}
+        <div class="empty-section">
+            <p>
+                There's nothing here.
+                <span class="monospace">☜(꒡⌓꒡)</span>
+            </p>
+        </div>
+    {{ end }}
+    {{ range $articles }}
+        {{ partial "article-card" (dict "page" . "ShowCurrentSection" false) }}
+    {{ end }}
+{{ end }}

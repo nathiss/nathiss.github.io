@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+// Lato
+
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 300;
+    src: asset_url('Lato/Lato-Light.ttf');
+}
+
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    src: asset_url('Lato/Lato-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 700;
+    src: asset_url('Lato/Lato-Bold.ttf');
+}
+
+// Inconsolata
+@font-face {
+    font-family: 'Inconsolata';
+    font-style: normal;
+    font-weight: 300;
+    src: asset_url('Inconsolata/Inconsolata-Light.ttf');
+}
+
+@font-face {
+    font-family: 'Inconsolata';
+    font-style: normal;
+    font-weight: 400;
+    src: asset_url('Inconsolata/Inconsolata-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Inconsolata';
+    font-style: normal;
+    font-weight: 700;
+    src: asset_url('Inconsolata/Inconsolata-Bold.ttf');
+}

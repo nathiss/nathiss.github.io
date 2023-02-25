@@ -1,0 +1,29 @@
+.entry {
+    header>h1 {
+        font-size: $base-font-size * 2;
+        margin: 0;
+    }
+
+    main {
+        margin-top: $one-column * .5;
+    }
+}
+
+.empty-section {
+    border-radius: $border-radius;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: darken($body-background, 2);
+    color: $gray;
+    padding: $gap * 2 0;
+
+    -webkit-box-shadow: inset 0px 0px 25px -10px $gray-lightest;
+    -moz-box-shadow: inset 0px 0px 25px -10px $gray-lightest;
+    box-shadow: inset 0px 0px 25px -10px $gray-lightest;
+
+    p {
+        margin: 0;
+        font-style: italic;
+    }
+}

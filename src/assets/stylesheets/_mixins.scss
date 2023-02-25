@@ -1,0 +1,50 @@
+// Handling breakpoints for media queries
+// @param {Number} $val the media query specification.
+
+@mixin breakpoint($val) {
+    @if $val ==extra-small {
+        @media all and (max-width: 520px) {
+            @content;
+        }
+    }
+
+    @else if $val ==small {
+        @media all and (max-width: 767px) {
+            @content;
+        }
+    }
+
+    @else if $val ==medium {
+        @media all and (max-width: 1024px) {
+            @content;
+        }
+    }
+
+    @else if $val ==large {
+        @media all and (max-width: 1223px) {
+            @content;
+        }
+    }
+
+    @else {
+        @warn "The parameter #{$val} is not valid";
+    }
+}
+
+@mixin cursor($height, $justifyContent: center, $alignItems: center) {
+    display: flex;
+    justify-content: $justifyContent;
+    align-items: $alignItems;
+    gap: 2px;
+
+    &::after {
+        content: "";
+        margin-left: 2px;
+        width: 4px;
+        height: $height;
+        background: $gray-light;
+        display: inline-block;
+
+        animation: $cursor-blink-animation;
+    }
+}

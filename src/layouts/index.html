@@ -1,0 +1,32 @@
+{{ define "main" }}
+    <article class="site-info">
+        <header class="brand">
+            <h1>{{ .Title }}</h1>
+        </header>
+        <main>
+            <p>Hi! {{ ":ocean:" | emojify }}</p>
+            <p>
+                I'm <span class="success">{{ .Site.Params.Author.FirstName }}</span>
+                I work as a software engineer and this is a collection of all things I've been working on in my personal
+                time.
+            </p>
+        </main>
+        <footer>
+            <ul class="social-media">
+                {{ range $menuItem := .Site.Menus.social }}
+                    <li>
+                        <a href="{{ $menuItem.URL }}" target="_blank" title="{{ $menuItem.Title }}">
+                            {{ partial "svg-icon" $menuItem.Identifier }}
+                        </a>
+                    </li>
+                {{ end }}
+            </ul>
+        </footer>
+    </article>
+
+    {{ $articles := where .Site.RegularPages "Section" "==" "articles" }}
+    {{ $paginator := .Paginate $articles }}
+    {{ range $paginator.Pages }}
+        {{ partial "article-card" (dict "page" .) }}
+    {{ end }}
+{{ end }}

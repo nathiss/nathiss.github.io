@@ -1,0 +1,27 @@
+<div class="navbar">
+    <div class="grid grid-full-centered">
+        <div class="grid-cell">
+            <div class="navbar-content">
+                <div class="navbar-logo">
+                    <a href="{{ .context.Site.BaseURL }}" class="plain">MadeByMe</a>
+                </div>
+                {{ if .ShowNav }}
+                    <nav class="nav navbar-items">
+                        <ul>
+                            {{ $currentPageUrl := absURL .context.Permalink }}
+                            {{ range $menuItem := .context.Site.Menus.main }}
+                                {{ $menuItemUrl := absURL $menuItem.URL }}
+                                <li>
+                                    <a href="{{ $menuItem.URL }}" title="{{ $menuItem.Name }}"
+                                    {{if eq $currentPageUrl $menuItemUrl }} class="active" {{end}}>
+                                        {{ $menuItem.Name }}
+                                    </a>
+                                </li>
+                            {{ end }}
+                        </ul>
+                    </nav>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+
+    .navbar-logo {
+        color: $brand-success;
+        font-weight: $base-font-weight-bold;
+        font-size: $base-font-size * 1.1;
+        user-select: none;
+    }
+
+    .navbar-items>ul,
+    .navbar-content>ol {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+
+        >li {
+            &:not(:last-child) {
+                margin-right: $gap;
+            }
+        }
+    }
+}

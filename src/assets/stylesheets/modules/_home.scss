@@ -1,0 +1,32 @@
+.site-info {
+    margin: $one-column * 1.5 0 $one-column * 2 0;
+
+    .brand>h1 {
+        font-size: $base-font-size * 2.5;
+        margin: 0;
+
+        @include cursor($base-font-size * 2.5, left);
+    }
+
+    main {
+        margin: 8px 0;
+
+        p {
+            margin: 0;
+            line-height: 1.5;
+        }
+    }
+
+    .social-media {
+        list-style-type: none;
+        padding: 0;
+        margin: 32px 0 0 0;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+
+        li:not(:last-of-type) {
+            margin-inline-end: $gap;
+        }
+    }
+}

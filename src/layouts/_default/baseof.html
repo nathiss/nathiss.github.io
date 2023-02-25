@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+    {{ partial "head.html" . }}
+
+    <body>
+        {{ partial "navbar" (dict "context" . "ShowNav" true) }}
+        <main class="site-main">
+            <div class="grid grid-centered">
+                <div class="grid-cell">
+                    {{ block "main" . }}{{ end }}
+                </div>
+            </div>
+        </main>
+        {{ partial "footer" . }}
+
+        {{ partial "javascripts" . }}
+    </body>
+</html>

@@ -1,0 +1,16 @@
+<nav class="nav breadcrumb">
+    <ul>
+        {{ range $crumb := .Ancestors.Reverse }}
+            <li><a href="{{ $crumb.Permalink }}">
+                {{if $crumb.IsHome }}
+                    root
+                {{ else }}
+                    {{ $crumb.Title }}
+                {{ end }}
+            </a></li>
+        {{ end }}
+        <li class="active" aria-current="page">
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+        </li>
+    </ul>
+</nav>

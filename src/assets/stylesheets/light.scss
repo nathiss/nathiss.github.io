@@ -1,0 +1,59 @@
+// Variables
+// =============================================================================
+
+// Shades of gray
+
+$black: #000;
+$gray-darkest: #121111;
+$gray-darker: lighten($gray-darkest, 15);
+$gray-dark: lighten($gray-darkest, 30);
+$gray: lighten($gray-darkest, 45);
+$gray-light: lighten($gray-darkest, 60);
+$gray-lighter: lighten($gray-darkest, 80);
+$gray-lightest: lighten($gray-darkest, 86);
+$white: #fff;
+
+// Font colors
+
+$base-font-color: $gray-darker;
+$base-accent-color: $gray-dark;
+$base-accent-highlighted-color: darken($base-accent-color, 15);
+
+// Border color
+
+$base-border-color: $gray-lightest;
+$dark-border-color: $gray-lighter;
+
+// Page specific colors
+
+$body-background: rgb(245, 245, 245);
+$article-card-background: $white;
+
+// Imports
+// =============================================================================
+
+// Settings
+
+@import "variables";
+@import "keyframes";
+@import "mixins";
+@import "base";
+
+// Grid
+
+@import "layouts/grid";
+
+// Modules
+
+@import "modules/a";
+@import "modules/article_card";
+@import "modules/article_footer";
+@import "modules/breadcrumb";
+@import "modules/entry";
+@import "modules/footer";
+@import "modules/home";
+@import "modules/nav";
+@import "modules/navbar";
+
+// Error pages
+@import "errors/404";

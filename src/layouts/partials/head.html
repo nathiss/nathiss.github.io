@@ -1,0 +1,32 @@
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Title -->
+    <title>{{ if not .IsHome }}{{ .Title }} - {{ end }}{{ site.Title }}</title>
+
+    <!-- Meta -->
+    {{ if eq .Kind "page" }}
+        <meta name="description" content="{{ .Summary }}" />
+        <meta name="author" content="{{ .Params.Author | default site.Params.Author.FullName }}" />
+    {{ else }}
+        <meta name="description" content="{{ site.Params.description }}" />
+        <meta name="author" content="{{ site.Params.Author.FullName }}" />
+    {{ end }}
+
+    <!-- Styles -->
+    {{ $light_css := resources.Get "stylesheets/light.scss" | resources.ToCSS }}
+
+    <link rel="stylesheet" type="text/css" title="light" href="{{ $light_css.Permalink }}" />
+
+    <!-- RSS -->
+    {{ range .AlternativeOutputFormats }}
+        <link
+            rel="{{ .Rel }}"
+            type="{{ .MediaType.Type }}"
+            href="{{ .Permalink }}"
+            title="{{ site.Title }}"
+        />
+    {{ end }}
+</head>

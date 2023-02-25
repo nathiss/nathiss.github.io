@@ -1,0 +1,16 @@
+.breadcrumb {
+    margin: $one-column * .5 0 $one-column * .5 0;
+
+    >ul,
+    >ol {
+        display: flex;
+        justify-content: left;
+        font-size: $base-font-size * .8;
+        margin: $one-column 0;
+
+        >*:not(:last-child)::after {
+            padding: 0 5px;
+            content: "»";
+        }
+    }
+}

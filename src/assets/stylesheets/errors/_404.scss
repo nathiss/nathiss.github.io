@@ -1,0 +1,29 @@
+.not-found-banner {
+    display: flex;
+    justify-content: center;
+    align-items: top;
+    flex-direction: column;
+
+    margin-top: $one-column;
+
+    border-radius: $border-radius;
+    background-color: darken($body-background, 2);
+    color: $gray-light;
+    padding: $gap * 2 0;
+
+    -webkit-box-shadow: inset 0px 0px 25px -10px $gray-light;
+    -moz-box-shadow: inset 0px 0px 25px -10px $gray-light;
+    box-shadow: inset 0px 0px 25px -10px $gray-light;
+
+    h1,
+    h2 {
+        margin: 0;
+        text-align: center;
+        font-weight: $base-font-weight-light;
+    }
+
+    h1 {
+        font-size: $base-font-size * 5;
+        @include cursor($base-font-size * 5);
+    }
+}

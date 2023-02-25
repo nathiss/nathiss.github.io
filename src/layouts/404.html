@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    {{ partial "head.html" . }}
+
+    <body>
+        {{ partial "navbar" (dict "context" . "ShowNav" false) }}
+        <main class="site-main">
+            <div class="grid grid-centered">
+                <div class="grid-cell">
+                    <div class="not-found-banner">
+                        <h1>404</h1>
+                        <h2>
+                            Not found.
+                            <span class="monospace">ಠ_ಠ</span>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </main>
+        {{ partial "footer" . }}
+    </body>
+</html>

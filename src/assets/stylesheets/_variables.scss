@@ -1,0 +1,42 @@
+// Typography
+
+$sans-serif: "Lato", Helvetica, Arial, sans-serif;
+$monospace: "Inconsolata", monospace;
+$base-font-family: $sans-serif;
+$base-font-weight-light: 300;
+$base-font-weight: 400;
+$base-font-weight-bold: 700;
+
+// Brand colors
+
+$brand-success: #297373;
+$brand-danger: #e74b3c;
+$brand-primary: #29335c;
+$brand-secondary: #22aed1;
+$brand-warning: #f1c90b;
+
+// Grid
+
+$columns: 12;
+$max-width: 720px;
+$full-width: 1080px;
+$gutter: 20px;
+$one-column: 100% / $columns;
+$negative-gutter: 0 - $gutter;
+
+$gap: 20px;
+
+// Font sizes
+
+$base-font-size: 16px;
+$article-list-font-size: 15px;
+$base-line-height: 1.8;
+
+// Border
+
+$border-radius: 8px;
+
+// Animations
+$hover-transition: .5s;
+
+$cursor-blink-animation: cursor-blink 1.5s steps(2) infinite;

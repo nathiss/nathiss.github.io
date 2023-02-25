@@ -1,0 +1,27 @@
+a {
+    color: inherit;
+    text-decoration: inherit;
+    transition: color $hover-transition ease-out;
+    text-underline-offset: auto;
+
+    .inline-svg>svg,
+    .inline-svg>svg>* {
+        fill: transparent;
+        transition: fill $hover-transition ease-out;
+    }
+}
+
+a:not(.plain):hover,
+a:not(.plain):active {
+    color: $brand-success;
+
+    .inline-svg>svg,
+    .inline-svg>svg>* {
+        fill: $brand-success;
+    }
+}
+
+a.active {
+    font-weight: $base-font-weight-bold;
+    color: $brand-success;
+}

@@ -1,0 +1,6 @@
+{{ $svg := resources.Get (print "icons/" . ".svg") }}
+<span class="inline-svg">
+    {{- $path:="<path" -}}
+    {{- $fill:="<path fill=\"none\"" -}}
+    {{ replace ($svg.Content) $path $fill | safeHTML }}
+</span>

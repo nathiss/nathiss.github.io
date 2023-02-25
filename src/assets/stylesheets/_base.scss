@@ -1,0 +1,42 @@
+// Document
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: $base-font-size;
+}
+
+body {
+    margin: 0 auto;
+    font-family: $base-font-family;
+    -webkit-font-smoothing: antialiased;
+    font-weight: $base-font-weight;
+    line-height: $base-line-height;
+    color: $base-font-color;
+    background: $body-background;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.site-main {
+    flex: 1;
+}
+
+// Content
+
+.success {
+    color: $brand-success;
+}
+
+.monospace {
+    font-family: $monospace;
+}
+
+.bold {
+    font-weight: bold;
+}

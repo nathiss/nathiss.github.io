@@ -1,0 +1,14 @@
+{{ define "main" }}
+    {{ partial "breadcrumb" . }}
+    <article class="entry">
+        <header>
+            <h1>{{ .Title }}</h1>
+        </header>
+        {{ partial "article-footer" . }}
+        <main>{{ .Content }}</main>
+
+        {{ if eq .Type "Article" }}
+            {{ partial "disqus" . }}
+        {{ end }}
+    </article>
+{{ end }}

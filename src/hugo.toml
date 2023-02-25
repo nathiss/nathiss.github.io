@@ -1,0 +1,49 @@
+baseURL = 'https://nathiss.github.io/'
+languageCode = 'en-us'
+title = 'MadeByMe'
+copyright = 'Copyright &copy;'
+
+enableEmoji = true
+
+disqusShortname = 'madebyme'
+
+[params]
+description = "I'm Kamil I work as a software engineer and this is a collection of all things I've been working on in my personal time."
+
+[params.author]
+fullName = 'Kamil Rusin'
+firstName = 'Kamil'
+lastName = 'Rusin'
+
+[menu]
+[[menu.main]]
+    identifier = 'articles'
+    name = 'Articles'
+    url = '/articles/'
+    weight = 1
+[[menu.main]]
+    identifier = 'about-me'
+    name = 'About Me'
+    url = '/about-me/'
+    weight = 2
+
+[[menu.social]]
+    identifier = 'linkedin'
+    title = 'LinkedIn'
+    url = 'https://www.linkedin.com/in/kamil-jakub-rusin/'
+    weight = 1
+[[menu.social]]
+    identifier = 'github'
+    title = 'GitHub'
+    url = 'https://github.com/nathiss'
+    weight = 2
+[[menu.social]]
+    identifier = 'pubkey'
+    title = 'Public Key'
+    url = '/pub.key'
+    weight = 3
+[[menu.social]]
+    identifier = 'rss'
+    title = 'RSS Feed'
+    url = '/index.xml'
+    weight = 4

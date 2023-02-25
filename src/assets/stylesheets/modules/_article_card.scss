@@ -1,0 +1,41 @@
+.article-card {
+    padding: 14px;
+    background-color: $article-card-background;
+    border: 1px solid $base-border-color;
+    border-radius: $border-radius;
+
+    header {
+        display: flex;
+        justify-content: left;
+        align-items: top;
+
+        .entry-section {
+            font-family: $monospace;
+            margin: 0 0 0 10px;
+            line-height: 1;
+            color: $brand-danger;
+
+            &::before {
+                content: "[";
+            }
+
+            &::after {
+                content: "]";
+            }
+        }
+    }
+
+    &:not(:last-of-type) {
+        margin-bottom: $gap;
+    }
+
+    header h2 {
+        margin: 0;
+        display: inline;
+    }
+
+    .entry-content * {
+        font-size: $article-list-font-size;
+        margin: 7.5px 0;
+    }
+}

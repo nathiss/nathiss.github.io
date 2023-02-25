@@ -1,0 +1,20 @@
+<footer class="entry-meta">
+    {{ if not .Date.IsZero }}
+        <time datetime='%s'>
+            <span>{{ .Date | time.Format "2006" }}</span>
+            <span>{{ .Date | time.Format "01" }}</span>
+            <span>{{ .Date | time.Format "02" }}</span>
+        </time>
+    {{ end }}
+
+    {{ if (index .Params "ShowReadingTime" | default true) }}
+        <span>{{ printf "%d min" .ReadingTime }}</span>
+    {{ end }}
+
+    {{ if (index .Params "ShowAuthor" | default true) }}
+        <span>
+            <span class="success">{{ .Site.Params.Author.FirstName }}</span>
+            <span>{{ .Site.Params.Author.LastName }}</span>
+        </span>
+    {{ end }}
+</footer>
