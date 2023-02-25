@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: /keybase.txt
-Disallow: /README.md
-Disallow: /.gitignore
