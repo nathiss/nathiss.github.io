@@ -9,6 +9,7 @@ disqus_identifier = '{{ md5 .Name }}'
 ## Optional, will use window.location.href instead.
 # disqus_url = ''
 show_disqus = true
+show_comment_count = true
 
 share_buttons = ['facebook', 'twitter']
 

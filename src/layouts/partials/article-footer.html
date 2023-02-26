@@ -17,4 +17,10 @@
             <span>{{ .Site.Params.Author.LastName }}</span>
         </span>
     {{ end }}
+
+    {{ if and (.Params.show_comment_count | default false) (isset .Params "disqus_identifier") }}
+        <span class="disqus-comment-count" data-disqus-identifier="{{ .Params.disqus_identifier }}">
+            ? Comments
+        </span>
+    {{ end }}
 </footer>
