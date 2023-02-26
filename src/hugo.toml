@@ -44,7 +44,12 @@ lastName = 'Rusin'
     url = '/pub.key'
     weight = 3
 [[menu.social]]
+    identifier = 'art'
+    title = 'Checkout my vector graphics gallery!'
+    url = 'https://nathiss.github.io/Polaris/'
+    weight = 4
+[[menu.social]]
     identifier = 'rss'
     title = 'RSS Feed'
     url = '/index.xml'
-    weight = 4
+    weight = 5
