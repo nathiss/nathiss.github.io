@@ -15,6 +15,16 @@
         <meta name="author" content="{{ site.Params.Author.FullName }}" />
     {{ end }}
 
+    <!-- Favicon -->
+    {{ $favicon16 := resources.Get "favicons/favicon-16x16-box-light.png" }}
+    {{ $favicon32 := resources.Get "favicons/favicon-32x32-box-light.png" }}
+    {{ $favicon64 := resources.Get "favicons/favicon-64x64-box-light.png" }}
+    {{ $favicon180 := resources.Get "favicons/favicon-180x180-box-light.png" }}
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ $favicon16.Permalink }}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ $favicon32.Permalink }}" />
+    <link rel="icon" type="image/png" sizes="64x64" href="{{ $favicon64.Permalink }}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ $favicon180.Permalink }}" />
+
     <!-- Styles -->
     {{ $light_css := resources.Get "stylesheets/light.scss" | resources.ToCSS }}
     <link rel="stylesheet" type="text/css" title="light" href="{{ $light_css.Permalink }}" />

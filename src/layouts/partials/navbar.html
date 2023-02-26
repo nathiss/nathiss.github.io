@@ -3,7 +3,11 @@
         <div class="grid-cell">
             <div class="navbar-content">
                 <div class="navbar-logo">
-                    <a href="{{ .context.Site.BaseURL }}" class="plain">MadeByMe</a>
+                    <a href="{{ .context.Site.BaseURL }}" class="plain">
+                        {{ $brandLogo := resources.Get "images/brand-logo-64x64.png" }}
+                        <img src="{{ $brandLogo.Permalink }}" alt="brand-logo" />
+                        <span>MadeByMe</span>
+                    </a>
                 </div>
                 {{ if .ShowNav }}
                     <nav class="nav navbar-items">
