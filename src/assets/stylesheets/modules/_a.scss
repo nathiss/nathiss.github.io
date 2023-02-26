@@ -25,3 +25,22 @@ a.active {
     font-weight: $base-font-weight-bold;
     color: $brand-success;
 }
+
+// Styles for links inside articles' bodies
+.entry main a {
+    text-decoration: underline dotted;
+    text-decoration-thickness: 2px;
+
+    &[href^="http"]::after,
+    &[href^="https"]::after {
+        content: "";
+        width: $base-font-size / 1.5;
+        height: $base-font-size / 1.5;
+        margin-left: 3px;
+        background-image: url("/external-link.svg");
+        background-position: top;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: inline-block;
+    }
+}
