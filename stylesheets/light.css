@@ -246,7 +246,11 @@ footer.entry-meta {
   margin: 0; }
 
 .entry main {
-  margin-top: 4.16666667%; }
+  margin-top: 20px;
+  margin-bottom: 20px; }
+
+.entry-social {
+  margin-bottom: 40px; }
 
 .empty-section {
   border-radius: 8px;
@@ -292,15 +296,6 @@ footer.entry-meta {
     .site-info main p {
       margin: 0;
       line-height: 1.5; }
-  .site-info .social-media {
-    list-style-type: none;
-    padding: 0;
-    margin: 32px 0 0 0;
-    display: flex;
-    justify-content: left;
-    align-items: center; }
-    .site-info .social-media li:not(:last-of-type) {
-      margin-inline-end: 20px; }
 
 nav.nav > ul,
 nav.nav > ol {
@@ -318,6 +313,14 @@ nav.nav > ol {
     font-weight: 700;
     font-size: 17.6px;
     user-select: none; }
+    .navbar-content .navbar-logo > * {
+      display: flex;
+      justify-content: left;
+      align-items: center; }
+    .navbar-content .navbar-logo img {
+      height: 32px;
+      width: auto;
+      margin-right: 10px; }
   .navbar-content .navbar-items > ul,
   .navbar-content .navbar-content > ol {
     display: flex;
@@ -326,6 +329,16 @@ nav.nav > ol {
     .navbar-content .navbar-items > ul > li:not(:last-child),
     .navbar-content .navbar-content > ol > li:not(:last-child) {
       margin-right: 20px; }
+
+.social-media {
+  list-style-type: none;
+  padding: 0;
+  margin: 32px 0 0 0;
+  display: flex;
+  justify-content: left;
+  align-items: center; }
+  .social-media li:not(:last-of-type) {
+    margin-inline-end: 20px; }
 
 .not-found-banner {
   display: flex;
