@@ -17,8 +17,10 @@
 
     <!-- Styles -->
     {{ $light_css := resources.Get "stylesheets/light.scss" | resources.ToCSS }}
-
     <link rel="stylesheet" type="text/css" title="light" href="{{ $light_css.Permalink }}" />
+
+    <!-- Hugo -->
+    {{ hugo.Generator }}
 
     <!-- RSS -->
     {{ range .AlternativeOutputFormats }}
