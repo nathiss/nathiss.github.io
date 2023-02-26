@@ -10,5 +10,7 @@ disqus_identifier = '{{ md5 .Name }}'
 # disqus_url = ''
 show_disqus = true
 
+share_buttons = ['facebook', 'twitter']
+
 draft = true
 +++

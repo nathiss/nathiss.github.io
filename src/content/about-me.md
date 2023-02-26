@@ -14,6 +14,8 @@ show_date = false
 show_reading_time = false
 show_author = false
 
+share_buttons = []
+
 draft = false
 +++
 

@@ -7,6 +7,32 @@
         {{ partial "article-footer" . }}
         <main>{{ .Content }}</main>
 
+        {{ if ne (len .Params.share_buttons) 0 }}
+            {{ $networks := slice }}
+            {{ $pageUrl := urlquery .Permalink | absLangURL }}
+            {{ $pageTitle := urlquery (printf "%s - %s" .Title site.Title | safeHTML) }}
+
+            {{ if in .Params.share_buttons "facebook" }}
+                {{ $facebookUrl := printf "https://facebook.com/sharer/sharer.php?u=%s&amp;t=%s" $pageUrl $pageTitle }}
+                {{ $networks = $networks | append (dict
+                    "Title" "Share on Facebook"
+                    "Identifier" "facebook"
+                    "URL" $facebookUrl
+                ) }}
+            {{ end }}
+            {{ if in .Params.share_buttons "twitter" }}
+                {{ $twitterUrl := printf "https://twitter.com/intent/tweet/?text=%s&amp;url=%s" $pageTitle $pageUrl }}
+                {{ $networks = $networks | append (dict
+                    "Title" "Share on Twitter"
+                    "Identifier" "twitter"
+                    "URL" $twitterUrl
+                ) }}
+            {{ end }}
+            <div class="entry-social">
+                {{ partial "social-media" $networks }}
+            </div>
+        {{ end }}
+
         {{ if .Params.show_disqus | default false }}
             {{ partial "disqus" . }}
         {{ end }}

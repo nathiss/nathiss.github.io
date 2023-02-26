@@ -3,6 +3,7 @@
         "Disqus",
         "emojify",
         "javascripts",
-        "pubkey"
+        "pubkey",
+        "urlquery"
     ]
 }

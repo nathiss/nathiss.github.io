@@ -12,15 +12,7 @@
             </p>
         </main>
         <footer>
-            <ul class="social-media">
-                {{ range $menuItem := .Site.Menus.social }}
-                    <li>
-                        <a href="{{ $menuItem.URL }}" target="_blank" title="{{ $menuItem.Title }}">
-                            {{ partial "svg-icon" $menuItem.Identifier }}
-                        </a>
-                    </li>
-                {{ end }}
-            </ul>
+            {{ partial "social-media" .Site.Menus.social }}
         </footer>
     </article>
 

@@ -6,8 +6,12 @@
 
     main {
         margin-top: $gap;
-        margin-bottom: $gap * 2;
+        margin-bottom: $gap;
     }
+}
+
+.entry-social {
+    margin-bottom: $gap * 2;
 }
 
 .empty-section {

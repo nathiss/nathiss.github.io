@@ -16,17 +16,4 @@
             line-height: 1.5;
         }
     }
-
-    .social-media {
-        list-style-type: none;
-        padding: 0;
-        margin: 32px 0 0 0;
-        display: flex;
-        justify-content: left;
-        align-items: center;
-
-        li:not(:last-of-type) {
-            margin-inline-end: $gap;
-        }
-    }
 }
