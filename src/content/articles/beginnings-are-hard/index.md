@@ -146,8 +146,8 @@ I was trying too hard to use a new fancy tool I've just learned about.
 The goal of this project is to create an archive for stuff I'm going to learn. It's still unclear as to what I'm going
 to post on this blog, but it's safe to say that it's going to be techy.
 
-I cannot say with any amount of certainty how often I'll writing new articles. I'm really looking forward to making new
-content though. I believe it will also tilt me significantly into learning about new things.
+I cannot say with any amount of certainty how often I'll be writing new articles. I'm really looking forward to making
+new content though. I believe it will also tilt me significantly into learning about new things.
 
 There are still some adjustments I need to make on the website, I'm probably going to focus on them before I'll work on
 new articles, but in general it is functionally complete.
