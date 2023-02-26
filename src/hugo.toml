@@ -16,11 +16,6 @@ fullName = 'Kamil Rusin'
 firstName = 'Kamil'
 lastName = 'Rusin'
 
-[[server.headers]]
-    for = '/pub.key'
-    [server.headers.values]
-        Content-Type = 'text/plain'
-
 [markup.highlight]
 linenos = true
 anchorlinenos = true
@@ -54,7 +49,7 @@ anchorlinenos = true
 [[menu.social]]
     identifier = 'pubkey'
     title = 'Public Key'
-    url = '/pub.key'
+    url = '/pub.key.txt'
     weight = 3
 [[menu.social]]
     identifier = 'art'
