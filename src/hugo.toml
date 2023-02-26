@@ -4,6 +4,7 @@ title = 'MadeByMe'
 copyright = 'Copyright &copy;'
 
 enableEmoji = true
+enableRobotsTXT = true
 
 disqusShortname = 'madebyme'
 
