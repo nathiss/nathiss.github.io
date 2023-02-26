@@ -1,0 +1,9 @@
+<ul class="social-media">
+    {{ range $item := . }}
+        <li>
+            <a href="{{ $item.URL }}" target="_blank" title="{{ $item.Title }}">
+                {{ partial "svg-icon" $item.Identifier }}
+            </a>
+        </li>
+    {{ end }}
+</ul>

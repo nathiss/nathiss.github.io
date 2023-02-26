@@ -9,6 +9,18 @@
         font-weight: $base-font-weight-bold;
         font-size: $base-font-size * 1.1;
         user-select: none;
+
+        >* {
+            display: flex;
+            justify-content: left;
+            align-items: center;
+        }
+
+        img {
+            height: 32px;
+            width: auto;
+            margin-right: $gap / 2;
+        }
     }
 
     .navbar-items>ul,

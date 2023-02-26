@@ -5,8 +5,13 @@
     }
 
     main {
-        margin-top: $one-column * .5;
+        margin-top: $gap;
+        margin-bottom: $gap;
     }
+}
+
+.entry-social {
+    margin-bottom: $gap * 2;
 }
 
 .empty-section {
