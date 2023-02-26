@@ -34,7 +34,7 @@
         {{ end }}
 
         {{ if .Params.show_disqus | default false }}
-            {{ partial "disqus" . }}
+            {{ template "_internal/disqus.html" . }}
         {{ end }}
     </article>
 {{ end }}
