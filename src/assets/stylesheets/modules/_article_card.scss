@@ -7,7 +7,6 @@
     header {
         display: flex;
         justify-content: left;
-        align-items: top;
 
         .entry-section {
             font-family: $monospace;
@@ -37,5 +36,15 @@
     .entry-content * {
         font-size: $article-list-font-size;
         margin: 7.5px 0;
+    }
+}
+
+@include breakpoint(small) {
+    .article-card header {
+        flex-direction: column;
+
+        .entry-section {
+            margin: 0;
+        }
     }
 }
