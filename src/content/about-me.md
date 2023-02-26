@@ -10,8 +10,9 @@ disqus_identifier = 'b30fa008a8c137beeaa39ce79e37129f'
 # disqus_url = ''
 show_disqus = false
 
-ShowAuthor = false
-ShowReadingTime = false
+show_date = false
+show_reading_time = false
+show_author = false
 
 draft = false
 +++
