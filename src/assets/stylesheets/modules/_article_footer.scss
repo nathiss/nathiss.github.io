@@ -21,3 +21,9 @@ footer.entry-meta {
         content: "·";
     }
 }
+
+@media all and (max-width: 767px) {
+    footer.entry-meta {
+        flex-wrap: wrap;
+    }
+}
