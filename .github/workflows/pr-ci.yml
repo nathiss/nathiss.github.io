@@ -1,0 +1,33 @@
+name: PullRequest CI
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: false
+          fetch-depth: 0
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.110.0'
+          extended: true
+
+      - name: Clean public directory
+        working-directory: ./src
+        run: rm -rf public
+
+      - name: Build
+        working-directory: ./src
+        run: hugo
