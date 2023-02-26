@@ -7,6 +7,55 @@
     main {
         margin-top: $gap;
         margin-bottom: $gap;
+
+        blockquote {
+            margin: $gap 0;
+            padding: 0 $gap;
+            border-inline-start: 3px solid $brand-success;
+            color: $base-accent-color;
+            font-style: italic;
+        }
+
+        code:not(:has(span)) {
+            font-style: normal;
+            background-color: $code-background;
+            border-radius: $border-radius / 2;
+            padding: 3px 5px;
+        }
+
+        .highlight {
+
+            // It's weird, but ".highlight" has a child with the background color.
+            &,
+            &>div {
+                overflow-x: auto;
+            }
+
+            pre {
+                overflow-x: auto;
+                border-radius: $border-radius;
+                padding: 5px 10px;
+            }
+        }
+
+        hr {
+            margin: $gap 0;
+            height: 2px;
+            border: 0;
+            background-color: $gray-lighter;
+        }
+
+        p:has(img) {
+            display: flex;
+            justify-content: center;
+        }
+
+        img {
+            max-width: 80%;
+            height: auto;
+            border: 4px solid $dark-border-color;
+            border-radius: $border-radius;
+        }
     }
 }
 
