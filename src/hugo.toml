@@ -16,6 +16,11 @@ fullName = 'Kamil Rusin'
 firstName = 'Kamil'
 lastName = 'Rusin'
 
+[[server.headers]]
+    for = '/pub.key'
+    [server.headers.values]
+        Content-Type = 'text/plain'
+
 [markup.highlight]
 linenos = true
 anchorlinenos = true
