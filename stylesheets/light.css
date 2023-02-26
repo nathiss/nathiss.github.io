@@ -208,8 +208,7 @@ a.active {
   border-radius: 8px; }
   .article-card header {
     display: flex;
-    justify-content: left;
-    align-items: top; }
+    justify-content: left; }
     .article-card header .entry-section {
       font-family: "Inconsolata", monospace;
       margin: 0 0 0 10px;
@@ -227,6 +226,12 @@ a.active {
   .article-card .entry-content * {
     font-size: 15px;
     margin: 7.5px 0; }
+
+@media all and (max-width: 767px) {
+  .article-card header {
+    flex-direction: column; }
+    .article-card header .entry-section {
+      margin: 0; } }
 
 footer.entry-meta {
   display: flex;
