@@ -16,6 +16,10 @@ fullName = 'Kamil Rusin'
 firstName = 'Kamil'
 lastName = 'Rusin'
 
+[taxonomies]
+# tag = 'tags'
+# category = 'categories'
+
 [menu]
 [[menu.main]]
     identifier = 'articles'
