@@ -41,7 +41,7 @@ and try to point out why they failed.
 
 Using that framework I've built a web journal. The idea was that at any moment I could use one of my devices to create
 a new journal entry. They were automatically sorted by creation date and tagged with tokens retrieved from the entry's
-content. The latter deserves a bit more digging into. Let's consider the following entry:
+content. The latter deserves a bit more digging into, so let's consider the following entry:
 
 > Lorem ipsum @dolor sit amet, consectetur adipiscing elit. Aliquam sed eleifend magna. @Quisque venenatis ex ex, a
 > suscipit purus iaculis ac. Sed @lacinia tincidunt nunc vitae consectetur.
@@ -86,7 +86,7 @@ places on the web that it's a bad idea, but still I was devoted to make it work.
 that you cannot _easily_ and _permanently_ logout a user when using JWT.
 
 In a nutshell JWT are tokens stored on the client-side. However, due to encryption, they can only be read by the
-service. So with each request the client sends its token to the sever (lik a cookie, you might say). If the token is
+service. So with each request the client sends its token to the sever (like a cookie, you might say). If the token is
 well-formed, then the server, with quite high certainty, can assume it wasn't tinkered with.
 
 Going back to logout issue: to ensure that session will not last indefinitely the server could add `"expiryDate"` field
@@ -95,7 +95,7 @@ of modifying `"expiryDate"`.
 
 Yet it's much harder to kill the session before token expiries. My attempt was to add a new field to token's payload
 which would indicate that its no longer valid and send it back to the client. The problem though is that the client does
-**not** need to use the new token. It still can use the old one and, since we don't store session information on the
+not **need** to use the new token. It still can use the old one and, since we don't store session information on the
 server, the service has not way of detecting that. :anger:
 
 The solution I came up with was to use [Redis](https://redis.io/). To store that information on the server-side.
@@ -107,12 +107,12 @@ The solution I came up with was to use [Redis](https://redis.io/). To store that
 Once the server decides the user should be logged out, it will store JWT's ID in Redis alongside with an indication of
 whether the session has ended.
 
-Can you see now when I said it was overengineered? So many complex solution for a logout functionality. The project
+Can you see now when I said it was overengineered? So many complex solutions for a logout functionality. The project
 ended because I was too wornout to finish it.
 
 ### Platform 3: Polaris (React)
 
-I'm actually quite proud of this one. It's a static website running on [React](https://reactjs.org/) used to host my
+I'm actually quite proud of this one. It's a static website running on [React](https://reactjs.org/) and hosting my
 vector graphics. It's painfully simple, but that was kinda the point. I wanted to have a way of hosting those images
 ASAP, hence React and GitHub Pages, [where the website is actually hosted](https://nathiss.github.io/Polaris/).
 
@@ -122,7 +122,7 @@ practically nonexistent. That changed once I've written Polaris; now I'm just ne
 
 ![Steam on the horizon](./steam-on-the-horizon-small.png)
 
-I don't have much more to say here other that, it was a while when I used [Inkscape](https://inkscape.org/) to create
+I don't have much more to say here other that, it was a while when I've used [Inkscape](https://inkscape.org/) to create
 those images and when I needed to use it again, for the sake of this blog, it was terrifying to see how much one can
 forget what one has learned. ಠ_ಠ
 
@@ -147,7 +147,7 @@ The goal of this project is to create an archive for stuff I'm going to learn. I
 to post on this blog, but it's safe to say that it's going to be techy.
 
 I cannot say with any amount of certainty how often I'll writing new articles. I'm really looking forward to making new
-content. I believe it will also tilt me significantly into learning about new things.
+content though. I believe it will also tilt me significantly into learning about new things.
 
 There are still some adjustments I need to make on the website, I'm probably going to focus on them before I'll work on
 new articles, but in general it is functionally complete.
