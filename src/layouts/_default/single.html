@@ -7,7 +7,7 @@
         {{ partial "article-footer" . }}
         <main>{{ .Content }}</main>
 
-        {{ if eq .Type "Article" }}
+        {{ if .Params.show_disqus | default false }}
             {{ partial "disqus" . }}
         {{ end }}
     </article>
