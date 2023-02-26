@@ -22,7 +22,7 @@ footer.entry-meta {
     }
 }
 
-@media all and (max-width: 767px) {
+@include breakpoint(small) {
     footer.entry-meta {
         flex-wrap: wrap;
     }
