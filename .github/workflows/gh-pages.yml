@@ -24,16 +24,16 @@ jobs:
           hugo-version: '0.110.0'
           extended: true
 
-      - name: Go to Hugo sources
-        run: cd src/
-
       - name: Clean public directory
+        working-directory: ./src
         run: rm -rf public
 
       - name: Build
+        working-directory: ./src
         run: hugo --minify
 
       - name: Deploy
+        working-directory: ./src
         uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.ref == 'refs/heads/master' }}
         with:
