@@ -57,14 +57,14 @@ def extract_tag_names(text):
     return [tag_name[1:].lower() for tag_name in words if tag_name.startswith(Tag.TAG_SYMBOL)]
 ```
 
-It worked pretty well. I could create a new tag or used an already existing one. When the tag was orphaned _(meaning it
+It worked pretty well. I could create a new tag or use an already existing one. When the tag was orphaned _(meaning it
 was referenced by no entry)_ the logic was able to take care of that too. :eyes:
 
 The solution was designed to be used by more that one user: each person would have an account and they would be able to
 access only their own entries and tags.
 
 What happened with that project? I used it for a while, but after some time I wasn't really actively adding new entries,
-so it just fated. Also it was more of a personal utility website, than a blog. It was publicly available on
+so it just fated away. Also it was more of a personal utility website, than a blog. It was publicly available on
 [Heroku](https://www.heroku.com/) until quite recently actually. I took down the website when [Heroku announced their
 removal of free product plans](https://help.heroku.com/RSBRUH58/removal-of-heroku-free-product-plans-faq).
 
@@ -117,7 +117,7 @@ vector graphics. It's painfully simple, but that was kinda the point. I wanted t
 ASAP, hence React and GitHub Pages, [where the website is actually hosted](https://nathiss.github.io/Polaris/).
 
 It wasn't my first contact with technologies used in frontend, but it was the first time when I used _state of the art_
-tools for a new website. My knowledge of [NodeJS](https://nodejs.org/en/) and utilities built on to of it was
+tools for a new website. My knowledge of [NodeJS](https://nodejs.org/en/) and utilities built on top of it was
 practically nonexistent. That changed once I've written Polaris; now I'm just new to this stuff.
 
 ![Steam on the horizon](./steam-on-the-horizon-small.png)
@@ -129,7 +129,7 @@ forget what one has learned. ಠ_ಠ
 ### Platforms long forgotten
 
 There were many more projects which aimed to create my personal space on the web, but only these mentioned above are
-still remembered by me enough to write a new sentences about.
+still remembered by me enough to write a few sentences about.
 
 It's safe to say they all suffered from the same fundamental flaws:
 
