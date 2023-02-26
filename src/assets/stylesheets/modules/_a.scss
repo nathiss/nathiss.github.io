@@ -27,12 +27,13 @@ a.active {
 }
 
 // Styles for links inside articles' bodies
-.entry main a {
+.entry main a,
+.article-card .entry-content a {
     text-decoration: underline dotted;
     text-decoration-thickness: 2px;
 
-    &[href^="http"]::after,
-    &[href^="https"]::after {
+    &[href^="http"]:not(:has(img))::after,
+    &[href^="https"]:not(:has(img))::after {
         content: "";
         width: $base-font-size / 1.5;
         height: $base-font-size / 1.5;

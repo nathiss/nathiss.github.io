@@ -16,6 +16,10 @@ fullName = 'Kamil Rusin'
 firstName = 'Kamil'
 lastName = 'Rusin'
 
+[markup.highlight]
+linenos = true
+anchorlinenos = true
+
 [taxonomies]
 # tag = 'tags'
 # category = 'categories'

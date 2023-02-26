@@ -1,9 +1,9 @@
 +++
-title = 'Beginnings Are Hard'
-date = 2023-02-25T20:14:43+01:00
+title = '{{ replace .Name "-" " " | title }}'
+date = {{ .Date }}
 type = 'Article'
 
-disqus_identifier = '702013d025d184f252a4725999d0e5b8'
+disqus_identifier = '{{ md5 .Name }}'
 ## Optional, will use <title> tag value instead.
 # disqus_title = ''
 ## Optional, will use window.location.href instead.
@@ -13,7 +13,5 @@ show_comment_count = true
 
 share_buttons = ['facebook', 'twitter']
 
-draft = false
+draft = true
 +++
-
-To be written. ◕_◕

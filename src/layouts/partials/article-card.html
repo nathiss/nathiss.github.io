@@ -7,8 +7,10 @@
             <a href="{{ .page.CurrentSection.Permalink }}" class="plain entry-section">{{ .page.CurrentSection.Name }}</a>
         {{ end }}
     </header>
-    <div class="entry-content">
-        <p>{{ .page.Summary }}</p>
-    </div>
+    {{ if ne .page.Summary "" }}
+        <div class="entry-content">
+            <p>{{ .page.Summary }}</p>
+        </div>
+    {{ end }}
     {{ partial "article-footer" .page }}
 </article>
