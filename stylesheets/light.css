@@ -184,13 +184,13 @@ a.active {
   font-weight: 700;
   color: #297373; }
 
-.entry main a,
-.article-card .entry-content a {
+.entry main a:not(.anchor),
+.article-card .entry-content a:not(.anchor) {
   text-decoration: underline dotted;
   text-decoration-thickness: 2px; }
-  .entry main a[href^="http"]:not(:has(img))::after, .entry main a[href^="https"]:not(:has(img))::after,
-  .article-card .entry-content a[href^="http"]:not(:has(img))::after,
-  .article-card .entry-content a[href^="https"]:not(:has(img))::after {
+  .entry main a:not(.anchor)[href^="http"]:not(:has(img))::after, .entry main a:not(.anchor)[href^="https"]:not(:has(img))::after,
+  .article-card .entry-content a:not(.anchor)[href^="http"]:not(:has(img))::after,
+  .article-card .entry-content a:not(.anchor)[href^="https"]:not(:has(img))::after {
     content: "";
     width: 10.66666667px;
     height: 10.66666667px;
@@ -245,6 +245,10 @@ footer.entry-meta {
     font-family: "Inconsolata", monospace;
     content: "·"; }
 
+@media all and (max-width: 767px) {
+  footer.entry-meta {
+    flex-wrap: wrap; } }
+
 .breadcrumb {
   margin: 4.16666667% 0 4.16666667% 0; }
   .breadcrumb > ul,
@@ -295,6 +299,28 @@ footer.entry-meta {
     height: auto;
     border: 4px solid #dedddd;
     border-radius: 8px; }
+  .entry main h2,
+  .entry main h3,
+  .entry main h4,
+  .entry main h5,
+  .entry main h6 {
+    position: relative;
+    left: 0; }
+    .entry main h2 > .anchor,
+    .entry main h3 > .anchor,
+    .entry main h4 > .anchor,
+    .entry main h5 > .anchor,
+    .entry main h6 > .anchor {
+      position: absolute;
+      left: -15px;
+      opacity: 0;
+      padding-right: 5px; }
+    .entry main h2:hover > .anchor,
+    .entry main h3:hover > .anchor,
+    .entry main h4:hover > .anchor,
+    .entry main h5:hover > .anchor,
+    .entry main h6:hover > .anchor {
+      opacity: 1; }
 
 .entry-social {
   margin-bottom: 40px; }
