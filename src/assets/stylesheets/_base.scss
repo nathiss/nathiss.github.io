@@ -23,6 +23,13 @@ body {
     flex-direction: column;
 }
 
+hr {
+    margin: $gap 0;
+    height: 2px;
+    border: 0;
+    background-color: $gray-lighter;
+}
+
 .site-main {
     flex: 1;
 }

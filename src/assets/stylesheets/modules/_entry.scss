@@ -38,13 +38,6 @@
             }
         }
 
-        hr {
-            margin: $gap 0;
-            height: 2px;
-            border: 0;
-            background-color: $gray-lighter;
-        }
-
         p:has(img) {
             display: flex;
             justify-content: center;
