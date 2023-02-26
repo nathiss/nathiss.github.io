@@ -16,7 +16,7 @@ body {
   font-family: "Lato", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   font-weight: 400;
-  line-height: 1.8;
+  line-height: 1.5;
   color: #393636;
   background: whitesmoke;
   min-height: 100vh;
@@ -184,6 +184,23 @@ a.active {
   font-weight: 700;
   color: #297373; }
 
+.entry main a,
+.article-card .entry-content a {
+  text-decoration: underline dotted;
+  text-decoration-thickness: 2px; }
+  .entry main a[href^="http"]:not(:has(img))::after, .entry main a[href^="https"]:not(:has(img))::after,
+  .article-card .entry-content a[href^="http"]:not(:has(img))::after,
+  .article-card .entry-content a[href^="https"]:not(:has(img))::after {
+    content: "";
+    width: 10.66666667px;
+    height: 10.66666667px;
+    margin-left: 3px;
+    background-image: url("/external-link.svg");
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: inline-block; }
+
 .article-card {
   padding: 14px;
   background-color: #fff;
@@ -248,6 +265,36 @@ footer.entry-meta {
 .entry main {
   margin-top: 20px;
   margin-bottom: 20px; }
+  .entry main blockquote {
+    margin: 20px 0;
+    padding: 0 20px;
+    border-inline-start: 3px solid #297373;
+    color: #615b5b;
+    font-style: italic; }
+  .entry main code:not(:has(span)) {
+    font-style: normal;
+    background-color: #dedddd;
+    border-radius: 4px;
+    padding: 3px 5px; }
+  .entry main .highlight, .entry main .highlight > div {
+    overflow-x: auto; }
+  .entry main .highlight pre {
+    overflow-x: auto;
+    border-radius: 8px;
+    padding: 5px 10px; }
+  .entry main hr {
+    margin: 20px 0;
+    height: 2px;
+    border: 0;
+    background-color: #dedddd; }
+  .entry main p:has(img) {
+    display: flex;
+    justify-content: center; }
+  .entry main img {
+    max-width: 80%;
+    height: auto;
+    border: 4px solid #dedddd;
+    border-radius: 8px; }
 
 .entry-social {
   margin-bottom: 40px; }
