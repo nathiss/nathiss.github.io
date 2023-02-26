@@ -23,6 +23,12 @@ body {
   display: flex;
   flex-direction: column; }
 
+hr {
+  margin: 20px 0;
+  height: 2px;
+  border: 0;
+  background-color: #dedddd; }
+
 .site-main {
   flex: 1; }
 
@@ -291,11 +297,6 @@ footer.entry-meta {
     overflow-x: auto;
     border-radius: 8px;
     padding: 5px 10px; }
-  .entry main hr {
-    margin: 20px 0;
-    height: 2px;
-    border: 0;
-    background-color: #dedddd; }
   .entry main p:has(img) {
     display: flex;
     justify-content: center; }
