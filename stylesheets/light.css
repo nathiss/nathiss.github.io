@@ -172,18 +172,16 @@ a {
   text-decoration: inherit;
   transition: color 0.5s ease-out;
   text-underline-offset: auto; }
-  a .inline-svg > svg,
-  a .inline-svg > svg > * {
+  a:not(.anchor) .inline-svg > svg, a:not(.anchor) .inline-svg > svg > * {
     fill: transparent;
     transition: fill 0.5s ease-out; }
 
 a:not(.plain):hover,
 a:not(.plain):active {
   color: #297373; }
-  a:not(.plain):hover .inline-svg > svg,
-  a:not(.plain):hover .inline-svg > svg > *,
-  a:not(.plain):active .inline-svg > svg,
-  a:not(.plain):active .inline-svg > svg > * {
+  a:not(.plain):hover:not(.anchor) .inline-svg > svg, a:not(.plain):hover:not(.anchor) .inline-svg > svg > *,
+  a:not(.plain):active:not(.anchor) .inline-svg > svg,
+  a:not(.plain):active:not(.anchor) .inline-svg > svg > * {
     fill: #297373; }
 
 a.active {
@@ -300,11 +298,29 @@ footer.entry-meta {
   .entry main p:has(img) {
     display: flex;
     justify-content: center; }
-  .entry main img {
+  .entry main figure, .entry main figure > a {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+  .entry main figure > a {
+    text-decoration: none !important; }
+  .entry main figure img {
     max-width: 80%;
     height: auto;
     border: 4px solid #dedddd;
     border-radius: 8px; }
+  .entry main figure figcaption {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    .entry main figure figcaption h4 {
+      margin: 5px 0 0 0; }
+      .entry main figure figcaption h4::before, .entry main figure figcaption h4::after {
+        content: "\""; }
+    .entry main figure figcaption p {
+      margin: 0;
+      font-size: 14px;
+      font-style: italic; }
   .entry main h2,
   .entry main h3,
   .entry main h4,
@@ -318,14 +334,17 @@ footer.entry-meta {
     .entry main h5 > .anchor,
     .entry main h6 > .anchor {
       position: absolute;
-      left: -15px;
-      opacity: 0;
-      padding-right: 5px; }
-    .entry main h2:hover > .anchor,
+      left: -32px;
+      opacity: 0; }
+    .entry main h2:hover > .anchor, .entry main h2:active > .anchor,
     .entry main h3:hover > .anchor,
+    .entry main h3:active > .anchor,
     .entry main h4:hover > .anchor,
+    .entry main h4:active > .anchor,
     .entry main h5:hover > .anchor,
-    .entry main h6:hover > .anchor {
+    .entry main h5:active > .anchor,
+    .entry main h6:hover > .anchor,
+    .entry main h6:active > .anchor {
       opacity: 1; }
 
 .entry-social {
