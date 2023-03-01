@@ -9,7 +9,7 @@
 
         {{ if ne (len .Params.share_buttons) 0 }}
             {{ $networks := slice }}
-            {{ $pageUrl := urlquery .Permalink | absLangURL }}
+            {{ $pageUrl := urlquery (.Permalink | absLangURL) }}
             {{ $pageTitle := urlquery (printf "%s - %s" .Title site.Title | safeHTML) }}
 
             {{ if in .Params.share_buttons "facebook" }}
