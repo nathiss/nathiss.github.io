@@ -25,9 +25,7 @@ jobs:
           extended: true
 
       - name: Clean public directory
-        working-directory: ./src
-        run: rm -rf public
+        run: make clear
 
       - name: Build
-        working-directory: ./src
-        run: hugo
+        run: make check

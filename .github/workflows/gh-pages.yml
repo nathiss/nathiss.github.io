@@ -25,12 +25,10 @@ jobs:
           extended: true
 
       - name: Clean public directory
-        working-directory: ./src
-        run: rm -rf public
+        run: make clear
 
       - name: Build
-        working-directory: ./src
-        run: hugo --minify
+        run: make build
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
