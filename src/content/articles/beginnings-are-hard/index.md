@@ -20,7 +20,9 @@ Well it took some time (almost 6 years) to create a personal blog, but here we a
 
 <!--more-->
 
-## How did we come here?
+{{< header h2 >}}
+    How did we come here?
+{{< /header >}}
 
 This is not the first attempt on creating my own website. On my [GitHub](https://github.com/nathiss) there are many
 (most of them private) repos, which contains some sort of _personal website_. All of them abandoned, but not this one!
@@ -30,7 +32,9 @@ This is not the first attempt on creating my own website. On my [GitHub](https:/
 To better understand why I have such high hopes for this project let's go down the rabbit hole and analyze its ancestors
 and try to point out why they failed.
 
-### Platform 1: 0x52 (Django 2.2)
+{{< header h3 >}}
+    Platform 1: 0x52 (Django 2.2)
+{{< /header >}}
 
 [Django](https://www.djangoproject.com/) is one of the first tools I've ever used to create something on the web.
 
@@ -68,7 +72,9 @@ so it just fated away. Also it was more of a personal utility website, than a bl
 [Heroku](https://www.heroku.com/) until quite recently actually. I took down the website when [Heroku announced their
 removal of free product plans](https://help.heroku.com/RSBRUH58/removal-of-heroku-free-product-plans-faq).
 
-### Platform 2: Titan (ASP.NET)
+{{< header h3 >}}
+    Platform 2: Titan (ASP.NET)
+{{< /header >}}
 
 This was _an another_ iteration of personal website development. I've decided to use
 [.NET](https://en.wikipedia.org/wiki/.NET) for this one, because earlier in that year I got my first job in the field
@@ -110,7 +116,9 @@ whether the session has ended.
 Can you see now when I said it was overengineered? So many complex solutions for a logout functionality. The project
 ended because I was too wornout to finish it.
 
-### Platform 3: Polaris (React)
+{{< header h3 >}}
+    Platform 3: Polaris (React)
+{{< /header >}}
 
 I'm actually quite proud of this one. It's a static website running on [React](https://reactjs.org/) and hosting my
 vector graphics. It's painfully simple, but that was kinda the point. I wanted to have a way of hosting those images
@@ -120,13 +128,18 @@ It wasn't my first contact with technologies used in frontend, but it was the fi
 tools for a new website. My knowledge of [NodeJS](https://nodejs.org/en/) and utilities built on top of it was
 practically nonexistent. That changed once I've written Polaris; now I'm just new to this stuff.
 
-![Steam on the horizon](./steam-on-the-horizon-small.png)
+{{< figure src="./steam-on-the-horizon-small.png" alt="Steam on the horizon"
+    link="https://nathiss.github.io/Polaris/" target="_blank"
+    title="Steam on the horizon"
+>}}
 
 I don't have much more to say here other that, it was a while when I've used [Inkscape](https://inkscape.org/) to create
 those images and when I needed to use it again, for the sake of this blog, it was terrifying to see how much one can
 forget what one has learned. ಠ_ಠ
 
-### Platforms long forgotten
+{{< header h3 >}}
+    Platforms long forgotten
+{{< /header >}}
 
 There were many more projects which aimed to create my personal space on the web, but only these mentioned above are
 still remembered by me enough to write a few sentences about.
@@ -141,7 +154,9 @@ This blog, on the other hand, is a static content website build with [Hugo](http
 I was aware that tools like Hugo existed, but I've never considered using them. I cannot really explain as to why; maybe
 I was trying too hard to use a new fancy tool I've just learned about.
 
-## The goal and future of this project
+{{< header h2 >}}
+    The goal and future of this project
+{{< /header >}}
 
 The goal of this project is to create an archive for stuff I'm going to learn. It's still unclear as to what I'm going
 to post on this blog, but it's safe to say that it's going to be techy.
