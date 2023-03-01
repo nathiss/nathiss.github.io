@@ -120,7 +120,10 @@ It wasn't my first contact with technologies used in frontend, but it was the fi
 tools for a new website. My knowledge of [NodeJS](https://nodejs.org/en/) and utilities built on top of it was
 practically nonexistent. That changed once I've written Polaris; now I'm just new to this stuff.
 
-![Steam on the horizon](./steam-on-the-horizon-small.png)
+{{< figure src="./steam-on-the-horizon-small.png" alt="Steam on the horizon"
+    link="https://nathiss.github.io/Polaris/" target="_blank"
+    title="Steam on the horizon"
+>}}
 
 I don't have much more to say here other that, it was a while when I've used [Inkscape](https://inkscape.org/) to create
 those images and when I needed to use it again, for the sake of this blog, it was terrifying to see how much one can
