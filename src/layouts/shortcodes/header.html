@@ -1,0 +1,44 @@
+{{ $anchor := urlize (.Inner) }}
+
+{{ if eq (.Get 0) "h1" }}
+    <h1 id="{{ $anchor }}">
+{{ end }}
+{{ if eq (.Get 0) "h2" }}
+    <h2 id="{{ $anchor }}">
+{{ end }}
+{{ if eq (.Get 0) "h3" }}
+    <h3 id="{{ $anchor }}">
+{{ end }}
+{{ if eq (.Get 0) "h4" }}
+    <h4 id="{{ $anchor }}">
+{{ end }}
+{{ if eq (.Get 0) "h5" }}
+    <h5 id="{{ $anchor }}">
+{{ end }}
+{{ if eq (.Get 0) "h6" }}
+    <h6 id="{{ $anchor }}">
+{{ end }}
+
+<a class="anchor" href="#{{ $anchor }}">
+    {{ partial "svg-icon" "link-light" }}
+</a>
+{{ .Inner }}
+
+{{ if eq (.Get 0) "h1" }}
+    </h1>
+{{ end }}
+{{ if eq (.Get 0) "h2" }}
+    </h2>
+{{ end }}
+{{ if eq (.Get 0) "h3" }}
+    </h3>
+{{ end }}
+{{ if eq (.Get 0) "h4" }}
+    </h4>
+{{ end }}
+{{ if eq (.Get 0) "h5" }}
+    </h5>
+{{ end }}
+{{ if eq (.Get 0) "h6" }}
+    </h6>
+{{ end }}

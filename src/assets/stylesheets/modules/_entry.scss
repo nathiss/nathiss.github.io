@@ -99,12 +99,12 @@
 
             >.anchor {
                 position: absolute;
-                left: -15px;
+                left: -32px;
                 opacity: 0;
-                padding-right: 5px;
             }
 
-            &:hover>.anchor {
+            &:hover>.anchor,
+            &:active>.anchor {
                 opacity: 1;
             }
         }
