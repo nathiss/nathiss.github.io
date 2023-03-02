@@ -1,0 +1,9 @@
+baseURL = 'https://nathiss.github.io/'
+languageCode = 'en-us'
+title = 'MadeByMe'
+copyright = 'Copyright &copy;'
+
+enableEmoji = true
+enableRobotsTXT = true
+
+disqusShortname = 'madebyme'

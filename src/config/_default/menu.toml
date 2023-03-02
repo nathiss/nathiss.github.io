@@ -1,62 +1,35 @@
-baseURL = 'https://nathiss.github.io/'
-languageCode = 'en-us'
-title = 'MadeByMe'
-copyright = 'Copyright &copy;'
-
-enableEmoji = true
-enableRobotsTXT = true
-
-disqusShortname = 'madebyme'
-
-[params]
-description = "I'm Kamil I work as a software engineer and this is a collection of all things I've been working on in my personal time."
-
-[params.author]
-fullName = 'Kamil Rusin'
-firstName = 'Kamil'
-lastName = 'Rusin'
-
-[markup.highlight]
-linenos = true
-anchorlinenos = true
-
-[taxonomies]
-# tag = 'tags'
-# category = 'categories'
-
-[menu]
-[[menu.main]]
+[[main]]
     identifier = 'articles'
     name = 'Articles'
     url = '/articles/'
     weight = 1
-[[menu.main]]
+[[main]]
     identifier = 'about-me'
     name = 'About Me'
     url = '/about-me/'
     weight = 2
 
-[[menu.social]]
+[[social]]
     identifier = 'linkedin'
     title = 'LinkedIn'
     url = 'https://www.linkedin.com/in/kamil-jakub-rusin/'
     weight = 1
-[[menu.social]]
+[[social]]
     identifier = 'github'
     title = 'GitHub'
     url = 'https://github.com/nathiss'
     weight = 2
-[[menu.social]]
+[[social]]
     identifier = 'pubkey'
     title = 'Public Key'
     url = '/pub.key.txt'
     weight = 3
-[[menu.social]]
+[[social]]
     identifier = 'art'
     title = 'Checkout my vector graphics gallery!'
     url = 'https://nathiss.github.io/Polaris/'
     weight = 4
-[[menu.social]]
+[[social]]
     identifier = 'rss'
     title = 'RSS Feed'
     url = '/index.xml'
