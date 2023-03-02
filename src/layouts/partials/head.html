@@ -21,6 +21,9 @@
     <!-- Twitter Cards (https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards) -->
     {{ template "_internal/twitter_cards.html" . }}
 
+    <!-- Schema.org (https://schema.org/) -->
+    {{ template "_internal/schema.html" . }}
+
     <!-- Favicon -->
     {{ $favicon16 := resources.Get "favicons/favicon-16x16-box-light.png" }}
     {{ $favicon32 := resources.Get "favicons/favicon-32x32-box-light.png" }}
