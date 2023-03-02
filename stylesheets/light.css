@@ -41,6 +41,11 @@ hr {
 .bold {
   font-weight: bold; }
 
+.inline-svg {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
 .grid {
   display: block;
   padding: 0;
@@ -326,26 +331,15 @@ footer.entry-meta {
   .entry main h4,
   .entry main h5,
   .entry main h6 {
-    position: relative;
-    left: 0; }
-    .entry main h2 > .anchor,
-    .entry main h3 > .anchor,
-    .entry main h4 > .anchor,
-    .entry main h5 > .anchor,
-    .entry main h6 > .anchor {
-      position: absolute;
-      left: -32px;
-      opacity: 0; }
-    .entry main h2:hover > .anchor, .entry main h2:active > .anchor,
-    .entry main h3:hover > .anchor,
-    .entry main h3:active > .anchor,
-    .entry main h4:hover > .anchor,
-    .entry main h4:active > .anchor,
-    .entry main h5:hover > .anchor,
-    .entry main h5:active > .anchor,
-    .entry main h6:hover > .anchor,
-    .entry main h6:active > .anchor {
-      opacity: 1; }
+    display: flex;
+    align-items: center;
+    justify-content: left; }
+    .entry main h2 .anchor,
+    .entry main h3 .anchor,
+    .entry main h4 .anchor,
+    .entry main h5 .anchor,
+    .entry main h6 .anchor {
+      margin-left: 5px; }
 
 .entry-social {
   margin-bottom: 40px; }
