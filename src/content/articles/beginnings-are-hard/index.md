@@ -2,6 +2,7 @@
 title = 'Beginnings Are Hard'
 date = 2023-02-25T20:14:43+01:00
 type = 'Article'
+images = ['steam-on-the-horizon-1920x1080.png']
 
 disqus_identifier = '702013d025d184f252a4725999d0e5b8'
 ## Optional, will use <title> tag value instead.
