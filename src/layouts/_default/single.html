@@ -5,6 +5,21 @@
             <h1>{{ .Title }}</h1>
         </header>
         {{ partial "article-footer" . }}
+
+        {{ if .Params.show_table_of_contents | default false }}
+            <aside class="table-of-contents-wrapper">
+                <div class="wrap-collapsible">
+                    <input id="toc-collapsible" class="toggle" type="checkbox">
+                    <label for="toc-collapsible" class="lbl-toggle">Table Of Contents</label>
+                    <div class="collapsible-content">
+                        <div class="content-inner">
+                            {{ .TableOfContents }}
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        {{ end }}
+
         <main>{{ .Content }}</main>
 
         {{ if ne (len .Params.share_buttons) 0 }}

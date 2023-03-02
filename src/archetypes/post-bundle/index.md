@@ -4,6 +4,8 @@ date = {{ .Date }}
 type = 'Article'
 images = []
 
+show_table_of_contents = true
+
 disqus_identifier = '{{ md5 .Name }}'
 ## Optional, will use <title> tag value instead.
 # disqus_title = ''
