@@ -1,0 +1,8 @@
+title = "MadeByMe"
+description = "I'm Kamil I work as a software engineer and this is a collection of all things I've been working on in my personal time."
+images = ["polaris-1920x1080.png"]
+
+[author]
+fullName = 'Kamil Rusin'
+firstName = 'Kamil'
+lastName = 'Rusin'

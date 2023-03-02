@@ -1,2 +1,0 @@
-{{/*  I've moved this monstrosity here, because it messed up my syntax highlighting.  */}}
-{{ . | replaceRE "(<h[1-9] id=\"([^\"]+)\".+)(</h[1-9]+>)" `${1}&nbsp;<a class="anchor" href="#${2}">#</a> ${3}` | safeHTML }}

@@ -2,6 +2,7 @@
 title = '{{ replace .Name "-" " " | title }}'
 date = {{ .Date }}
 type = 'Article'
+images = []
 
 disqus_identifier = '{{ md5 .Name }}'
 ## Optional, will use <title> tag value instead.
