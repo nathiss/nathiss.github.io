@@ -5,7 +5,7 @@
             <h1>{{ .Title }}</h1>
         </header>
         {{ partial "article-footer" . }}
-        <main>{{ partial "content-with-anchors" .Content }}</main>
+        <main>{{ .Content }}</main>
 
         {{ if ne (len .Params.share_buttons) 0 }}
             {{ $networks := slice }}
