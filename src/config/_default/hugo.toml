@@ -14,4 +14,3 @@ enableRobotsTXT = true
 disqusShortname = 'madebyme'
 
 disableKinds = ["taxonomy"]
-
