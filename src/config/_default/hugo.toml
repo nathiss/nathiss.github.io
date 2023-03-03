@@ -3,10 +3,15 @@ languageCode = 'en-us'
 title = 'MadeByMe'
 copyright = 'Copyright &copy;'
 
+ignoreErrors = [
+    # Hugo throws this error when "taxonomy" is listed in disableKinds. We know what we do, so just ignore.
+    "error-disable-taxonomy"
+]
+
 enableEmoji = true
 enableRobotsTXT = true
 
 disqusShortname = 'madebyme'
 
 disableKinds = ["taxonomy"]
-ignoreErrors = ["error-disable-taxonomy"]
+
