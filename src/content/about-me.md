@@ -2,6 +2,7 @@
 title = 'About Me'
 date = 2023-02-26T10:18:17+01:00
 type = 'Article'
+tags = []
 
 show_table_of_contents = false
 

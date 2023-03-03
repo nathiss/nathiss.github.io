@@ -187,6 +187,35 @@
             }
         }
     }
+
+    .tags {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+
+        display: flex;
+        align-items: center;
+
+        li {
+            display: flex;
+            justify-content: left;
+
+            &:not(:last-child) {
+                margin-right: 10px;
+            }
+
+            >a {
+                padding: 5px 10px;
+                background-color: $gray-lightest;
+                border: 1px solid $gray-lighter;
+                border-radius: $border-radius;
+
+                &::before {
+                    content: "#";
+                }
+            }
+        }
+    }
 }
 
 .entry-social {

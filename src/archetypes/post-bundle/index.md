@@ -2,6 +2,7 @@
 title = '{{ replace .Name "-" " " | title }}'
 date = {{ .Date }}
 type = 'Article'
+tags = []
 images = []
 
 show_table_of_contents = true

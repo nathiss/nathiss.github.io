@@ -7,3 +7,6 @@ enableEmoji = true
 enableRobotsTXT = true
 
 disqusShortname = 'madebyme'
+
+disableKinds = ["taxonomy"]
+ignoreErrors = ["error-disable-taxonomy"]

@@ -2,6 +2,7 @@
 title = 'Beginnings Are Hard'
 date = 2023-02-25T20:14:43+01:00
 type = 'Article'
+tags = ['meta', 'Polaris']
 images = ['steam-on-the-horizon-1920x1080.png']
 
 show_table_of_contents = true
