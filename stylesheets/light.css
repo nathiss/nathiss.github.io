@@ -410,6 +410,25 @@ footer.entry-meta {
     .entry main h6 .anchor {
       margin-left: 5px; }
 
+.entry .tags {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center; }
+  .entry .tags li {
+    display: flex;
+    justify-content: left; }
+    .entry .tags li:not(:last-child) {
+      margin-right: 10px; }
+    .entry .tags li > a {
+      padding: 5px 10px;
+      background-color: #edecec;
+      border: 1px solid #dedddd;
+      border-radius: 8px; }
+      .entry .tags li > a::before {
+        content: "#"; }
+
 .entry-social {
   margin-bottom: 40px; }
 
@@ -500,6 +519,10 @@ nav.nav > ol {
   align-items: center; }
   .social-media li:not(:last-of-type) {
     margin-inline-end: 20px; }
+
+.term-header {
+  margin-top: 20px;
+  margin-bottom: 20px; }
 
 .not-found-banner {
   display: flex;
