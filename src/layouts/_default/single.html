@@ -22,6 +22,17 @@
 
         <main>{{ .Content }}</main>
 
+        {{ $tags := .GetTerms "tags" }}
+        {{ if ne (len $tags) 0 }}
+            <ul class="tags">
+                {{ range $tags }}
+                    <li>
+                        <a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+                    </li>
+                {{ end }}
+            </ul>
+        {{ end }}
+
         {{ if ne (len .Params.share_buttons) 0 }}
             {{ $networks := slice }}
             {{ $pageUrl := urlquery (.Permalink | absLangURL) }}
