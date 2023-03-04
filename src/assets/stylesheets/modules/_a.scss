@@ -27,8 +27,8 @@ a.active {
 }
 
 // Styles for links inside articles' bodies
-.entry main a:not(.anchor),
-.article-card .entry-content a:not(.anchor) {
+.entry main a:not(.anchor):not(.footnote-ref),
+.article-card .entry-content a:not(.anchor):not(.footnote-ref) {
     text-decoration: underline dotted;
     text-decoration-thickness: 2px;
 
