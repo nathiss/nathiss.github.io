@@ -42,11 +42,10 @@ optimization problems. It has three main parts:
 
 OK. :ok_hand:
 
-With these terms out of the way, let's try to understand how does it work exactly. Imagine we need to find a solution
+With these terms out of the way, let's try to understand how exactly it works. Imagine we need to find a solution
 for a problem. It can be anything, like finding optimal timetable for a university class. Firstly, we need to encode a
-solution as a series of bytes (it will be their
-[Genetic representation](https://en.wikipedia.org/wiki/Genetic_representation)). Once we have that we can clone that
-encoded representation to create a generation.  
+solution as a series of bytes (their [Genetic representation](https://en.wikipedia.org/wiki/Genetic_representation), if
+you will). Once we have that we can clone that encoded representation to create a generation.  
 Each member of the generation will be randomly **mutated** and then **scored** based on how well they fit in our
 constrains set. For example: we might want to have a timetable which leaves just enough break time to eat a quick lunch,
 but not too much, so that we can go home earlier. This (and similar constrains) might be used to evaluate the value of
@@ -72,6 +71,8 @@ cycle is parametrized by the results of its predecessor.
 ### Step 2: Scoring
 
 ### Step 3: Crossing
+
+## Next steps
 
 <!-- Footnotes -->
 
