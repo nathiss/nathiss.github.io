@@ -2,7 +2,7 @@
 title = 'Art From Chaos'
 date = 2023-03-04T14:50:59+01:00
 type = 'Article'
-tags = ['Genetic Algorithm', 'Art', 'Rust']
+tags = ['Genetic Algorithm', 'Art']
 images = []
 
 show_table_of_contents = true
@@ -30,8 +30,8 @@ that _makes_ itself. Pictures that _draw_ themselves.
 
 Before we dive deep into making art, we need to understand some important concepts -- first things first.
 {{< underline >}}Automatic art{{< /underline >}}[^1], at its core, uses generic algorithms.
-[Wikipedia](https://en.wikipedia.org/wiki/Genetic_algorithm) has a really nice page about them. If you'd like to For the sake of this
-article this is enough:
+[Wikipedia](https://en.wikipedia.org/wiki/Genetic_algorithm) has a really nice page about them. If you'd like to For the
+sake of this article this is enough:
 
 A **Genetic Algorithm** is a algorithm inspired by the process of natural selection used to find solutions for
 optimization problems. It has three main parts:
@@ -60,7 +60,10 @@ shockingly efficient in searching the solution space.
 
 ## Art from evolution
 
-Alright. Now with the theory out of the way, let's conceptualize a program for generating automatic art.
+Alright. Now with the theory out of the way, let's conceptualize a program for generating automatic art. Probably it's
+a good moment to explain the clickbaity summary at the top of this article: the pictures will not _draw_ themselves, the
+goal is to make _a program_ which will generate art automatically. It's going to be an iterative solution where each
+cycle is parametrized by the results of its predecessor.
 
 ### Step 0: Initialization
 
