@@ -30,8 +30,8 @@ that _makes_ itself. Pictures that _draw_ themselves.
 
 Before we dive deep into making art, we need to understand some important concepts -- first things first.
 {{< underline >}}Automatic art{{< /underline >}}[^1], at its core, uses generic algorithms.
-[Wikipedia](https://en.wikipedia.org/wiki/Genetic_algorithm) has a really nice page about them. If you'd like to For the
-sake of this article this is enough:
+[Wikipedia](https://en.wikipedia.org/wiki/Genetic_algorithm) has a really nice page about them, if you'd like to.
+However for the sake of the article this is enough:
 
 A **Genetic Algorithm** is a algorithm inspired by the process of natural selection used to find solutions for
 optimization problems. It has three main parts:
