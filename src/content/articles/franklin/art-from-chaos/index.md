@@ -82,6 +82,33 @@ fitting choice.
 
 ### Step 1: Mutation
 
+Mutation method greatly affects the end result, so it's imperative to select a right one. Mutation algorithms are
+usually stateless, meaning modification of each specimen does not affect any other. In each iteration the mutator will
+introduce a _small_ change in specimens' genetic representation. On images it can be, for example: changing random
+pixels. This works, but the final image looks too detailed (in a bad way).
+
+Now, the changes does not technically need to be _small_ per se, but applying too big changes might result in overriding
+a portion of the genome that was making this particular specimen a good candidate, thus resulting in loosing progress
+achieved by previous generations.
+
+[If you'd google "generating images with genetic algorithm"](https://www.google.com/search?q=generating+images+with+genetic+algorithm),
+you'd find that most projects on this subject use geometric shapes when applying mutation. Simple onces, like
+**circles**, **rectangles**, and **triangles** are a good choice. From these it's rectangles, that can be the most
+easily represented in code. Having said that let's see how a single specimen might change over a few first iterations.
+
+{{< figure src="./mutation-diagram.png" alt="Mutation diagram"
+    caption="An exemplar of a 6-generation mutation process. Starting with generation 0 - no mutation applied, till generation 5 - five mutations applied."
+>}}
+
+Each of the rectangles on that picture represents a random mutation applied onto the image, meaning that all information
+needed to unambiguously identify a rectangle (width, height, coordinates of one of the corners and its color) have been
+randomly generated.
+
+The above illustrates the risk of allowing mutations not constrained by their impact: the mutation introduced in
+1{{< sup >}}st{{< /sup >}} step has been almost fully overwritten after 5 mutations. Don't get me wrong, this might be
+the result might be beneficial, but overall we want to utilize genome that have evolved in past generations, not to
+discard it completely.
+
 ### Step 2: Scoring
 
 ### Step 3: Crossing
