@@ -17,5 +17,6 @@ show_comment_count = true
 
 share_buttons = ['facebook', 'twitter']
 
+katex = false
 draft = true
 +++

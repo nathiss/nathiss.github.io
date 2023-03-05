@@ -38,6 +38,11 @@
     {{ $light_css := resources.Get "stylesheets/light.scss" | resources.ToCSS }}
     <link rel="stylesheet" type="text/css" title="light" href="{{ $light_css.Permalink }}" />
 
+    <!-- Katex -->
+    {{ if .Params.katex | default false }}
+        {{ partial "katex.html" . }}
+    {{ end }}
+
     <!-- Hugo -->
     {{ hugo.Generator }}
 
