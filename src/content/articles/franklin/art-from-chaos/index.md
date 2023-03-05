@@ -17,6 +17,7 @@ show_comment_count = true
 
 share_buttons = ['facebook', 'twitter']
 
+katex = true
 draft = true
 +++
 
@@ -110,6 +111,44 @@ the result might be beneficial, but overall we want to utilize genome that have 
 discard it completely.
 
 ### Step 2: Scoring
+
+Implementing scoring function can be tricky. Basically we need to have a way of mapping each specimen into an integer
+value. Then with values for all specimens we can calculate a threshold and filter out all images above it. The genetic
+algorithm does not provide to us any way of determining whether a mutation has been beneficial; that is strictly
+depends on the implementation. So let's talk about what it is exactly we'd like to achieve here.
+
+The idea behind generating images through evolution is that we have **an ideal** to which we're aiming to get as close
+as possible. An original image, from which will derive a collection of images _similar_  to it, each mutated and scored
+multiple times. A scoring function could calculate a difference between the original image and the one being currently
+scored:
+
+$$ f(Original, Specimen) = \sum_{i=0}^n | Original_n - Specimen_n | \tag{1} $$
+
+Both `Original` and `Specimen` refer to a collection of pixels representing each image respectively, thus allowing us to
+index their pixels and calculate a difference between them. This, on its own, isn't the most helpful piece of advice, as
+it glides over the fact that we a calculating a difference of _pixels_ not numbers, we cannot do arithmetics on them.
+To fix that we need to be a bit more clever here.
+
+We can utilize the fact that pixels are just color, usually represented in
+[RGB](https://en.wikipedia.org/wiki/RGB_color_model) notation. Each color in the RGB color space is represented by three
+numbers from 0 to 255 (each encoding the amount of red, green, and blue). Numbers on their own don't have any meaning,
+its the context that makes them colors, points, or geometric shapes. If we'd interpret these three numbers as
+coordinates in three-dimensional space they would become points. In that case, the difference between two points can be
+implemented as the distance between then:
+
+$$ d(A, B) = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2} $$
+
+Alright :ok_hand:. The final thought: this formula calculates the difference between two points in space, but we don't
+really need _the distance_, just _an indication_ of how similar the two pixels are. Since calculating root on computers
+is expensive, we can remove that bit and we're left with:
+
+$$ d(A, B) = (x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2 \tag{2} $$
+
+By combining (1) and (2) together we get:
+
+$$ f(Original, Specimen) = \sum_{i=0}^n | (r_2 - r_1)^2 + (g_2 - g_1)^2 + (b_2 - b_1)^2 | $$
+
+That was a bit more mathsy that I've initially anticipated `◕_◕`.
 
 ### Step 3: Crossing
 
