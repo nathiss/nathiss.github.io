@@ -127,6 +127,7 @@ practically nonexistent. That changed once I've written Polaris; now I'm just ne
 {{< figure src="./steam-on-the-horizon-small.png" alt="Steam on the horizon"
     link="https://nathiss.github.io/Polaris/" target="_blank"
     title="Steam on the horizon"
+    class="border"
 >}}
 
 I don't have much more to say here other that, it was a while when I've used [Inkscape](https://inkscape.org/) to create

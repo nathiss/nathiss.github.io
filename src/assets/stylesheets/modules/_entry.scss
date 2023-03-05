@@ -144,6 +144,9 @@
             img {
                 max-width: 80%;
                 height: auto;
+            }
+
+            &.border img {
                 border: 4px solid $dark-border-color;
                 border-radius: $border-radius;
             }
