@@ -52,7 +52,7 @@ but not too much, so that we can go home earlier. This (and similar constrains) 
 our new mutated timetable. With each specimen evaluated we leave a few of the best and discard the rest :skull:.  
 The last step is to mix our _special_ timetables to create new ones to fill the generation again.
 
-<!-- TODO: Add circular diagram showing cycle of life. -->
+{{< figure src="./genetic-algorithm-cycle.png" alt="Genetic Algorithm Cycle" >}}
 
 To mutate, to score, to kill, to breed, to continue the cycle of life. It might sound simple, but in reality it is
 shockingly efficient in searching the solution space.
