@@ -1,2 +1,4 @@
-{{/*  Load Disqus comment count utility.  */}}
-<script id="dsq-count-scr" src="//madebyme.disqus.com/count.js" async></script>
+{{ if not (in (print $.Site.BaseURL) "localhost") }}
+    {{/*  Load Disqus comment count utility.  */}}
+    <script id="dsq-count-scr" src="//madebyme.disqus.com/count.js" async></script>
+{{ end }}
