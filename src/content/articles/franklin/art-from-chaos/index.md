@@ -66,6 +66,20 @@ cycle is parametrized by the results of its predecessor.
 
 ### Step 0: Initialization
 
+Before we do anything towards evolution we need to prepare a generation first. So what's our generation size? Let's see
+if Wikipedia has something insightful to say:
+
+> The population size depends on the nature of the problem, but typically contains several hundreds or thousands of
+> possible solutions.  
+> ~ [Genetic algorithm @ Wikipedia](https://en.wikipedia.org/wiki/Genetic_algorithm)
+
+Well, that's really not the most helpful answer. :neutral_face:  
+It really boils down to this: the more specimen we have, the more memory the program requires and more CPU time to
+process each generation. On the other hand, the more specimen a generation have, the wider portion of solution space it
+can search. Whatever the generation size will be, we need to have a prototype - a specimen, which cloned will fill the
+generation. Since we're dealing with art here, a _[tabula rasa](https://en.wikipedia.org/wiki/Tabula_rasa)_ should be a
+fitting choice.
+
 ### Step 1: Mutation
 
 ### Step 2: Scoring
