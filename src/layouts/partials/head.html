@@ -40,7 +40,10 @@
 
     <!-- Katex -->
     {{ if .Params.katex | default false }}
-        {{ partial "katex.html" . }}
+        <link rel="stylesheet" href="/3rd-party/katex@v0.16.4/katex.min.css" />
+        <script defer src="/3rd-party/katex@v0.16.4/katex.min.js"></script>
+        <script defer src="/3rd-party/katex@v0.16.4/contrib/auto-render.min.js"
+            onload="renderMathInElement(document.body);"></script>
     {{ end }}
 
     <!-- Hugo -->
