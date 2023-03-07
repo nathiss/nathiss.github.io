@@ -142,7 +142,7 @@ Alright :ok_hand:. The final thought: this formula calculates the difference bet
 really need _the distance_, just _an indication_ of how similar the two pixels are. Since calculating root on computers
 is expensive, we can remove that bit and we're left with:
 
-$$ d(A, B) = (x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2 \tag{2} $$
+$$ g(A, B) = (x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2 \tag{2} $$
 
 By combining (1) and (2) together we get:
 
