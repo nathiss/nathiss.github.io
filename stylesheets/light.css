@@ -193,13 +193,13 @@ a.active {
   font-weight: 700;
   color: #297373; }
 
-.entry main a:not(.anchor),
-.article-card .entry-content a:not(.anchor) {
+.entry main a:not(.anchor):not(.footnote-ref):not(.footnote-backref),
+.article-card .entry-content a:not(.anchor):not(.footnote-ref):not(.footnote-backref) {
   text-decoration: underline dotted;
   text-decoration-thickness: 2px; }
-  .entry main a:not(.anchor)[href^="http"]:not(:has(img))::after, .entry main a:not(.anchor)[href^="https"]:not(:has(img))::after,
-  .article-card .entry-content a:not(.anchor)[href^="http"]:not(:has(img))::after,
-  .article-card .entry-content a:not(.anchor)[href^="https"]:not(:has(img))::after {
+  .entry main a:not(.anchor):not(.footnote-ref):not(.footnote-backref)[href^="http"]:not(:has(img))::after, .entry main a:not(.anchor):not(.footnote-ref):not(.footnote-backref)[href^="https"]:not(:has(img))::after,
+  .article-card .entry-content a:not(.anchor):not(.footnote-ref):not(.footnote-backref)[href^="http"]:not(:has(img))::after,
+  .article-card .entry-content a:not(.anchor):not(.footnote-ref):not(.footnote-backref)[href^="https"]:not(:has(img))::after {
     content: "";
     width: 10.66666667px;
     height: 10.66666667px;
@@ -380,7 +380,8 @@ footer.entry-meta {
     text-decoration: none !important; }
   .entry main figure img {
     max-width: 80%;
-    height: auto;
+    height: auto; }
+  .entry main figure.border img {
     border: 4px solid #dedddd;
     border-radius: 8px; }
   .entry main figure figcaption {
