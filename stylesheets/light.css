@@ -430,6 +430,9 @@ footer.entry-meta {
       .entry .tags li > a::before {
         content: "#"; }
 
+.entry .katex-display {
+  overflow: auto; }
+
 .entry-social {
   margin-bottom: 40px; }
 
