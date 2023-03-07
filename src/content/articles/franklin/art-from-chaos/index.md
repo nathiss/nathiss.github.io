@@ -3,7 +3,7 @@ title = 'Art From Chaos'
 date = 2023-03-04T14:50:59+01:00
 type = 'Article'
 tags = ['Genetic Algorithm', 'Art']
-images = []
+images = ['brett-jordan-M3cxjDNiLlQ-unsplash.jpg']
 
 show_table_of_contents = true
 
@@ -18,7 +18,7 @@ show_comment_count = true
 share_buttons = ['facebook', 'twitter']
 
 katex = true
-draft = true
+draft = false
 +++
 
 Making art is hard. Drawing pictures is tedious. With programming, however, we can automate things and the point of
@@ -183,6 +183,15 @@ function of generation number to see how well they perform. :chart_with_upwards_
 This is the first article from a series about generating art through genetic algorithms. In the next articles _(coming
 up soon-ish)_ we'll turn those ideas into a [Rust](https://www.rust-lang.org/) code and after that finally we'll make
 art that makes itself.
+
+<!-- Image source: https://unsplash.com/photos/M3cxjDNiLlQ -->
+
+{{< figure src="./brett-jordan-M3cxjDNiLlQ-unsplash.jpg" alt="Order and Chaos"
+    caption="Photo by [Brett Jordan](https://unsplash.com/@brett_jordan?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/photos/M3cxjDNiLlQ?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)"
+    class="border"
+>}}
+
+See you around!
 
 :ocean:
 
