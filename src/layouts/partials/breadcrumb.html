@@ -5,12 +5,12 @@
                 {{if $crumb.IsHome }}
                     root
                 {{ else }}
-                    {{ $crumb.Title }}
+                    {{ $crumb.LinkTitle }}
                 {{ end }}
             </a></li>
         {{ end }}
         <li class="active" aria-current="page">
-            <a href="{{ .Permalink }}">{{ .Title }}</a>
+            <a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
         </li>
     </ul>
 </nav>
