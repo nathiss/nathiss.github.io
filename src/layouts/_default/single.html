@@ -59,6 +59,19 @@
             </div>
         {{ end }}
 
+        {{ if isset .Params "series" }}
+            <div class="series-buttons">
+                <a class="prev-button-wrapper disabled" href="#">
+                    <p class="prev-button-name">Previous</p>
+                    {{/*  <p class="article-name">Beginnings Are Hard</p>  */}}
+                </a>
+                <a class="next-button-wrapper" href="#">
+                    <p class="next-button-name">Next</p>
+                    <p class="article-name">About Me</p>
+                </a>
+            </div>
+        {{ end }}
+
         {{ if .Params.show_disqus | default false }}
             <hr />
             {{ template "_internal/disqus.html" . }}
