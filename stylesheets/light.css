@@ -431,7 +431,8 @@ footer.entry-meta {
         content: "#"; }
 
 .entry .katex-display {
-  overflow-x: auto; }
+  overflow-x: auto;
+  overflow-y: hidden; }
 
 .entry-social {
   margin-bottom: 40px; }
