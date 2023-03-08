@@ -1,7 +1,7 @@
 <article class="article-card">
     <header>
         <a class="entry-link" href="{{ .page.Permalink }}">
-            <h2>{{ .page.Title }}</h2>
+            <h2>{{ .page.LinkTitle }}</h2>
         </a>
         {{ if .ShowCurrentSection | default true }}
             <a href="{{ .page.CurrentSection.Permalink }}" class="plain entry-section">{{ .page.CurrentSection.Name }}</a>
