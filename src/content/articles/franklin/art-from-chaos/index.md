@@ -124,12 +124,11 @@ as possible. An original image, from which will derive a collection of images _s
 multiple times. A scoring function could calculate a difference between the original image and the one being currently
 scored:
 
-$$ f(Original, Specimen) = \sum_{i=0}^n | Original_n - Specimen_n | \tag{1} $$
+$$ f(O, S) = \sum_{i=0}^n | O_n - S_n | \tag{1} $$
 
-Both `Original` and `Specimen` refer to a collection of pixels representing each image respectively, thus allowing us to
-index their pixels and calculate a difference between them. This, on its own, isn't the most helpful piece of advice, as
-it glides over the fact that we a calculating a difference of _pixels_ not numbers, we cannot do arithmetics on them.
-To fix that we need to be a bit more clever here.
+Both `O` and `S` refer to a collection of pixels representing the original image and the current specimen respectively,
+thus allowing us to index their pixels and calculate a difference between them. This, on its own, isn't the most helpful
+piece of advice, as it glides over the fact that we a calculating a difference of _pixels_ not numbers, we cannot do arithmetics on them. To fix that we need to be a bit more clever here.
 
 We can utilize the fact that pixels are just color, usually represented in
 [RGB](https://en.wikipedia.org/wiki/RGB_color_model) notation. Each color in the RGB color space is represented by three
@@ -148,7 +147,7 @@ $$ g(A, B) = (x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2 \tag{2} $$
 
 By combining (1) and (2) together we get:
 
-$$ f(Original, Specimen) = \sum_{i=0}^n | (r_2 - r_1)^2 + (g_2 - g_1)^2 + (b_2 - b_1)^2 | $$
+$$ f(O, S) = \sum_{i=0}^n | (r_2 - r_1)^2 + (g_2 - g_1)^2 + (b_2 - b_1)^2 | $$
 
 That was a bit more mathsy that I've initially anticipated `◕_◕`.
 
