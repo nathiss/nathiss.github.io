@@ -236,7 +236,7 @@
             background-color: $gray-lightest;
             transition: background-color $hover-transition-fast ease-out;
 
-            &.disabled {
+            &[href="#"] {
                 background-color: $gray-lighter;
                 opacity: 0.5;
                 pointer-events: none;

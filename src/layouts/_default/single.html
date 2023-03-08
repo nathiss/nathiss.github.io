@@ -59,17 +59,37 @@
             </div>
         {{ end }}
 
-        {{ if isset .Params "series" }}
-            <div class="series-buttons">
-                <a class="prev-button-wrapper disabled" href="#">
-                    <p class="prev-button-name">Previous</p>
-                    {{/*  <p class="article-name">Beginnings Are Hard</p>  */}}
-                </a>
-                <a class="next-button-wrapper" href="#">
-                    <p class="next-button-name">Next</p>
-                    <p class="article-name">About Me</p>
-                </a>
-            </div>
+        {{ if ne (.Params.series | default "") "" }}
+            {{ $data := newScratch }}
+            {{ $data.Set "selfPermalink" .Permalink }}
+
+            {{ range (where site.RegularPages "Params.series" .Params.series).ByDate.Reverse }}
+                {{ if $data.Get "foundSelf" }}
+                    {{ $data.Set "prevPermalink" .Permalink }}
+                    {{ $data.Set "prevLinkTitle" .LinkTitle }}
+                    {{ break }}
+                {{ end }}
+                {{ if eq .Permalink ($data.Get "selfPermalink") }}
+                    {{ $data.Set "foundSelf" true }}
+                {{ else }}
+                    {{ $data.Set "nextPermalink" .Permalink }}
+                    {{ $data.Set "nextLinkTitle" .LinkTitle }}
+                {{ end }}
+            {{ end }}
+
+            {{ if or ($data.Get "prevPermalink") ($data.Get "nextPermalink") }}
+                <div class="series-buttons">
+                    <a class="prev-button-wrapper" href='{{ $data.Get "prevPermalink" | default "#" }}'>
+                        <p class="prev-button-name">Previous</p>
+                        <p class="article-name">{{ $data.Get "prevLinkTitle" | default "" }}</p>
+                    </a>
+
+                    <a class="next-button-wrapper" href='{{ $data.Get "nextPermalink" | default "#" }}'>
+                        <p class="next-button-name">Next</p>
+                        <p class="article-name">{{ $data.Get "nextLinkTitle" | default "" }}</p>
+                    </a>
+                </div>
+            {{ end }}
         {{ end }}
 
         {{ if .Params.show_disqus | default false }}
