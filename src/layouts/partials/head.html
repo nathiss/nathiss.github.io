@@ -35,8 +35,10 @@
     <link rel="apple-touch-icon" sizes="180x180" href="{{ $favicon180.Permalink }}" />
 
     <!-- Styles -->
-    {{ $light_css := resources.Get "stylesheets/light.scss" | resources.ToCSS | resources.Minify }}
-    <link rel="stylesheet" type="text/css" title="light" href="{{ $light_css.Permalink }}" />
+    {{ $lightCss := resources.Get "stylesheets/light.scss" | resources.ToCSS | resources.Minify }}
+    {{ $lightCss = $lightCss | resources.Fingerprint "sha512" }}
+    <link rel="stylesheet" type="text/css" title="light" href="{{ $lightCss.Permalink }}"
+        integrity="{{ $lightCss.Data.Integrity }}" />
 
     <!-- Katex -->
     {{ if .Params.katex | default false }}
