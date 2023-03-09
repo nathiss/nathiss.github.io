@@ -1,4 +1,4 @@
-{{ $svg := resources.Get (print "icons/" . ".svg") }}
+{{ $svg := resources.Get (print "icons/" . ".svg") | resources.Minify }}
 <span class="inline-svg">
     {{- $path:="<path" -}}
     {{- $fill:="<path fill=\"none\"" -}}
