@@ -35,7 +35,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="{{ $favicon180.Permalink }}" />
 
     <!-- Styles -->
-    {{ $light_css := resources.Get "stylesheets/light.scss" | resources.ToCSS }}
+    {{ $light_css := resources.Get "stylesheets/light.scss" | resources.ToCSS | resources.Minify }}
     <link rel="stylesheet" type="text/css" title="light" href="{{ $light_css.Permalink }}" />
 
     <!-- Katex -->
