@@ -4,9 +4,9 @@
     url = '/articles/'
     weight = 1
 [[main]]
-    identifier = 'about-me'
-    name = 'About Me'
-    url = '/about-me/'
+    identifier = 'cv'
+    name = 'Resumé'
+    url = '/cv/'
     weight = 2
 
 [[social]]

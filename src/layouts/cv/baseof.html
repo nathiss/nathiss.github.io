@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    {{ partial "head.html" . }}
+
+    <body>
+        <main class="site-main">
+            <div class="grid grid-centered">
+                <div class="grid-cell">
+                    {{ block "main" . }}{{ end }}
+                </div>
+            </div>
+        </main>
+
+        {{ partial "javascripts" . }}
+    </body>
+</html>
