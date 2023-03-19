@@ -15,6 +15,7 @@ show_comment_count = false
 show_date = false
 show_reading_time = false
 show_author = false
+visible_in_rss = false
 
 share_buttons = []
 
