@@ -35,7 +35,7 @@ Before we dive deep into making art, we need to understand some important concep
 [Wikipedia](https://en.wikipedia.org/wiki/Genetic_algorithm) has a really nice page about them, if you'd like to read
 it. However for the sake of the article this is enough:
 
-A **Genetic Algorithm** is a algorithm inspired by the process of natural selection used to find solutions for
+A **Genetic Algorithm** is an algorithm inspired by the process of natural selection used to find solutions for
 optimization problems. It has three main parts:
 
 * **Mutation** - during which specimens are randomly changed,
