@@ -59,5 +59,7 @@ $code-background: $gray-lighter;
 @import "modules/social_media";
 @import "modules/term";
 
+@import "modules/cv/main";
+
 // Error pages
 @import "errors/404";

@@ -1,0 +1,96 @@
+.cv {
+    margin: $gap*4 0;
+
+    .info-wrapper {
+        margin-bottom: $gap * 2;
+
+        display: flex;
+        justify-content: space-between;
+    }
+
+    header {
+        line-height: 1.25;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: $base-font-weight-light;
+            margin: 0;
+        }
+    }
+
+    .contact-info {
+        list-style-type: none;
+        text-align: right;
+
+        .name {
+            font-size: $smaller-font-size;
+            color: $gray;
+            text-decoration: underline;
+
+            &::after {
+                content: ":";
+            }
+        }
+    }
+
+    .section {
+        &:not(:last-child) {
+            margin-bottom: $gap;
+        }
+
+        main {
+            .notes-wrapper {
+                display: grid;
+                grid-template-columns: 70% 30%;
+
+                .dates,
+                .marks {
+                    font-size: $smallest-font-size;
+                    color: $gray;
+
+                    display: flex;
+                    justify-content: right;
+                    align-items: center;
+                }
+
+                .marks {
+                    font-weight: $base-font-weight-bold;
+                }
+            }
+
+            // Section title
+            h2 {
+                font-size: 1.5rem;
+                margin-bottom: 0;
+            }
+
+            h3 {
+                margin-top: $gap;
+                margin-bottom: 0;
+            }
+
+            h3,
+            p {
+                margin-left: $gap*2;
+            }
+
+            p {
+                font-size: $small-font-size;
+                color: $gray;
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+        }
+    }
+
+
+}
