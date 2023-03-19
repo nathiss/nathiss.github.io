@@ -20,7 +20,7 @@ visible_in_rss = false
 share_buttons = []
 
 katex = false
-draft = true
+draft = false
 +++
 
 <!-- Empty. The whole content is in `single.html` partial for "cv" type. -->
