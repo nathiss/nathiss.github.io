@@ -42,54 +42,55 @@
         }
     }
 
-    .section:not(:last-child) {
-        margin-bottom: $gap;
-    }
+    .section {
+        &:not(:last-child) {
+            margin-bottom: $gap;
+        }
 
-    main {
-        position: relative;
+        main {
+            .notes-wrapper {
+                display: grid;
+                grid-template-columns: 70% 30%;
 
-        .notes-wrapper {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+                .dates,
+                .marks {
+                    font-size: $smallest-font-size;
+                    color: $gray;
 
-            .dates,
-            .marks {
-                font-size: $smallest-font-size;
+                    display: flex;
+                    justify-content: right;
+                    align-items: center;
+                }
+
+                .marks {
+                    font-weight: $base-font-weight-bold;
+                }
+            }
+
+            // Section title
+            h2 {
+                font-size: 1.5rem;
+                margin-bottom: 0;
+            }
+
+            h3 {
+                margin-top: $gap;
+                margin-bottom: 0;
+            }
+
+            h3,
+            p {
+                margin-left: $gap*2;
+            }
+
+            p {
+                font-size: $small-font-size;
                 color: $gray;
-
-                display: flex;
-                justify-content: center;
-                align-items: center;
+                margin-top: 0;
+                margin-bottom: 0;
             }
-
-            .marks {
-                font-weight: $base-font-weight-bold;
-            }
-        }
-
-        // Section title
-        h2 {
-            font-size: 1.5rem;
-            margin-bottom: 0;
-        }
-
-        h3 {
-            margin-top: $gap;
-            margin-bottom: 0;
-        }
-
-        h3,
-        p {
-            margin-left: $gap*2;
-        }
-
-        p {
-            font-size: $small-font-size;
-            color: $gray;
-            margin-top: 0;
-            margin-bottom: 0;
         }
     }
+
+
 }
