@@ -1,6 +1,6 @@
 [highlight]
-linenos = true
-anchorlinenos = true
+linenos = false
+anchorlinenos = false
 
 [tableOfContents]
 startLevel = 2
