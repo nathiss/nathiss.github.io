@@ -79,15 +79,20 @@ impl Pixel {
 
 impl Image {
     #[must_use]
-    pub fn blank(height: usize, width: usize, pixel: &Pixel) -> Self {
-        let size = height * width;
-        let pixels = vec![pixel.clone(); size];
-
+    pub fn new(height: usize, width: usize, pixels: Vec<Pixel>) -> Self {
         Self {
             height,
             width,
             pixels,
         }
+    }
+
+    #[must_use]
+    pub fn blank(height: usize, width: usize, pixel: &Pixel) -> Self {
+        let size = height * width;
+        let pixels = vec![pixel.clone(); size];
+
+        Self::new(height, width, pixels)
     }
 }
 
