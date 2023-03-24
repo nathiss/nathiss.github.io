@@ -10,6 +10,7 @@
         "eleifend",
         "elit",
         "emojify",
+        "grayscale",
         "iaculis",
         "Inkscape",
         "javascripts",
@@ -22,11 +23,16 @@
         "pubkey",
         "Quisque",
         "rasa",
+        "relref",
         "startswith",
         "staticmethod",
+        "struct",
+        "structs",
         "suscipit",
         "tincidunt",
+        "toolset",
         "urlquery",
+        "usize",
         "venenatis"
     ]
 }
