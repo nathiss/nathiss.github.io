@@ -120,9 +120,9 @@ pub trait Mutator {
 }
 ```
 
-Why `&self` and not `&mut self`? Due to the fact that mutations independent of one another, they can be performed
-concurrently. In fact, as we will see in the future articles, mutating and scoring are the only steps that can be easily
-run in parallel.
+Why `&self` and not `&mut self`? Due to the fact that mutations are independent of one another, they can be performed
+concurrently. In fact, as we will see in the future articles, mutating and scoring are the only steps that can be
+_easily_ run in parallel.
 
 {{< figure src="./genetic-algorithm-flow.png" alt="Genetic Algorithm Flow"
     caption="A diagram showing the flow of actions applied on a single generation."
