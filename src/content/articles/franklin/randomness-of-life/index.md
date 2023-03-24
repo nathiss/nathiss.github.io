@@ -254,7 +254,7 @@ build a working utility, but rather to present an idea. So, moving forward all f
 also be done in that style.
 
 {{< figure src="./alexander-grey-2eAkk5lIkC8-unsplash.jpg" alt="Randomness of Life"
-    caption="Photo by [Alexander Grey](https://unsplash.com/@sharonmccutcheon?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](ttps://unsplash.com/photos/2eAkk5lIkC8?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)"
+    caption="Photo by [Alexander Grey](https://unsplash.com/@sharonmccutcheon?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/photos/2eAkk5lIkC8?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)"
     class="border"
 >}}
 
