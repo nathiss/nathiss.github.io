@@ -3,7 +3,7 @@ title = 'Randomness of Life'
 date = 2023-03-20T10:02:19+01:00
 type = 'Article'
 tags = ['Genetic Algorithm', 'Rust']
-images = []
+images = ['alexander-grey-2eAkk5lIkC8-unsplash.jpg']
 series = 'Franklin'
 
 show_table_of_contents = true
@@ -247,6 +247,11 @@ mutation loop, and the whole `impl Image` block are missing. If you want to have
 commit at the moment of writing - 73aa8da)_. The goal of this series is not to go through every single line of code to
 build a working utility, but rather to present an idea. So, moving forward all future articles from this series will
 also be done in that style.
+
+{{< figure src="./alexander-grey-2eAkk5lIkC8-unsplash.jpg" alt="Randomness of Life"
+    caption="Photo by [Alexander Grey](https://unsplash.com/@sharonmccutcheon?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](ttps://unsplash.com/photos/2eAkk5lIkC8?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)"
+    class="border"
+>}}
 
 Stay tuned :ocean:
 
