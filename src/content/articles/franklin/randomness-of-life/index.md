@@ -197,7 +197,7 @@ pub struct RectangleMutator;
 impl Mutator for RectangleMutator {
     fn mutate(&self, image: &mut Image) {
         let mut random = Random::default();
-        let rect = self.get_random_rectangle(&mut random, image);
+        let rect = get_random_rectangle(&mut random, image);
 
         let r = random.get_random(0u8, 255);
         let g = random.get_random(0u8, 255);
@@ -205,8 +205,8 @@ impl Mutator for RectangleMutator {
 
         let image_width = image.width();
 
-        for i in rect.x..(rect.width + rect.x) {
-            for j in rect.y..(rect.height + rect.y) {
+        for j in rect.y..(rect.height + rect.y) {
+            for i in rect.x..(rect.width + rect.x) {
                 let pixel = &mut image[j * image_width + i];
                 pixel.r(r);
                 pixel.g(g);
@@ -216,6 +216,11 @@ impl Mutator for RectangleMutator {
     }
 }
 ```
+
+The implementation is really simple. First we get a random rectangle _(using the helper function)_, then generate color
+channels, and finally draw the shape. Drawing itself is done by two nested loops iterating over columns and rows of the
+image. With the two indexes it references a specific pixel: `j * image_width + 1` and finally overrides it using the
+color channels.
 
 Cool, let's see what the program generates after 10 000 generations when initialized with
 [Mona Lisa](https://en.wikipedia.org/wiki/File:Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg).
