@@ -31,9 +31,9 @@ implementing the first part of our artistic toolset: **mutators**.
 ## Preparing the ecosystem
 
 Before we begin working on mutators, we need to prepare an environment in which our specimens can thrive. We don't need
-much - right now the only thing we need is a generation. For the record, in this context, a generation is a collection
-of specimen which can be mutated, scored, and bred (basically experimented upon) to get us closer to the optimum.
-Since our specimens are images, they can be represented by the following structs:
+much - right now the only thing is _a generation_. For the record, in this context, a generation is a collection of
+specimen which can be mutated, scored, and bred (basically experimented upon) to get us closer to the optimum. Since our
+specimens are images, they can be represented by the following structs:
 
 ```rust
 struct Pixel {
@@ -59,10 +59,11 @@ color channels to the same value. True, it uses thrice as much memory as it coul
 
 {{< underline >}}Method of initializing{{< /underline >}}[^1] the generation will affect how fast we can search the
 solution space. As the algorithm produces more fitted images, the specimens get closed to the source image. But we don't
-really care how fast the optimum can be achieved, frankly, we don't really care about achieving the optimum in the first
-place. It is _the process_ of getting more fitted images and seeing how they evolve what's really interesting. Therefore
-our generation will be initialized by blank images - images filled by white pixels. It will reduce pace of solution
-space search, but will produce images that are more interesting visually. We are here to do art, after all. :art:
+really care about how _fast_ the optimum can be achieved, frankly, we don't really care about achieving the optimum in
+the first place. It is _the process_ of getting more fitted images and seeing how they evolve what's really interesting.
+Therefore our generation will be initialized by blank images - images filled by white pixels. It will reduce pace of
+solution space search, but will produce images that are more visually interesting. We are here to do art, after all.
+:art:
 
 ```rust
 impl Pixel {
@@ -111,8 +112,8 @@ This code takes care of initializing the generation. :ok_hand:
 
 ## Throwing dice and hoping for the best
 
-As was mentioned in the previous article, mutators act only on one specimen at a time, inserting random modification on
-it. With that description alone, we can already define a contract for all mutators we're going to implement:
+As was mentioned in the previous article, mutators act only on one specimen at a time, inserting random modification
+onto it. With that description alone, we can already define a contract for all mutators we're going to implement:
 
 ```rust
 pub trait Mutator {
@@ -140,8 +141,8 @@ mutation primitive. To generate a random rectangle we need have the following:
 
 _Fill color_ is pretty straightforward, but other values have some constraints they need to meet. An image we'll be
 mutating has width and height - let's assume it's {{< mono >}}n{{< /mono >}} and {{< mono >}}m{{< /mono >}}
-respectively. Coordinates of one of the corners,in our case it's going to be top-left, are limited by the image
-dimensions. Width and height are limited by both image dimensions and the coordinates we just generated.
+respectively. Coordinates of one of the corners, in our case it's going to be top-left, are limited by the image
+dimensions. Width and height are limited by both image dimensions, and the coordinates we just generated.
 
 $$
     x \in \lbrack 0 .. n \lbrack \newline
@@ -152,8 +153,8 @@ $$
 
 Why coordinates intervals are right-open? Because if the mutator selects the very right or bottom edge, then the
 rectangle would need to have zero width/height. By not right-closing the intervals, we ensure that there's at least one
-pixel which can be mutated. Similarly both {{< mono >}}width{{< /mono >}} and {{< mono >}}height{{< /mono >}} intervals
-are right-open to ensure that the rectangle will not overflow the image.
+pixel which can be mutated :ok_hand:. Similarly both {{< mono >}}width{{< /mono >}} and {{< mono >}}height{{< /mono >}}
+intervals are right-open to ensure that the rectangle will not overflow the image.
 
 ```rust
 struct RandomRectangle {
@@ -183,12 +184,11 @@ fn get_random_rectangle(random: &mut Random, image: &Image) -> RandomRectangle {
 }
 ```
 
-Function `get_random_rectangle` is a neat helper we'll in our mutator. Based on the given
-{{< underline >}}RNG{{< /underline >}}[^2] and image, it returns a struct representing a random rectangle within the
-boundaries of the image.
+Function `get_random_rectangle` is a neat helper: based on the given {{< underline >}}RNG{{< /underline >}}[^2] and
+image, it returns a struct representing a random rectangle within the boundaries of the image.
 
-Only two things to do: generate random color and draw the shape. The implementation of rectangle mutator will look like
-this:
+Only two things left to do: generate random color and draw the shape. The implementation of rectangle mutator will look
+like this:
 
 ```rust
 #[derive(Debug, Default)]
@@ -228,19 +228,19 @@ Cool, let's see what the program generates after 10 000 generations when initial
 Doesn't really looks like anything. :neutral_face:  
 Which isn't very surprising; the code did what it was suppose to do: it generated random rectangles on the white image.
 Since we don't have any scoring logic yet (that's a topic for another article) the resulting image is composed of random
-noise.
+noise. We'll need to wait a bit longer to get an image that even remotely reflects "Mona Lisa".
 
 ### Throwing dice of other shapes
 
-It's nice to have mutators other than `RectangleMutator`, which are able to mutate images with different shapes, but
-I'm not going to cover them here. The reason is simple - they operate under the same rules. You need to define
+It'd be nice to have mutators other than `RectangleMutator`, which are able to mutate images with different shapes, but
+I'm not going to cover them here. The reason is simple - they operate under the same rules: you need to define
 boundaries first and then you need to draw the desired shape. I've implemented two other mutators: `TriangleMutator` and
 `CircleMutator`. Their sources can be found
 [here](https://github.com/nathiss/franklin/tree/73aa8dada3e8c3cae9aff5e24637785268e3527a/src/mutators).
 
 ## Afterword
 
-You might've noticed that the code examples of this article are not strictly bound together, meaning you cannot just
+You might've noticed that the code examples of this article are not strictly bounded together, meaning you cannot just
 copy them to have a working example. A bunch of things like: `Random` implementation, loading the original image,
 mutation loop, and the whole `impl Image` block are missing. If you want to have a working solution it's
 [here](https://github.com/nathiss/franklin/tree/73aa8dada3e8c3cae9aff5e24637785268e3527a) _(locked down to the newest
