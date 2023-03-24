@@ -19,7 +19,7 @@ show_comment_count = true
 share_buttons = ['facebook', 'twitter']
 
 katex = true
-draft = true
+draft = false
 +++
 
 In the previous article from this series (see [here]({{< relref "/articles/franklin/art-from-chaos" >}})), we've talked
