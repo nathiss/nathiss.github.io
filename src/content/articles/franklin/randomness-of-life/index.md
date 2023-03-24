@@ -18,7 +18,7 @@ show_comment_count = true
 
 share_buttons = ['facebook', 'twitter']
 
-katex = false
+katex = true
 draft = true
 +++
 
@@ -130,11 +130,130 @@ _easily_ run in parallel.
 
 ### Throwing a rectangular dice
 
-As rectangles are the easiest shape to draw (both in programming and IRL) let's start with those.
+Rectangles are the easiest shape to draw both algorithmically and IRL; our first mutator will use rectangles as a
+mutation primitive. To generate a random rectangle we need have the following:
 
-<!-- TODO: At the end link the current commit hash to lock it down. -->
+* coordinates of one of its corners,
+* width,
+* height,
+* fill color.
+
+_Fill color_ is pretty straightforward, but other values have some constraints they need to meet. An image we'll be
+mutating has width and height - let's assume it's {{< mono >}}n{{< /mono >}} and {{< mono >}}m{{< /mono >}}
+respectively. Coordinates of one of the corners,in our case it's going to be top-left, are limited by the image
+dimensions. Width and height are limited by both image dimensions and the coordinates we just generated.
+
+$$
+    x \in \lbrack 0 .. n \lbrack \newline
+    y \in \lbrack 0 .. m \lbrack \newline
+    width \in \lbrack 1 .. n - x + 1 \lbrack \newline
+    height \in \lbrack 1 .. m - y + 1 \lbrack \newline
+$$
+
+Why coordinates intervals are right-open? Because if the mutator selects the very right or bottom edge, then the
+rectangle would need to have zero width/height. By not right-closing the intervals, we ensure that there's at least one
+pixel which can be mutated. Similarly both {{< mono >}}width{{< /mono >}} and {{< mono >}}height{{< /mono >}} intervals
+are right-open to ensure that the rectangle will not overflow the image.
+
+```rust
+struct RandomRectangle {
+    x: usize,
+    y: usize,
+    width: usize,
+    height: usize,
+}
+
+#[must_use]
+fn get_random_rectangle(random: &mut Random, image: &Image) -> RandomRectangle {
+    let image_width = image.width();
+    let image_height = image.height();
+
+    let x = random.get_random(0usize, image_width);
+    let y = random.get_random(0usize, image_height);
+
+    let width = random.get_random(0usize, image_width - x) + 1;
+    let height = random.get_random(0usize, image_height - y) + 1;
+
+    RandomRectangle {
+        x,
+        y,
+        width,
+        height,
+    }
+}
+```
+
+Function `get_random_rectangle` is a neat helper we'll in our mutator. Based on the given
+{{< underline >}}RNG{{< /underline >}}[^2] and image, it returns a struct representing a random rectangle within the
+boundaries of the image.
+
+Only two things to do: generate random color and draw the shape. The implementation of rectangle mutator will look like
+this:
+
+```rust
+#[derive(Debug, Default)]
+pub struct RectangleMutator;
+
+impl Mutator for RectangleMutator {
+    fn mutate(&self, image: &mut Image) {
+        let mut random = Random::default();
+        let rect = self.get_random_rectangle(&mut random, image);
+
+        let r = random.get_random(0u8, 255);
+        let g = random.get_random(0u8, 255);
+        let b = random.get_random(0u8, 255);
+
+        let image_width = image.width();
+
+        for i in rect.x..(rect.width + rect.x) {
+            for j in rect.y..(rect.height + rect.y) {
+                let pixel = &mut image[j * image_width + i];
+                pixel.r(r);
+                pixel.g(g);
+                pixel.b(b);
+            }
+        }
+    }
+}
+```
+
+Cool, let's see what the program generates after 10 000 generations when initialized with
+[Mona Lisa](https://en.wikipedia.org/wiki/File:Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg).
+
+{{< figure src="./output_010000.png" alt="Random noise"
+    title="Mona Lisa (generation #10 000)"
+    class="border"
+>}}
+
+Doesn't really looks like anything. :neutral_face:  
+Which isn't very surprising; the code did what it was suppose to do: it generated random rectangles on the white image.
+Since we don't have any scoring logic yet (that's a topic for another article) the resulting image is composed of random
+noise.
+
+### Throwing dice of other shapes
+
+It's nice to have mutators other than `RectangleMutator`, which are able to mutate images with different shapes, but
+I'm not going to cover them here. The reason is simple - they operate under the same rules. You need to define
+boundaries first and then you need to draw the desired shape. I've implemented two other mutators: `TriangleMutator` and
+`CircleMutator`. Their sources can be found
+[here](https://github.com/nathiss/franklin/tree/73aa8dada3e8c3cae9aff5e24637785268e3527a/src/mutators).
+
+## Afterword
+
+You might've noticed that the code examples of this article are not strictly bound together, meaning you cannot just
+copy them to have a working example. A bunch of things like: `Random` implementation, loading the original image,
+mutation loop, and the whole `impl Image` block are missing. If you want to have a working solution it's
+[here](https://github.com/nathiss/franklin/tree/73aa8dada3e8c3cae9aff5e24637785268e3527a) _(locked down to the newest
+commit at the moment of writing - 73aa8da)_. The goal of this series is not to go through every single line of code to
+build a working utility, but rather to present an idea. So, moving forward all future articles from this series will
+also be done in that style.
+
+Stay tuned :ocean:
 
 <!-- Footnotes -->
 
 [^1]: Usually the generation is generated randomly. See
 [here](https://en.wikipedia.org/wiki/Genetic_algorithm#Initialization).
+
+[^2]: `Random` is a project-private utility class. Source can be found
+[here](https://github.com/nathiss/franklin/blob/73aa8dada3e8c3cae9aff5e24637785268e3527a/src/util/random.rs).
