@@ -27,6 +27,7 @@ a.active {
 }
 
 // Styles for links inside articles' bodies
+.madebyme-consent-banner a,
 .entry main a:not(.anchor):not(.footnote-ref):not(.footnote-backref),
 .article-card .entry-content a:not(.anchor):not(.footnote-ref):not(.footnote-backref) {
     text-decoration: underline dotted;

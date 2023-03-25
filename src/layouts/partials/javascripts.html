@@ -2,3 +2,16 @@
     {{/*  Load Disqus comment count utility.  */}}
     <script id="dsq-count-scr" src="//madebyme.disqus.com/count.js" async></script>
 {{ end }}
+
+<!-- Consent banner -->
+<script>
+    document.getElementById("consent-button").addEventListener("click", () => {
+        localStorage.setItem("given-consent", "true");
+        document.getElementById("madebyme-consent-banner").style["display"] = "none";
+    });
+
+    const givenConsent = localStorage.getItem("given-consent");
+    if (givenConsent === null) {
+        document.getElementById("madebyme-consent-banner").style["display"] = "block";
+    }
+</script>

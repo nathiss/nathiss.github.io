@@ -1,0 +1,50 @@
+.madebyme-consent-banner {
+    display: none;
+
+    position: fixed;
+    bottom: $gap;
+    right: $gap;
+
+    width: 400px;
+    padding: 10px 20px;
+
+    background-color: $gray-lightest;
+    border: 1px solid $dark-border-color;
+    border-radius: $border-radius;
+
+    font-size: $small-font-size;
+    color: $gray-dark;
+
+    .consent-button-wrapper {
+        display: flex;
+        justify-content: center;
+
+        .consent-button {
+            background-color: $brand-success;
+            border: none;
+
+            padding: 7px 20px;
+            border-radius: $border-radius;
+
+            color: $light-font-color;
+
+            cursor: pointer;
+
+            transition: background-color $hover-transition ease-out;
+
+            &:hover,
+            &:active {
+                background-color: $brand-success-dark;
+            }
+        }
+    }
+}
+
+@include breakpoint(small) {
+    .madebyme-consent-banner {
+        left: 50%;
+        transform: translate(-50%, 0);
+
+        width: 90%;
+    }
+}
