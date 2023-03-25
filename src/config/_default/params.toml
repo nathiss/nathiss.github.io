@@ -6,3 +6,7 @@ images = ["polaris-1920x1080.png"]
 fullName = 'Kamil Rusin'
 firstName = 'Kamil'
 lastName = 'Rusin'
+
+[privacy]
+# When this value gets changed, then the consent banner will appear to all users.
+consentBannerVersion = "2"

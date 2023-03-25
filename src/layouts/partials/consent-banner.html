@@ -8,6 +8,11 @@
         This website respects <b><a href="https://en.wikipedia.org/wiki/Do_Not_Track">Do Not Track</a></b> header field.
         If you do not wish to be tracked by Google Analytics, then please enable <b>Do Not Track</b> for this domain.
     </p>
+    <p>
+        {{ $privacy := .Site.GetPage "/privacy" }}
+        If you wish to know more about data gathered on this website, read <a href="{{ $privacy.RelPermalink }}">
+            {{ $privacy.LinkTitle }}</a>.
+    </p>
     <div class="consent-button-wrapper">
         <button id="consent-button" class="consent-button">I acknowledge, don't show me this again</button>
     </div>

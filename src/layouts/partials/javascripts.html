@@ -7,8 +7,8 @@
 <script>
     const localStorageKey = "madebyme-given-consent";
 
-    {{/*  This constant is used to control whether the current consent banner should be displayed to the user.  */}}
-    const consentBannerVersion = "1";
+
+    const consentBannerVersion = "{{ .Site.Params.privacy.consentBannerVersion }}";
 
     document.getElementById("consent-button").addEventListener("click", () => {
         localStorage.setItem(localStorageKey, consentBannerVersion);

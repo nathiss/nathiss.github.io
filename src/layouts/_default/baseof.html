@@ -9,9 +9,13 @@
                 <div class="grid-cell">
                     {{ block "main" . }}{{ end }}
                 </div>
+
+                <div class="grid-cell">
+                    {{ partial "footer" . }}
+                </div>
             </div>
         </main>
-        {{ partial "footer" . }}
+
 
         {{ partial "consent-banner" . }}
 
