@@ -5,6 +5,10 @@ type = 'privacy'
 tags = []
 images = []
 
+aliases = [
+    "about-tracking-data-collection",
+]
+
 show_table_of_contents = false
 show_disqus = false
 show_comment_count = false
