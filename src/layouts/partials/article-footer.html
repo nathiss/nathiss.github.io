@@ -1,6 +1,7 @@
 <footer class="entry-meta">
     {{ if .Params.show_date | default true }}
-        <time datetime='%s'>
+        {{ $timestamp := .Date | time.Format "2006-01-02T15:04:05.999" }}
+        <time datetime="{{ $timestamp }}">
             <span>{{ .Date | time.Format "2006" }}</span>
             <span>{{ .Date | time.Format "01" }}</span>
             <span>{{ .Date | time.Format "02" }}</span>
