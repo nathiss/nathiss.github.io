@@ -16,7 +16,7 @@ visible_in_rss = false
 share_buttons = []
 
 katex = false
-draft = true
+draft = false
 +++
 
 This blog is a statically generated website; on it's own, it {{< underline >}}does not{{< /underline >}} perform any
