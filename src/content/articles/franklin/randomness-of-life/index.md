@@ -3,7 +3,7 @@ title = 'Randomness of Life'
 date = 2023-03-20T10:02:19+01:00
 type = 'Article'
 tags = ['Genetic Algorithm', 'Rust']
-images = ['assets/randomness-of-life/alexander-grey-2eAkk5lIkC8-unsplash.jpg']
+images = ['articles/franklin/randomness-of-life/alexander-grey-2eAkk5lIkC8-unsplash.jpg']
 series = 'Franklin'
 
 show_table_of_contents = true

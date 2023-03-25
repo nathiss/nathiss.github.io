@@ -3,7 +3,7 @@ title = 'Art From Chaos'
 date = 2023-03-04T14:50:59+01:00
 type = 'Article'
 tags = ['Genetic Algorithm', 'Art']
-images = ['assets/art-from-chaos/brett-jordan-M3cxjDNiLlQ-unsplash.jpg']
+images = ['articles/franklin/art-from-chaos/brett-jordan-M3cxjDNiLlQ-unsplash.jpg']
 series = 'Franklin'
 
 show_table_of_contents = true
