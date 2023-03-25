@@ -5,4 +5,14 @@
         <span class="success">{{ .Site.Params.Author.FirstName }}</span>
         {{ .Site.Params.Author.LastName }}
     </p>
+
+    <span class="separator">/</span>
+
+    <p class="about-privacy">
+        {{ $privacy := .Site.GetPage "/privacy" }}
+        <a href="{{ $privacy.RelPermalink }}">
+            {{/*  I've specifically hardcoded this text to make it look nicer in the footer.  */}}
+            Privacy
+        </a>
+    </p>
 </footer>
