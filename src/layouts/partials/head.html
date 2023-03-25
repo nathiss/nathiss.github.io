@@ -6,8 +6,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <!-- Title -->
-    <title>{{ if not .IsHome }}{{ .Title }} - {{ end }}{{ site.Title }}</title>
+    <!-- Styles -->
+    {{ $lightCss := resources.Get "stylesheets/light.scss" | resources.ToCSS | resources.Minify }}
+    {{ $lightCss = $lightCss | resources.Fingerprint "sha512" }}
+    <link rel="stylesheet" type="text/css" title="light" href="{{ $lightCss.Permalink }}"
+        integrity="{{ $lightCss.Data.Integrity }}" />
+
+    <!-- Favicon -->
+    {{ $favicon16 := resources.Get "favicons/favicon-16x16-box-light.png" }}
+    {{ $favicon32 := resources.Get "favicons/favicon-32x32-box-light.png" }}
+    {{ $favicon64 := resources.Get "favicons/favicon-64x64-box-light.png" }}
+    {{ $favicon180 := resources.Get "favicons/favicon-180x180-box-light.png" }}
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ $favicon16.Permalink }}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ $favicon32.Permalink }}" />
+    <link rel="icon" type="image/png" sizes="64x64" href="{{ $favicon64.Permalink }}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ $favicon180.Permalink }}" />
+
+    <!-- RSS -->
+    {{ range .AlternativeOutputFormats }}
+        <link
+            rel="{{ .Rel }}"
+            type="{{ .MediaType.Type }}"
+            href="{{ .Permalink }}"
+            title="{{ site.Title }}"
+        />
+    {{ end }}
+
+    <!-- Katex -->
+    {{ if .Params.katex | default false }}
+        <link rel="stylesheet" href="/3rd-party/katex@v0.16.4/katex.min.css" />
+        <script defer src="/3rd-party/katex@v0.16.4/katex.min.js"></script>
+        <script defer src="/3rd-party/katex@v0.16.4/contrib/auto-render.min.js"
+            onload="renderMathInElement(document.body);"></script>
+    {{ end }}
 
     <!-- Meta -->
     {{ if eq .Kind "page" }}
@@ -27,40 +58,10 @@
     <!-- Schema.org (https://schema.org/) -->
     {{ template "_internal/schema.html" . }}
 
-    <!-- Favicon -->
-    {{ $favicon16 := resources.Get "favicons/favicon-16x16-box-light.png" }}
-    {{ $favicon32 := resources.Get "favicons/favicon-32x32-box-light.png" }}
-    {{ $favicon64 := resources.Get "favicons/favicon-64x64-box-light.png" }}
-    {{ $favicon180 := resources.Get "favicons/favicon-180x180-box-light.png" }}
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ $favicon16.Permalink }}" />
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ $favicon32.Permalink }}" />
-    <link rel="icon" type="image/png" sizes="64x64" href="{{ $favicon64.Permalink }}" />
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ $favicon180.Permalink }}" />
-
-    <!-- Styles -->
-    {{ $lightCss := resources.Get "stylesheets/light.scss" | resources.ToCSS | resources.Minify }}
-    {{ $lightCss = $lightCss | resources.Fingerprint "sha512" }}
-    <link rel="stylesheet" type="text/css" title="light" href="{{ $lightCss.Permalink }}"
-        integrity="{{ $lightCss.Data.Integrity }}" />
-
-    <!-- Katex -->
-    {{ if .Params.katex | default false }}
-        <link rel="stylesheet" href="/3rd-party/katex@v0.16.4/katex.min.css" />
-        <script defer src="/3rd-party/katex@v0.16.4/katex.min.js"></script>
-        <script defer src="/3rd-party/katex@v0.16.4/contrib/auto-render.min.js"
-            onload="renderMathInElement(document.body);"></script>
-    {{ end }}
-
     <!-- Hugo -->
     {{ hugo.Generator }}
 
-    <!-- RSS -->
-    {{ range .AlternativeOutputFormats }}
-        <link
-            rel="{{ .Rel }}"
-            type="{{ .MediaType.Type }}"
-            href="{{ .Permalink }}"
-            title="{{ site.Title }}"
-        />
-    {{ end }}
+
+    <!-- Title -->
+    <title>{{ if not .IsHome }}{{ .Title }} - {{ end }}{{ site.Title }}</title>
 </head>
