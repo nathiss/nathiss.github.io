@@ -23,6 +23,15 @@ body {
     flex-direction: column;
 }
 
+/* Fixes iOS font sizing anomaly */
+// https://github.com/adityatelange/hugo-PaperMod/issues/828
+code {
+    text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
 hr {
     margin: $gap 0;
     height: 2px;
