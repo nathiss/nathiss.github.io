@@ -5,13 +5,18 @@
 
 <!-- Consent banner -->
 <script>
+    const localStorageKey = "madebyme-given-consent";
+
+    {{/*  This constant is used to control whether the current consent banner should be displayed to the user.  */}}
+    const consentBannerVersion = "1";
+
     document.getElementById("consent-button").addEventListener("click", () => {
-        localStorage.setItem("given-consent", "true");
+        localStorage.setItem(localStorageKey, consentBannerVersion);
         document.getElementById("madebyme-consent-banner").style["display"] = "none";
     });
 
-    const givenConsent = localStorage.getItem("given-consent");
-    if (givenConsent === null) {
+    const localBannerVersion = localStorage.getItem(localStorageKey);
+    if (localBannerVersion !== consentBannerVersion) {
         document.getElementById("madebyme-consent-banner").style["display"] = "block";
     }
 </script>
