@@ -118,14 +118,14 @@ ended because I was too wornout to finish it.
 
 I'm actually quite proud of this one. It's a static website running on [React](https://reactjs.org/) and hosting my
 vector graphics. It's painfully simple, but that was kinda the point. I wanted to have a way of hosting those images
-ASAP, hence React and GitHub Pages, [where the website is actually hosted](https://nathiss.github.io/Polaris/).
+ASAP, hence React and GitHub Pages, [where the website is actually hosted](https://www.madebyme.today/Polaris/).
 
 It wasn't my first contact with technologies used in frontend, but it was the first time when I used _state of the art_
 tools for a new website. My knowledge of [NodeJS](https://nodejs.org/en/) and utilities built on top of it was
 practically nonexistent. That changed once I've written Polaris; now I'm just new to this stuff.
 
 {{< figure src="./steam-on-the-horizon-small.png" alt="Steam on the horizon"
-    link="https://nathiss.github.io/Polaris/" target="_blank"
+    link="https://www.madebyme.today/Polaris/" target="_blank"
     title="Steam on the horizon"
     class="border"
 >}}
