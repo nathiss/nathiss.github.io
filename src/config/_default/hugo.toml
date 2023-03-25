@@ -12,5 +12,6 @@ enableEmoji = true
 enableRobotsTXT = true
 
 disqusShortname = 'madebyme'
+googleAnalytics = 'G-CXYG0Q9PH0'
 
 disableKinds = ["taxonomy"]
