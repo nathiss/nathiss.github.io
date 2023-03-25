@@ -43,6 +43,7 @@
 @include breakpoint(small) {
     .madebyme-consent-banner {
         left: 50%;
+        bottom: $gap * 2;
         transform: translate(-50%, 0);
 
         width: 90%;
