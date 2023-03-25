@@ -18,6 +18,7 @@ $white: #fff;
 $base-font-color: $gray-darker;
 $base-accent-color: $gray-dark;
 $base-accent-highlighted-color: darken($base-accent-color, 15);
+$light-font-color: $gray-lightest;
 
 // Border color
 
@@ -51,6 +52,7 @@ $code-background: $gray-lighter;
 @import "modules/article_card";
 @import "modules/article_footer";
 @import "modules/breadcrumb";
+@import "modules/consent_banner";
 @import "modules/entry";
 @import "modules/footer";
 @import "modules/home";
