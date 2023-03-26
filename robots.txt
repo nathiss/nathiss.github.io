@@ -1,2 +1,3 @@
 User-agent: *
 Disallow: /pub.key
+Sitemap: https://www.madebyme.today/sitemap.xml
