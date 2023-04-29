@@ -1,3 +1,0 @@
-User-agent: *
-Disallow: /pub.key
-Sitemap: https://madebyme.today/sitemap.xml
