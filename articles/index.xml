@@ -1,4 +1,236 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Articles on MadeByMe</title><link>https://madebyme.today/articles/</link><description>Recent content in Articles on MadeByMe</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright &amp;copy;</copyright><lastBuildDate>Sun, 02 Apr 2023 14:50:51 +0200</lastBuildDate><atom:link href="https://madebyme.today/articles/index.xml" rel="self" type="application/rss+xml"/><item><title>How to: Security Keys</title><link>https://madebyme.today/articles/how-to-security-keys/</link><pubDate>Wed, 29 Mar 2023 20:25:35 +0200</pubDate><guid>https://madebyme.today/articles/how-to-security-keys/</guid><description>&lt;p>Today I was &lt;em>again&lt;/em> setting up OpenPGP application on a new
 &lt;a href="https://www.yubico.com/products/yubikey-5-overview/">Yubikey&lt;/a>. After over two years I already forgot how &lt;em>tedious&lt;/em> that
 can be&amp;hellip; I&amp;rsquo;m writing this blog post to create a clear trace of what I needed to do today and hopefully, when the time
-comes to set up &lt;em>an another&lt;/em> key, it&amp;rsquo;ll be as easy as opening up a blog entry.&lt;/p></description></item><item><title>Beginnings Are Hard</title><link>https://madebyme.today/articles/beginnings-are-hard/</link><pubDate>Sat, 25 Feb 2023 20:14:43 +0100</pubDate><guid>https://madebyme.today/articles/beginnings-are-hard/</guid><description>&lt;p>Well it took some time (almost 6 years) to create a personal blog, but here we are.&lt;/p></description></item></channel></rss>
+comes to set up &lt;em>an another&lt;/em> key, it&amp;rsquo;ll be as easy as opening up a blog entry.&lt;/p>
+&lt;h2 id="in-general">
+In general
+&lt;a class="anchor" href="#in-general" aria-label="Anchor">
+&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
+&lt;/span>
+&lt;/a>
+&lt;/h2>
+&lt;p>I started to learn about security keys a few years back. I read &amp;ldquo;&lt;a href="https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/45409.pdf">Security Keys: Practical Cryptographic Second
+Factors for the Modern Web&lt;/a>&amp;rdquo;
+research paper by Google, explaining how they work and how they made them &amp;ldquo;fool-proof&amp;rdquo;. The article is very detailed and
+yet written in a easy-to-follow way. If you&amp;rsquo;re interested in security, then give it a try!&lt;/p>
+&lt;p>The rest of this article is a ramp about configuring a new key. If you don&amp;rsquo;t have one/not having issues with one at the
+moment, you can give it amiss.&lt;/p>
+&lt;h2 id="setting-up-a-new-key">
+Setting up a new key
+&lt;a class="anchor" href="#setting-up-a-new-key" aria-label="Anchor">
+&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
+&lt;/span>
+&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://www.yubico.com/">Yubico&lt;/a> offers &lt;a href="https://www.yubico.com/support/download/">great software&lt;/a> for managing your
+keys. If you&amp;rsquo;re planning on using yours as a &lt;a href="https://en.wikipedia.org/wiki/Multi-factor_authentication">2FA&lt;/a> method or
+&lt;a href="https://www.yubico.com/resources/glossary/fido-2/">FIDO2&lt;/a>, then you are a happier person.&lt;/p>
+&lt;h3 id="yubikey--macos">
+Yubikey &amp;amp; macOS
+&lt;a class="anchor" href="#yubikey--macos" aria-label="Anchor">
+&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
+&lt;/span>
+&lt;/a>
+&lt;/h3>
+&lt;p>To start with, I could not make the key detectable by &lt;a href="https://gnupg.org/">GnuPG&lt;/a>. I was getting &amp;ldquo;Operation not
+supported by device&amp;rdquo; error.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>gpg --card-status
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gpg: selecting card failed: Operation not supported by device
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gpg: OpenPGP card not available: Operation not supported by device
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Then I found DataDog&amp;rsquo;s Yubikey
+&lt;a href="https://github.com/DataDog/yubikey/blob/master/docs/troubleshooting.md">troubleshooting guide&lt;/a>. It fixed my problem &amp;ndash;
+a config file was missing in my GnuPG home.&lt;/p>
+&lt;h3 id="yubikey--openpgp">
+Yubikey &amp;amp; OpenPGP
+&lt;a class="anchor" href="#yubikey--openpgp" aria-label="Anchor">
+&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
+&lt;/span>
+&lt;/a>
+&lt;/h3>
+&lt;p>Working with &lt;code>gpg&lt;/code> sucks.&lt;/p>
+&lt;p>The tool is very advanced and offering a lot of features, so naturally its CLI is complex, to say the least. As it was
+before, so it was now, I was saved by
+&lt;a href="https://github.com/drduh/YubiKey-Guide">this marvelous guide on how to prepare PGP keys for a Yubikey&lt;/a>.&lt;/p>
+&lt;p>It encompasses everything: from generating keys, to rotating keys. It also offers different solutions depending on how
+much you care about security. I &lt;strong>highly&lt;/strong> encourage you to configure your key with this guide.&lt;/p>
+&lt;p>It got me through most of the OpenPGP stuff pretty smoothly. Again, I was lost on making the key work with &lt;code>gpg-agent&lt;/code>.&lt;/p>
+&lt;h3 id="yubikey--ssh">
+Yubikey &amp;amp; SSH
+&lt;a class="anchor" href="#yubikey--ssh" aria-label="Anchor">
+&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
+&lt;/span>
+&lt;/a>
+&lt;/h3>
+&lt;p>Once all three keys (Signing, Encryption, Authentication) are correctly set up, it&amp;rsquo;s the moment for the agent. I always
+miss two parts: &lt;strong>configuring gpg-agent&lt;/strong> and &lt;strong>enabling SSH for gpg-agent&lt;/strong>.&lt;/p>
+&lt;p>The first one requires these few lines at the end of your &lt;code>rc&lt;/code> file. I use Z shell, so it&amp;rsquo;s &lt;code>.zshrc&lt;/code> for me.&lt;/p>
+&lt;script type="application/javascript" src="https://gist.github.com/nathiss/9a5a6b6db02ac31081ad3484da06e08e.js?file=.zshrc">&lt;/script>
+&lt;p>Enabling SSH for gpg-agent can be done by adding &lt;code>gpg-agent.conf&lt;/code> file to your GnuPG home.&lt;/p>
+&lt;script type="application/javascript" src="https://gist.github.com/nathiss/9a5a6b6db02ac31081ad3484da06e08e.js?file=gpg-agent.conf">&lt;/script>
+&lt;p>You&amp;rsquo;ll probably need to update the path pointing to &lt;code>pinentry-program&lt;/code>. Just run&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>which pinentry-mac
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>If you don&amp;rsquo;t have &lt;code>pinentry-mac&lt;/code> installed, then&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>brew install pinentry
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Cool. The last and yet &lt;strong>very important step&lt;/strong> is to relaunch the agent:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>gpgconf --kill gpg-agent
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>It should hopefully work.&lt;/p>
+&lt;h3 id="tips">
+Tips
+&lt;a class="anchor" href="#tips" aria-label="Anchor">
+&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
+&lt;/span>
+&lt;/a>
+&lt;/h3>
+&lt;ol>
+&lt;li>To get public SSH key run: &lt;code>ssh-add -L&lt;/code>.&lt;/li>
+&lt;/ol>
+&lt;p>It was around that time, when I tried to fetch my remote repo from GitHub&amp;hellip; and it wasn&amp;rsquo;t
+working. I lost a significant amount of time looking for some configuration issue, but there wasn&amp;rsquo;t any. I redid
+everything again to no avail.&lt;/p>
+&lt;p>Then I saw that some of my GitHub Actions are not being triggered. 🤔 I dig a bit more and it turned out
+&lt;a href="https://www.githubstatus.com/incidents/z3c6q056q332">GitHub was having issues&lt;/a>.&lt;/p>
+&lt;p>&lt;a href="https://www.githubstatus.com/">GitHub Status&lt;/a> is a great site to keep in your RSS feed. Then issues arise, they
+cascade.&lt;/p></description></item><item><title>Beginnings Are Hard</title><link>https://madebyme.today/articles/beginnings-are-hard/</link><pubDate>Sat, 25 Feb 2023 20:14:43 +0100</pubDate><guid>https://madebyme.today/articles/beginnings-are-hard/</guid><description>&lt;p>Well it took some time (almost 6 years) to create a personal blog, but here we are.&lt;/p>
+&lt;h2 id="how-did-we-come-here">
+How did we come here?
+&lt;a class="anchor" href="#how-did-we-come-here" aria-label="Anchor">
+&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
+&lt;/span>
+&lt;/a>
+&lt;/h2>
+&lt;p>This is not the first attempt on creating my own website. On my &lt;a href="https://github.com/nathiss">GitHub&lt;/a> there are many
+(most of them private) repos, which contains some sort of &lt;em>personal website&lt;/em>. All of them abandoned, but not this one!&lt;/p>
+&lt;p>&amp;hellip; at least not yet. ✌(-‿-)✌ However I&amp;rsquo;m optimistic.&lt;/p>
+&lt;p>To better understand why I have such high hopes for this project let&amp;rsquo;s go down the rabbit hole and analyze its ancestors
+and try to point out why they failed.&lt;/p>
+&lt;h3 id="platform-1-0x52-django-22">
+Platform 1: 0x52 (Django 2.2)
+&lt;a class="anchor" href="#platform-1-0x52-django-22" aria-label="Anchor">
+&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
+&lt;/span>
+&lt;/a>
+&lt;/h3>
+&lt;p>&lt;a href="https://www.djangoproject.com/">Django&lt;/a> is one of the first tools I&amp;rsquo;ve ever used to create something on the web.&lt;/p>
+&lt;blockquote>
+&lt;p>Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design.
+Built by experienced developers, it takes care of much of the hassle of web development, so you can focus on writing
+your app without needing to reinvent the wheel. It’s free and open source.&lt;br>
+~ &lt;a href="https://www.djangoproject.com/">Django website&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;p>Using that framework I&amp;rsquo;ve built a web journal. The idea was that at any moment I could use one of my devices to create
+a new journal entry. They were automatically sorted by creation date and tagged with tokens retrieved from the entry&amp;rsquo;s
+content. The latter deserves a bit more digging into, so let&amp;rsquo;s consider the following entry:&lt;/p>
+&lt;blockquote>
+&lt;p>Lorem ipsum @dolor sit amet, consectetur adipiscing elit. Aliquam sed eleifend magna. @Quisque venenatis ex ex, a
+suscipit purus iaculis ac. Sed @lacinia tincidunt nunc vitae consectetur.&lt;/p>
+&lt;/blockquote>
+&lt;p>A tag is a sequence of characters between &lt;code>'@'&lt;/code> and one of &lt;code>',&amp;lt;.&amp;gt;/?;:\'&amp;quot;[{]}\\|()=+#$%^&amp;amp;*~\r\n '&lt;/code>. When an entry was
+either created or modified, then the logic extracted tags from content:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">@staticmethod&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">extract_tag_names&lt;/span>(text):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> words &lt;span style="color:#f92672">=&lt;/span> re&lt;span style="color:#f92672">.&lt;/span>split(Tag&lt;span style="color:#f92672">.&lt;/span>escape_delimiters(Tag&lt;span style="color:#f92672">.&lt;/span>TAG_DELIMITERS), text)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> words &lt;span style="color:#f92672">=&lt;/span> list(filter(&lt;span style="color:#66d9ef">None&lt;/span>, words))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> [tag_name[&lt;span style="color:#ae81ff">1&lt;/span>:]&lt;span style="color:#f92672">.&lt;/span>lower() &lt;span style="color:#66d9ef">for&lt;/span> tag_name &lt;span style="color:#f92672">in&lt;/span> words &lt;span style="color:#66d9ef">if&lt;/span> tag_name&lt;span style="color:#f92672">.&lt;/span>startswith(Tag&lt;span style="color:#f92672">.&lt;/span>TAG_SYMBOL)]
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>It worked pretty well. I could create a new tag or use an already existing one. When the tag was orphaned &lt;em>(meaning it
+was referenced by no entry)&lt;/em> the logic was able to take care of that too. 👀&lt;/p>
+&lt;p>The solution was designed to be used by more that one user: each person would have an account and they would be able to
+access only their own entries and tags.&lt;/p>
+&lt;p>What happened with that project? I used it for a while, but after some time I wasn&amp;rsquo;t really actively adding new entries,
+so it just fated away. Also it was more of a personal utility website, than a blog. It was publicly available on
+&lt;a href="https://www.heroku.com/">Heroku&lt;/a> until quite recently actually. I took down the website when &lt;a href="https://help.heroku.com/RSBRUH58/removal-of-heroku-free-product-plans-faq">Heroku announced their
+removal of free product plans&lt;/a>.&lt;/p>
+&lt;h3 id="platform-2-titan-aspnet">
+Platform 2: Titan (ASP.NET)
+&lt;a class="anchor" href="#platform-2-titan-aspnet" aria-label="Anchor">
+&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
+&lt;/span>
+&lt;/a>
+&lt;/h3>
+&lt;p>This was &lt;em>an another&lt;/em> iteration of personal website development. I&amp;rsquo;ve decided to use
+&lt;a href="https://en.wikipedia.org/wiki/.NET">.NET&lt;/a> for this one, because earlier in that year I got my first job in the field
+and I was hyped to build something with the technology we used at work &lt;em>(we were developing a few solutions and one of
+them was built on top of &lt;a href="https://en.wikipedia.org/wiki/.NET_Framework">.NET Framework&lt;/a>)&lt;/em>.&lt;/p>
+&lt;p>Sadly I deleted the source code some time ago as a part of my GitHub purge, but I remember quite vividly the problem(s)
+with this one. In a sentence: it was too overengineered.&lt;/p>
+&lt;blockquote>
+&lt;p>the strategy is definitely: first make it work, then make it right, and, finally, make it fast.&lt;br>
+~ &amp;ldquo;The C Language and Models for Systems Programming&amp;rdquo; in Byte magazine (August 1983)&lt;/p>
+&lt;/blockquote>
+&lt;p>I wanted to use &lt;a href="https://en.wikipedia.org/wiki/JSON_Web_Token">JWT&lt;/a> as a user authentication method. I&amp;rsquo;ve read on many
+places on the web that it&amp;rsquo;s a bad idea, but still I was devoted to make it work. One of the issues I was aware of was
+that you cannot &lt;em>easily&lt;/em> and &lt;em>permanently&lt;/em> logout a user when using JWT.&lt;/p>
+&lt;p>In a nutshell JWT are tokens stored on the client-side. However, due to encryption, they can only be read by the
+service. So with each request the client sends its token to the sever (like a cookie, you might say). If the token is
+well-formed, then the server, with quite high certainty, can assume it wasn&amp;rsquo;t tinkered with.&lt;/p>
+&lt;p>Going back to logout issue: to ensure that session will not last indefinitely the server could add &lt;code>&amp;quot;expiryDate&amp;quot;&lt;/code> field
+to payload and check its value with each request and respond accordingly. That works pretty well. The client has no way
+of modifying &lt;code>&amp;quot;expiryDate&amp;quot;&lt;/code>.&lt;/p>
+&lt;p>Yet it&amp;rsquo;s much harder to kill the session before token expiries. My attempt was to add a new field to token&amp;rsquo;s payload
+which would indicate that its no longer valid and send it back to the client. The problem though is that the client does
+not &lt;strong>need&lt;/strong> to use the new token. It still can use the old one and, since we don&amp;rsquo;t store session information on the
+server, the service has not way of detecting that. 💢&lt;/p>
+&lt;p>The solution I came up with was to use &lt;a href="https://redis.io/">Redis&lt;/a>. To store that information on the server-side.&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>Redis:&lt;/strong>
+The open source, in-memory data store used by millions of developers as a database, cache, streaming engine,
+and message broker.&lt;/p>
+&lt;/blockquote>
+&lt;p>Once the server decides the user should be logged out, it will store JWT&amp;rsquo;s ID in Redis alongside with an indication of
+whether the session has ended.&lt;/p>
+&lt;p>Can you see now when I said it was overengineered? So many complex solutions for a logout functionality. The project
+ended because I was too wornout to finish it.&lt;/p>
+&lt;h3 id="platform-3-polaris-react">
+Platform 3: Polaris (React)
+&lt;a class="anchor" href="#platform-3-polaris-react" aria-label="Anchor">
+&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
+&lt;/span>
+&lt;/a>
+&lt;/h3>
+&lt;p>I&amp;rsquo;m actually quite proud of this one. It&amp;rsquo;s a static website running on &lt;a href="https://reactjs.org/">React&lt;/a> and hosting my
+vector graphics. It&amp;rsquo;s painfully simple, but that was kinda the point. I wanted to have a way of hosting those images
+ASAP, hence React and GitHub Pages, &lt;a href="https://www.madebyme.today/Polaris/">where the website is actually hosted&lt;/a>.&lt;/p>
+&lt;p>It wasn&amp;rsquo;t my first contact with technologies used in frontend, but it was the first time when I used &lt;em>state of the art&lt;/em>
+tools for a new website. My knowledge of &lt;a href="https://nodejs.org/en/">NodeJS&lt;/a> and utilities built on top of it was
+practically nonexistent. That changed once I&amp;rsquo;ve written Polaris; now I&amp;rsquo;m just new to this stuff.&lt;/p>
+&lt;figure class="border">&lt;a href="https://madebyme.today/Polaris/" target="_blank">&lt;img src="./steam-on-the-horizon-small.webp"
+alt="Steam on the horizon"loading="lazy"
+/>&lt;/a>&lt;figcaption>
+&lt;h4>Steam on the horizon&lt;/h4>
+&lt;/figcaption>
+&lt;/figure>
+&lt;p>I don&amp;rsquo;t have much more to say here other that, it was a while when I&amp;rsquo;ve used &lt;a href="https://inkscape.org/">Inkscape&lt;/a> to create
+those images and when I needed to use it again, for the sake of this blog, it was terrifying to see how much one can
+forget what one has learned. ಠ_ಠ&lt;/p>
+&lt;h3 id="platforms-long-forgotten">
+Platforms long forgotten
+&lt;a class="anchor" href="#platforms-long-forgotten" aria-label="Anchor">
+&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
+&lt;/span>
+&lt;/a>
+&lt;/h3>
+&lt;p>There were many more projects which aimed to create my personal space on the web, but only these mentioned above are
+still remembered by me enough to write a few sentences about.&lt;/p>
+&lt;p>It&amp;rsquo;s safe to say they all suffered from the same fundamental flaws:&lt;/p>
+&lt;ul>
+&lt;li>they were too complex,&lt;/li>
+&lt;li>they were trying to solve all possible future problem without aiming to deliver the most basic functionality,&lt;/li>
+&lt;li>backend is hard.&lt;/li>
+&lt;/ul>
+&lt;p>This blog, on the other hand, is a static content website build with &lt;a href="https://gohugo.io/">Hugo&lt;/a>. I think to some extend
+I was aware that tools like Hugo existed, but I&amp;rsquo;ve never considered using them. I cannot really explain as to why; maybe
+I was trying too hard to use a new fancy tool I&amp;rsquo;ve just learned about.&lt;/p>
+&lt;h2 id="the-goal-and-future-of-this-project">
+The goal and future of this project
+&lt;a class="anchor" href="#the-goal-and-future-of-this-project" aria-label="Anchor">
+&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
+&lt;/span>
+&lt;/a>
+&lt;/h2>
+&lt;p>The goal of this project is to create an archive for stuff I&amp;rsquo;m going to learn. It&amp;rsquo;s still unclear as to what I&amp;rsquo;m going
+to post on this blog, but it&amp;rsquo;s safe to say that it&amp;rsquo;s going to be techy.&lt;/p>
+&lt;p>I cannot say with any amount of certainty how often I&amp;rsquo;ll be writing new articles. I&amp;rsquo;m really looking forward to making
+new content though. I believe it will also tilt me significantly into learning about new things.&lt;/p>
+&lt;p>There are still some adjustments I need to make on the website, I&amp;rsquo;m probably going to focus on them before I&amp;rsquo;ll work on
+new articles, but in general it is functionally complete.&lt;/p>
+&lt;p>So as of now, thank you for reading.&lt;/p>
+&lt;p>🌊&lt;/p></description></item></channel></rss>

@@ -1,10 +1,875 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MadeByMe</title><link>https://madebyme.today/</link><description>Recent content on MadeByMe</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright &amp;copy;</copyright><lastBuildDate>Sun, 02 Apr 2023 14:50:51 +0200</lastBuildDate><atom:link href="https://madebyme.today/index.xml" rel="self" type="application/rss+xml"/><item><title>Natural Selection and Loss Functions</title><link>https://madebyme.today/articles/franklin/natural-selection-and-loss-functions/</link><pubDate>Sun, 02 Apr 2023 14:50:51 +0200</pubDate><guid>https://madebyme.today/articles/franklin/natural-selection-and-loss-functions/</guid><description>&lt;p>Natural Selection is what allows our species (and images!) to improve over time. In this article we&amp;rsquo;ll implement a
 scoring mechanism, through which &amp;ldquo;&lt;a href="https://madebyme.today/articles/franklin/randomness-of-life/">Mona Lisa&lt;/a>&amp;rdquo; will actually
-look like one.&lt;/p></description></item><item><title>How to: Security Keys</title><link>https://madebyme.today/articles/how-to-security-keys/</link><pubDate>Wed, 29 Mar 2023 20:25:35 +0200</pubDate><guid>https://madebyme.today/articles/how-to-security-keys/</guid><description>&lt;p>Today I was &lt;em>again&lt;/em> setting up OpenPGP application on a new
+look like one.&lt;/p>
+&lt;h2 id="natural-selection">
+Natural Selection
+&lt;a class="anchor" href="#natural-selection" aria-label="Anchor">
+&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
+&lt;/span>
+&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://en.wikipedia.org/wiki/Natural_selection">Natural selection&lt;/a> is the process though which species adapt to their
+environments. If the &lt;a href="https://en.wikipedia.org/wiki/Evolution">evolution&lt;/a> is a wheel, then natural selection is the
+force that spins it. Organism that are better adapted tend to produce more offspring and pass on their genes. This
+process favours genes that aided their bearers to survive/reproduce, increasing their number in the following
+generations.&lt;/p>
+&lt;p>&lt;a href="https://en.wikipedia.org/wiki/Fitness_(biology)">In biology&lt;/a> &lt;em>&amp;ldquo;fitness&amp;rdquo;&lt;/em> is defined by how successful an organism is at
+reproduction.&lt;/p>
+&lt;p>Wikipedia says:&lt;/p>
+&lt;blockquote>
+&lt;p>If an organism lives half as long as others of its species, but has twice as many offspring surviving to adulthood,
+its genes become more common in the adult population of the next generation.&lt;/p>
+&lt;/blockquote>
+&lt;p>&amp;hellip; and also &amp;hellip;&lt;/p>
+&lt;blockquote>
+&lt;p>It is also equal to the average contribution to the gene pool of the next generation, made by the same individuals
+of the specified genotype or phenotype.&lt;/p>
+&lt;/blockquote>
+&lt;p>We, however, will define &amp;ldquo;fitness&amp;rdquo; as a &lt;em>difference&lt;/em> between an organism and the ideal. Which is a bit vague, as there&amp;rsquo;s
+no obvious way of substituting one image from another and produce an integer. We&amp;rsquo;ll get back to that in a bit.&lt;/p>
+&lt;h2 id="loss-functions">
+Loss functions
+&lt;a class="anchor" href="#loss-functions" aria-label="Anchor">
+&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
+&lt;/span>
+&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://en.wikipedia.org/wiki/Genetic_algorithm">Genetic Algorithms&lt;/a> (and
+&lt;a href="https://en.wikipedia.org/wiki/Evolutionary_algorithm">Evolutionary Algorithms&lt;/a>) are
+&lt;a href="https://en.wikipedia.org/wiki/Optimization_problem">optimization&lt;/a> algorithms that need a &amp;ldquo;goodness&amp;rdquo; of an organism, in
+order to decide whether to discard it. We&amp;rsquo;re going to implement two scoring methods, both based on loss functions. L1
+Loss Function and L2 Loss Function are defined as follows:&lt;/p>
+&lt;p>$$
+L1 = \sum_{i=0}^n \vert y_{true_i} - y_{predicted_i} \vert
+\newline
+L2 = \sum_{i=0}^n \left( y_{true_i} - y_{predicted_i} \right)^2
+$$&lt;/p>
+&lt;p>&lt;code>n&lt;/code> represents the size of the ideal image in pixels; we know, that both images have the exact same size, so it will
+never &lt;code>out-of-range&lt;/code>.&lt;/p>
+&lt;p>Both of these functions are used to covert an &amp;ldquo;object&amp;rdquo; or an &amp;ldquo;event&amp;rdquo;, to a real number representing its score. Which one
+should be picked then? &lt;em>In general&lt;/em> L2 Loss Function is preferred in most of the cases. However, when the dataset has
+outliers, then L2 Loss Function does not perform well &amp;ndash; it leads to much larger errors.&lt;/p>
+&lt;p>Cool, we have a way of calculating differences between images&amp;rsquo; pixels. But how to calculate a difference between two
+pixels? That question was already answered in
+&lt;a href="https://madebyme.today/articles/franklin/art-from-chaos/#step-2-scoring">Art From Chaos&lt;/a>. We take each of the pixels color
+channels and calculate their differences.&lt;/p>
+&lt;p>$$
+f(O, S) = \sum_{i=0}^n \vert (r_2 - r_1)^2 + (g_2 - g_1)^2 + (b_2 - b_1)^2 \vert
+$$&lt;/p>
+&lt;h2 id="scoring-mechanism">
+Scoring mechanism
+&lt;a class="anchor" href="#scoring-mechanism" aria-label="Anchor">
+&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
+&lt;/span>
+&lt;/a>
+&lt;/h2>
+&lt;p>First, let&amp;rsquo;s define a trait whereby the rest of the system will be able to interact with scoring methods.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-rust" data-lang="rust">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">pub&lt;/span> &lt;span style="color:#66d9ef">trait&lt;/span> FitnessFunction {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">/// This method calculates the fitness of `second_image` relative to `first_image`.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">&lt;/span> &lt;span style="color:#e6db74">///
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">&lt;/span> &lt;span style="color:#e6db74">/// In other words, it returns a value describing difference between those two images. The higher the value, the
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">&lt;/span> &lt;span style="color:#e6db74">/// more those images are different from each other.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">&lt;/span> &lt;span style="color:#66d9ef">fn&lt;/span> &lt;span style="color:#a6e22e">calculate_fitness&lt;/span>(&lt;span style="color:#f92672">&amp;amp;&lt;/span>self, first_image: &lt;span style="color:#66d9ef">&amp;amp;&lt;/span>&lt;span style="color:#a6e22e">Image&lt;/span>, second_image: &lt;span style="color:#66d9ef">&amp;amp;&lt;/span>&lt;span style="color:#a6e22e">Image&lt;/span>) -&amp;gt; &lt;span style="color:#66d9ef">usize&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The method assumes that the &lt;code>first_image&lt;/code> is the one being scored and &lt;code>second_image&lt;/code> is the ideal. However, what&amp;rsquo;s nice
+about these loss functions, is that they return absolute values &amp;ndash; it does not matter which parameter is the ideal.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-rust" data-lang="rust">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// True for both L1 and L2
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>assert_eq!(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> scorer.calculate_fitness(first_image, second_image),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> scorer.calculate_fitness(second_image, first_image)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>);
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
+&lt;h3 id="implementation-of-l1-absolute-distance">
+Implementation of L1: AbsoluteDistance
+&lt;a class="anchor" href="#implementation-of-l1-absolute-distance" aria-label="Anchor">
+&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
+&lt;/span>
+&lt;/a>
+&lt;/h3>
+&lt;p>The implementation isn&amp;rsquo;t complex - first we &lt;em>fold&lt;/em> each pixel pair to a &lt;code>usize&lt;/code>, and then we sum those parts together to
+produce the score. Actually, we can do both by using Iterator&amp;rsquo;s &lt;code>fold&lt;/code> method.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-rust" data-lang="rust">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">fn&lt;/span> &lt;span style="color:#a6e22e">fold_pixels&lt;/span>(&lt;span style="color:#66d9ef">mut&lt;/span> sum: &lt;span style="color:#66d9ef">usize&lt;/span>, (p1, p2): (&lt;span style="color:#f92672">&amp;amp;&lt;/span>Pixel, &lt;span style="color:#f92672">&amp;amp;&lt;/span>Pixel)) -&amp;gt; &lt;span style="color:#66d9ef">usize&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">let&lt;/span> diff_r &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">isize&lt;/span>::from(p1.get_r()) &lt;span style="color:#f92672">-&lt;/span> &lt;span style="color:#66d9ef">isize&lt;/span>::from(p2.get_r());
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">let&lt;/span> diff_g &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">isize&lt;/span>::from(p1.get_g()) &lt;span style="color:#f92672">-&lt;/span> &lt;span style="color:#66d9ef">isize&lt;/span>::from(p2.get_g());
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">let&lt;/span> diff_b &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">isize&lt;/span>::from(p1.get_b()) &lt;span style="color:#f92672">-&lt;/span> &lt;span style="color:#66d9ef">isize&lt;/span>::from(p2.get_b());
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sum &lt;span style="color:#f92672">+=&lt;/span> diff_r.unsigned_abs();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sum &lt;span style="color:#f92672">+=&lt;/span> diff_g.unsigned_abs();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sum &lt;span style="color:#f92672">+=&lt;/span> diff_b.unsigned_abs();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sum
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#[derive(Debug, Default)]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">pub&lt;/span> &lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">AbsoluteDistance&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">impl&lt;/span> FitnessFunction &lt;span style="color:#66d9ef">for&lt;/span> AbsoluteDistance {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">fn&lt;/span> &lt;span style="color:#a6e22e">calculate_fitness&lt;/span>(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;amp;&lt;/span>self,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> first_image: &lt;span style="color:#66d9ef">&amp;amp;&lt;/span>&lt;span style="color:#a6e22e">crate&lt;/span>::models::Image,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> second_image: &lt;span style="color:#66d9ef">&amp;amp;&lt;/span>&lt;span style="color:#a6e22e">crate&lt;/span>::models::Image,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ) -&amp;gt; &lt;span style="color:#66d9ef">usize&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> first_image
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .pixels()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .iter()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .zip(second_image.pixels().iter())
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .fold(&lt;span style="color:#ae81ff">0&lt;/span>&lt;span style="color:#66d9ef">usize&lt;/span>, fold_pixels)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
+&lt;h3 id="implementation-of-l1-square-distance">
+Implementation of L2: SquareDistance
+&lt;a class="anchor" href="#implementation-of-l1-square-distance" aria-label="Anchor">
+&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
+&lt;/span>
+&lt;/a>
+&lt;/h3>
+&lt;p>Implementation of &lt;code>SquareDistance&lt;/code> is almost identical. The only difference is the squaring of color channels.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-rust" data-lang="rust">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">fn&lt;/span> &lt;span style="color:#a6e22e">fold_pixels&lt;/span>(&lt;span style="color:#66d9ef">mut&lt;/span> sum: &lt;span style="color:#66d9ef">usize&lt;/span>, (p1, p2): (&lt;span style="color:#f92672">&amp;amp;&lt;/span>Pixel, &lt;span style="color:#f92672">&amp;amp;&lt;/span>Pixel)) -&amp;gt; &lt;span style="color:#66d9ef">usize&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">let&lt;/span> diff_r &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">isize&lt;/span>::from(p1.get_r()) &lt;span style="color:#f92672">-&lt;/span> &lt;span style="color:#66d9ef">isize&lt;/span>::from(p2.get_r());
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">let&lt;/span> diff_g &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">isize&lt;/span>::from(p1.get_g()) &lt;span style="color:#f92672">-&lt;/span> &lt;span style="color:#66d9ef">isize&lt;/span>::from(p2.get_g());
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">let&lt;/span> diff_b &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">isize&lt;/span>::from(p1.get_b()) &lt;span style="color:#f92672">-&lt;/span> &lt;span style="color:#66d9ef">isize&lt;/span>::from(p2.get_b());
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sum &lt;span style="color:#f92672">+=&lt;/span> diff_r.pow(&lt;span style="color:#ae81ff">2&lt;/span>) &lt;span style="color:#66d9ef">as&lt;/span> &lt;span style="color:#66d9ef">usize&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sum &lt;span style="color:#f92672">+=&lt;/span> diff_g.pow(&lt;span style="color:#ae81ff">2&lt;/span>) &lt;span style="color:#66d9ef">as&lt;/span> &lt;span style="color:#66d9ef">usize&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sum &lt;span style="color:#f92672">+=&lt;/span> diff_b.pow(&lt;span style="color:#ae81ff">2&lt;/span>) &lt;span style="color:#66d9ef">as&lt;/span> &lt;span style="color:#66d9ef">usize&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sum
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#[derive(Debug, Default)]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">pub&lt;/span> &lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">SquareDistance&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">impl&lt;/span> FitnessFunction &lt;span style="color:#66d9ef">for&lt;/span> SquareDistance {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">fn&lt;/span> &lt;span style="color:#a6e22e">calculate_fitness&lt;/span>(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;amp;&lt;/span>self,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> first_image: &lt;span style="color:#66d9ef">&amp;amp;&lt;/span>&lt;span style="color:#a6e22e">crate&lt;/span>::models::Image,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> second_image: &lt;span style="color:#66d9ef">&amp;amp;&lt;/span>&lt;span style="color:#a6e22e">crate&lt;/span>::models::Image,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ) -&amp;gt; &lt;span style="color:#66d9ef">usize&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> first_image
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .pixels()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .iter()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .zip(second_image.pixels().iter())
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .fold(&lt;span style="color:#ae81ff">0&lt;/span>&lt;span style="color:#66d9ef">usize&lt;/span>, fold_pixels)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="fixing-mona-lisa">
+Fixing &amp;ldquo;Mona Lisa&amp;rdquo;
+&lt;a class="anchor" href="#fixing-mona-lisa" aria-label="Anchor">
+&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
+&lt;/span>
+&lt;/a>
+&lt;/h2>
+&lt;p>Let&amp;rsquo;s wire up the scoring component with generation&amp;rsquo;s flow. During each generation, every specimens will be scored
+relatively to the ideal image. Using the scores we will select the best &lt;span style="text-decoration: underline;">5&lt;/span>
+&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>
+organisms and discard the rest.&lt;/p>
+&lt;p>Since there&amp;rsquo;s no crossover functionality yet, we need to fill the emptied generation space somehow. &lt;strong>Simplest
+solution:&lt;/strong> once we have 5 best specimens, we&amp;rsquo;ll copy them over multiple times, to get a new generation 100 strong.&lt;/p>
+&lt;figure class="border">&lt;img src="./output_010000.png"
+alt="Mona Lisa (generation #10 000)"loading="lazy"
+/>&lt;figcaption>
+&lt;h4>Mona Lisa (generation #10 000)&lt;/h4>
+&lt;/figcaption>
+&lt;/figure>
+&lt;p>🤌&lt;/p>
+&lt;p>The image does look recognizable. And it&amp;rsquo;s still missing the last part &amp;ndash; crossing. However, as it&amp;rsquo;s not &lt;em>&amp;ldquo;required&amp;rdquo;&lt;/em>,
+the algorithm works and it produces acceptable results.&lt;/p>
+&lt;p>Next, we&amp;rsquo;ll implement the crossing function and we&amp;rsquo;ll see how much it improves algorithm&amp;rsquo;s efficiency &amp;ndash; defined as the
+derivative of specimen score with respect to generation number.&lt;/p>
+&lt;figure class="border">&lt;img src="./fernando-venzano-ddVYvmwrvV4-unsplash.webp"
+alt="On the Origin of Species"loading="lazy"
+/>&lt;figcaption>
+&lt;p>Photo by &lt;a href="https://unsplash.com/pt-br/@fernandovenzano?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText">Fernando Venzano&lt;/a> on &lt;a href="https://unsplash.com/photos/ddVYvmwrvV4?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText">Unsplash&lt;/a>&lt;/p>
+&lt;/figcaption>
+&lt;/figure>
+&lt;!-- raw HTML omitted -->
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>&lt;strong>Why 5?&lt;/strong> No particular reason. There should be enough specimen to fill the generation space again by
+combining them in varied ways. It could be more than 5, but we need to remember, that the goal of dropping those &amp;ldquo;bad&amp;rdquo;
+images is to discard mutations that resulted in decreasing overall &amp;ldquo;goodness&amp;rdquo;.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description></item><item><title>How to: Security Keys</title><link>https://madebyme.today/articles/how-to-security-keys/</link><pubDate>Wed, 29 Mar 2023 20:25:35 +0200</pubDate><guid>https://madebyme.today/articles/how-to-security-keys/</guid><description>&lt;p>Today I was &lt;em>again&lt;/em> setting up OpenPGP application on a new
 &lt;a href="https://www.yubico.com/products/yubikey-5-overview/">Yubikey&lt;/a>. After over two years I already forgot how &lt;em>tedious&lt;/em> that
 can be&amp;hellip; I&amp;rsquo;m writing this blog post to create a clear trace of what I needed to do today and hopefully, when the time
-comes to set up &lt;em>an another&lt;/em> key, it&amp;rsquo;ll be as easy as opening up a blog entry.&lt;/p></description></item><item><title>Randomness of Life</title><link>https://madebyme.today/articles/franklin/randomness-of-life/</link><pubDate>Mon, 20 Mar 2023 10:02:19 +0100</pubDate><guid>https://madebyme.today/articles/franklin/randomness-of-life/</guid><description>&lt;p>In &lt;a href="https://madebyme.today/articles/franklin/art-from-chaos/">the previous article&lt;/a> from this series, we&amp;rsquo;ve talked about
+comes to set up &lt;em>an another&lt;/em> key, it&amp;rsquo;ll be as easy as opening up a blog entry.&lt;/p>
+&lt;h2 id="in-general">
+In general
+&lt;a class="anchor" href="#in-general" aria-label="Anchor">
+&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
+&lt;/span>
+&lt;/a>
+&lt;/h2>
+&lt;p>I started to learn about security keys a few years back. I read &amp;ldquo;&lt;a href="https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/45409.pdf">Security Keys: Practical Cryptographic Second
+Factors for the Modern Web&lt;/a>&amp;rdquo;
+research paper by Google, explaining how they work and how they made them &amp;ldquo;fool-proof&amp;rdquo;. The article is very detailed and
+yet written in a easy-to-follow way. If you&amp;rsquo;re interested in security, then give it a try!&lt;/p>
+&lt;p>The rest of this article is a ramp about configuring a new key. If you don&amp;rsquo;t have one/not having issues with one at the
+moment, you can give it amiss.&lt;/p>
+&lt;h2 id="setting-up-a-new-key">
+Setting up a new key
+&lt;a class="anchor" href="#setting-up-a-new-key" aria-label="Anchor">
+&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
+&lt;/span>
+&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://www.yubico.com/">Yubico&lt;/a> offers &lt;a href="https://www.yubico.com/support/download/">great software&lt;/a> for managing your
+keys. If you&amp;rsquo;re planning on using yours as a &lt;a href="https://en.wikipedia.org/wiki/Multi-factor_authentication">2FA&lt;/a> method or
+&lt;a href="https://www.yubico.com/resources/glossary/fido-2/">FIDO2&lt;/a>, then you are a happier person.&lt;/p>
+&lt;h3 id="yubikey--macos">
+Yubikey &amp;amp; macOS
+&lt;a class="anchor" href="#yubikey--macos" aria-label="Anchor">
+&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
+&lt;/span>
+&lt;/a>
+&lt;/h3>
+&lt;p>To start with, I could not make the key detectable by &lt;a href="https://gnupg.org/">GnuPG&lt;/a>. I was getting &amp;ldquo;Operation not
+supported by device&amp;rdquo; error.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>gpg --card-status
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gpg: selecting card failed: Operation not supported by device
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gpg: OpenPGP card not available: Operation not supported by device
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Then I found DataDog&amp;rsquo;s Yubikey
+&lt;a href="https://github.com/DataDog/yubikey/blob/master/docs/troubleshooting.md">troubleshooting guide&lt;/a>. It fixed my problem &amp;ndash;
+a config file was missing in my GnuPG home.&lt;/p>
+&lt;h3 id="yubikey--openpgp">
+Yubikey &amp;amp; OpenPGP
+&lt;a class="anchor" href="#yubikey--openpgp" aria-label="Anchor">
+&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
+&lt;/span>
+&lt;/a>
+&lt;/h3>
+&lt;p>Working with &lt;code>gpg&lt;/code> sucks.&lt;/p>
+&lt;p>The tool is very advanced and offering a lot of features, so naturally its CLI is complex, to say the least. As it was
+before, so it was now, I was saved by
+&lt;a href="https://github.com/drduh/YubiKey-Guide">this marvelous guide on how to prepare PGP keys for a Yubikey&lt;/a>.&lt;/p>
+&lt;p>It encompasses everything: from generating keys, to rotating keys. It also offers different solutions depending on how
+much you care about security. I &lt;strong>highly&lt;/strong> encourage you to configure your key with this guide.&lt;/p>
+&lt;p>It got me through most of the OpenPGP stuff pretty smoothly. Again, I was lost on making the key work with &lt;code>gpg-agent&lt;/code>.&lt;/p>
+&lt;h3 id="yubikey--ssh">
+Yubikey &amp;amp; SSH
+&lt;a class="anchor" href="#yubikey--ssh" aria-label="Anchor">
+&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
+&lt;/span>
+&lt;/a>
+&lt;/h3>
+&lt;p>Once all three keys (Signing, Encryption, Authentication) are correctly set up, it&amp;rsquo;s the moment for the agent. I always
+miss two parts: &lt;strong>configuring gpg-agent&lt;/strong> and &lt;strong>enabling SSH for gpg-agent&lt;/strong>.&lt;/p>
+&lt;p>The first one requires these few lines at the end of your &lt;code>rc&lt;/code> file. I use Z shell, so it&amp;rsquo;s &lt;code>.zshrc&lt;/code> for me.&lt;/p>
+&lt;script type="application/javascript" src="https://gist.github.com/nathiss/9a5a6b6db02ac31081ad3484da06e08e.js?file=.zshrc">&lt;/script>
+&lt;p>Enabling SSH for gpg-agent can be done by adding &lt;code>gpg-agent.conf&lt;/code> file to your GnuPG home.&lt;/p>
+&lt;script type="application/javascript" src="https://gist.github.com/nathiss/9a5a6b6db02ac31081ad3484da06e08e.js?file=gpg-agent.conf">&lt;/script>
+&lt;p>You&amp;rsquo;ll probably need to update the path pointing to &lt;code>pinentry-program&lt;/code>. Just run&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>which pinentry-mac
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>If you don&amp;rsquo;t have &lt;code>pinentry-mac&lt;/code> installed, then&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>brew install pinentry
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Cool. The last and yet &lt;strong>very important step&lt;/strong> is to relaunch the agent:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>gpgconf --kill gpg-agent
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>It should hopefully work.&lt;/p>
+&lt;h3 id="tips">
+Tips
+&lt;a class="anchor" href="#tips" aria-label="Anchor">
+&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
+&lt;/span>
+&lt;/a>
+&lt;/h3>
+&lt;ol>
+&lt;li>To get public SSH key run: &lt;code>ssh-add -L&lt;/code>.&lt;/li>
+&lt;/ol>
+&lt;p>It was around that time, when I tried to fetch my remote repo from GitHub&amp;hellip; and it wasn&amp;rsquo;t
+working. I lost a significant amount of time looking for some configuration issue, but there wasn&amp;rsquo;t any. I redid
+everything again to no avail.&lt;/p>
+&lt;p>Then I saw that some of my GitHub Actions are not being triggered. 🤔 I dig a bit more and it turned out
+&lt;a href="https://www.githubstatus.com/incidents/z3c6q056q332">GitHub was having issues&lt;/a>.&lt;/p>
+&lt;p>&lt;a href="https://www.githubstatus.com/">GitHub Status&lt;/a> is a great site to keep in your RSS feed. Then issues arise, they
+cascade.&lt;/p></description></item><item><title>Randomness of Life</title><link>https://madebyme.today/articles/franklin/randomness-of-life/</link><pubDate>Mon, 20 Mar 2023 10:02:19 +0100</pubDate><guid>https://madebyme.today/articles/franklin/randomness-of-life/</guid><description>&lt;p>In &lt;a href="https://madebyme.today/articles/franklin/art-from-chaos/">the previous article&lt;/a> from this series, we&amp;rsquo;ve talked about
 genetic algorithms and how they can be used to generate art. Now let&amp;rsquo;s put those ideas into action and focus on
-implementing the first part of our artistic toolset: &lt;strong>mutators&lt;/strong>.&lt;/p></description></item><item><title>Art From Chaos</title><link>https://madebyme.today/articles/franklin/art-from-chaos/</link><pubDate>Sat, 04 Mar 2023 14:50:59 +0100</pubDate><guid>https://madebyme.today/articles/franklin/art-from-chaos/</guid><description>&lt;p>Making art is hard. Drawing pictures is tedious. With programming, however, we can automate things. The point of
+implementing the first part of our artistic toolset: &lt;strong>mutators&lt;/strong>.&lt;/p>
+&lt;h2 id="preparing-the-ecosystem">
+Preparing the ecosystem
+&lt;a class="anchor" href="#preparing-the-ecosystem" aria-label="Anchor">
+&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
+&lt;/span>
+&lt;/a>
+&lt;/h2>
+&lt;p>Before we begin working on mutators, we need to prepare an environment in which our specimens can thrive. We don&amp;rsquo;t need
+much - right now the only thing is &lt;em>a generation&lt;/em>. For the record, in this context, a generation is a collection of
+specimen which can be mutated, scored, and bred (basically experimented upon) to get us closer to the optimum. Since our
+specimens are images, they can be represented by the following structs:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-rust" data-lang="rust">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">Pixel&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> r: &lt;span style="color:#66d9ef">u8&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> g: &lt;span style="color:#66d9ef">u8&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> b: &lt;span style="color:#66d9ef">u8&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">Image&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> height: &lt;span style="color:#66d9ef">usize&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> width: &lt;span style="color:#66d9ef">usize&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> pixels: Vec&lt;span style="color:#f92672">&amp;lt;&lt;/span>Pixel&lt;span style="color:#f92672">&amp;gt;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Representing each pixel as a 24-bit value gives us some flexibility here &amp;ndash; it allows us to operate on two color depths:
+&lt;a href="https://en.wikipedia.org/wiki/Color_depth#True_color_(24-bit)">true color&lt;/a> (which uses 24-bit colors) and
+&lt;a href="https://en.wikipedia.org/wiki/Grayscale">grayscale&lt;/a> (8-bit). Creating a grayscale pixel can be done by setting up all
+color channels to the same value. True, it uses thrice as much memory as it could, but&amp;hellip;&lt;/p>
+&lt;blockquote>
+&lt;p>Premature optimization is the root of all evil.&lt;br>
+~ Donald Knuth&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;span style="text-decoration: underline;">Method of initializing&lt;/span>
+&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> the generation will affect how fast we can search the
+solution space. As the algorithm produces more fitted images, the specimens get closed to the source image. But we don&amp;rsquo;t
+really care about how &lt;em>fast&lt;/em> the optimum can be achieved, frankly, we don&amp;rsquo;t really care about achieving the optimum in
+the first place. It is &lt;em>the process&lt;/em> of getting more fitted images and seeing how they evolve what&amp;rsquo;s really interesting.
+Therefore our generation will be initialized by blank images - images filled by white pixels. It will reduce pace of
+solution space search, but will produce images that are more visually interesting. We are here to do art, after all.
+🎨&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-rust" data-lang="rust">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">impl&lt;/span> Pixel {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">#[must_use]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">pub&lt;/span> &lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">fn&lt;/span> &lt;span style="color:#a6e22e">white&lt;/span>() -&amp;gt; &lt;span style="color:#a6e22e">Self&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Pixel::new(&lt;span style="color:#ae81ff">255&lt;/span>, &lt;span style="color:#ae81ff">255&lt;/span>, &lt;span style="color:#ae81ff">255&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">#[must_use]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">pub&lt;/span> &lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">fn&lt;/span> &lt;span style="color:#a6e22e">new&lt;/span>(r: &lt;span style="color:#66d9ef">u8&lt;/span>, g: &lt;span style="color:#66d9ef">u8&lt;/span>, b: &lt;span style="color:#66d9ef">u8&lt;/span>) -&amp;gt; &lt;span style="color:#a6e22e">Self&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Pixel { r, g, b }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">impl&lt;/span> Image {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">#[must_use]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">pub&lt;/span> &lt;span style="color:#66d9ef">fn&lt;/span> &lt;span style="color:#a6e22e">new&lt;/span>(height: &lt;span style="color:#66d9ef">usize&lt;/span>, width: &lt;span style="color:#66d9ef">usize&lt;/span>, pixels: Vec&lt;span style="color:#f92672">&amp;lt;&lt;/span>Pixel&lt;span style="color:#f92672">&amp;gt;&lt;/span>) -&amp;gt; &lt;span style="color:#a6e22e">Self&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Self {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> height,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> width,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> pixels,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">#[must_use]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">pub&lt;/span> &lt;span style="color:#66d9ef">fn&lt;/span> &lt;span style="color:#a6e22e">blank&lt;/span>(height: &lt;span style="color:#66d9ef">usize&lt;/span>, width: &lt;span style="color:#66d9ef">usize&lt;/span>, pixel: &lt;span style="color:#66d9ef">&amp;amp;&lt;/span>&lt;span style="color:#a6e22e">Pixel&lt;/span>) -&amp;gt; &lt;span style="color:#a6e22e">Self&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">let&lt;/span> size &lt;span style="color:#f92672">=&lt;/span> height &lt;span style="color:#f92672">*&lt;/span> width;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">let&lt;/span> pixels &lt;span style="color:#f92672">=&lt;/span> vec![pixel.clone(); size];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Self::new(height, width, pixels)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#[must_use]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">fn&lt;/span> &lt;span style="color:#a6e22e">get_first_generation&lt;/span>(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> vec_len: &lt;span style="color:#66d9ef">usize&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> image_height: &lt;span style="color:#66d9ef">usize&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> image_width: &lt;span style="color:#66d9ef">usize&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>) -&amp;gt; Vec&lt;span style="color:#f92672">&amp;lt;&lt;/span>Image&lt;span style="color:#f92672">&amp;gt;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">let&lt;/span> pixel &lt;span style="color:#f92672">=&lt;/span> Pixel::white();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> vec![Image::blank(height, width, &lt;span style="color:#f92672">&amp;amp;&lt;/span>pixel); vec_len]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This code takes care of initializing the generation. 👌&lt;/p>
+&lt;h2 id="throwing-dice-and-hoping-for-the-best">
+Throwing dice and hoping for the best
+&lt;a class="anchor" href="#throwing-dice-and-hoping-for-the-best" aria-label="Anchor">
+&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
+&lt;/span>
+&lt;/a>
+&lt;/h2>
+&lt;p>As was mentioned in the previous article, mutators act only on one specimen at a time, inserting random modification
+onto it. With that description alone, we can already define a contract for all mutators we&amp;rsquo;re going to implement:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-rust" data-lang="rust">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">pub&lt;/span> &lt;span style="color:#66d9ef">trait&lt;/span> Mutator {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">fn&lt;/span> &lt;span style="color:#a6e22e">mutate&lt;/span>(&lt;span style="color:#f92672">&amp;amp;&lt;/span>self, image: &lt;span style="color:#66d9ef">&amp;amp;&lt;/span>&lt;span style="color:#a6e22e">mut&lt;/span> Image);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Why &lt;code>&amp;amp;self&lt;/code> and not &lt;code>&amp;amp;mut self&lt;/code>? Due to the fact that mutations are independent of one another, they can be performed
+concurrently. In fact, as we will see in the future articles, mutating and scoring are the only steps that can be
+&lt;em>easily&lt;/em> run in parallel.&lt;/p>
+&lt;figure>&lt;img src="./genetic-algorithm-flow.webp"
+alt="Genetic Algorithm Flow"loading="lazy"
+/>&lt;figcaption>
+&lt;p>A diagram showing the flow of actions applied on a single generation.&lt;/p>
+&lt;/figcaption>
+&lt;/figure>
+&lt;h3 id="throwing-a-rectangular-dice">
+Throwing a rectangular dice
+&lt;a class="anchor" href="#throwing-a-rectangular-dice" aria-label="Anchor">
+&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
+&lt;/span>
+&lt;/a>
+&lt;/h3>
+&lt;p>Rectangles are the easiest shape to draw both algorithmically and IRL; our first mutator will use rectangles as a
+mutation primitive. To generate a random rectangle we need have the following:&lt;/p>
+&lt;ul>
+&lt;li>coordinates of one of its corners,&lt;/li>
+&lt;li>width,&lt;/li>
+&lt;li>height,&lt;/li>
+&lt;li>fill color.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;em>Fill color&lt;/em> is pretty straightforward, but other values have some constraints they need to meet. An image we&amp;rsquo;ll be
+mutating has width and height &amp;ndash; let&amp;rsquo;s assume it&amp;rsquo;s &lt;span class="monospace">n&lt;/span>
+and &lt;span class="monospace">m&lt;/span>
+respectively. Coordinates of one of the corners, in our case it&amp;rsquo;s going to be top-left, are limited by the image
+dimensions. Width and height are limited by both image dimensions, and the coordinates we just generated.&lt;/p>
+&lt;p>$$
+x \in \lbrack 0 .. n \lbrack \newline
+y \in \lbrack 0 .. m \lbrack \newline
+width \in \lbrack 1 .. n - x + 1 \lbrack \newline
+height \in \lbrack 1 .. m - y + 1 \lbrack \newline
+$$&lt;/p>
+&lt;p>Why coordinates intervals are right-open? Because if the mutator selects the very right or bottom edge, then the
+rectangle would need to have zero width/height. By not right-closing the intervals, we ensure that there&amp;rsquo;s at least one
+pixel which can be mutated 👌. Similarly both &lt;span class="monospace">width&lt;/span>
+and &lt;span class="monospace">height&lt;/span>
+intervals are right-open to ensure that the rectangle will not overflow the image.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-rust" data-lang="rust">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">RandomRectangle&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> x: &lt;span style="color:#66d9ef">usize&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> y: &lt;span style="color:#66d9ef">usize&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> width: &lt;span style="color:#66d9ef">usize&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> height: &lt;span style="color:#66d9ef">usize&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#[must_use]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">fn&lt;/span> &lt;span style="color:#a6e22e">get_random_rectangle&lt;/span>(random: &lt;span style="color:#66d9ef">&amp;amp;&lt;/span>&lt;span style="color:#a6e22e">mut&lt;/span> Random, image: &lt;span style="color:#66d9ef">&amp;amp;&lt;/span>&lt;span style="color:#a6e22e">Image&lt;/span>) -&amp;gt; &lt;span style="color:#a6e22e">RandomRectangle&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">let&lt;/span> image_width &lt;span style="color:#f92672">=&lt;/span> image.width();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">let&lt;/span> image_height &lt;span style="color:#f92672">=&lt;/span> image.height();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">let&lt;/span> x &lt;span style="color:#f92672">=&lt;/span> random.get_random(&lt;span style="color:#ae81ff">0&lt;/span>&lt;span style="color:#66d9ef">usize&lt;/span>, image_width);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">let&lt;/span> y &lt;span style="color:#f92672">=&lt;/span> random.get_random(&lt;span style="color:#ae81ff">0&lt;/span>&lt;span style="color:#66d9ef">usize&lt;/span>, image_height);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">let&lt;/span> width &lt;span style="color:#f92672">=&lt;/span> random.get_random(&lt;span style="color:#ae81ff">0&lt;/span>&lt;span style="color:#66d9ef">usize&lt;/span>, image_width &lt;span style="color:#f92672">-&lt;/span> x) &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">let&lt;/span> height &lt;span style="color:#f92672">=&lt;/span> random.get_random(&lt;span style="color:#ae81ff">0&lt;/span>&lt;span style="color:#66d9ef">usize&lt;/span>, image_height &lt;span style="color:#f92672">-&lt;/span> y) &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> RandomRectangle {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> x,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> y,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> width,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> height,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Function &lt;code>get_random_rectangle&lt;/code> is a neat helper: based on the given &lt;span style="text-decoration: underline;">RNG&lt;/span>
+&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup> and
+image, it returns a struct representing a random rectangle within the boundaries of the image.&lt;/p>
+&lt;p>Only two things left to do: generate random color and draw the shape. The implementation of rectangle mutator will look
+like this:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-rust" data-lang="rust">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#[derive(Debug, Default)]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">pub&lt;/span> &lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">RectangleMutator&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">impl&lt;/span> Mutator &lt;span style="color:#66d9ef">for&lt;/span> RectangleMutator {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">fn&lt;/span> &lt;span style="color:#a6e22e">mutate&lt;/span>(&lt;span style="color:#f92672">&amp;amp;&lt;/span>self, image: &lt;span style="color:#66d9ef">&amp;amp;&lt;/span>&lt;span style="color:#a6e22e">mut&lt;/span> Image) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#66d9ef">mut&lt;/span> random &lt;span style="color:#f92672">=&lt;/span> Random::default();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">let&lt;/span> rect &lt;span style="color:#f92672">=&lt;/span> get_random_rectangle(&lt;span style="color:#f92672">&amp;amp;&lt;/span>&lt;span style="color:#66d9ef">mut&lt;/span> random, image);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">let&lt;/span> r &lt;span style="color:#f92672">=&lt;/span> random.get_random(&lt;span style="color:#ae81ff">0&lt;/span>&lt;span style="color:#66d9ef">u8&lt;/span>, &lt;span style="color:#ae81ff">255&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">let&lt;/span> g &lt;span style="color:#f92672">=&lt;/span> random.get_random(&lt;span style="color:#ae81ff">0&lt;/span>&lt;span style="color:#66d9ef">u8&lt;/span>, &lt;span style="color:#ae81ff">255&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">let&lt;/span> b &lt;span style="color:#f92672">=&lt;/span> random.get_random(&lt;span style="color:#ae81ff">0&lt;/span>&lt;span style="color:#66d9ef">u8&lt;/span>, &lt;span style="color:#ae81ff">255&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">let&lt;/span> image_width &lt;span style="color:#f92672">=&lt;/span> image.width();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> j &lt;span style="color:#66d9ef">in&lt;/span> rect.y&lt;span style="color:#f92672">..&lt;/span>(rect.height &lt;span style="color:#f92672">+&lt;/span> rect.y) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> i &lt;span style="color:#66d9ef">in&lt;/span> rect.x&lt;span style="color:#f92672">..&lt;/span>(rect.width &lt;span style="color:#f92672">+&lt;/span> rect.x) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">let&lt;/span> pixel &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#f92672">&amp;amp;&lt;/span>&lt;span style="color:#66d9ef">mut&lt;/span> image[j &lt;span style="color:#f92672">*&lt;/span> image_width &lt;span style="color:#f92672">+&lt;/span> i];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> pixel.r(r);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> pixel.g(g);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> pixel.b(b);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The implementation is really simple. First we get a random rectangle &lt;em>(using the helper function)&lt;/em>, then generate color
+channels, and finally draw the shape. Drawing itself is done by two nested loops iterating over columns and rows of the
+image. With the two indexes it references a specific pixel: &lt;code>j * image_width + 1&lt;/code> and finally overrides it using the
+color channels.&lt;/p>
+&lt;p>Cool, let&amp;rsquo;s see what the program generates after 10 000 generations when initialized with
+&amp;ldquo;&lt;a href="https://en.wikipedia.org/wiki/File:Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.webp">Mona Lisa&lt;/a>&amp;rdquo;.&lt;/p>
+&lt;figure class="border">&lt;img src="./output_010000.png"
+alt="Random noise"loading="lazy"
+/>&lt;figcaption>
+&lt;h4>Mona Lisa (generation #10 000)&lt;/h4>
+&lt;/figcaption>
+&lt;/figure>
+&lt;p>Doesn&amp;rsquo;t really looks like anything. 😐&lt;br>
+Which isn&amp;rsquo;t very surprising; the code did what it was suppose to do: it generated random rectangles on the white image.
+Since we don&amp;rsquo;t have any scoring logic yet (that&amp;rsquo;s a topic for another article) the resulting image is composed of random
+noise. We&amp;rsquo;ll need to wait a bit longer to get an image that even remotely reflects &amp;ldquo;Mona Lisa&amp;rdquo;.&lt;/p>
+&lt;h3 id="throwing-dice-of-other-shapes">
+Throwing dice of other shapes
+&lt;a class="anchor" href="#throwing-dice-of-other-shapes" aria-label="Anchor">
+&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
+&lt;/span>
+&lt;/a>
+&lt;/h3>
+&lt;p>It&amp;rsquo;d be nice to have mutators other than &lt;code>RectangleMutator&lt;/code>, which are able to mutate images with different shapes, but
+I&amp;rsquo;m not going to cover them here. The reason is simple &amp;ndash; they operate under the same rules: you need to define
+boundaries first and then you need to draw the desired shape. I&amp;rsquo;ve implemented two other mutators: &lt;code>TriangleMutator&lt;/code> and
+&lt;code>CircleMutator&lt;/code>. Their sources can be found
+&lt;a href="https://github.com/nathiss/franklin/tree/73aa8dada3e8c3cae9aff5e24637785268e3527a/src/mutators">here&lt;/a>.&lt;/p>
+&lt;h2 id="afterword">
+Afterword
+&lt;a class="anchor" href="#afterword" aria-label="Anchor">
+&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
+&lt;/span>
+&lt;/a>
+&lt;/h2>
+&lt;p>You might&amp;rsquo;ve noticed that the code examples of this article are not strictly bounded together, meaning you cannot just
+copy them to have a working example. A bunch of things like: &lt;code>Random&lt;/code> implementation, loading the original image,
+mutation loop, and the whole &lt;code>impl Image&lt;/code> block are missing. If you want to have a working solution it&amp;rsquo;s
+&lt;a href="https://github.com/nathiss/franklin/tree/73aa8dada3e8c3cae9aff5e24637785268e3527a">here&lt;/a> &lt;em>(locked down to the newest
+commit at the moment of writing &amp;ndash; 73aa8da)&lt;/em>. The goal of this series is not to go through every single line of code to
+build a working utility, but rather to present an idea. So, moving forward all future articles from this series will
+also be done in that style.&lt;/p>
+&lt;figure class="border">&lt;img src="./alexander-grey-2eAkk5lIkC8-unsplash.webp"
+alt="Randomness of Life"loading="lazy"
+/>&lt;figcaption>
+&lt;p>Photo by &lt;a href="https://unsplash.com/@sharonmccutcheon?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText">Alexander Grey&lt;/a> on &lt;a href="https://unsplash.com/photos/2eAkk5lIkC8?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText">Unsplash&lt;/a>&lt;/p>
+&lt;/figcaption>
+&lt;/figure>
+&lt;p>Stay tuned 🌊&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>Usually the generation is generated randomly. See
+&lt;a href="https://en.wikipedia.org/wiki/Genetic_algorithm#Initialization">here&lt;/a>.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:2">
+&lt;p>&lt;code>Random&lt;/code> is a project-private utility class. Source can be found
+&lt;a href="https://github.com/nathiss/franklin/blob/73aa8dada3e8c3cae9aff5e24637785268e3527a/src/util/random.rs">here&lt;/a>.&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description></item><item><title>Art From Chaos</title><link>https://madebyme.today/articles/franklin/art-from-chaos/</link><pubDate>Sat, 04 Mar 2023 14:50:59 +0100</pubDate><guid>https://madebyme.today/articles/franklin/art-from-chaos/</guid><description>&lt;p>Making art is hard. Drawing pictures is tedious. With programming, however, we can automate things. The point of
 automation is to reduce the amount of manual labor. So let&amp;rsquo;s mix evolution, DNA, and programming together to make art
-that &lt;em>makes&lt;/em> itself. Pictures that &lt;em>draw&lt;/em> themselves.&lt;/p></description></item><item><title>Beginnings Are Hard</title><link>https://madebyme.today/articles/beginnings-are-hard/</link><pubDate>Sat, 25 Feb 2023 20:14:43 +0100</pubDate><guid>https://madebyme.today/articles/beginnings-are-hard/</guid><description>&lt;p>Well it took some time (almost 6 years) to create a personal blog, but here we are.&lt;/p></description></item></channel></rss>
+that &lt;em>makes&lt;/em> itself. Pictures that &lt;em>draw&lt;/em> themselves.&lt;/p>
+&lt;h2 id="concepts-and-definitions">
+Concepts and definitions
+&lt;a class="anchor" href="#concepts-and-definitions" aria-label="Anchor">
+&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
+&lt;/span>
+&lt;/a>
+&lt;/h2>
+&lt;p>Before we dive deep into making art, we need to understand some important concepts &amp;ndash; first things first.
+&lt;span style="text-decoration: underline;">Automatic art&lt;/span>
+&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>, at its core, uses generic algorithms.
+&lt;a href="https://en.wikipedia.org/wiki/Genetic_algorithm">Wikipedia&lt;/a> has a really nice page about them, if you&amp;rsquo;d like to read
+it. However for the sake of the article this is enough:&lt;/p>
+&lt;p>A &lt;strong>Genetic Algorithm&lt;/strong> is an algorithm inspired by the process of natural selection used to find solutions for
+optimization problems. It has three main parts:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Mutation&lt;/strong> - during which specimens are randomly changed,&lt;/li>
+&lt;li>&lt;strong>Scoring&lt;/strong> - during which specimens are ranked by their &amp;ldquo;ability to adapt to their environment&amp;rdquo;,&lt;/li>
+&lt;li>&lt;strong>Crossing&lt;/strong> - during which one or more specimens are mixed together to produce a new member.&lt;/li>
+&lt;/ul>
+&lt;p>OK. 👌&lt;/p>
+&lt;p>With these terms out of the way, let&amp;rsquo;s try to understand how exactly it works. Imagine we need to find a solution
+for a problem. It can be anything, like finding optimal timetable for a university class. Firstly, we need to encode a
+solution as a series of bytes (their &lt;a href="https://en.wikipedia.org/wiki/Genetic_representation">Genetic representation&lt;/a>, if
+you will). Once we have that we can clone the encoded representation to create a generation.&lt;/p>
+&lt;p>Each member of the generation will be randomly &lt;strong>mutated&lt;/strong> and then &lt;strong>scored&lt;/strong> based on how well they fit in our
+constrains set. For example: we might want to have a timetable which leaves just enough break time to eat a quick lunch,
+but not too much, so that we can go home earlier. This (and similar constrains) might be used to evaluate the value of
+our new mutated timetable. With each specimen evaluated we leave a few of the best and discard the rest 💀.&lt;br>
+The last step is to mix our &lt;em>special&lt;/em> timetables to create new ones to fill the generation again.&lt;/p>
+&lt;figure>&lt;img src="./genetic-algorithm-cycle.webp"
+alt="Genetic Algorithm Cycle"loading="lazy"
+/>
+&lt;/figure>
+&lt;p>To mutate, to score, to kill, to breed, to continue the cycle of life. It might sound simple, but in reality it is
+shockingly efficient in searching the solution space.&lt;/p>
+&lt;h2 id="art-from-evolution">
+Art from evolution
+&lt;a class="anchor" href="#art-from-evolution" aria-label="Anchor">
+&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
+&lt;/span>
+&lt;/a>
+&lt;/h2>
+&lt;p>Alright. Now with the theory out of the way, let&amp;rsquo;s conceptualize a program for generating automatic art. Probably it&amp;rsquo;s
+a good moment to explain the clickbaity summary at the top of this article: the pictures will not &lt;em>draw&lt;/em> themselves, the
+goal is to make &lt;em>a program&lt;/em> which will generate art automatically. It&amp;rsquo;s going to be an iterative solution where each
+cycle is parametrized by the results of its predecessor.&lt;/p>
+&lt;h3 id="step-0-initialization">
+Step 0: Initialization
+&lt;a class="anchor" href="#step-0-initialization" aria-label="Anchor">
+&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
+&lt;/span>
+&lt;/a>
+&lt;/h3>
+&lt;p>Before we do anything towards evolution we need to prepare a generation first. So what&amp;rsquo;s our generation size? Let&amp;rsquo;s see
+if Wikipedia has something insightful to say:&lt;/p>
+&lt;blockquote>
+&lt;p>The population size depends on the nature of the problem, but typically contains several hundreds or thousands of
+possible solutions.&lt;br>
+~ &lt;a href="https://en.wikipedia.org/wiki/Genetic_algorithm">Genetic algorithm @ Wikipedia&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;p>Well, that&amp;rsquo;s really not the most helpful answer. 😐&lt;br>
+It really boils down to this: the more specimen we have, the more memory the program requires and more CPU time to
+process each generation. On the other hand, the more specimen a generation have, the wider portion of solution space it
+can search. Whatever the generation size will be, we need to have a prototype - a specimen, which cloned will fill the
+generation. Since we&amp;rsquo;re dealing with art here, a &lt;em>&lt;a href="https://en.wikipedia.org/wiki/Tabula_rasa">tabula rasa&lt;/a>&lt;/em> should be a
+fitting choice.&lt;/p>
+&lt;h3 id="step-1-mutation">
+Step 1: Mutation
+&lt;a class="anchor" href="#step-1-mutation" aria-label="Anchor">
+&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
+&lt;/span>
+&lt;/a>
+&lt;/h3>
+&lt;p>Mutation method greatly affects the end result, so it&amp;rsquo;s imperative to select a right one. Mutation algorithms are
+usually stateless, meaning modification of each specimen does not affect any other. In each iteration the mutator will
+introduce a &lt;em>small&lt;/em> change into specimens&amp;rsquo; genetic representation. On images it can be, for example: changing random
+pixels. This works, but the final image looks too detailed (in a bad way).&lt;/p>
+&lt;p>Now, the changes does not technically need to be &lt;em>small&lt;/em> per se, however applying too big changes might result in
+overriding a portion of the genome that was making this particular specimen a good candidate, thus resulting in loosing
+progress achieved by previous generations.&lt;/p>
+&lt;p>&lt;a href="https://www.google.com/search?q=generating+images+with+genetic+algorithm">If you&amp;rsquo;d google &amp;ldquo;generating images with genetic algorithm&amp;rdquo;&lt;/a>,
+you&amp;rsquo;d find that most projects on the subject use geometric shapes when applying mutation. Simple onces, like
+&lt;strong>circles&lt;/strong>, &lt;strong>rectangles&lt;/strong>, and &lt;strong>triangles&lt;/strong> are a good choice. From these it&amp;rsquo;s rectangles, that can be the most
+easily represented in code. Having said that let&amp;rsquo;s see how a single specimen might change over a few first iterations.&lt;/p>
+&lt;figure>&lt;img src="./mutation-diagram.webp"
+alt="Mutation diagram"loading="lazy"
+/>&lt;figcaption>
+&lt;p>An exemplar of a 6-generation mutation process. Starting with generation 0 - no mutation applied, till generation 5 - five mutations applied.&lt;/p>
+&lt;/figcaption>
+&lt;/figure>
+&lt;p>Each of the rectangles on that picture represents a random mutation applied onto the image, meaning that all information
+needed to unambiguously identify a rectangle (width, height, coordinates of one of the corners, and its color) have been
+randomly generated.&lt;/p>
+&lt;p>The above illustrates the risk of allowing mutations which are not constrained by their impact: the mutation introduced
+in 1&lt;sup>st&lt;/sup>
+step has been almost fully overwritten after 5 mutations. Don&amp;rsquo;t get me wrong, the result
+might be beneficial, but overall we want to utilize genome that have evolved in past generations, not to discard it
+completely.&lt;/p>
+&lt;h3 id="step-2-scoring">
+Step 2: Scoring
+&lt;a class="anchor" href="#step-2-scoring" aria-label="Anchor">
+&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
+&lt;/span>
+&lt;/a>
+&lt;/h3>
+&lt;p>Implementing scoring function can be tricky. Basically we need to have a way of mapping each specimen into an integer
+value. Then with values for all specimens we can calculate a threshold and filter out all images above it. The genetic
+algorithm does not provide to us any way of determining whether a mutation has been beneficial; that is strictly
+depends on the implementation. So let&amp;rsquo;s talk about what it is exactly we&amp;rsquo;d like to achieve here.&lt;/p>
+&lt;p>The idea behind generating images through evolution is that we have &lt;strong>an ideal&lt;/strong> to which we&amp;rsquo;re aiming to get as close
+as possible. An original image, from which will derive a collection of images &lt;em>similar&lt;/em> to it, each mutated and scored
+multiple times. A scoring function could calculate a difference between the original image and the one being currently
+scored:&lt;/p>
+&lt;p>$$ f(O, S) = \sum_{i=0}^n | O_n - S_n | \tag{1} $$&lt;/p>
+&lt;p>Both &lt;code>O&lt;/code> and &lt;code>S&lt;/code> refer to a collection of pixels representing the original image and the current specimen respectively,
+thus allowing us to index their pixels and calculate a difference between them. This, on its own, isn&amp;rsquo;t the most helpful
+piece of advice, as it glides over the fact that we a calculating a difference of &lt;em>pixels&lt;/em> not numbers, we cannot do arithmetics on them. To fix that we need to be a bit more clever here.&lt;/p>
+&lt;p>We can utilize the fact that pixels are just color, usually represented in
+&lt;a href="https://en.wikipedia.org/wiki/RGB_color_model">RGB&lt;/a> notation. Each color in the RGB color space is represented by three
+numbers from 0 to 255 (each encoding the amount of red, green, and blue). Numbers on their own don&amp;rsquo;t have any meaning,
+its the context that makes them colors, points, or geometric shapes. If we&amp;rsquo;d interpret these three numbers as
+coordinates in three-dimensional space, then they would become points. In that case, the difference between two points
+can be implemented as the distance between then:&lt;/p>
+&lt;p>$$ d(A, B) = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2} $$&lt;/p>
+&lt;p>Alright 👌. The final thought: this formula calculates the difference between two points in space, but we don&amp;rsquo;t
+really need &lt;em>the distance&lt;/em>, just &lt;em>an indication&lt;/em> of how similar the two pixels are. Since calculating a square root on
+computers is expensive, we can remove that bit and we&amp;rsquo;re left with:&lt;/p>
+&lt;p>$$ g(A, B) = (x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2 \tag{2} $$&lt;/p>
+&lt;p>By combining (1) and (2) together we get:&lt;/p>
+&lt;p>$$ f(O, S) = \sum_{i=0}^n | (r_2 - r_1)^2 + (g_2 - g_1)^2 + (b_2 - b_1)^2 | $$&lt;/p>
+&lt;p>That was a bit more mathsy that I&amp;rsquo;ve initially anticipated &lt;code>◕_◕&lt;/code>.&lt;/p>
+&lt;h3 id="step-3-crossing">
+Step 3: Crossing
+&lt;a class="anchor" href="#step-3-crossing" aria-label="Anchor">
+&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
+&lt;/span>
+&lt;/a>
+&lt;/h3>
+&lt;p>In the last step the algorithm has to fill up &lt;em>almost&lt;/em> emptied generation. This step, quoting Wikipedia, it&amp;rsquo;s:&lt;/p>
+&lt;blockquote>
+&lt;p>[&amp;hellip;] a genetic operator used to combine the genetic information of two parents to generate new offspring. [&amp;hellip;]
+Solutions can also be generated by cloning an existing solution, which is analogous to asexual reproduction.&lt;br>
+~ &lt;a href="https://en.wikipedia.org/wiki/Crossover_(genetic_algorithm)">Crossover (genetic algorithm)&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;p>There are several ways we can make it work, from naive ones:&lt;/p>
+&lt;ul>
+&lt;li>create an exact copy of one of the remaining images,&lt;/li>
+&lt;li>create a mutated copy of one of the remaining images,&lt;/li>
+&lt;li>split image into two halves and fill it with a respective half from one of the two parents,&lt;/li>
+&lt;/ul>
+&lt;p>to more sophisticated ones:&lt;/p>
+&lt;ul>
+&lt;li>for each pixel pair taken from two parents calculate an arithmetic average and use it to construct a new pixel,&lt;/li>
+&lt;li>for each pixel pair taken from two parents calculate an weighted average and use it to construct a new pixel.&lt;/li>
+&lt;/ul>
+&lt;p>The methods mentioned above differ in their complexity, but more importantly, in how fitting specimens they create. It&amp;rsquo;s
+worth to mention that in opposition to the previous two steps, this one isn&amp;rsquo;t strictly mandatory. The algorithm will
+still work without it and the generated images will look acceptable. With &lt;strong>crossing&lt;/strong>, however the algorithm generates
+more fitting specimens, relative to a one without the 3&lt;sup>rd&lt;/sup>
+step, in the same number of
+generations.&lt;/p>
+&lt;p>We will take a look at several of &lt;strong>crossing&lt;/strong> methods mentioned above and we will plot scores of their specimens as a
+function of generation number, to see how well they perform. 📈&lt;/p>
+&lt;h2 id="next-steps">
+Next steps
+&lt;a class="anchor" href="#next-steps" aria-label="Anchor">
+&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
+&lt;/span>
+&lt;/a>
+&lt;/h2>
+&lt;p>This is the first article from a series about generating art through genetic algorithms. In the next articles &lt;em>(coming
+up soon-ish)&lt;/em> we&amp;rsquo;ll turn those ideas into &lt;a href="https://www.rust-lang.org/">Rust&lt;/a> code and after that we&amp;rsquo;ll finally make art
+that makes itself.&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;figure class="border">&lt;img src="./brett-jordan-M3cxjDNiLlQ-unsplash.webp"
+alt="Order and Chaos"loading="lazy"
+/>&lt;figcaption>
+&lt;p>Photo by &lt;a href="https://unsplash.com/@brett_jordan?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText">Brett Jordan&lt;/a> on &lt;a href="https://unsplash.com/photos/M3cxjDNiLlQ?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText">Unsplash&lt;/a>&lt;/p>
+&lt;/figcaption>
+&lt;/figure>
+&lt;p>See you around!&lt;/p>
+&lt;p>🌊&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>Term coined by me. If you want to read more about art generated by algorithms you should probably look for
+&lt;a href="https://en.wikipedia.org/wiki/Algorithmic_art">Algorithmic art&lt;/a>.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description></item><item><title>Beginnings Are Hard</title><link>https://madebyme.today/articles/beginnings-are-hard/</link><pubDate>Sat, 25 Feb 2023 20:14:43 +0100</pubDate><guid>https://madebyme.today/articles/beginnings-are-hard/</guid><description>&lt;p>Well it took some time (almost 6 years) to create a personal blog, but here we are.&lt;/p>
+&lt;h2 id="how-did-we-come-here">
+How did we come here?
+&lt;a class="anchor" href="#how-did-we-come-here" aria-label="Anchor">
+&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
+&lt;/span>
+&lt;/a>
+&lt;/h2>
+&lt;p>This is not the first attempt on creating my own website. On my &lt;a href="https://github.com/nathiss">GitHub&lt;/a> there are many
+(most of them private) repos, which contains some sort of &lt;em>personal website&lt;/em>. All of them abandoned, but not this one!&lt;/p>
+&lt;p>&amp;hellip; at least not yet. ✌(-‿-)✌ However I&amp;rsquo;m optimistic.&lt;/p>
+&lt;p>To better understand why I have such high hopes for this project let&amp;rsquo;s go down the rabbit hole and analyze its ancestors
+and try to point out why they failed.&lt;/p>
+&lt;h3 id="platform-1-0x52-django-22">
+Platform 1: 0x52 (Django 2.2)
+&lt;a class="anchor" href="#platform-1-0x52-django-22" aria-label="Anchor">
+&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
+&lt;/span>
+&lt;/a>
+&lt;/h3>
+&lt;p>&lt;a href="https://www.djangoproject.com/">Django&lt;/a> is one of the first tools I&amp;rsquo;ve ever used to create something on the web.&lt;/p>
+&lt;blockquote>
+&lt;p>Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design.
+Built by experienced developers, it takes care of much of the hassle of web development, so you can focus on writing
+your app without needing to reinvent the wheel. It’s free and open source.&lt;br>
+~ &lt;a href="https://www.djangoproject.com/">Django website&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;p>Using that framework I&amp;rsquo;ve built a web journal. The idea was that at any moment I could use one of my devices to create
+a new journal entry. They were automatically sorted by creation date and tagged with tokens retrieved from the entry&amp;rsquo;s
+content. The latter deserves a bit more digging into, so let&amp;rsquo;s consider the following entry:&lt;/p>
+&lt;blockquote>
+&lt;p>Lorem ipsum @dolor sit amet, consectetur adipiscing elit. Aliquam sed eleifend magna. @Quisque venenatis ex ex, a
+suscipit purus iaculis ac. Sed @lacinia tincidunt nunc vitae consectetur.&lt;/p>
+&lt;/blockquote>
+&lt;p>A tag is a sequence of characters between &lt;code>'@'&lt;/code> and one of &lt;code>',&amp;lt;.&amp;gt;/?;:\'&amp;quot;[{]}\\|()=+#$%^&amp;amp;*~\r\n '&lt;/code>. When an entry was
+either created or modified, then the logic extracted tags from content:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">@staticmethod&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">extract_tag_names&lt;/span>(text):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> words &lt;span style="color:#f92672">=&lt;/span> re&lt;span style="color:#f92672">.&lt;/span>split(Tag&lt;span style="color:#f92672">.&lt;/span>escape_delimiters(Tag&lt;span style="color:#f92672">.&lt;/span>TAG_DELIMITERS), text)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> words &lt;span style="color:#f92672">=&lt;/span> list(filter(&lt;span style="color:#66d9ef">None&lt;/span>, words))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> [tag_name[&lt;span style="color:#ae81ff">1&lt;/span>:]&lt;span style="color:#f92672">.&lt;/span>lower() &lt;span style="color:#66d9ef">for&lt;/span> tag_name &lt;span style="color:#f92672">in&lt;/span> words &lt;span style="color:#66d9ef">if&lt;/span> tag_name&lt;span style="color:#f92672">.&lt;/span>startswith(Tag&lt;span style="color:#f92672">.&lt;/span>TAG_SYMBOL)]
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>It worked pretty well. I could create a new tag or use an already existing one. When the tag was orphaned &lt;em>(meaning it
+was referenced by no entry)&lt;/em> the logic was able to take care of that too. 👀&lt;/p>
+&lt;p>The solution was designed to be used by more that one user: each person would have an account and they would be able to
+access only their own entries and tags.&lt;/p>
+&lt;p>What happened with that project? I used it for a while, but after some time I wasn&amp;rsquo;t really actively adding new entries,
+so it just fated away. Also it was more of a personal utility website, than a blog. It was publicly available on
+&lt;a href="https://www.heroku.com/">Heroku&lt;/a> until quite recently actually. I took down the website when &lt;a href="https://help.heroku.com/RSBRUH58/removal-of-heroku-free-product-plans-faq">Heroku announced their
+removal of free product plans&lt;/a>.&lt;/p>
+&lt;h3 id="platform-2-titan-aspnet">
+Platform 2: Titan (ASP.NET)
+&lt;a class="anchor" href="#platform-2-titan-aspnet" aria-label="Anchor">
+&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
+&lt;/span>
+&lt;/a>
+&lt;/h3>
+&lt;p>This was &lt;em>an another&lt;/em> iteration of personal website development. I&amp;rsquo;ve decided to use
+&lt;a href="https://en.wikipedia.org/wiki/.NET">.NET&lt;/a> for this one, because earlier in that year I got my first job in the field
+and I was hyped to build something with the technology we used at work &lt;em>(we were developing a few solutions and one of
+them was built on top of &lt;a href="https://en.wikipedia.org/wiki/.NET_Framework">.NET Framework&lt;/a>)&lt;/em>.&lt;/p>
+&lt;p>Sadly I deleted the source code some time ago as a part of my GitHub purge, but I remember quite vividly the problem(s)
+with this one. In a sentence: it was too overengineered.&lt;/p>
+&lt;blockquote>
+&lt;p>the strategy is definitely: first make it work, then make it right, and, finally, make it fast.&lt;br>
+~ &amp;ldquo;The C Language and Models for Systems Programming&amp;rdquo; in Byte magazine (August 1983)&lt;/p>
+&lt;/blockquote>
+&lt;p>I wanted to use &lt;a href="https://en.wikipedia.org/wiki/JSON_Web_Token">JWT&lt;/a> as a user authentication method. I&amp;rsquo;ve read on many
+places on the web that it&amp;rsquo;s a bad idea, but still I was devoted to make it work. One of the issues I was aware of was
+that you cannot &lt;em>easily&lt;/em> and &lt;em>permanently&lt;/em> logout a user when using JWT.&lt;/p>
+&lt;p>In a nutshell JWT are tokens stored on the client-side. However, due to encryption, they can only be read by the
+service. So with each request the client sends its token to the sever (like a cookie, you might say). If the token is
+well-formed, then the server, with quite high certainty, can assume it wasn&amp;rsquo;t tinkered with.&lt;/p>
+&lt;p>Going back to logout issue: to ensure that session will not last indefinitely the server could add &lt;code>&amp;quot;expiryDate&amp;quot;&lt;/code> field
+to payload and check its value with each request and respond accordingly. That works pretty well. The client has no way
+of modifying &lt;code>&amp;quot;expiryDate&amp;quot;&lt;/code>.&lt;/p>
+&lt;p>Yet it&amp;rsquo;s much harder to kill the session before token expiries. My attempt was to add a new field to token&amp;rsquo;s payload
+which would indicate that its no longer valid and send it back to the client. The problem though is that the client does
+not &lt;strong>need&lt;/strong> to use the new token. It still can use the old one and, since we don&amp;rsquo;t store session information on the
+server, the service has not way of detecting that. 💢&lt;/p>
+&lt;p>The solution I came up with was to use &lt;a href="https://redis.io/">Redis&lt;/a>. To store that information on the server-side.&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>Redis:&lt;/strong>
+The open source, in-memory data store used by millions of developers as a database, cache, streaming engine,
+and message broker.&lt;/p>
+&lt;/blockquote>
+&lt;p>Once the server decides the user should be logged out, it will store JWT&amp;rsquo;s ID in Redis alongside with an indication of
+whether the session has ended.&lt;/p>
+&lt;p>Can you see now when I said it was overengineered? So many complex solutions for a logout functionality. The project
+ended because I was too wornout to finish it.&lt;/p>
+&lt;h3 id="platform-3-polaris-react">
+Platform 3: Polaris (React)
+&lt;a class="anchor" href="#platform-3-polaris-react" aria-label="Anchor">
+&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
+&lt;/span>
+&lt;/a>
+&lt;/h3>
+&lt;p>I&amp;rsquo;m actually quite proud of this one. It&amp;rsquo;s a static website running on &lt;a href="https://reactjs.org/">React&lt;/a> and hosting my
+vector graphics. It&amp;rsquo;s painfully simple, but that was kinda the point. I wanted to have a way of hosting those images
+ASAP, hence React and GitHub Pages, &lt;a href="https://www.madebyme.today/Polaris/">where the website is actually hosted&lt;/a>.&lt;/p>
+&lt;p>It wasn&amp;rsquo;t my first contact with technologies used in frontend, but it was the first time when I used &lt;em>state of the art&lt;/em>
+tools for a new website. My knowledge of &lt;a href="https://nodejs.org/en/">NodeJS&lt;/a> and utilities built on top of it was
+practically nonexistent. That changed once I&amp;rsquo;ve written Polaris; now I&amp;rsquo;m just new to this stuff.&lt;/p>
+&lt;figure class="border">&lt;a href="https://madebyme.today/Polaris/" target="_blank">&lt;img src="./steam-on-the-horizon-small.webp"
+alt="Steam on the horizon"loading="lazy"
+/>&lt;/a>&lt;figcaption>
+&lt;h4>Steam on the horizon&lt;/h4>
+&lt;/figcaption>
+&lt;/figure>
+&lt;p>I don&amp;rsquo;t have much more to say here other that, it was a while when I&amp;rsquo;ve used &lt;a href="https://inkscape.org/">Inkscape&lt;/a> to create
+those images and when I needed to use it again, for the sake of this blog, it was terrifying to see how much one can
+forget what one has learned. ಠ_ಠ&lt;/p>
+&lt;h3 id="platforms-long-forgotten">
+Platforms long forgotten
+&lt;a class="anchor" href="#platforms-long-forgotten" aria-label="Anchor">
+&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
+&lt;/span>
+&lt;/a>
+&lt;/h3>
+&lt;p>There were many more projects which aimed to create my personal space on the web, but only these mentioned above are
+still remembered by me enough to write a few sentences about.&lt;/p>
+&lt;p>It&amp;rsquo;s safe to say they all suffered from the same fundamental flaws:&lt;/p>
+&lt;ul>
+&lt;li>they were too complex,&lt;/li>
+&lt;li>they were trying to solve all possible future problem without aiming to deliver the most basic functionality,&lt;/li>
+&lt;li>backend is hard.&lt;/li>
+&lt;/ul>
+&lt;p>This blog, on the other hand, is a static content website build with &lt;a href="https://gohugo.io/">Hugo&lt;/a>. I think to some extend
+I was aware that tools like Hugo existed, but I&amp;rsquo;ve never considered using them. I cannot really explain as to why; maybe
+I was trying too hard to use a new fancy tool I&amp;rsquo;ve just learned about.&lt;/p>
+&lt;h2 id="the-goal-and-future-of-this-project">
+The goal and future of this project
+&lt;a class="anchor" href="#the-goal-and-future-of-this-project" aria-label="Anchor">
+&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
+&lt;/span>
+&lt;/a>
+&lt;/h2>
+&lt;p>The goal of this project is to create an archive for stuff I&amp;rsquo;m going to learn. It&amp;rsquo;s still unclear as to what I&amp;rsquo;m going
+to post on this blog, but it&amp;rsquo;s safe to say that it&amp;rsquo;s going to be techy.&lt;/p>
+&lt;p>I cannot say with any amount of certainty how often I&amp;rsquo;ll be writing new articles. I&amp;rsquo;m really looking forward to making
+new content though. I believe it will also tilt me significantly into learning about new things.&lt;/p>
+&lt;p>There are still some adjustments I need to make on the website, I&amp;rsquo;m probably going to focus on them before I&amp;rsquo;ll work on
+new articles, but in general it is functionally complete.&lt;/p>
+&lt;p>So as of now, thank you for reading.&lt;/p>
+&lt;p>🌊&lt;/p></description></item></channel></rss>
