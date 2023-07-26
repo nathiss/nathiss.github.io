@@ -116,7 +116,8 @@ scored:&lt;/p>
 &lt;p>$$ f(O, S) = \sum_{i=0}^n | O_n - S_n | \tag{1} $$&lt;/p>
 &lt;p>Both &lt;code>O&lt;/code> and &lt;code>S&lt;/code> refer to a collection of pixels representing the original image and the current specimen respectively,
 thus allowing us to index their pixels and calculate a difference between them. This, on its own, isn&amp;rsquo;t the most helpful
-piece of advice, as it glides over the fact that we a calculating a difference of &lt;em>pixels&lt;/em> not numbers, we cannot do arithmetics on them. To fix that we need to be a bit more clever here.&lt;/p>
+piece of advice, as it glides over the fact that we a calculating a difference of &lt;em>pixels&lt;/em> not numbers, we cannot do
+arithmetics on them. To fix that we need to be a bit more clever here.&lt;/p>
 &lt;p>We can utilize the fact that pixels are just color, usually represented in
 &lt;a href="https://en.wikipedia.org/wiki/RGB_color_model">RGB&lt;/a> notation. Each color in the RGB color space is represented by three
 numbers from 0 to 255 (each encoding the amount of red, green, and blue). Numbers on their own don&amp;rsquo;t have any meaning,
