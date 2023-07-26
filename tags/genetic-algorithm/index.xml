@@ -161,8 +161,7 @@ Fixing &amp;ldquo;Mona Lisa&amp;rdquo;
 &lt;/a>
 &lt;/h2>
 &lt;p>Let&amp;rsquo;s wire up the scoring component with generation&amp;rsquo;s flow. During each generation, every specimens will be scored
-relatively to the ideal image. Using the scores we will select the best &lt;span style="text-decoration: underline;">5&lt;/span>
-&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>
+relatively to the ideal image. Using the scores we will select the best &lt;span style="text-decoration: underline;">5&lt;/span>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>
 organisms and discard the rest.&lt;/p>
 &lt;p>Since there&amp;rsquo;s no crossover functionality yet, we need to fill the emptied generation space somehow. &lt;strong>Simplest
 solution:&lt;/strong> once we have 5 best specimens, we&amp;rsquo;ll copy them over multiple times, to get a new generation 100 strong.&lt;/p>
@@ -226,8 +225,7 @@ color channels to the same value. True, it uses thrice as much memory as it coul
 &lt;p>Premature optimization is the root of all evil.&lt;br>
 ~ Donald Knuth&lt;/p>
 &lt;/blockquote>
-&lt;p>&lt;span style="text-decoration: underline;">Method of initializing&lt;/span>
-&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> the generation will affect how fast we can search the
+&lt;p>&lt;span style="text-decoration: underline;">Method of initializing&lt;/span>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> the generation will affect how fast we can search the
 solution space. As the algorithm produces more fitted images, the specimens get closed to the source image. But we don&amp;rsquo;t
 really care about how &lt;em>fast&lt;/em> the optimum can be achieved, frankly, we don&amp;rsquo;t really care about achieving the optimum in
 the first place. It is &lt;em>the process&lt;/em> of getting more fitted images and seeing how they evolve what&amp;rsquo;s really interesting.
@@ -352,8 +350,7 @@ intervals are right-open to ensure that the rectangle will not overflow the imag
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> height,
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Function &lt;code>get_random_rectangle&lt;/code> is a neat helper: based on the given &lt;span style="text-decoration: underline;">RNG&lt;/span>
-&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup> and
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Function &lt;code>get_random_rectangle&lt;/code> is a neat helper: based on the given &lt;span style="text-decoration: underline;">RNG&lt;/span>&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup> and
 image, it returns a struct representing a random rectangle within the boundaries of the image.&lt;/p>
 &lt;p>Only two things left to do: generate random color and draw the shape. The implementation of rectangle mutator will look
 like this:&lt;/p>
@@ -454,8 +451,7 @@ Concepts and definitions
 &lt;/a>
 &lt;/h2>
 &lt;p>Before we dive deep into making art, we need to understand some important concepts &amp;ndash; first things first.
-&lt;span style="text-decoration: underline;">Automatic art&lt;/span>
-&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>, at its core, uses generic algorithms.
+&lt;span style="text-decoration: underline;">Automatic art&lt;/span>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>, at its core, uses generic algorithms.
 &lt;a href="https://en.wikipedia.org/wiki/Genetic_algorithm">Wikipedia&lt;/a> has a really nice page about them, if you&amp;rsquo;d like to read
 it. However for the sake of the article this is enough:&lt;/p>
 &lt;p>A &lt;strong>Genetic Algorithm&lt;/strong> is an algorithm inspired by the process of natural selection used to find solutions for
