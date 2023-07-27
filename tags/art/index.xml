@@ -84,12 +84,14 @@ progress achieved by previous generations.&lt;/p>
 you&amp;rsquo;d find that most projects on the subject use geometric shapes when applying mutation. Simple onces, like
 &lt;strong>circles&lt;/strong>, &lt;strong>rectangles&lt;/strong>, and &lt;strong>triangles&lt;/strong> are a good choice. From these it&amp;rsquo;s rectangles, that can be the most
 easily represented in code. Having said that let&amp;rsquo;s see how a single specimen might change over a few first iterations.&lt;/p>
+&lt;!-- raw HTML omitted -->
 &lt;figure>&lt;img src="./mutation-diagram.webp"
 alt="Mutation diagram"loading="lazy"
 />&lt;figcaption>
 &lt;p>An exemplar of a 6-generation mutation process. Starting with generation 0 - no mutation applied, till generation 5 - five mutations applied.&lt;/p>
 &lt;/figcaption>
 &lt;/figure>
+&lt;!-- raw HTML omitted -->
 &lt;p>Each of the rectangles on that picture represents a random mutation applied onto the image, meaning that all information
 needed to unambiguously identify a rectangle (width, height, coordinates of one of the corners, and its color) have been
 randomly generated.&lt;/p>
@@ -175,12 +177,14 @@ Next steps
 up soon-ish)&lt;/em> we&amp;rsquo;ll turn those ideas into &lt;a href="https://www.rust-lang.org/">Rust&lt;/a> code and after that we&amp;rsquo;ll finally make art
 that makes itself.&lt;/p>
 &lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted -->
 &lt;figure class="border">&lt;img src="./brett-jordan-M3cxjDNiLlQ-unsplash.webp"
 alt="Order and Chaos"loading="lazy"
 />&lt;figcaption>
 &lt;p>Photo by &lt;a href="https://unsplash.com/@brett_jordan?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText">Brett Jordan&lt;/a> on &lt;a href="https://unsplash.com/photos/M3cxjDNiLlQ?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText">Unsplash&lt;/a>&lt;/p>
 &lt;/figcaption>
 &lt;/figure>
+&lt;!-- raw HTML omitted -->
 &lt;p>See you around!&lt;/p>
 &lt;p>🌊&lt;/p>
 &lt;!-- raw HTML omitted -->

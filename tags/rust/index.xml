@@ -328,12 +328,14 @@ alt="Mona Lisa (generation #10 000)"loading="lazy"
 the algorithm works and it produces acceptable results.&lt;/p>
 &lt;p>Next, we&amp;rsquo;ll implement the crossing function and we&amp;rsquo;ll see how much it improves algorithm&amp;rsquo;s efficiency &amp;ndash; defined as the
 derivative of specimen score with respect to generation number.&lt;/p>
+&lt;!-- raw HTML omitted -->
 &lt;figure class="border">&lt;img src="./fernando-venzano-ddVYvmwrvV4-unsplash.webp"
 alt="On the Origin of Species"loading="lazy"
 />&lt;figcaption>
 &lt;p>Photo by &lt;a href="https://unsplash.com/pt-br/@fernandovenzano?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText">Fernando Venzano&lt;/a> on &lt;a href="https://unsplash.com/photos/ddVYvmwrvV4?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText">Unsplash&lt;/a>&lt;/p>
 &lt;/figcaption>
 &lt;/figure>
+&lt;!-- raw HTML omitted -->
 &lt;!-- raw HTML omitted -->
 &lt;div class="footnotes" role="doc-endnotes">
 &lt;hr>
@@ -572,12 +574,14 @@ mutation loop, and the whole &lt;code>impl Image&lt;/code> block are missing. If
 commit at the moment of writing &amp;ndash; 73aa8da)&lt;/em>. The goal of this series is not to go through every single line of code to
 build a working utility, but rather to present an idea. So, moving forward all future articles from this series will
 also be done in that style.&lt;/p>
+&lt;!-- raw HTML omitted -->
 &lt;figure class="border">&lt;img src="./alexander-grey-2eAkk5lIkC8-unsplash.webp"
 alt="Randomness of Life"loading="lazy"
 />&lt;figcaption>
 &lt;p>Photo by &lt;a href="https://unsplash.com/@sharonmccutcheon?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText">Alexander Grey&lt;/a> on &lt;a href="https://unsplash.com/photos/2eAkk5lIkC8?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText">Unsplash&lt;/a>&lt;/p>
 &lt;/figcaption>
 &lt;/figure>
+&lt;!-- raw HTML omitted -->
 &lt;p>Stay tuned 🌊&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="footnotes" role="doc-endnotes">
