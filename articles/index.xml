@@ -243,7 +243,7 @@ working. I lost a significant amount of time looking for some configuration issu
 everything again to no avail.&lt;/p>
 &lt;p>Then I saw that some of my GitHub Actions are not being triggered. 🤔 I dig a bit more and it turned out
 &lt;a href="https://www.githubstatus.com/incidents/z3c6q056q332">GitHub was having issues&lt;/a>.&lt;/p>
-&lt;p>&lt;a href="https://www.githubstatus.com/">GitHub Status&lt;/a> is a great site to keep in your RSS feed. Then issues arise, they
+&lt;p>&lt;a href="https://www.githubstatus.com/">GitHub Status&lt;/a> is a great site to keep in your RSS feed. When issues arise, they
 cascade.&lt;/p></description></item><item><title>Beginnings Are Hard</title><link>https://madebyme.today/articles/beginnings-are-hard/</link><pubDate>Sat, 25 Feb 2023 20:14:43 +0100</pubDate><guid>https://madebyme.today/articles/beginnings-are-hard/</guid><description>&lt;p>Well it took some time (almost 6 years) to create a personal blog, but here we are.&lt;/p>
 &lt;h2 id="how-did-we-come-here">
 How did we come here?

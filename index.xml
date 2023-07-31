@@ -439,7 +439,7 @@ working. I lost a significant amount of time looking for some configuration issu
 everything again to no avail.&lt;/p>
 &lt;p>Then I saw that some of my GitHub Actions are not being triggered. 🤔 I dig a bit more and it turned out
 &lt;a href="https://www.githubstatus.com/incidents/z3c6q056q332">GitHub was having issues&lt;/a>.&lt;/p>
-&lt;p>&lt;a href="https://www.githubstatus.com/">GitHub Status&lt;/a> is a great site to keep in your RSS feed. Then issues arise, they
+&lt;p>&lt;a href="https://www.githubstatus.com/">GitHub Status&lt;/a> is a great site to keep in your RSS feed. When issues arise, they
 cascade.&lt;/p></description></item><item><title>Randomness of Life</title><link>https://madebyme.today/articles/franklin/randomness-of-life/</link><pubDate>Mon, 20 Mar 2023 10:02:19 +0100</pubDate><guid>https://madebyme.today/articles/franklin/randomness-of-life/</guid><description>&lt;p>In &lt;a href="https://madebyme.today/articles/franklin/art-from-chaos/">the previous article&lt;/a> from this series, we&amp;rsquo;ve talked about
 genetic algorithms and how they can be used to generate art. Now let&amp;rsquo;s put those ideas into action and focus on
 implementing the first part of our artistic toolset: &lt;strong>mutators&lt;/strong>.&lt;/p>
