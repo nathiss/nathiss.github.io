@@ -20,17 +20,17 @@ implementing the first part of our artistic toolset: <strong>mutators</strong>.<
 <a class=anchor href=#preparing-the-ecosystem aria-label=Anchor><span class=inline-svg><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></h2><p>Before we begin working on mutators, we need to prepare an environment in which our specimens can thrive. We don&rsquo;t need
 much - right now the only thing is <em>a generation</em>. For the record, in this context, a generation is a collection of
 specimen which can be mutated, scored, and bred (basically experimented upon) to get us closer to the optimum. Since our
-specimens are images, they can be represented by the following structs:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rust data-lang=rust><span style=display:flex><span><span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>Pixel</span> {
-</span></span><span style=display:flex><span>    r: <span style=color:#66d9ef>u8</span>,
-</span></span><span style=display:flex><span>    g: <span style=color:#66d9ef>u8</span>,
-</span></span><span style=display:flex><span>    b: <span style=color:#66d9ef>u8</span>,
-</span></span><span style=display:flex><span>}
+specimens are images, they can be represented by the following structs:</p><div class=highlight><pre tabindex=0 style=color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rust data-lang=rust><span style=display:flex><span><span style=color:#00a8c8>struct</span> <span style=color:#75af00>Pixel</span> <span style=color:#111>{</span>
+</span></span><span style=display:flex><span>    <span style=color:#111>r</span>: <span style=color:#00a8c8>u8</span><span style=color:#111>,</span>
+</span></span><span style=display:flex><span>    <span style=color:#111>g</span>: <span style=color:#00a8c8>u8</span><span style=color:#111>,</span>
+</span></span><span style=display:flex><span>    <span style=color:#111>b</span>: <span style=color:#00a8c8>u8</span><span style=color:#111>,</span>
+</span></span><span style=display:flex><span><span style=color:#111>}</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>Image</span> {
-</span></span><span style=display:flex><span>    height: <span style=color:#66d9ef>usize</span>,
-</span></span><span style=display:flex><span>    width: <span style=color:#66d9ef>usize</span>,
-</span></span><span style=display:flex><span>    pixels: Vec<span style=color:#f92672>&lt;</span>Pixel<span style=color:#f92672>&gt;</span>,
-</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#00a8c8>struct</span> <span style=color:#75af00>Image</span> <span style=color:#111>{</span>
+</span></span><span style=display:flex><span>    <span style=color:#111>height</span>: <span style=color:#00a8c8>usize</span><span style=color:#111>,</span>
+</span></span><span style=display:flex><span>    <span style=color:#111>width</span>: <span style=color:#00a8c8>usize</span><span style=color:#111>,</span>
+</span></span><span style=display:flex><span>    <span style=color:#111>pixels</span>: <span style=color:#111>Vec</span><span style=color:#f92672>&lt;</span><span style=color:#111>Pixel</span><span style=color:#f92672>&gt;</span><span style=color:#111>,</span>
+</span></span><span style=display:flex><span><span style=color:#111>}</span>
 </span></span></code></pre></div><p>Representing each pixel as a 24-bit value gives us some flexibility here &ndash; it allows us to operate on two color depths:
 <a href=https://en.wikipedia.org/wiki/Color_depth#True_color_(24-bit)>true color</a> (which uses 24-bit colors) and
 <a href=https://en.wikipedia.org/wiki/Grayscale>grayscale</a> (8-bit). Creating a grayscale pixel can be done by setting up all
@@ -40,51 +40,51 @@ really care about how <em>fast</em> the optimum can be achieved, frankly, we don
 the first place. It is <em>the process</em> of getting more fitted images and seeing how they evolve what&rsquo;s really interesting.
 Therefore our generation will be initialized by blank images - images filled by white pixels. It will reduce pace of
 solution space search, but will produce images that are more visually interesting. We are here to do art, after all.
-🎨</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rust data-lang=rust><span style=display:flex><span><span style=color:#66d9ef>impl</span> Pixel {
+🎨</p><div class=highlight><pre tabindex=0 style=color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rust data-lang=rust><span style=display:flex><span><span style=color:#00a8c8>impl</span> <span style=color:#111>Pixel</span> <span style=color:#111>{</span>
 </span></span><span style=display:flex><span>    <span style=color:#75715e>#[must_use]</span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>pub</span> <span style=color:#66d9ef>const</span> <span style=color:#66d9ef>fn</span> <span style=color:#a6e22e>white</span>() -&gt; <span style=color:#a6e22e>Self</span> {
-</span></span><span style=display:flex><span>        Pixel::new(<span style=color:#ae81ff>255</span>, <span style=color:#ae81ff>255</span>, <span style=color:#ae81ff>255</span>)
-</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#00a8c8>pub</span> <span style=color:#00a8c8>const</span> <span style=color:#00a8c8>fn</span> <span style=color:#75af00>white</span><span style=color:#111>()</span> -&gt; <span style=color:#75af00>Self</span> <span style=color:#111>{</span>
+</span></span><span style=display:flex><span>        <span style=color:#111>Pixel</span>::<span style=color:#111>new</span><span style=color:#111>(</span><span style=color:#ae81ff>255</span><span style=color:#111>,</span> <span style=color:#ae81ff>255</span><span style=color:#111>,</span> <span style=color:#ae81ff>255</span><span style=color:#111>)</span>
+</span></span><span style=display:flex><span>    <span style=color:#111>}</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>    <span style=color:#75715e>#[must_use]</span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>pub</span> <span style=color:#66d9ef>const</span> <span style=color:#66d9ef>fn</span> <span style=color:#a6e22e>new</span>(r: <span style=color:#66d9ef>u8</span>, g: <span style=color:#66d9ef>u8</span>, b: <span style=color:#66d9ef>u8</span>) -&gt; <span style=color:#a6e22e>Self</span> {
-</span></span><span style=display:flex><span>        Pixel { r, g, b }
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>    <span style=color:#00a8c8>pub</span> <span style=color:#00a8c8>const</span> <span style=color:#00a8c8>fn</span> <span style=color:#75af00>new</span><span style=color:#111>(</span><span style=color:#111>r</span>: <span style=color:#00a8c8>u8</span><span style=color:#111>,</span> <span style=color:#111>g</span>: <span style=color:#00a8c8>u8</span><span style=color:#111>,</span> <span style=color:#111>b</span>: <span style=color:#00a8c8>u8</span><span style=color:#111>)</span> -&gt; <span style=color:#75af00>Self</span> <span style=color:#111>{</span>
+</span></span><span style=display:flex><span>        <span style=color:#111>Pixel</span> <span style=color:#111>{</span> <span style=color:#111>r</span><span style=color:#111>,</span> <span style=color:#111>g</span><span style=color:#111>,</span> <span style=color:#111>b</span> <span style=color:#111>}</span>
+</span></span><span style=display:flex><span>    <span style=color:#111>}</span>
+</span></span><span style=display:flex><span><span style=color:#111>}</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>impl</span> Image {
+</span></span><span style=display:flex><span><span style=color:#00a8c8>impl</span> <span style=color:#111>Image</span> <span style=color:#111>{</span>
 </span></span><span style=display:flex><span>    <span style=color:#75715e>#[must_use]</span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>pub</span> <span style=color:#66d9ef>fn</span> <span style=color:#a6e22e>new</span>(height: <span style=color:#66d9ef>usize</span>, width: <span style=color:#66d9ef>usize</span>, pixels: Vec<span style=color:#f92672>&lt;</span>Pixel<span style=color:#f92672>&gt;</span>) -&gt; <span style=color:#a6e22e>Self</span> {
-</span></span><span style=display:flex><span>        Self {
-</span></span><span style=display:flex><span>            height,
-</span></span><span style=display:flex><span>            width,
-</span></span><span style=display:flex><span>            pixels,
-</span></span><span style=display:flex><span>        }
-</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#00a8c8>pub</span> <span style=color:#00a8c8>fn</span> <span style=color:#75af00>new</span><span style=color:#111>(</span><span style=color:#111>height</span>: <span style=color:#00a8c8>usize</span><span style=color:#111>,</span> <span style=color:#111>width</span>: <span style=color:#00a8c8>usize</span><span style=color:#111>,</span> <span style=color:#111>pixels</span>: <span style=color:#111>Vec</span><span style=color:#f92672>&lt;</span><span style=color:#111>Pixel</span><span style=color:#f92672>&gt;</span><span style=color:#111>)</span> -&gt; <span style=color:#75af00>Self</span> <span style=color:#111>{</span>
+</span></span><span style=display:flex><span>        <span style=color:#111>Self</span> <span style=color:#111>{</span>
+</span></span><span style=display:flex><span>            <span style=color:#111>height</span><span style=color:#111>,</span>
+</span></span><span style=display:flex><span>            <span style=color:#111>width</span><span style=color:#111>,</span>
+</span></span><span style=display:flex><span>            <span style=color:#111>pixels</span><span style=color:#111>,</span>
+</span></span><span style=display:flex><span>        <span style=color:#111>}</span>
+</span></span><span style=display:flex><span>    <span style=color:#111>}</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>    <span style=color:#75715e>#[must_use]</span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>pub</span> <span style=color:#66d9ef>fn</span> <span style=color:#a6e22e>blank</span>(height: <span style=color:#66d9ef>usize</span>, width: <span style=color:#66d9ef>usize</span>, pixel: <span style=color:#66d9ef>&amp;</span><span style=color:#a6e22e>Pixel</span>) -&gt; <span style=color:#a6e22e>Self</span> {
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>let</span> size <span style=color:#f92672>=</span> height <span style=color:#f92672>*</span> width;
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>let</span> pixels <span style=color:#f92672>=</span> vec![pixel.clone(); size];
+</span></span><span style=display:flex><span>    <span style=color:#00a8c8>pub</span> <span style=color:#00a8c8>fn</span> <span style=color:#75af00>blank</span><span style=color:#111>(</span><span style=color:#111>height</span>: <span style=color:#00a8c8>usize</span><span style=color:#111>,</span> <span style=color:#111>width</span>: <span style=color:#00a8c8>usize</span><span style=color:#111>,</span> <span style=color:#111>pixel</span>: <span style=color:#00a8c8>&amp;</span><span style=color:#75af00>Pixel</span><span style=color:#111>)</span> -&gt; <span style=color:#75af00>Self</span> <span style=color:#111>{</span>
+</span></span><span style=display:flex><span>        <span style=color:#00a8c8>let</span> <span style=color:#111>size</span> <span style=color:#f92672>=</span> <span style=color:#111>height</span> <span style=color:#f92672>*</span> <span style=color:#111>width</span><span style=color:#111>;</span>
+</span></span><span style=display:flex><span>        <span style=color:#00a8c8>let</span> <span style=color:#111>pixels</span> <span style=color:#f92672>=</span> <span style=color:#111>vec!</span><span style=color:#111>[</span><span style=color:#111>pixel</span><span style=color:#111>.</span><span style=color:#111>clone</span><span style=color:#111>();</span> <span style=color:#111>size</span><span style=color:#111>];</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>        Self::new(height, width, pixels)
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>        <span style=color:#111>Self</span>::<span style=color:#111>new</span><span style=color:#111>(</span><span style=color:#111>height</span><span style=color:#111>,</span> <span style=color:#111>width</span><span style=color:#111>,</span> <span style=color:#111>pixels</span><span style=color:#111>)</span>
+</span></span><span style=display:flex><span>    <span style=color:#111>}</span>
+</span></span><span style=display:flex><span><span style=color:#111>}</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e>#[must_use]</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>fn</span> <span style=color:#a6e22e>get_first_generation</span>(
-</span></span><span style=display:flex><span>    vec_len: <span style=color:#66d9ef>usize</span>,
-</span></span><span style=display:flex><span>    image_height: <span style=color:#66d9ef>usize</span>,
-</span></span><span style=display:flex><span>    image_width: <span style=color:#66d9ef>usize</span>
-</span></span><span style=display:flex><span>) -&gt; Vec<span style=color:#f92672>&lt;</span>Image<span style=color:#f92672>&gt;</span> {
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>let</span> pixel <span style=color:#f92672>=</span> Pixel::white();
-</span></span><span style=display:flex><span>    vec![Image::blank(height, width, <span style=color:#f92672>&amp;</span>pixel); vec_len]
-</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#00a8c8>fn</span> <span style=color:#75af00>get_first_generation</span><span style=color:#111>(</span>
+</span></span><span style=display:flex><span>    <span style=color:#111>vec_len</span>: <span style=color:#00a8c8>usize</span><span style=color:#111>,</span>
+</span></span><span style=display:flex><span>    <span style=color:#111>image_height</span>: <span style=color:#00a8c8>usize</span><span style=color:#111>,</span>
+</span></span><span style=display:flex><span>    <span style=color:#111>image_width</span>: <span style=color:#00a8c8>usize</span>
+</span></span><span style=display:flex><span><span style=color:#111>)</span> -&gt; <span style=color:#111>Vec</span><span style=color:#f92672>&lt;</span><span style=color:#111>Image</span><span style=color:#f92672>&gt;</span> <span style=color:#111>{</span>
+</span></span><span style=display:flex><span>    <span style=color:#00a8c8>let</span> <span style=color:#111>pixel</span> <span style=color:#f92672>=</span> <span style=color:#111>Pixel</span>::<span style=color:#111>white</span><span style=color:#111>();</span>
+</span></span><span style=display:flex><span>    <span style=color:#111>vec!</span><span style=color:#111>[</span><span style=color:#111>Image</span>::<span style=color:#111>blank</span><span style=color:#111>(</span><span style=color:#111>height</span><span style=color:#111>,</span> <span style=color:#111>width</span><span style=color:#111>,</span> <span style=color:#f92672>&amp;</span><span style=color:#111>pixel</span><span style=color:#111>);</span> <span style=color:#111>vec_len</span><span style=color:#111>]</span>
+</span></span><span style=display:flex><span><span style=color:#111>}</span>
 </span></span></code></pre></div><p>This code takes care of initializing the generation. 👌</p><h2 id=throwing-dice-and-hoping-for-the-best>Throwing dice and hoping for the best
 <a class=anchor href=#throwing-dice-and-hoping-for-the-best aria-label=Anchor><span class=inline-svg><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></h2><p>As was mentioned in the previous article, mutators act only on one specimen at a time, inserting random modification
-onto it. With that description alone, we can already define a contract for all mutators we&rsquo;re going to implement:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rust data-lang=rust><span style=display:flex><span><span style=color:#66d9ef>pub</span> <span style=color:#66d9ef>trait</span> Mutator {
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>fn</span> <span style=color:#a6e22e>mutate</span>(<span style=color:#f92672>&amp;</span>self, image: <span style=color:#66d9ef>&amp;</span><span style=color:#a6e22e>mut</span> Image);
-</span></span><span style=display:flex><span>}
+onto it. With that description alone, we can already define a contract for all mutators we&rsquo;re going to implement:</p><div class=highlight><pre tabindex=0 style=color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rust data-lang=rust><span style=display:flex><span><span style=color:#00a8c8>pub</span> <span style=color:#00a8c8>trait</span> <span style=color:#111>Mutator</span> <span style=color:#111>{</span>
+</span></span><span style=display:flex><span>    <span style=color:#00a8c8>fn</span> <span style=color:#75af00>mutate</span><span style=color:#111>(</span><span style=color:#f92672>&amp;</span><span style=color:#111>self</span><span style=color:#111>,</span> <span style=color:#111>image</span>: <span style=color:#00a8c8>&amp;</span><span style=color:#75af00>mut</span> <span style=color:#111>Image</span><span style=color:#111>);</span>
+</span></span><span style=display:flex><span><span style=color:#111>}</span>
 </span></span></code></pre></div><p>Why <code>&amp;self</code> and not <code>&amp;mut self</code>? Due to the fact that mutations are independent of one another, they can be performed
 concurrently. In fact, as we will see in the future articles, mutating and scoring are the only steps that can be
 <em>easily</em> run in parallel.</p><figure><img src=./genetic-algorithm-flow.webp alt="Genetic Algorithm Flow" loading=lazy><figcaption><p>A diagram showing the flow of actions applied on a single generation.</p></figcaption></figure><h3 id=throwing-a-rectangular-dice>Throwing a rectangular dice
@@ -102,57 +102,57 @@ $$</p><p>Why coordinates intervals are right-open? Because if the mutator select
 rectangle would need to have zero width/height. By not right-closing the intervals, we ensure that there&rsquo;s at least one
 pixel which can be mutated 👌. Similarly both <span class=monospace>width</span>
 and <span class=monospace>height</span>
-intervals are right-open to ensure that the rectangle will not overflow the image.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rust data-lang=rust><span style=display:flex><span><span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>RandomRectangle</span> {
-</span></span><span style=display:flex><span>    x: <span style=color:#66d9ef>usize</span>,
-</span></span><span style=display:flex><span>    y: <span style=color:#66d9ef>usize</span>,
-</span></span><span style=display:flex><span>    width: <span style=color:#66d9ef>usize</span>,
-</span></span><span style=display:flex><span>    height: <span style=color:#66d9ef>usize</span>,
-</span></span><span style=display:flex><span>}
+intervals are right-open to ensure that the rectangle will not overflow the image.</p><div class=highlight><pre tabindex=0 style=color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rust data-lang=rust><span style=display:flex><span><span style=color:#00a8c8>struct</span> <span style=color:#75af00>RandomRectangle</span> <span style=color:#111>{</span>
+</span></span><span style=display:flex><span>    <span style=color:#111>x</span>: <span style=color:#00a8c8>usize</span><span style=color:#111>,</span>
+</span></span><span style=display:flex><span>    <span style=color:#111>y</span>: <span style=color:#00a8c8>usize</span><span style=color:#111>,</span>
+</span></span><span style=display:flex><span>    <span style=color:#111>width</span>: <span style=color:#00a8c8>usize</span><span style=color:#111>,</span>
+</span></span><span style=display:flex><span>    <span style=color:#111>height</span>: <span style=color:#00a8c8>usize</span><span style=color:#111>,</span>
+</span></span><span style=display:flex><span><span style=color:#111>}</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e>#[must_use]</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>fn</span> <span style=color:#a6e22e>get_random_rectangle</span>(random: <span style=color:#66d9ef>&amp;</span><span style=color:#a6e22e>mut</span> Random, image: <span style=color:#66d9ef>&amp;</span><span style=color:#a6e22e>Image</span>) -&gt; <span style=color:#a6e22e>RandomRectangle</span> {
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>let</span> image_width <span style=color:#f92672>=</span> image.width();
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>let</span> image_height <span style=color:#f92672>=</span> image.height();
+</span></span><span style=display:flex><span><span style=color:#00a8c8>fn</span> <span style=color:#75af00>get_random_rectangle</span><span style=color:#111>(</span><span style=color:#111>random</span>: <span style=color:#00a8c8>&amp;</span><span style=color:#75af00>mut</span> <span style=color:#111>Random</span><span style=color:#111>,</span> <span style=color:#111>image</span>: <span style=color:#00a8c8>&amp;</span><span style=color:#75af00>Image</span><span style=color:#111>)</span> -&gt; <span style=color:#75af00>RandomRectangle</span> <span style=color:#111>{</span>
+</span></span><span style=display:flex><span>    <span style=color:#00a8c8>let</span> <span style=color:#111>image_width</span> <span style=color:#f92672>=</span> <span style=color:#111>image</span><span style=color:#111>.</span><span style=color:#111>width</span><span style=color:#111>();</span>
+</span></span><span style=display:flex><span>    <span style=color:#00a8c8>let</span> <span style=color:#111>image_height</span> <span style=color:#f92672>=</span> <span style=color:#111>image</span><span style=color:#111>.</span><span style=color:#111>height</span><span style=color:#111>();</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>let</span> x <span style=color:#f92672>=</span> random.get_random(<span style=color:#ae81ff>0</span><span style=color:#66d9ef>usize</span>, image_width);
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>let</span> y <span style=color:#f92672>=</span> random.get_random(<span style=color:#ae81ff>0</span><span style=color:#66d9ef>usize</span>, image_height);
+</span></span><span style=display:flex><span>    <span style=color:#00a8c8>let</span> <span style=color:#111>x</span> <span style=color:#f92672>=</span> <span style=color:#111>random</span><span style=color:#111>.</span><span style=color:#111>get_random</span><span style=color:#111>(</span><span style=color:#ae81ff>0</span><span style=color:#00a8c8>usize</span><span style=color:#111>,</span> <span style=color:#111>image_width</span><span style=color:#111>);</span>
+</span></span><span style=display:flex><span>    <span style=color:#00a8c8>let</span> <span style=color:#111>y</span> <span style=color:#f92672>=</span> <span style=color:#111>random</span><span style=color:#111>.</span><span style=color:#111>get_random</span><span style=color:#111>(</span><span style=color:#ae81ff>0</span><span style=color:#00a8c8>usize</span><span style=color:#111>,</span> <span style=color:#111>image_height</span><span style=color:#111>);</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>let</span> width <span style=color:#f92672>=</span> random.get_random(<span style=color:#ae81ff>0</span><span style=color:#66d9ef>usize</span>, image_width <span style=color:#f92672>-</span> x) <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>;
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>let</span> height <span style=color:#f92672>=</span> random.get_random(<span style=color:#ae81ff>0</span><span style=color:#66d9ef>usize</span>, image_height <span style=color:#f92672>-</span> y) <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>    <span style=color:#00a8c8>let</span> <span style=color:#111>width</span> <span style=color:#f92672>=</span> <span style=color:#111>random</span><span style=color:#111>.</span><span style=color:#111>get_random</span><span style=color:#111>(</span><span style=color:#ae81ff>0</span><span style=color:#00a8c8>usize</span><span style=color:#111>,</span> <span style=color:#111>image_width</span> <span style=color:#f92672>-</span> <span style=color:#111>x</span><span style=color:#111>)</span> <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span><span style=color:#111>;</span>
+</span></span><span style=display:flex><span>    <span style=color:#00a8c8>let</span> <span style=color:#111>height</span> <span style=color:#f92672>=</span> <span style=color:#111>random</span><span style=color:#111>.</span><span style=color:#111>get_random</span><span style=color:#111>(</span><span style=color:#ae81ff>0</span><span style=color:#00a8c8>usize</span><span style=color:#111>,</span> <span style=color:#111>image_height</span> <span style=color:#f92672>-</span> <span style=color:#111>y</span><span style=color:#111>)</span> <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span><span style=color:#111>;</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    RandomRectangle {
-</span></span><span style=display:flex><span>        x,
-</span></span><span style=display:flex><span>        y,
-</span></span><span style=display:flex><span>        width,
-</span></span><span style=display:flex><span>        height,
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>    <span style=color:#111>RandomRectangle</span> <span style=color:#111>{</span>
+</span></span><span style=display:flex><span>        <span style=color:#111>x</span><span style=color:#111>,</span>
+</span></span><span style=display:flex><span>        <span style=color:#111>y</span><span style=color:#111>,</span>
+</span></span><span style=display:flex><span>        <span style=color:#111>width</span><span style=color:#111>,</span>
+</span></span><span style=display:flex><span>        <span style=color:#111>height</span><span style=color:#111>,</span>
+</span></span><span style=display:flex><span>    <span style=color:#111>}</span>
+</span></span><span style=display:flex><span><span style=color:#111>}</span>
 </span></span></code></pre></div><p>Function <code>get_random_rectangle</code> is a neat helper: based on the given <span style=text-decoration:underline>RNG</span><sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup> and
 image, it returns a struct representing a random rectangle within the boundaries of the image.</p><p>Only two things left to do: generate random color and draw the shape. The implementation of rectangle mutator will look
-like this:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rust data-lang=rust><span style=display:flex><span><span style=color:#75715e>#[derive(Debug, Default)]</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>pub</span> <span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>RectangleMutator</span>;
+like this:</p><div class=highlight><pre tabindex=0 style=color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rust data-lang=rust><span style=display:flex><span><span style=color:#75715e>#[derive(Debug, Default)]</span>
+</span></span><span style=display:flex><span><span style=color:#00a8c8>pub</span> <span style=color:#00a8c8>struct</span> <span style=color:#75af00>RectangleMutator</span><span style=color:#111>;</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>impl</span> Mutator <span style=color:#66d9ef>for</span> RectangleMutator {
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>fn</span> <span style=color:#a6e22e>mutate</span>(<span style=color:#f92672>&amp;</span>self, image: <span style=color:#66d9ef>&amp;</span><span style=color:#a6e22e>mut</span> Image) {
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>let</span> <span style=color:#66d9ef>mut</span> random <span style=color:#f92672>=</span> Random::default();
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>let</span> rect <span style=color:#f92672>=</span> get_random_rectangle(<span style=color:#f92672>&amp;</span><span style=color:#66d9ef>mut</span> random, image);
+</span></span><span style=display:flex><span><span style=color:#00a8c8>impl</span> <span style=color:#111>Mutator</span> <span style=color:#00a8c8>for</span> <span style=color:#111>RectangleMutator</span> <span style=color:#111>{</span>
+</span></span><span style=display:flex><span>    <span style=color:#00a8c8>fn</span> <span style=color:#75af00>mutate</span><span style=color:#111>(</span><span style=color:#f92672>&amp;</span><span style=color:#111>self</span><span style=color:#111>,</span> <span style=color:#111>image</span>: <span style=color:#00a8c8>&amp;</span><span style=color:#75af00>mut</span> <span style=color:#111>Image</span><span style=color:#111>)</span> <span style=color:#111>{</span>
+</span></span><span style=display:flex><span>        <span style=color:#00a8c8>let</span> <span style=color:#00a8c8>mut</span> <span style=color:#111>random</span> <span style=color:#f92672>=</span> <span style=color:#111>Random</span>::<span style=color:#111>default</span><span style=color:#111>();</span>
+</span></span><span style=display:flex><span>        <span style=color:#00a8c8>let</span> <span style=color:#111>rect</span> <span style=color:#f92672>=</span> <span style=color:#111>get_random_rectangle</span><span style=color:#111>(</span><span style=color:#f92672>&amp;</span><span style=color:#00a8c8>mut</span> <span style=color:#111>random</span><span style=color:#111>,</span> <span style=color:#111>image</span><span style=color:#111>);</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>let</span> r <span style=color:#f92672>=</span> random.get_random(<span style=color:#ae81ff>0</span><span style=color:#66d9ef>u8</span>, <span style=color:#ae81ff>255</span>);
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>let</span> g <span style=color:#f92672>=</span> random.get_random(<span style=color:#ae81ff>0</span><span style=color:#66d9ef>u8</span>, <span style=color:#ae81ff>255</span>);
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>let</span> b <span style=color:#f92672>=</span> random.get_random(<span style=color:#ae81ff>0</span><span style=color:#66d9ef>u8</span>, <span style=color:#ae81ff>255</span>);
+</span></span><span style=display:flex><span>        <span style=color:#00a8c8>let</span> <span style=color:#111>r</span> <span style=color:#f92672>=</span> <span style=color:#111>random</span><span style=color:#111>.</span><span style=color:#111>get_random</span><span style=color:#111>(</span><span style=color:#ae81ff>0</span><span style=color:#00a8c8>u8</span><span style=color:#111>,</span> <span style=color:#ae81ff>255</span><span style=color:#111>);</span>
+</span></span><span style=display:flex><span>        <span style=color:#00a8c8>let</span> <span style=color:#111>g</span> <span style=color:#f92672>=</span> <span style=color:#111>random</span><span style=color:#111>.</span><span style=color:#111>get_random</span><span style=color:#111>(</span><span style=color:#ae81ff>0</span><span style=color:#00a8c8>u8</span><span style=color:#111>,</span> <span style=color:#ae81ff>255</span><span style=color:#111>);</span>
+</span></span><span style=display:flex><span>        <span style=color:#00a8c8>let</span> <span style=color:#111>b</span> <span style=color:#f92672>=</span> <span style=color:#111>random</span><span style=color:#111>.</span><span style=color:#111>get_random</span><span style=color:#111>(</span><span style=color:#ae81ff>0</span><span style=color:#00a8c8>u8</span><span style=color:#111>,</span> <span style=color:#ae81ff>255</span><span style=color:#111>);</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>let</span> image_width <span style=color:#f92672>=</span> image.width();
+</span></span><span style=display:flex><span>        <span style=color:#00a8c8>let</span> <span style=color:#111>image_width</span> <span style=color:#f92672>=</span> <span style=color:#111>image</span><span style=color:#111>.</span><span style=color:#111>width</span><span style=color:#111>();</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> j <span style=color:#66d9ef>in</span> rect.y<span style=color:#f92672>..</span>(rect.height <span style=color:#f92672>+</span> rect.y) {
-</span></span><span style=display:flex><span>            <span style=color:#66d9ef>for</span> i <span style=color:#66d9ef>in</span> rect.x<span style=color:#f92672>..</span>(rect.width <span style=color:#f92672>+</span> rect.x) {
-</span></span><span style=display:flex><span>                <span style=color:#66d9ef>let</span> pixel <span style=color:#f92672>=</span> <span style=color:#f92672>&amp;</span><span style=color:#66d9ef>mut</span> image[j <span style=color:#f92672>*</span> image_width <span style=color:#f92672>+</span> i];
-</span></span><span style=display:flex><span>                pixel.r(r);
-</span></span><span style=display:flex><span>                pixel.g(g);
-</span></span><span style=display:flex><span>                pixel.b(b);
-</span></span><span style=display:flex><span>            }
-</span></span><span style=display:flex><span>        }
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>        <span style=color:#00a8c8>for</span> <span style=color:#111>j</span> <span style=color:#00a8c8>in</span> <span style=color:#111>rect</span><span style=color:#111>.</span><span style=color:#111>y</span><span style=color:#f92672>..</span><span style=color:#111>(</span><span style=color:#111>rect</span><span style=color:#111>.</span><span style=color:#111>height</span> <span style=color:#f92672>+</span> <span style=color:#111>rect</span><span style=color:#111>.</span><span style=color:#111>y</span><span style=color:#111>)</span> <span style=color:#111>{</span>
+</span></span><span style=display:flex><span>            <span style=color:#00a8c8>for</span> <span style=color:#111>i</span> <span style=color:#00a8c8>in</span> <span style=color:#111>rect</span><span style=color:#111>.</span><span style=color:#111>x</span><span style=color:#f92672>..</span><span style=color:#111>(</span><span style=color:#111>rect</span><span style=color:#111>.</span><span style=color:#111>width</span> <span style=color:#f92672>+</span> <span style=color:#111>rect</span><span style=color:#111>.</span><span style=color:#111>x</span><span style=color:#111>)</span> <span style=color:#111>{</span>
+</span></span><span style=display:flex><span>                <span style=color:#00a8c8>let</span> <span style=color:#111>pixel</span> <span style=color:#f92672>=</span> <span style=color:#f92672>&amp;</span><span style=color:#00a8c8>mut</span> <span style=color:#111>image</span><span style=color:#111>[</span><span style=color:#111>j</span> <span style=color:#f92672>*</span> <span style=color:#111>image_width</span> <span style=color:#f92672>+</span> <span style=color:#111>i</span><span style=color:#111>];</span>
+</span></span><span style=display:flex><span>                <span style=color:#111>pixel</span><span style=color:#111>.</span><span style=color:#111>r</span><span style=color:#111>(</span><span style=color:#111>r</span><span style=color:#111>);</span>
+</span></span><span style=display:flex><span>                <span style=color:#111>pixel</span><span style=color:#111>.</span><span style=color:#111>g</span><span style=color:#111>(</span><span style=color:#111>g</span><span style=color:#111>);</span>
+</span></span><span style=display:flex><span>                <span style=color:#111>pixel</span><span style=color:#111>.</span><span style=color:#111>b</span><span style=color:#111>(</span><span style=color:#111>b</span><span style=color:#111>);</span>
+</span></span><span style=display:flex><span>            <span style=color:#111>}</span>
+</span></span><span style=display:flex><span>        <span style=color:#111>}</span>
+</span></span><span style=display:flex><span>    <span style=color:#111>}</span>
+</span></span><span style=display:flex><span><span style=color:#111>}</span>
 </span></span></code></pre></div><p>The implementation is really simple. First we get a random rectangle <em>(using the helper function)</em>, then generate color
 channels, and finally draw the shape. Drawing itself is done by two nested loops iterating over columns and rows of the
 image. With the two indexes it references a specific pixel: <code>j * image_width + 1</code> and finally overrides it using the
