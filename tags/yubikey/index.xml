@@ -90,4 +90,4 @@ everything again to no avail.&lt;/p>
 &lt;p>Then I saw that some of my GitHub Actions are not being triggered. 🤔 I dig a bit more and it turned out
 &lt;a href="https://www.githubstatus.com/incidents/z3c6q056q332">GitHub was having issues&lt;/a>.&lt;/p>
 &lt;p>&lt;a href="https://www.githubstatus.com/">GitHub Status&lt;/a> is a great site to keep in your RSS feed. When issues arise, they
-cascade.&lt;/p></description></item></channel></rss>
+cascade.&lt;/p></description><category>how-to</category><category>yubikey</category></item></channel></rss>

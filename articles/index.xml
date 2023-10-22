@@ -1,4 +1,236 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Articles on MadeByMe</title><link>https://madebyme.today/articles/</link><description>Recent content in Articles on MadeByMe</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright &amp;copy;</copyright><lastBuildDate>Wed, 26 Jul 2023 09:08:18 +0200</lastBuildDate><atom:link href="https://madebyme.today/articles/index.xml" rel="self" type="application/rss+xml"/><item><title>Cancellable</title><link>https://madebyme.today/articles/cancellable/</link><pubDate>Wed, 26 Jul 2023 09:08:18 +0200</pubDate><guid>https://madebyme.today/articles/cancellable/</guid><description>&lt;p>Recently I&amp;rsquo;m investing a lot of time to developing a game server in &lt;a href="https://www.rust-lang.org/">Rust&lt;/a>. I started with
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Articles on MadeByMe</title><link>https://madebyme.today/articles/</link><description>Recent content in Articles on MadeByMe</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright &amp;copy;</copyright><lastBuildDate>Sat, 21 Oct 2023 23:16:09 +0200</lastBuildDate><atom:link href="https://madebyme.today/articles/index.xml" rel="self" type="application/rss+xml"/><item><title>Keep a Changelog</title><link>https://madebyme.today/articles/keep-a-changelog/</link><pubDate>Sat, 21 Oct 2023 23:16:09 +0200</pubDate><guid>https://madebyme.today/articles/keep-a-changelog/</guid><description>&lt;p>Recently I was tasked with initialization of a new Python project. One of the requirements was to prepare a changelog.
+I liked the idea, but my gut feeling was that the future project contributors won&amp;rsquo;t keep the changelog always up-to-date
+and it&amp;rsquo;s quality will decline over time.&lt;/p>
+&lt;p>This article proposes a feature which enforces changelog updates, when it&amp;rsquo;s required to do so.&lt;/p>
+&lt;h2 id="whats-a-changelog">
+What&amp;rsquo;s a changelog
+&lt;a class="anchor" href="#whats-a-changelog" aria-label="Anchor">
+&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
+&lt;/span>
+&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>A &lt;strong>changelog&lt;/strong> is a log or record of all notable changes made to a project. The project is often a website or
+software project, and the changelog usually includes records of changes such as bug fixes, new features, etc.&lt;/p>
+&lt;/blockquote>
+&lt;p>from &lt;a href="https://en.wikipedia.org/wiki/Changelog">Wikipedia&lt;/a>.&lt;/p>
+&lt;p>The phrase &amp;ldquo;notable changes&amp;rdquo; is the key here. Not all changes to the project are required to have an entry in its
+changelog: workflow updates, typo fixes in README, SonarQube settings; they all are transparent to the Python package
+produced by the project.&lt;/p>
+&lt;p>Let&amp;rsquo;s take a look at an example:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├─ .github
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>│ └─ workflows
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>│ └── workflow.yaml
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├─ docs
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>│ ├─ conf.py
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>│ ├─ index.rst
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>│ └─ Makefile
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├─ foo
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>│ ├─ __init__.py
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>│ └─ bar
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>│ ├─ __init__.py
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>│ └─ baz.py
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├─ tests
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>│ ├─ __init__.py
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>│ └─ test_bar.py
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├─ .gitignore
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├─ README.md
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├─ Makefile
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├─ setup.py
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├─ Manifest.in
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├─ pyproject.toml
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>└─ Changelog.md
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This is a pretty standard (and also minimalistic!) take on a Python project. The pipeline defined in
+&lt;code>.github/workflows/workflow.yaml&lt;/code> builds, tests and publishes the package. Initially project stored its version in
+&lt;code>pyproject.toml&lt;/code>, while &lt;code>Changelog.md&lt;/code> contained human-readable lists of additions, fixes, and improvements for each
+release. Having a standard usually makes things easier, so we adopted
+&lt;a href="https://keepachangelog.com/en/1.1.0/">keep a changelog&lt;/a>, which also uses
+&lt;a href="https://semver.org/spec/v2.0.0.html">Semantic Versioning 2.0.0&lt;/a>, so that was nice.&lt;/p>
+&lt;p>&lt;a href="https://keepachangelog.com/en/1.1.0/">Keep a changelog&lt;/a> is just a Markdown template &amp;ndash; it has no associated toolset.
+Here&amp;rsquo;s an example of a changelog with two entries:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-md" data-lang="md">&lt;span style="display:flex;">&lt;span># Changelog
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>All notable changes to this project will be documented in this file.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>The format is based on [&lt;span style="color:#f92672">Keep a Changelog&lt;/span>](&lt;span style="color:#75af00">https://keepachangelog.com/en/1.0.0/&lt;/span>),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>and this project adheres to [&lt;span style="color:#f92672">Semantic Versioning&lt;/span>](&lt;span style="color:#75af00">https://semver.org/spec/v2.0.0.html&lt;/span>).
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>## [1.2.0] - 2023-10-01
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>### Added
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#00a8c8">-&lt;/span> Support for Python 3.12.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#00a8c8">-&lt;/span> Utility for parsing &lt;span style="color:#d88200">`foo`&lt;/span>.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>### Fixed
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#00a8c8">-&lt;/span> Worker subprocesses are now correctly closed.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>### Changed
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#00a8c8">-&lt;/span> Update &lt;span style="color:#d88200">`pylint`&lt;/span> version to &lt;span style="color:#d88200">`~= 2.17`&lt;/span>.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>## [1.1.2] - 2019-02-15
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>### Fixed
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#00a8c8">-&lt;/span> Typo in project&amp;#39;s title in docs.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="keeping-a-changelog-up-to-date">
+Keep(ing) a changelog up-to-date
+&lt;a class="anchor" href="#keeping-a-changelog-up-to-date" aria-label="Anchor">
+&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
+&lt;/span>
+&lt;/a>
+&lt;/h2>
+&lt;p>When releasing a new package version one needs to remember to update the version in two places: &lt;code>pyproject.toml&lt;/code> and
+&lt;code>Changelog.md&lt;/code>. Also, there&amp;rsquo;s no mechanism to enforce that behavior; we could create a workflow step to validate that
+both places are in sync, but relaying on CI to inform contributors about the necessary changes seems far from ideal.&lt;/p>
+&lt;p>Instead, we made &lt;code>Changelog.md&lt;/code> the only place where the version can be updated. &lt;code>pyproject.toml&lt;/code> expects the version to
+be statically defined; we can disable that behavior by marking the version as &lt;em>dynamic&lt;/em>.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-toml" data-lang="toml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#111">[&lt;/span>&lt;span style="color:#75af00">build-system&lt;/span>&lt;span style="color:#111">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75af00">requires&lt;/span> &lt;span style="color:#111">=&lt;/span> &lt;span style="color:#111">[&lt;/span>&lt;span style="color:#d88200">&amp;#34;setuptools&amp;#34;&lt;/span>&lt;span style="color:#111">,&lt;/span> &lt;span style="color:#d88200">&amp;#34;wheel&amp;#34;&lt;/span>&lt;span style="color:#111">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75af00">build-backend&lt;/span> &lt;span style="color:#111">=&lt;/span> &lt;span style="color:#d88200">&amp;#34;setuptools.build_meta&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#111">[&lt;/span>&lt;span style="color:#75af00">project&lt;/span>&lt;span style="color:#111">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75af00">name&lt;/span> &lt;span style="color:#111">=&lt;/span> &lt;span style="color:#d88200">&amp;#34;foo&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75af00">readme&lt;/span> &lt;span style="color:#111">=&lt;/span> &lt;span style="color:#d88200">&amp;#34;README.md&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75af00">requires-python&lt;/span> &lt;span style="color:#111">=&lt;/span> &lt;span style="color:#d88200">&amp;#34;&amp;gt;=3.9&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75af00">dependencies&lt;/span> &lt;span style="color:#111">=&lt;/span> &lt;span style="color:#111">[&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#d88200">&amp;#34;requests&amp;#34;&lt;/span>&lt;span style="color:#111">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#111">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75af00">dynamic&lt;/span> &lt;span style="color:#111">=&lt;/span> &lt;span style="color:#111">[&lt;/span>&lt;span style="color:#d88200">&amp;#34;version&amp;#34;&lt;/span>&lt;span style="color:#111">]&lt;/span> &lt;span style="color:#75715e"># &amp;lt;----&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The version still needs to be defined somewhere, and using &lt;code>setup.py&lt;/code> for that purpose gives us an advantage &amp;ndash; we can
+execute an arbitrary Python code there.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> &lt;span style="color:#111">re&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> &lt;span style="color:#111">pathlib&lt;/span> &lt;span style="color:#f92672">import&lt;/span> &lt;span style="color:#111">Path&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> &lt;span style="color:#111">typing&lt;/span> &lt;span style="color:#f92672">import&lt;/span> &lt;span style="color:#111">Generator&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> &lt;span style="color:#111">setuptools&lt;/span> &lt;span style="color:#f92672">import&lt;/span> &lt;span style="color:#111">setup&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#00a8c8">def&lt;/span> &lt;span style="color:#75af00">__get_versions&lt;/span>&lt;span style="color:#111">()&lt;/span> &lt;span style="color:#f92672">-&amp;gt;&lt;/span> &lt;span style="color:#111">Generator&lt;/span>&lt;span style="color:#111">[&lt;/span>&lt;span style="color:#111">tuple&lt;/span>&lt;span style="color:#111">[&lt;/span>&lt;span style="color:#111">int&lt;/span>&lt;span style="color:#111">,&lt;/span> &lt;span style="color:#111">int&lt;/span>&lt;span style="color:#111">,&lt;/span> &lt;span style="color:#111">int&lt;/span>&lt;span style="color:#111">],&lt;/span> &lt;span style="color:#00a8c8">None&lt;/span>&lt;span style="color:#111">,&lt;/span> &lt;span style="color:#00a8c8">None&lt;/span>&lt;span style="color:#111">]:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#111">dir_name&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#111">Path&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#111">__file__&lt;/span>&lt;span style="color:#111">)&lt;/span>&lt;span style="color:#f92672">.&lt;/span>&lt;span style="color:#111">parent&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#00a8c8">with&lt;/span> &lt;span style="color:#111">open&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#111">dir_name&lt;/span> &lt;span style="color:#f92672">/&lt;/span> &lt;span style="color:#d88200">&amp;#34;Changelog.md&amp;#34;&lt;/span>&lt;span style="color:#111">,&lt;/span> &lt;span style="color:#d88200">&amp;#34;r&amp;#34;&lt;/span>&lt;span style="color:#111">)&lt;/span> &lt;span style="color:#00a8c8">as&lt;/span> &lt;span style="color:#111">file&lt;/span>&lt;span style="color:#111">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#111">lines&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#111">file&lt;/span>&lt;span style="color:#f92672">.&lt;/span>&lt;span style="color:#111">readlines&lt;/span>&lt;span style="color:#111">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#00a8c8">for&lt;/span> &lt;span style="color:#111">line&lt;/span> &lt;span style="color:#f92672">in&lt;/span> &lt;span style="color:#111">lines&lt;/span>&lt;span style="color:#111">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#111">m&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#111">re&lt;/span>&lt;span style="color:#f92672">.&lt;/span>&lt;span style="color:#00a8c8">match&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#d88200">r&lt;/span>&lt;span style="color:#d88200">&amp;#34;^##\s+\[(\d+\.\d+\.\d+)\]&amp;#34;&lt;/span>&lt;span style="color:#111">,&lt;/span> &lt;span style="color:#111">line&lt;/span>&lt;span style="color:#111">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#00a8c8">if&lt;/span> &lt;span style="color:#111">m&lt;/span>&lt;span style="color:#111">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#111">x&lt;/span>&lt;span style="color:#111">,&lt;/span> &lt;span style="color:#111">y&lt;/span>&lt;span style="color:#111">,&lt;/span> &lt;span style="color:#111">z&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#111">m&lt;/span>&lt;span style="color:#f92672">.&lt;/span>&lt;span style="color:#111">group&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#111">)&lt;/span>&lt;span style="color:#f92672">.&lt;/span>&lt;span style="color:#111">split&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#d88200">&amp;#34;.&amp;#34;&lt;/span>&lt;span style="color:#111">,&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#111">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#00a8c8">yield&lt;/span> &lt;span style="color:#111">int&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#111">x&lt;/span>&lt;span style="color:#111">),&lt;/span> &lt;span style="color:#111">int&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#111">y&lt;/span>&lt;span style="color:#111">),&lt;/span> &lt;span style="color:#111">int&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#111">z&lt;/span>&lt;span style="color:#111">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#00a8c8">def&lt;/span> &lt;span style="color:#75af00">__get_highest_version&lt;/span>&lt;span style="color:#111">()&lt;/span> &lt;span style="color:#f92672">-&amp;gt;&lt;/span> &lt;span style="color:#111">str&lt;/span>&lt;span style="color:#111">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#111">highest_version&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#111">max&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#111">__get_versions&lt;/span>&lt;span style="color:#111">())&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#00a8c8">return&lt;/span> &lt;span style="color:#d88200">&amp;#34;.&amp;#34;&lt;/span>&lt;span style="color:#f92672">.&lt;/span>&lt;span style="color:#111">join&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#111">map&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#111">str&lt;/span>&lt;span style="color:#111">,&lt;/span> &lt;span style="color:#111">highest_version&lt;/span>&lt;span style="color:#111">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#111">setup&lt;/span>&lt;span style="color:#111">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#111">version&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#111">__get_highest_version&lt;/span>&lt;span style="color:#111">(),&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#111">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Now the only place where package&amp;rsquo;s version needs to be updated is the changelog itself. Note that this change does not
+enforce updating the changelog for every change. However, to release a new version of the package one is required to
+add a new changelog entry.&lt;/p>
+&lt;p>Now, since the presence of &lt;code>Changelog.md&lt;/code> is necessary for the build to succeed, we should inform the build system about
+this dependency. &lt;code>MANIFEST.in&lt;/code> contains include/exclude patters for non-standard files (see
+&lt;a href="https://packaging.python.org/en/latest/guides/using-manifest-in/">official docs&lt;/a>). Add the following line to the
+manifest:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span># ...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>include Changelog.md
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="accessing-project-version-from-sphinx">
+Accessing project version from Sphinx
+&lt;a class="anchor" href="#accessing-project-version-from-sphinx" aria-label="Anchor">
+&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
+&lt;/span>
+&lt;/a>
+&lt;/h3>
+&lt;p>&lt;a href="https://www.sphinx-doc.org/en/master/">Sphinx&lt;/a> is a most popular tool for generating documentation out of Python source
+files. It keeps its configuration in the &lt;code>conf.py&lt;/code> file, which has two special attributes related to the project&amp;rsquo;s
+version:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>version&lt;/code> &amp;ndash; the major project version (see
+&lt;a href="https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-version">official documentation&lt;/a>),&lt;/li>
+&lt;li>&lt;code>release&lt;/code> &amp;ndash; the full project version (see
+&lt;a href="https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-release">official documentation&lt;/a>).&lt;/li>
+&lt;/ul>
+&lt;p>With the current setup it&amp;rsquo;s hard for Sphinx to read the version, since it&amp;rsquo;s only accessible from &lt;code>setup.py&lt;/code>. The easiest
+workaround is to extract the parsing to an external module and then use that module as a dependency in both &lt;code>conf.py&lt;/code>
+and &lt;code>setup.py&lt;/code>.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># version.py&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> &lt;span style="color:#111">re&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> &lt;span style="color:#111">pathlib&lt;/span> &lt;span style="color:#f92672">import&lt;/span> &lt;span style="color:#111">Path&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> &lt;span style="color:#111">typing&lt;/span> &lt;span style="color:#f92672">import&lt;/span> &lt;span style="color:#111">Generator&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> &lt;span style="color:#111">setuptools&lt;/span> &lt;span style="color:#f92672">import&lt;/span> &lt;span style="color:#111">setup&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#00a8c8">def&lt;/span> &lt;span style="color:#75af00">__get_versions&lt;/span>&lt;span style="color:#111">()&lt;/span> &lt;span style="color:#f92672">-&amp;gt;&lt;/span> &lt;span style="color:#111">Generator&lt;/span>&lt;span style="color:#111">[&lt;/span>&lt;span style="color:#111">tuple&lt;/span>&lt;span style="color:#111">[&lt;/span>&lt;span style="color:#111">int&lt;/span>&lt;span style="color:#111">,&lt;/span> &lt;span style="color:#111">int&lt;/span>&lt;span style="color:#111">,&lt;/span> &lt;span style="color:#111">int&lt;/span>&lt;span style="color:#111">],&lt;/span> &lt;span style="color:#00a8c8">None&lt;/span>&lt;span style="color:#111">,&lt;/span> &lt;span style="color:#00a8c8">None&lt;/span>&lt;span style="color:#111">]:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#111">dir_name&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#111">Path&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#111">__file__&lt;/span>&lt;span style="color:#111">)&lt;/span>&lt;span style="color:#f92672">.&lt;/span>&lt;span style="color:#111">parent&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#00a8c8">with&lt;/span> &lt;span style="color:#111">open&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#111">dir_name&lt;/span> &lt;span style="color:#f92672">/&lt;/span> &lt;span style="color:#d88200">&amp;#34;Changelog.md&amp;#34;&lt;/span>&lt;span style="color:#111">,&lt;/span> &lt;span style="color:#d88200">&amp;#34;r&amp;#34;&lt;/span>&lt;span style="color:#111">)&lt;/span> &lt;span style="color:#00a8c8">as&lt;/span> &lt;span style="color:#111">file&lt;/span>&lt;span style="color:#111">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#111">lines&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#111">file&lt;/span>&lt;span style="color:#f92672">.&lt;/span>&lt;span style="color:#111">readlines&lt;/span>&lt;span style="color:#111">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#00a8c8">for&lt;/span> &lt;span style="color:#111">line&lt;/span> &lt;span style="color:#f92672">in&lt;/span> &lt;span style="color:#111">lines&lt;/span>&lt;span style="color:#111">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#111">m&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#111">re&lt;/span>&lt;span style="color:#f92672">.&lt;/span>&lt;span style="color:#00a8c8">match&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#d88200">r&lt;/span>&lt;span style="color:#d88200">&amp;#34;^##\s+\[(\d+\.\d+\.\d+)\]&amp;#34;&lt;/span>&lt;span style="color:#111">,&lt;/span> &lt;span style="color:#111">line&lt;/span>&lt;span style="color:#111">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#00a8c8">if&lt;/span> &lt;span style="color:#111">m&lt;/span>&lt;span style="color:#111">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#111">x&lt;/span>&lt;span style="color:#111">,&lt;/span> &lt;span style="color:#111">y&lt;/span>&lt;span style="color:#111">,&lt;/span> &lt;span style="color:#111">z&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#111">m&lt;/span>&lt;span style="color:#f92672">.&lt;/span>&lt;span style="color:#111">group&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#111">)&lt;/span>&lt;span style="color:#f92672">.&lt;/span>&lt;span style="color:#111">split&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#d88200">&amp;#34;.&amp;#34;&lt;/span>&lt;span style="color:#111">,&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#111">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#00a8c8">yield&lt;/span> &lt;span style="color:#111">int&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#111">x&lt;/span>&lt;span style="color:#111">),&lt;/span> &lt;span style="color:#111">int&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#111">y&lt;/span>&lt;span style="color:#111">),&lt;/span> &lt;span style="color:#111">int&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#111">z&lt;/span>&lt;span style="color:#111">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#00a8c8">def&lt;/span> &lt;span style="color:#75af00">__get_highest_version&lt;/span>&lt;span style="color:#111">()&lt;/span> &lt;span style="color:#f92672">-&amp;gt;&lt;/span> &lt;span style="color:#111">str&lt;/span>&lt;span style="color:#111">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#111">highest_version&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#111">max&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#111">__get_versions&lt;/span>&lt;span style="color:#111">())&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#00a8c8">return&lt;/span> &lt;span style="color:#d88200">&amp;#34;.&amp;#34;&lt;/span>&lt;span style="color:#f92672">.&lt;/span>&lt;span style="color:#111">join&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#111">map&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#111">str&lt;/span>&lt;span style="color:#111">,&lt;/span> &lt;span style="color:#111">highest_version&lt;/span>&lt;span style="color:#111">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#111">version&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#111">__get_highest_version&lt;/span>&lt;span style="color:#111">()&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>After that we can import the module in &lt;code>setup.py&lt;/code>:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> &lt;span style="color:#111">setuptools&lt;/span> &lt;span style="color:#f92672">import&lt;/span> &lt;span style="color:#111">setup&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> &lt;span style="color:#111">version&lt;/span> &lt;span style="color:#f92672">import&lt;/span> &lt;span style="color:#111">version&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#111">print&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#111">version&lt;/span>&lt;span style="color:#111">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#111">setup&lt;/span>&lt;span style="color:#111">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#111">version&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#111">__get_highest_version&lt;/span>&lt;span style="color:#111">(),&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#111">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&amp;hellip; and &lt;code>conf.py&lt;/code>:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> &lt;span style="color:#111">sys&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> &lt;span style="color:#111">pathlib&lt;/span> &lt;span style="color:#f92672">import&lt;/span> &lt;span style="color:#111">Path&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#111">project&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#d88200">&amp;#34;foo&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#111">copyright&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#d88200">&amp;#34;2023&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#111">author&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#d88200">&amp;#34;Kamil Rusin&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#111">root_dir&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#111">Path&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#111">__file__&lt;/span>&lt;span style="color:#111">)&lt;/span>&lt;span style="color:#f92672">.&lt;/span>&lt;span style="color:#111">parents&lt;/span>&lt;span style="color:#111">[&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#111">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#111">sys&lt;/span>&lt;span style="color:#f92672">.&lt;/span>&lt;span style="color:#111">path&lt;/span>&lt;span style="color:#f92672">.&lt;/span>&lt;span style="color:#111">insert&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>&lt;span style="color:#111">,&lt;/span> &lt;span style="color:#111">str&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#111">root_dir&lt;/span>&lt;span style="color:#111">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> &lt;span style="color:#111">version&lt;/span> &lt;span style="color:#f92672">import&lt;/span> &lt;span style="color:#111">version&lt;/span> &lt;span style="color:#00a8c8">as&lt;/span> &lt;span style="color:#111">__project_version&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#111">version&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#111">__project_version&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#111">release&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#111">version&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Again, we cannot forget about informing the build system about the new dependency in &lt;code>MANIFEST.in&lt;/code>:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span># ...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>include Changelog.md
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>include version.py
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="afterthought">
+Afterthought
+&lt;a class="anchor" href="#afterthought" aria-label="Anchor">
+&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
+&lt;/span>
+&lt;/a>
+&lt;/h2>
+&lt;p>Maintaining a changelog can make a project easier to understand. Hopefully, with the changes proposed in this article
+you&amp;rsquo;ll find changelogs more manageable. This feature does not enforce changelog updates from the contributors &amp;ndash; they
+will only need to do so, when they want to release a new version of the package.&lt;/p>
+&lt;p>I &lt;em>highly&lt;/em> encourage to always release a new version even for the smallest change in the project sources that is
+observable for the users. Whether it&amp;rsquo;s worth to add changelog entries for project&amp;rsquo;s meta updates, is up to you.&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;figure class="border">&lt;img src="./jasper-garratt-esc26JcEdek-unsplash.webp"
+alt="Log"loading="lazy"
+/>&lt;figcaption>
+&lt;p>Photo by &lt;a href="https://unsplash.com/@jaspergarrattphotography?utm_content=creditCopyText&amp;amp;utm_medium=referral&amp;amp;utm_source=unsplash">Jasper Garratt&lt;/a> on &lt;a href="https://unsplash.com/photos/green-moss-on-brown-tree-trunk-esc26JcEdek?utm_content=creditCopyText&amp;amp;utm_medium=referral&amp;amp;utm_source=unsplash">Unsplash&lt;/a>&lt;/p>
+&lt;/figcaption>
+&lt;/figure>
+&lt;!-- raw HTML omitted --></description><category>Python</category><category>Changelog</category></item><item><title>Cancellable</title><link>https://madebyme.today/articles/cancellable/</link><pubDate>Wed, 26 Jul 2023 09:08:18 +0200</pubDate><guid>https://madebyme.today/articles/cancellable/</guid><description>&lt;p>Recently I&amp;rsquo;m investing a lot of time to developing a game server in &lt;a href="https://www.rust-lang.org/">Rust&lt;/a>. I started with
 implementing network layer based on &lt;a href="https://en.wikipedia.org/wiki/WebSocket">WebSockets&lt;/a>. It&amp;rsquo;s far from being ready,
 but I developed a helper crate for creating detached, cancellable services.&lt;/p>
 &lt;h2 id="game-server-backstory">
@@ -152,7 +384,7 @@ the handle. The handle is owned by &lt;code>CancellableHandle&lt;/code>, which i
 setup, we can define a channel by which spawner can communicate with spawnee.&lt;/p>
 &lt;p>I like the final product, so I&amp;rsquo;ve packaged it as a crate. It&amp;rsquo;s available on
 &lt;a href="https://crates.io/crates/cancellable">crates.io&lt;/a>.&lt;/p>
-&lt;p>🌊&lt;/p></description></item><item><title>How to: Security Keys</title><link>https://madebyme.today/articles/how-to-security-keys/</link><pubDate>Wed, 29 Mar 2023 20:25:35 +0200</pubDate><guid>https://madebyme.today/articles/how-to-security-keys/</guid><description>&lt;p>Today I was &lt;em>again&lt;/em> setting up OpenPGP application on a new
+&lt;p>🌊&lt;/p></description><category>Rust</category><category>Crates</category><category>Open Source</category></item><item><title>How to: Security Keys</title><link>https://madebyme.today/articles/how-to-security-keys/</link><pubDate>Wed, 29 Mar 2023 20:25:35 +0200</pubDate><guid>https://madebyme.today/articles/how-to-security-keys/</guid><description>&lt;p>Today I was &lt;em>again&lt;/em> setting up OpenPGP application on a new
 &lt;a href="https://www.yubico.com/products/yubikey-5-overview/">Yubikey&lt;/a>. After over two years I already forgot how &lt;em>tedious&lt;/em> that
 can be&amp;hellip; I&amp;rsquo;m writing this blog post to create a clear trace of what I needed to do today and hopefully, when the time
 comes to set up &lt;em>an another&lt;/em> key, it&amp;rsquo;ll be as easy as opening up a blog entry.&lt;/p>
@@ -244,7 +476,7 @@ everything again to no avail.&lt;/p>
 &lt;p>Then I saw that some of my GitHub Actions are not being triggered. 🤔 I dig a bit more and it turned out
 &lt;a href="https://www.githubstatus.com/incidents/z3c6q056q332">GitHub was having issues&lt;/a>.&lt;/p>
 &lt;p>&lt;a href="https://www.githubstatus.com/">GitHub Status&lt;/a> is a great site to keep in your RSS feed. When issues arise, they
-cascade.&lt;/p></description></item><item><title>Beginnings Are Hard</title><link>https://madebyme.today/articles/beginnings-are-hard/</link><pubDate>Sat, 25 Feb 2023 20:14:43 +0100</pubDate><guid>https://madebyme.today/articles/beginnings-are-hard/</guid><description>&lt;p>Well it took some time (almost 6 years) to create a personal blog, but here we are.&lt;/p>
+cascade.&lt;/p></description><category>how-to</category><category>yubikey</category></item><item><title>Beginnings Are Hard</title><link>https://madebyme.today/articles/beginnings-are-hard/</link><pubDate>Sat, 25 Feb 2023 20:14:43 +0100</pubDate><guid>https://madebyme.today/articles/beginnings-are-hard/</guid><description>&lt;p>Well it took some time (almost 6 years) to create a personal blog, but here we are.&lt;/p>
 &lt;h2 id="how-did-we-come-here">
 How did we come here?
 &lt;a class="anchor" href="#how-did-we-come-here" aria-label="Anchor">
@@ -389,4 +621,4 @@ new content though. I believe it will also tilt me significantly into learning a
 &lt;p>There are still some adjustments I need to make on the website, I&amp;rsquo;m probably going to focus on them before I&amp;rsquo;ll work on
 new articles, but in general it is functionally complete.&lt;/p>
 &lt;p>So as of now, thank you for reading.&lt;/p>
-&lt;p>🌊&lt;/p></description></item></channel></rss>
+&lt;p>🌊&lt;/p></description><category>meta</category><category>Polaris</category></item></channel></rss>
