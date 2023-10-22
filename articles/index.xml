@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Articles on MadeByMe</title><link>https://madebyme.today/articles/</link><description>Recent content in Articles on MadeByMe</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright &amp;copy;</copyright><lastBuildDate>Sat, 21 Oct 2023 23:16:09 +0200</lastBuildDate><atom:link href="https://madebyme.today/articles/index.xml" rel="self" type="application/rss+xml"/><item><title>Keep a Changelog</title><link>https://madebyme.today/articles/keep-a-changelog/</link><pubDate>Sat, 21 Oct 2023 23:16:09 +0200</pubDate><guid>https://madebyme.today/articles/keep-a-changelog/</guid><description>&lt;p>Recently I was tasked with initialization of a new Python project. One of the requirements was to prepare a changelog.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Articles on MadeByMe</title><link>https://madebyme.today/articles/</link><description>Recent content in Articles on MadeByMe</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright &amp;copy;</copyright><lastBuildDate>Sat, 21 Oct 2023 23:16:09 +0200</lastBuildDate><atom:link href="https://madebyme.today/articles/index.xml" rel="self" type="application/rss+xml"/><item><title>Keep a Changelog</title><link>https://madebyme.today/articles/keep-a-changelog/</link><pubDate>Sat, 21 Oct 2023 23:16:09 +0200</pubDate><guid>https://madebyme.today/articles/keep-a-changelog/</guid><category>Python</category><category>Changelog</category><description>&lt;p>Recently I was tasked with initialization of a new Python project. One of the requirements was to prepare a changelog.
 I liked the idea, but my gut feeling was that the future project contributors won&amp;rsquo;t keep the changelog always up-to-date
 and it&amp;rsquo;s quality will decline over time.&lt;/p>
 &lt;p>This article proposes a feature which enforces changelog updates, when it&amp;rsquo;s required to do so.&lt;/p>
@@ -230,7 +230,7 @@ alt="Log"loading="lazy"
 &lt;p>Photo by &lt;a href="https://unsplash.com/@jaspergarrattphotography?utm_content=creditCopyText&amp;amp;utm_medium=referral&amp;amp;utm_source=unsplash">Jasper Garratt&lt;/a> on &lt;a href="https://unsplash.com/photos/green-moss-on-brown-tree-trunk-esc26JcEdek?utm_content=creditCopyText&amp;amp;utm_medium=referral&amp;amp;utm_source=unsplash">Unsplash&lt;/a>&lt;/p>
 &lt;/figcaption>
 &lt;/figure>
-&lt;!-- raw HTML omitted --></description><category>Python</category><category>Changelog</category></item><item><title>Cancellable</title><link>https://madebyme.today/articles/cancellable/</link><pubDate>Wed, 26 Jul 2023 09:08:18 +0200</pubDate><guid>https://madebyme.today/articles/cancellable/</guid><description>&lt;p>Recently I&amp;rsquo;m investing a lot of time to developing a game server in &lt;a href="https://www.rust-lang.org/">Rust&lt;/a>. I started with
+&lt;!-- raw HTML omitted --></description></item><item><title>Cancellable</title><link>https://madebyme.today/articles/cancellable/</link><pubDate>Wed, 26 Jul 2023 09:08:18 +0200</pubDate><guid>https://madebyme.today/articles/cancellable/</guid><category>Rust</category><category>Crates</category><category>Open Source</category><description>&lt;p>Recently I&amp;rsquo;m investing a lot of time to developing a game server in &lt;a href="https://www.rust-lang.org/">Rust&lt;/a>. I started with
 implementing network layer based on &lt;a href="https://en.wikipedia.org/wiki/WebSocket">WebSockets&lt;/a>. It&amp;rsquo;s far from being ready,
 but I developed a helper crate for creating detached, cancellable services.&lt;/p>
 &lt;h2 id="game-server-backstory">
@@ -384,7 +384,7 @@ the handle. The handle is owned by &lt;code>CancellableHandle&lt;/code>, which i
 setup, we can define a channel by which spawner can communicate with spawnee.&lt;/p>
 &lt;p>I like the final product, so I&amp;rsquo;ve packaged it as a crate. It&amp;rsquo;s available on
 &lt;a href="https://crates.io/crates/cancellable">crates.io&lt;/a>.&lt;/p>
-&lt;p>🌊&lt;/p></description><category>Rust</category><category>Crates</category><category>Open Source</category></item><item><title>How to: Security Keys</title><link>https://madebyme.today/articles/how-to-security-keys/</link><pubDate>Wed, 29 Mar 2023 20:25:35 +0200</pubDate><guid>https://madebyme.today/articles/how-to-security-keys/</guid><description>&lt;p>Today I was &lt;em>again&lt;/em> setting up OpenPGP application on a new
+&lt;p>🌊&lt;/p></description></item><item><title>How to: Security Keys</title><link>https://madebyme.today/articles/how-to-security-keys/</link><pubDate>Wed, 29 Mar 2023 20:25:35 +0200</pubDate><guid>https://madebyme.today/articles/how-to-security-keys/</guid><category>how-to</category><category>yubikey</category><description>&lt;p>Today I was &lt;em>again&lt;/em> setting up OpenPGP application on a new
 &lt;a href="https://www.yubico.com/products/yubikey-5-overview/">Yubikey&lt;/a>. After over two years I already forgot how &lt;em>tedious&lt;/em> that
 can be&amp;hellip; I&amp;rsquo;m writing this blog post to create a clear trace of what I needed to do today and hopefully, when the time
 comes to set up &lt;em>an another&lt;/em> key, it&amp;rsquo;ll be as easy as opening up a blog entry.&lt;/p>
@@ -476,7 +476,7 @@ everything again to no avail.&lt;/p>
 &lt;p>Then I saw that some of my GitHub Actions are not being triggered. 🤔 I dig a bit more and it turned out
 &lt;a href="https://www.githubstatus.com/incidents/z3c6q056q332">GitHub was having issues&lt;/a>.&lt;/p>
 &lt;p>&lt;a href="https://www.githubstatus.com/">GitHub Status&lt;/a> is a great site to keep in your RSS feed. When issues arise, they
-cascade.&lt;/p></description><category>how-to</category><category>yubikey</category></item><item><title>Beginnings Are Hard</title><link>https://madebyme.today/articles/beginnings-are-hard/</link><pubDate>Sat, 25 Feb 2023 20:14:43 +0100</pubDate><guid>https://madebyme.today/articles/beginnings-are-hard/</guid><description>&lt;p>Well it took some time (almost 6 years) to create a personal blog, but here we are.&lt;/p>
+cascade.&lt;/p></description></item><item><title>Beginnings Are Hard</title><link>https://madebyme.today/articles/beginnings-are-hard/</link><pubDate>Sat, 25 Feb 2023 20:14:43 +0100</pubDate><guid>https://madebyme.today/articles/beginnings-are-hard/</guid><category>meta</category><category>Polaris</category><description>&lt;p>Well it took some time (almost 6 years) to create a personal blog, but here we are.&lt;/p>
 &lt;h2 id="how-did-we-come-here">
 How did we come here?
 &lt;a class="anchor" href="#how-did-we-come-here" aria-label="Anchor">
@@ -621,4 +621,4 @@ new content though. I believe it will also tilt me significantly into learning a
 &lt;p>There are still some adjustments I need to make on the website, I&amp;rsquo;m probably going to focus on them before I&amp;rsquo;ll work on
 new articles, but in general it is functionally complete.&lt;/p>
 &lt;p>So as of now, thank you for reading.&lt;/p>
-&lt;p>🌊&lt;/p></description><category>meta</category><category>Polaris</category></item></channel></rss>
+&lt;p>🌊&lt;/p></description></item></channel></rss>

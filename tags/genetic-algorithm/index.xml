@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Genetic Algorithm on MadeByMe</title><link>https://madebyme.today/tags/genetic-algorithm/</link><description>Recent content in Genetic Algorithm on MadeByMe</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright &amp;copy;</copyright><lastBuildDate>Sun, 02 Apr 2023 14:50:51 +0200</lastBuildDate><atom:link href="https://madebyme.today/tags/genetic-algorithm/index.xml" rel="self" type="application/rss+xml"/><item><title>Natural Selection and Loss Functions</title><link>https://madebyme.today/articles/franklin/natural-selection-and-loss-functions/</link><pubDate>Sun, 02 Apr 2023 14:50:51 +0200</pubDate><guid>https://madebyme.today/articles/franklin/natural-selection-and-loss-functions/</guid><description>&lt;p>Natural Selection is what allows our species (and images!) to improve over time. In this article we&amp;rsquo;ll implement a
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Genetic Algorithm on MadeByMe</title><link>https://madebyme.today/tags/genetic-algorithm/</link><description>Recent content in Genetic Algorithm on MadeByMe</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright &amp;copy;</copyright><lastBuildDate>Sun, 02 Apr 2023 14:50:51 +0200</lastBuildDate><atom:link href="https://madebyme.today/tags/genetic-algorithm/index.xml" rel="self" type="application/rss+xml"/><item><title>Natural Selection and Loss Functions</title><link>https://madebyme.today/articles/franklin/natural-selection-and-loss-functions/</link><pubDate>Sun, 02 Apr 2023 14:50:51 +0200</pubDate><guid>https://madebyme.today/articles/franklin/natural-selection-and-loss-functions/</guid><category>Genetic Algorithm</category><category>Rust</category><description>&lt;p>Natural Selection is what allows our species (and images!) to improve over time. In this article we&amp;rsquo;ll implement a
 scoring mechanism, through which &amp;ldquo;&lt;a href="https://madebyme.today/articles/franklin/randomness-of-life/">Mona Lisa&lt;/a>&amp;rdquo; will actually
 look like one.&lt;/p>
 &lt;h2 id="natural-selection">
@@ -194,7 +194,7 @@ combining them in varied ways. It could be more than 5, but we need to remember,
 images is to discard mutations that resulted in decreasing overall &amp;ldquo;goodness&amp;rdquo;.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/div></description><category>Genetic Algorithm</category><category>Rust</category></item><item><title>Randomness of Life</title><link>https://madebyme.today/articles/franklin/randomness-of-life/</link><pubDate>Mon, 20 Mar 2023 10:02:19 +0100</pubDate><guid>https://madebyme.today/articles/franklin/randomness-of-life/</guid><description>&lt;p>In &lt;a href="https://madebyme.today/articles/franklin/art-from-chaos/">the previous article&lt;/a> from this series, we&amp;rsquo;ve talked about
+&lt;/div></description></item><item><title>Randomness of Life</title><link>https://madebyme.today/articles/franklin/randomness-of-life/</link><pubDate>Mon, 20 Mar 2023 10:02:19 +0100</pubDate><guid>https://madebyme.today/articles/franklin/randomness-of-life/</guid><category>Genetic Algorithm</category><category>Rust</category><description>&lt;p>In &lt;a href="https://madebyme.today/articles/franklin/art-from-chaos/">the previous article&lt;/a> from this series, we&amp;rsquo;ve talked about
 genetic algorithms and how they can be used to generate art. Now let&amp;rsquo;s put those ideas into action and focus on
 implementing the first part of our artistic toolset: &lt;strong>mutators&lt;/strong>.&lt;/p>
 &lt;h2 id="preparing-the-ecosystem">
@@ -444,7 +444,7 @@ alt="Randomness of Life"loading="lazy"
 &lt;a href="https://github.com/nathiss/franklin/blob/73aa8dada3e8c3cae9aff5e24637785268e3527a/src/util/random.rs">here&lt;/a>.&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/div></description><category>Genetic Algorithm</category><category>Rust</category></item><item><title>Art From Chaos</title><link>https://madebyme.today/articles/franklin/art-from-chaos/</link><pubDate>Sat, 04 Mar 2023 14:50:59 +0100</pubDate><guid>https://madebyme.today/articles/franklin/art-from-chaos/</guid><description>&lt;p>Making art is hard. Drawing pictures is tedious. With programming, however, we can automate things. The point of
+&lt;/div></description></item><item><title>Art From Chaos</title><link>https://madebyme.today/articles/franklin/art-from-chaos/</link><pubDate>Sat, 04 Mar 2023 14:50:59 +0100</pubDate><guid>https://madebyme.today/articles/franklin/art-from-chaos/</guid><category>Genetic Algorithm</category><category>Art</category><description>&lt;p>Making art is hard. Drawing pictures is tedious. With programming, however, we can automate things. The point of
 automation is to reduce the amount of manual labor. So let&amp;rsquo;s mix evolution, DNA, and programming together to make art
 that &lt;em>makes&lt;/em> itself. Pictures that &lt;em>draw&lt;/em> themselves.&lt;/p>
 &lt;h2 id="concepts-and-definitions">
@@ -642,4 +642,4 @@ alt="Order and Chaos"loading="lazy"
 &lt;a href="https://en.wikipedia.org/wiki/Algorithmic_art">Algorithmic art&lt;/a>.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/div></description><category>Genetic Algorithm</category><category>Art</category></item></channel></rss>
+&lt;/div></description></item></channel></rss>
