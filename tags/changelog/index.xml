@@ -188,7 +188,6 @@ and &lt;code>setup.py&lt;/code>.&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> &lt;span style="color:#111">version&lt;/span> &lt;span style="color:#f92672">import&lt;/span> &lt;span style="color:#111">version&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#111">print&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#111">version&lt;/span>&lt;span style="color:#111">)&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#111">setup&lt;/span>&lt;span style="color:#111">(&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#111">version&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#111">__get_highest_version&lt;/span>&lt;span style="color:#111">(),&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#111">)&lt;/span>
