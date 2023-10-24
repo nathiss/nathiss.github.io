@@ -223,8 +223,8 @@ will only need to do so, when they want to release a new version of the package.
 &lt;p>I &lt;em>highly&lt;/em> encourage to always release a new version even for the smallest change in the project sources that is
 observable for the users. Whether it&amp;rsquo;s worth to add changelog entries for project&amp;rsquo;s meta updates, is up to you.&lt;/p>
 &lt;!-- raw HTML omitted -->
-&lt;figure class="border">&lt;img src="./jasper-garratt-esc26JcEdek-unsplash.webp"
-alt="Log"loading="lazy"
+&lt;figure class="img-thumbnail">&lt;img src="./jasper-garratt-esc26JcEdek-unsplash.webp"
+alt="Log" class="img-thumbnail"loading="lazy"
 />&lt;figcaption>
 &lt;p>Photo by &lt;a href="https://unsplash.com/@jaspergarrattphotography?utm_content=creditCopyText&amp;amp;utm_medium=referral&amp;amp;utm_source=unsplash">Jasper Garratt&lt;/a> on &lt;a href="https://unsplash.com/photos/green-moss-on-brown-tree-trunk-esc26JcEdek?utm_content=creditCopyText&amp;amp;utm_medium=referral&amp;amp;utm_source=unsplash">Unsplash&lt;/a>&lt;/p>
 &lt;/figcaption>
@@ -348,7 +348,7 @@ value is available, but the service should continue then it returns &lt;code>Can
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// ...
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#111">}&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#111">}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Both return a handle, which can be awaited for the service to complete, &lt;span style="text-decoration: underline;">once it has been
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Both return a handle, which can be awaited for the service to complete, &lt;span class="text-decoration-underline">once it has been
 cancelled&lt;/span>!&lt;/p>
 &lt;p>If the service produces results, then it can be spawned with &lt;code>spawn_with_callback&lt;/code>, to consume them. If the callback
 returns &lt;code>Err(Self::Result)&lt;/code> then the service completes immediately.&lt;/p>
@@ -578,8 +578,8 @@ ASAP, hence React and GitHub Pages, &lt;a href="https://www.madebyme.today/Polar
 tools for a new website. My knowledge of &lt;a href="https://nodejs.org/en/">NodeJS&lt;/a> and utilities built on top of it was
 practically nonexistent. That changed once I&amp;rsquo;ve written Polaris; now I&amp;rsquo;m just new to this stuff.&lt;/p>
 &lt;!-- raw HTML omitted -->
-&lt;figure class="border">&lt;a href="https://madebyme.today/Polaris/" target="_blank">&lt;img src="./steam-on-the-horizon-small.webp"
-alt="Steam on the horizon"loading="lazy"
+&lt;figure class="img-thumbnail">&lt;a href="https://madebyme.today/Polaris/" target="_blank">&lt;img src="./steam-on-the-horizon-small.webp"
+alt="Steam on the horizon" class="img-thumbnail"loading="lazy"
 />&lt;/a>&lt;figcaption>
 &lt;h4>Steam on the horizon&lt;/h4>
 &lt;/figcaption>

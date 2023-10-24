@@ -9,7 +9,7 @@ Concepts and definitions
 &lt;/a>
 &lt;/h2>
 &lt;p>Before we dive deep into making art, we need to understand some important concepts &amp;ndash; first things first.
-&lt;span style="text-decoration: underline;">Automatic art&lt;/span>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>, at its core, uses generic algorithms.
+&lt;span class="text-decoration-underline">Automatic art&lt;/span>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>, at its core, uses generic algorithms.
 &lt;a href="https://en.wikipedia.org/wiki/Genetic_algorithm">Wikipedia&lt;/a> has a really nice page about them, if you&amp;rsquo;d like to read
 it. However for the sake of the article this is enough:&lt;/p>
 &lt;p>A &lt;strong>Genetic Algorithm&lt;/strong> is an algorithm inspired by the process of natural selection used to find solutions for
@@ -178,8 +178,8 @@ up soon-ish)&lt;/em> we&amp;rsquo;ll turn those ideas into &lt;a href="https://w
 that makes itself.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;!-- raw HTML omitted -->
-&lt;figure class="border">&lt;img src="./brett-jordan-M3cxjDNiLlQ-unsplash.webp"
-alt="Order and Chaos"loading="lazy"
+&lt;figure class="img-thumbnail">&lt;img src="./brett-jordan-M3cxjDNiLlQ-unsplash.webp"
+alt="Order and Chaos" class="img-thumbnail"loading="lazy"
 />&lt;figcaption>
 &lt;p>Photo by &lt;a href="https://unsplash.com/@brett_jordan?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText">Brett Jordan&lt;/a> on &lt;a href="https://unsplash.com/photos/M3cxjDNiLlQ?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText">Unsplash&lt;/a>&lt;/p>
 &lt;/figcaption>

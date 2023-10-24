@@ -117,7 +117,7 @@ value is available, but the service should continue then it returns &lt;code>Can
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// ...
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#111">}&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#111">}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Both return a handle, which can be awaited for the service to complete, &lt;span style="text-decoration: underline;">once it has been
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Both return a handle, which can be awaited for the service to complete, &lt;span class="text-decoration-underline">once it has been
 cancelled&lt;/span>!&lt;/p>
 &lt;p>If the service produces results, then it can be spawned with &lt;code>spawn_with_callback&lt;/code>, to consume them. If the callback
 returns &lt;code>Err(Self::Result)&lt;/code> then the service completes immediately.&lt;/p>

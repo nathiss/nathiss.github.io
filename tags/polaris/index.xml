@@ -101,8 +101,8 @@ ASAP, hence React and GitHub Pages, &lt;a href="https://www.madebyme.today/Polar
 tools for a new website. My knowledge of &lt;a href="https://nodejs.org/en/">NodeJS&lt;/a> and utilities built on top of it was
 practically nonexistent. That changed once I&amp;rsquo;ve written Polaris; now I&amp;rsquo;m just new to this stuff.&lt;/p>
 &lt;!-- raw HTML omitted -->
-&lt;figure class="border">&lt;a href="https://madebyme.today/Polaris/" target="_blank">&lt;img src="./steam-on-the-horizon-small.webp"
-alt="Steam on the horizon"loading="lazy"
+&lt;figure class="img-thumbnail">&lt;a href="https://madebyme.today/Polaris/" target="_blank">&lt;img src="./steam-on-the-horizon-small.webp"
+alt="Steam on the horizon" class="img-thumbnail"loading="lazy"
 />&lt;/a>&lt;figcaption>
 &lt;h4>Steam on the horizon&lt;/h4>
 &lt;/figcaption>
