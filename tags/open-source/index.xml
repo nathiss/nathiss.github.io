@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Open Source on MadeByMe</title><link>https://madebyme.today/tags/open-source/</link><description>Recent content in Open Source on MadeByMe</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright 2023, Kamil Rusin</copyright><lastBuildDate>Wed, 26 Jul 2023 09:08:18 +0200</lastBuildDate><atom:link href="https://madebyme.today/tags/open-source/index.xml" rel="self" type="application/rss+xml"/><item><title>Cancellable</title><link>https://madebyme.today/articles/cancellable/</link><pubDate>Wed, 26 Jul 2023 09:08:18 +0200</pubDate><guid>https://madebyme.today/articles/cancellable/</guid><category>Rust</category><category>Crates</category><category>Open Source</category><description>&lt;p>Recently I&amp;rsquo;m investing a lot of time to developing a game server in &lt;a href="https://www.rust-lang.org/">Rust&lt;/a>. I started with
 implementing network layer based on &lt;a href="https://en.wikipedia.org/wiki/WebSocket">WebSockets&lt;/a>. It&amp;rsquo;s far from being ready,
 but I developed a helper crate for creating detached, cancellable services.&lt;/p>
-&lt;h2 id="game-server-backstory">
+&lt;h2 id="game-server-backstory" >
 Game server backstory
 &lt;a class="anchor" href="#game-server-backstory" aria-label="Anchor">
 &lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
@@ -34,7 +34,7 @@ alt="xkcd: Making Progress"loading="lazy"
 &lt;/figcaption>
 &lt;/figure>
 &lt;!-- raw HTML omitted -->
-&lt;h2 id="cancellable-crate">
+&lt;h2 id="cancellable-crate" >
 Cancellable crate
 &lt;a class="anchor" href="#cancellable-crate" aria-label="Anchor">
 &lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
@@ -125,7 +125,7 @@ returns &lt;code>Err(Self::Result)&lt;/code> then the service completes immediat
 additional data. An example is TCP stream: it reads data packages from a peer and consumes them via callback. However,
 if the server decides the connection should be terminated, then the service should complete its work.&lt;/p>
 &lt;p>Enter&amp;hellip;&lt;/p>
-&lt;h3 id="communicating-with-detached-service">
+&lt;h3 id="communicating-with-detached-service" >
 Communicating with detached service
 &lt;a class="anchor" href="#communicating-with-detached-service" aria-label="Anchor">
 &lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>

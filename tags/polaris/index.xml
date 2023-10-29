@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Polaris on MadeByMe</title><link>https://madebyme.today/tags/polaris/</link><description>Recent content in Polaris on MadeByMe</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright 2023, Kamil Rusin</copyright><lastBuildDate>Sat, 25 Feb 2023 20:14:43 +0100</lastBuildDate><atom:link href="https://madebyme.today/tags/polaris/index.xml" rel="self" type="application/rss+xml"/><item><title>Beginnings Are Hard</title><link>https://madebyme.today/articles/beginnings-are-hard/</link><pubDate>Sat, 25 Feb 2023 20:14:43 +0100</pubDate><guid>https://madebyme.today/articles/beginnings-are-hard/</guid><category>meta</category><category>Polaris</category><description>&lt;p>Well it took some time (almost 6 years) to create a personal blog, but here we are.&lt;/p>
-&lt;h2 id="how-did-we-come-here">
+&lt;h2 id="how-did-we-come-here" >
 How did we come here?
 &lt;a class="anchor" href="#how-did-we-come-here" aria-label="Anchor">
 &lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
@@ -11,7 +11,7 @@ How did we come here?
 &lt;p>&amp;hellip; at least not yet. ✌(-‿-)✌ However I&amp;rsquo;m optimistic.&lt;/p>
 &lt;p>To better understand why I have such high hopes for this project let&amp;rsquo;s go down the rabbit hole and analyze its ancestors
 and try to point out why they failed.&lt;/p>
-&lt;h3 id="platform-1-0x52-django-22">
+&lt;h3 id="platform-1-0x52-django-22" >
 Platform 1: 0x52 (Django 2.2)
 &lt;a class="anchor" href="#platform-1-0x52-django-22" aria-label="Anchor">
 &lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
@@ -47,7 +47,7 @@ access only their own entries and tags.&lt;/p>
 so it just fated away. Also it was more of a personal utility website, than a blog. It was publicly available on
 &lt;a href="https://www.heroku.com/">Heroku&lt;/a> until quite recently actually. I took down the website when &lt;a href="https://help.heroku.com/RSBRUH58/removal-of-heroku-free-product-plans-faq">Heroku announced their
 removal of free product plans&lt;/a>.&lt;/p>
-&lt;h3 id="platform-2-titan-aspnet">
+&lt;h3 id="platform-2-titan-aspnet" >
 Platform 2: Titan (ASP.NET)
 &lt;a class="anchor" href="#platform-2-titan-aspnet" aria-label="Anchor">
 &lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
@@ -87,7 +87,7 @@ and message broker.&lt;/p>
 whether the session has ended.&lt;/p>
 &lt;p>Can you see now when I said it was overengineered? So many complex solutions for a logout functionality. The project
 ended because I was too wornout to finish it.&lt;/p>
-&lt;h3 id="platform-3-polaris-react">
+&lt;h3 id="platform-3-polaris-react" >
 Platform 3: Polaris (React)
 &lt;a class="anchor" href="#platform-3-polaris-react" aria-label="Anchor">
 &lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
@@ -111,7 +111,7 @@ alt="Steam on the horizon" class="img-thumbnail"loading="lazy"
 &lt;p>I don&amp;rsquo;t have much more to say here other that, it was a while when I&amp;rsquo;ve used &lt;a href="https://inkscape.org/">Inkscape&lt;/a> to create
 those images and when I needed to use it again, for the sake of this blog, it was terrifying to see how much one can
 forget what one has learned. ಠ_ಠ&lt;/p>
-&lt;h3 id="platforms-long-forgotten">
+&lt;h3 id="platforms-long-forgotten" >
 Platforms long forgotten
 &lt;a class="anchor" href="#platforms-long-forgotten" aria-label="Anchor">
 &lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
@@ -129,7 +129,7 @@ still remembered by me enough to write a few sentences about.&lt;/p>
 &lt;p>This blog, on the other hand, is a static content website build with &lt;a href="https://gohugo.io/">Hugo&lt;/a>. I think to some extend
 I was aware that tools like Hugo existed, but I&amp;rsquo;ve never considered using them. I cannot really explain as to why; maybe
 I was trying too hard to use a new fancy tool I&amp;rsquo;ve just learned about.&lt;/p>
-&lt;h2 id="the-goal-and-future-of-this-project">
+&lt;h2 id="the-goal-and-future-of-this-project" >
 The goal and future of this project
 &lt;a class="anchor" href="#the-goal-and-future-of-this-project" aria-label="Anchor">
 &lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>

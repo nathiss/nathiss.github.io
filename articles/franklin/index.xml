@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Franklin on MadeByMe</title><link>https://madebyme.today/articles/franklin/</link><description>Recent content in Franklin on MadeByMe</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright 2023, Kamil Rusin</copyright><lastBuildDate>Fri, 03 Mar 2023 17:23:37 +0100</lastBuildDate><atom:link href="https://madebyme.today/articles/franklin/index.xml" rel="self" type="application/rss+xml"/><item><title>Natural Selection and Loss Functions</title><link>https://madebyme.today/articles/franklin/natural-selection-and-loss-functions/</link><pubDate>Sun, 02 Apr 2023 14:50:51 +0200</pubDate><guid>https://madebyme.today/articles/franklin/natural-selection-and-loss-functions/</guid><category>Genetic Algorithm</category><category>Rust</category><description>&lt;p>Natural Selection is what allows our species (and images!) to improve over time. In this article we&amp;rsquo;ll implement a
 scoring mechanism, through which &amp;ldquo;&lt;a href="https://madebyme.today/articles/franklin/randomness-of-life/">Mona Lisa&lt;/a>&amp;rdquo; will actually
 look like one.&lt;/p>
-&lt;h2 id="natural-selection">
+&lt;h2 id="natural-selection" >
 Natural Selection
 &lt;a class="anchor" href="#natural-selection" aria-label="Anchor">
 &lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
@@ -27,7 +27,7 @@ of the specified genotype or phenotype.&lt;/p>
 &lt;/blockquote>
 &lt;p>We, however, will define &amp;ldquo;fitness&amp;rdquo; as a &lt;em>difference&lt;/em> between an organism and the ideal. Which is a bit vague, as there&amp;rsquo;s
 no obvious way of substituting one image from another and produce an integer. We&amp;rsquo;ll get back to that in a bit.&lt;/p>
-&lt;h2 id="loss-functions">
+&lt;h2 id="loss-functions" >
 Loss functions
 &lt;a class="anchor" href="#loss-functions" aria-label="Anchor">
 &lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
@@ -56,7 +56,7 @@ channels and calculate their differences.&lt;/p>
 &lt;p>$$
 f(O, S) = \sum_{i=0}^n \vert (r_2 - r_1)^2 + (g_2 - g_1)^2 + (b_2 - b_1)^2 \vert
 $$&lt;/p>
-&lt;h2 id="scoring-mechanism">
+&lt;h2 id="scoring-mechanism" >
 Scoring mechanism
 &lt;a class="anchor" href="#scoring-mechanism" aria-label="Anchor">
 &lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
@@ -79,7 +79,7 @@ about these loss functions, is that they return absolute values &amp;ndash; it d
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#111">scorer&lt;/span>&lt;span style="color:#111">.&lt;/span>&lt;span style="color:#111">calculate_fitness&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#111">second_image&lt;/span>&lt;span style="color:#111">,&lt;/span> &lt;span style="color:#111">first_image&lt;/span>&lt;span style="color:#111">)&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#111">);&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
-&lt;h3 id="implementation-of-l1-absolute-distance">
+&lt;h3 id="implementation-of-l1-absolute-distance" >
 Implementation of L1: AbsoluteDistance
 &lt;a class="anchor" href="#implementation-of-l1-absolute-distance" aria-label="Anchor">
 &lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
@@ -117,7 +117,7 @@ produce the score. Actually, we can do both by using Iterator&amp;rsquo;s &lt;co
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#111">}&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#111">}&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
-&lt;h3 id="implementation-of-l1-square-distance">
+&lt;h3 id="implementation-of-l1-square-distance" >
 Implementation of L2: SquareDistance
 &lt;a class="anchor" href="#implementation-of-l1-square-distance" aria-label="Anchor">
 &lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
@@ -153,7 +153,7 @@ Implementation of L2: SquareDistance
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#111">.&lt;/span>&lt;span style="color:#111">fold&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>&lt;span style="color:#00a8c8">usize&lt;/span>&lt;span style="color:#111">,&lt;/span> &lt;span style="color:#111">fold_pixels&lt;/span>&lt;span style="color:#111">)&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#111">}&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#111">}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="fixing-mona-lisa">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="fixing-mona-lisa" >
 Fixing &amp;ldquo;Mona Lisa&amp;rdquo;
 &lt;a class="anchor" href="#fixing-mona-lisa" aria-label="Anchor">
 &lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
@@ -197,7 +197,7 @@ images is to discard mutations that resulted in decreasing overall &amp;ldquo;go
 &lt;/div></description></item><item><title>Randomness of Life</title><link>https://madebyme.today/articles/franklin/randomness-of-life/</link><pubDate>Mon, 20 Mar 2023 10:02:19 +0100</pubDate><guid>https://madebyme.today/articles/franklin/randomness-of-life/</guid><category>Genetic Algorithm</category><category>Rust</category><description>&lt;p>In &lt;a href="https://madebyme.today/articles/franklin/art-from-chaos/">the previous article&lt;/a> from this series, we&amp;rsquo;ve talked about
 genetic algorithms and how they can be used to generate art. Now let&amp;rsquo;s put those ideas into action and focus on
 implementing the first part of our artistic toolset: &lt;strong>mutators&lt;/strong>.&lt;/p>
-&lt;h2 id="preparing-the-ecosystem">
+&lt;h2 id="preparing-the-ecosystem" >
 Preparing the ecosystem
 &lt;a class="anchor" href="#preparing-the-ecosystem" aria-label="Anchor">
 &lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
@@ -275,7 +275,7 @@ solution space search, but will produce images that are more visually interestin
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#111">vec!&lt;/span>&lt;span style="color:#111">[&lt;/span>&lt;span style="color:#111">Image&lt;/span>::&lt;span style="color:#111">blank&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#111">height&lt;/span>&lt;span style="color:#111">,&lt;/span> &lt;span style="color:#111">width&lt;/span>&lt;span style="color:#111">,&lt;/span> &lt;span style="color:#f92672">&amp;amp;&lt;/span>&lt;span style="color:#111">pixel&lt;/span>&lt;span style="color:#111">);&lt;/span> &lt;span style="color:#111">vec_len&lt;/span>&lt;span style="color:#111">]&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#111">}&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This code takes care of initializing the generation. 👌&lt;/p>
-&lt;h2 id="throwing-dice-and-hoping-for-the-best">
+&lt;h2 id="throwing-dice-and-hoping-for-the-best" >
 Throwing dice and hoping for the best
 &lt;a class="anchor" href="#throwing-dice-and-hoping-for-the-best" aria-label="Anchor">
 &lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
@@ -296,7 +296,7 @@ alt="Genetic Algorithm Flow"loading="lazy"
 &lt;p>A diagram showing the flow of actions applied on a single generation.&lt;/p>
 &lt;/figcaption>
 &lt;/figure>
-&lt;h3 id="throwing-a-rectangular-dice">
+&lt;h3 id="throwing-a-rectangular-dice" >
 Throwing a rectangular dice
 &lt;a class="anchor" href="#throwing-a-rectangular-dice" aria-label="Anchor">
 &lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
@@ -396,7 +396,7 @@ alt="Random noise" class="img-thumbnail"loading="lazy"
 Which isn&amp;rsquo;t very surprising; the code did what it was suppose to do: it generated random rectangles on the white image.
 Since we don&amp;rsquo;t have any scoring logic yet (that&amp;rsquo;s a topic for another article) the resulting image is composed of random
 noise. We&amp;rsquo;ll need to wait a bit longer to get an image that even remotely reflects &amp;ldquo;Mona Lisa&amp;rdquo;.&lt;/p>
-&lt;h3 id="throwing-dice-of-other-shapes">
+&lt;h3 id="throwing-dice-of-other-shapes" >
 Throwing dice of other shapes
 &lt;a class="anchor" href="#throwing-dice-of-other-shapes" aria-label="Anchor">
 &lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
@@ -408,7 +408,7 @@ I&amp;rsquo;m not going to cover them here. The reason is simple &amp;ndash; the
 boundaries first and then you need to draw the desired shape. I&amp;rsquo;ve implemented two other mutators: &lt;code>TriangleMutator&lt;/code> and
 &lt;code>CircleMutator&lt;/code>. Their sources can be found
 &lt;a href="https://github.com/nathiss/franklin/tree/73aa8dada3e8c3cae9aff5e24637785268e3527a/src/mutators">here&lt;/a>.&lt;/p>
-&lt;h2 id="afterword">
+&lt;h2 id="afterword" >
 Afterword
 &lt;a class="anchor" href="#afterword" aria-label="Anchor">
 &lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
@@ -447,7 +447,7 @@ alt="Randomness of Life" class="img-thumbnail"loading="lazy"
 &lt;/div></description></item><item><title>Art From Chaos</title><link>https://madebyme.today/articles/franklin/art-from-chaos/</link><pubDate>Sat, 04 Mar 2023 14:50:59 +0100</pubDate><guid>https://madebyme.today/articles/franklin/art-from-chaos/</guid><category>Genetic Algorithm</category><category>Art</category><description>&lt;p>Making art is hard. Drawing pictures is tedious. With programming, however, we can automate things. The point of
 automation is to reduce the amount of manual labor. So let&amp;rsquo;s mix evolution, DNA, and programming together to make art
 that &lt;em>makes&lt;/em> itself. Pictures that &lt;em>draw&lt;/em> themselves.&lt;/p>
-&lt;h2 id="concepts-and-definitions">
+&lt;h2 id="concepts-and-definitions" >
 Concepts and definitions
 &lt;a class="anchor" href="#concepts-and-definitions" aria-label="Anchor">
 &lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
@@ -481,7 +481,7 @@ alt="Genetic Algorithm Cycle"loading="lazy"
 &lt;/figure>
 &lt;p>To mutate, to score, to kill, to breed, to continue the cycle of life. It might sound simple, but in reality it is
 shockingly efficient in searching the solution space.&lt;/p>
-&lt;h2 id="art-from-evolution">
+&lt;h2 id="art-from-evolution" >
 Art from evolution
 &lt;a class="anchor" href="#art-from-evolution" aria-label="Anchor">
 &lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
@@ -492,7 +492,7 @@ Art from evolution
 a good moment to explain the clickbaity summary at the top of this article: the pictures will not &lt;em>draw&lt;/em> themselves, the
 goal is to make &lt;em>a program&lt;/em> which will generate art automatically. It&amp;rsquo;s going to be an iterative solution where each
 cycle is parametrized by the results of its predecessor.&lt;/p>
-&lt;h3 id="step-0-initialization">
+&lt;h3 id="step-0-initialization" >
 Step 0: Initialization
 &lt;a class="anchor" href="#step-0-initialization" aria-label="Anchor">
 &lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
@@ -512,7 +512,7 @@ process each generation. On the other hand, the more specimen a generation have,
 can search. Whatever the generation size will be, we need to have a prototype - a specimen, which cloned will fill the
 generation. Since we&amp;rsquo;re dealing with art here, a &lt;em>&lt;a href="https://en.wikipedia.org/wiki/Tabula_rasa">tabula rasa&lt;/a>&lt;/em> should be a
 fitting choice.&lt;/p>
-&lt;h3 id="step-1-mutation">
+&lt;h3 id="step-1-mutation" >
 Step 1: Mutation
 &lt;a class="anchor" href="#step-1-mutation" aria-label="Anchor">
 &lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
@@ -546,7 +546,7 @@ in 1&lt;sup>st&lt;/sup>
 step has been almost fully overwritten after 5 mutations. Don&amp;rsquo;t get me wrong, the result
 might be beneficial, but overall we want to utilize genome that have evolved in past generations, not to discard it
 completely.&lt;/p>
-&lt;h3 id="step-2-scoring">
+&lt;h3 id="step-2-scoring" >
 Step 2: Scoring
 &lt;a class="anchor" href="#step-2-scoring" aria-label="Anchor">
 &lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
@@ -580,7 +580,7 @@ computers is expensive, we can remove that bit and we&amp;rsquo;re left with:&lt
 &lt;p>By combining (1) and (2) together we get:&lt;/p>
 &lt;p>$$ f(O, S) = \sum_{i=0}^n | (r_2 - r_1)^2 + (g_2 - g_1)^2 + (b_2 - b_1)^2 | $$&lt;/p>
 &lt;p>That was a bit more mathsy that I&amp;rsquo;ve initially anticipated &lt;code>◕_◕&lt;/code>.&lt;/p>
-&lt;h3 id="step-3-crossing">
+&lt;h3 id="step-3-crossing" >
 Step 3: Crossing
 &lt;a class="anchor" href="#step-3-crossing" aria-label="Anchor">
 &lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
@@ -612,7 +612,7 @@ step, in the same number of
 generations.&lt;/p>
 &lt;p>We will take a look at several of &lt;strong>crossing&lt;/strong> methods mentioned above and we will plot scores of their specimens as a
 function of generation number, to see how well they perform. 📈&lt;/p>
-&lt;h2 id="next-steps">
+&lt;h2 id="next-steps" >
 Next steps
 &lt;a class="anchor" href="#next-steps" aria-label="Anchor">
 &lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>

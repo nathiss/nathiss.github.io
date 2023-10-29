@@ -2,7 +2,7 @@
 I liked the idea, but my gut feeling was that the future project contributors won&amp;rsquo;t keep the changelog always up-to-date
 and it&amp;rsquo;s quality will decline over time. This article proposes a feature which enforces changelog updates, when it&amp;rsquo;s
 required to do so.&lt;/p>
-&lt;h2 id="whats-a-changelog">
+&lt;h2 id="whats-a-changelog" >
 What&amp;rsquo;s a changelog
 &lt;a class="anchor" href="#whats-a-changelog" aria-label="Anchor">
 &lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
@@ -76,7 +76,7 @@ Here&amp;rsquo;s an example of a changelog with two entries:&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>### Fixed
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#00a8c8">-&lt;/span> Typo in project&amp;#39;s title in docs.
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="keeping-a-changelog-up-to-date">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="keeping-a-changelog-up-to-date" >
 Keep(ing) a changelog up-to-date
 &lt;a class="anchor" href="#keeping-a-changelog-up-to-date" aria-label="Anchor">
 &lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
@@ -138,7 +138,7 @@ this dependency. &lt;code>MANIFEST.in&lt;/code> contains include/exclude patters
 manifest:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span># ...
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>include Changelog.md
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="accessing-project-version-from-sphinx">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="accessing-project-version-from-sphinx" >
 Accessing project version from Sphinx
 &lt;a class="anchor" href="#accessing-project-version-from-sphinx" aria-label="Anchor">
 &lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
@@ -210,7 +210,7 @@ and &lt;code>setup.py&lt;/code>.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span># ...
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>include Changelog.md
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>include version.py
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="afterthought">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="afterthought" >
 Afterthought
 &lt;a class="anchor" href="#afterthought" aria-label="Anchor">
 &lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
@@ -232,7 +232,7 @@ alt="Log" class="img-thumbnail"loading="lazy"
 &lt;!-- raw HTML omitted --></description></item><item><title>Cancellable</title><link>https://madebyme.today/articles/cancellable/</link><pubDate>Wed, 26 Jul 2023 09:08:18 +0200</pubDate><guid>https://madebyme.today/articles/cancellable/</guid><category>Rust</category><category>Crates</category><category>Open Source</category><description>&lt;p>Recently I&amp;rsquo;m investing a lot of time to developing a game server in &lt;a href="https://www.rust-lang.org/">Rust&lt;/a>. I started with
 implementing network layer based on &lt;a href="https://en.wikipedia.org/wiki/WebSocket">WebSockets&lt;/a>. It&amp;rsquo;s far from being ready,
 but I developed a helper crate for creating detached, cancellable services.&lt;/p>
-&lt;h2 id="game-server-backstory">
+&lt;h2 id="game-server-backstory" >
 Game server backstory
 &lt;a class="anchor" href="#game-server-backstory" aria-label="Anchor">
 &lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
@@ -265,7 +265,7 @@ alt="xkcd: Making Progress"loading="lazy"
 &lt;/figcaption>
 &lt;/figure>
 &lt;!-- raw HTML omitted -->
-&lt;h2 id="cancellable-crate">
+&lt;h2 id="cancellable-crate" >
 Cancellable crate
 &lt;a class="anchor" href="#cancellable-crate" aria-label="Anchor">
 &lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
@@ -356,7 +356,7 @@ returns &lt;code>Err(Self::Result)&lt;/code> then the service completes immediat
 additional data. An example is TCP stream: it reads data packages from a peer and consumes them via callback. However,
 if the server decides the connection should be terminated, then the service should complete its work.&lt;/p>
 &lt;p>Enter&amp;hellip;&lt;/p>
-&lt;h3 id="communicating-with-detached-service">
+&lt;h3 id="communicating-with-detached-service" >
 Communicating with detached service
 &lt;a class="anchor" href="#communicating-with-detached-service" aria-label="Anchor">
 &lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
@@ -387,7 +387,7 @@ setup, we can define a channel by which spawner can communicate with spawnee.&lt
 &lt;a href="https://www.yubico.com/products/yubikey-5-overview/">Yubikey&lt;/a>. After over two years I already forgot how &lt;em>tedious&lt;/em> that
 can be&amp;hellip; I&amp;rsquo;m writing this blog post to create a clear trace of what I needed to do today and hopefully, when the time
 comes to set up &lt;em>an another&lt;/em> key, it&amp;rsquo;ll be as easy as opening up a blog entry.&lt;/p>
-&lt;h2 id="in-general">
+&lt;h2 id="in-general" >
 In general
 &lt;a class="anchor" href="#in-general" aria-label="Anchor">
 &lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
@@ -400,7 +400,7 @@ research paper by Google, explaining how they work and how they made them &amp;l
 yet written in a easy-to-follow way. If you&amp;rsquo;re interested in security, then give it a try!&lt;/p>
 &lt;p>The rest of this article is a ramp about configuring a new key. If you don&amp;rsquo;t have one/not having issues with one at the
 moment, you can give it amiss.&lt;/p>
-&lt;h2 id="setting-up-a-new-key">
+&lt;h2 id="setting-up-a-new-key" >
 Setting up a new key
 &lt;a class="anchor" href="#setting-up-a-new-key" aria-label="Anchor">
 &lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
@@ -410,7 +410,7 @@ Setting up a new key
 &lt;p>&lt;a href="https://www.yubico.com/">Yubico&lt;/a> offers &lt;a href="https://www.yubico.com/support/download/">great software&lt;/a> for managing your
 keys. If you&amp;rsquo;re planning on using yours as a &lt;a href="https://en.wikipedia.org/wiki/Multi-factor_authentication">2FA&lt;/a> method or
 &lt;a href="https://www.yubico.com/resources/glossary/fido-2/">FIDO2&lt;/a>, then you are a happier person.&lt;/p>
-&lt;h3 id="yubikey--macos">
+&lt;h3 id="yubikey--macos" >
 Yubikey &amp;amp; macOS
 &lt;a class="anchor" href="#yubikey--macos" aria-label="Anchor">
 &lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
@@ -425,7 +425,7 @@ supported by device&amp;rdquo; error.&lt;/p>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Then I found DataDog&amp;rsquo;s Yubikey
 &lt;a href="https://github.com/DataDog/yubikey/blob/master/docs/troubleshooting.md">troubleshooting guide&lt;/a>. It fixed my problem &amp;ndash;
 a config file was missing in my GnuPG home.&lt;/p>
-&lt;h3 id="yubikey--openpgp">
+&lt;h3 id="yubikey--openpgp" >
 Yubikey &amp;amp; OpenPGP
 &lt;a class="anchor" href="#yubikey--openpgp" aria-label="Anchor">
 &lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
@@ -439,7 +439,7 @@ before, so it was now, I was saved by
 &lt;p>It encompasses everything: from generating keys, to rotating keys. It also offers different solutions depending on how
 much you care about security. I &lt;strong>highly&lt;/strong> encourage you to configure your key with this guide.&lt;/p>
 &lt;p>It got me through most of the OpenPGP stuff pretty smoothly. Again, I was lost on making the key work with &lt;code>gpg-agent&lt;/code>.&lt;/p>
-&lt;h3 id="yubikey--ssh">
+&lt;h3 id="yubikey--ssh" >
 Yubikey &amp;amp; SSH
 &lt;a class="anchor" href="#yubikey--ssh" aria-label="Anchor">
 &lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
@@ -459,7 +459,7 @@ miss two parts: &lt;strong>configuring gpg-agent&lt;/strong> and &lt;strong>enab
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Cool. The last and yet &lt;strong>very important step&lt;/strong> is to relaunch the agent:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>gpgconf --kill gpg-agent
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>It should hopefully work.&lt;/p>
-&lt;h3 id="tips">
+&lt;h3 id="tips" >
 Tips
 &lt;a class="anchor" href="#tips" aria-label="Anchor">
 &lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
@@ -476,7 +476,7 @@ everything again to no avail.&lt;/p>
 &lt;a href="https://www.githubstatus.com/incidents/z3c6q056q332">GitHub was having issues&lt;/a>.&lt;/p>
 &lt;p>&lt;a href="https://www.githubstatus.com/">GitHub Status&lt;/a> is a great site to keep in your RSS feed. When issues arise, they
 cascade.&lt;/p></description></item><item><title>Beginnings Are Hard</title><link>https://madebyme.today/articles/beginnings-are-hard/</link><pubDate>Sat, 25 Feb 2023 20:14:43 +0100</pubDate><guid>https://madebyme.today/articles/beginnings-are-hard/</guid><category>meta</category><category>Polaris</category><description>&lt;p>Well it took some time (almost 6 years) to create a personal blog, but here we are.&lt;/p>
-&lt;h2 id="how-did-we-come-here">
+&lt;h2 id="how-did-we-come-here" >
 How did we come here?
 &lt;a class="anchor" href="#how-did-we-come-here" aria-label="Anchor">
 &lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
@@ -488,7 +488,7 @@ How did we come here?
 &lt;p>&amp;hellip; at least not yet. ✌(-‿-)✌ However I&amp;rsquo;m optimistic.&lt;/p>
 &lt;p>To better understand why I have such high hopes for this project let&amp;rsquo;s go down the rabbit hole and analyze its ancestors
 and try to point out why they failed.&lt;/p>
-&lt;h3 id="platform-1-0x52-django-22">
+&lt;h3 id="platform-1-0x52-django-22" >
 Platform 1: 0x52 (Django 2.2)
 &lt;a class="anchor" href="#platform-1-0x52-django-22" aria-label="Anchor">
 &lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
@@ -524,7 +524,7 @@ access only their own entries and tags.&lt;/p>
 so it just fated away. Also it was more of a personal utility website, than a blog. It was publicly available on
 &lt;a href="https://www.heroku.com/">Heroku&lt;/a> until quite recently actually. I took down the website when &lt;a href="https://help.heroku.com/RSBRUH58/removal-of-heroku-free-product-plans-faq">Heroku announced their
 removal of free product plans&lt;/a>.&lt;/p>
-&lt;h3 id="platform-2-titan-aspnet">
+&lt;h3 id="platform-2-titan-aspnet" >
 Platform 2: Titan (ASP.NET)
 &lt;a class="anchor" href="#platform-2-titan-aspnet" aria-label="Anchor">
 &lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
@@ -564,7 +564,7 @@ and message broker.&lt;/p>
 whether the session has ended.&lt;/p>
 &lt;p>Can you see now when I said it was overengineered? So many complex solutions for a logout functionality. The project
 ended because I was too wornout to finish it.&lt;/p>
-&lt;h3 id="platform-3-polaris-react">
+&lt;h3 id="platform-3-polaris-react" >
 Platform 3: Polaris (React)
 &lt;a class="anchor" href="#platform-3-polaris-react" aria-label="Anchor">
 &lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
@@ -588,7 +588,7 @@ alt="Steam on the horizon" class="img-thumbnail"loading="lazy"
 &lt;p>I don&amp;rsquo;t have much more to say here other that, it was a while when I&amp;rsquo;ve used &lt;a href="https://inkscape.org/">Inkscape&lt;/a> to create
 those images and when I needed to use it again, for the sake of this blog, it was terrifying to see how much one can
 forget what one has learned. ಠ_ಠ&lt;/p>
-&lt;h3 id="platforms-long-forgotten">
+&lt;h3 id="platforms-long-forgotten" >
 Platforms long forgotten
 &lt;a class="anchor" href="#platforms-long-forgotten" aria-label="Anchor">
 &lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
@@ -606,7 +606,7 @@ still remembered by me enough to write a few sentences about.&lt;/p>
 &lt;p>This blog, on the other hand, is a static content website build with &lt;a href="https://gohugo.io/">Hugo&lt;/a>. I think to some extend
 I was aware that tools like Hugo existed, but I&amp;rsquo;ve never considered using them. I cannot really explain as to why; maybe
 I was trying too hard to use a new fancy tool I&amp;rsquo;ve just learned about.&lt;/p>
-&lt;h2 id="the-goal-and-future-of-this-project">
+&lt;h2 id="the-goal-and-future-of-this-project" >
 The goal and future of this project
 &lt;a class="anchor" href="#the-goal-and-future-of-this-project" aria-label="Anchor">
 &lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
