@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MadeByMe</title><link>https://madebyme.today/</link><description>Recent content on MadeByMe</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright 2023, Kamil Rusin</copyright><lastBuildDate>Sun, 29 Oct 2023 15:22:21 +0200</lastBuildDate><atom:link href="https://madebyme.today/index.xml" rel="self" type="application/rss+xml"/><item><title>Life in Weeks</title><link>https://madebyme.today/projects/life-in-weeks/</link><pubDate>Sun, 29 Oct 2023 15:22:21 +0200</pubDate><guid>https://madebyme.today/projects/life-in-weeks/</guid><description>&lt;p>This entry has been inspired by &lt;a href="https://busterbenson.com/">Buster Benson&lt;/a>&amp;rsquo;s
 &lt;a href="https://busterbenson.com/life-in-weeks">Life in Weeks&lt;/a>. The rules are very similar: each block represents a week in my
 life. More significant events are named and might have descriptions.&lt;/p>
-&lt;p>It&amp;rsquo;s not the end product. I&amp;rsquo;ll be adding entries frequently, but irregularly. My goal in this exercise is to understand
-how the sum of forces that have acted upon me has influenced my life.&lt;/p>
+&lt;p>It&amp;rsquo;s not the end product. I&amp;rsquo;ll add entries frequently, but irregularly. My goal in this exercise is to understand how
+the sum of forces that have acted upon me has influenced my life.&lt;/p>
+&lt;p>I&amp;rsquo;m happy to share this template with anyone willing to try a similar board. It&amp;rsquo;s just a
+&lt;a href="https://gohugo.io/templates/partials/">partial template&lt;/a>, and a
+&lt;a href="https://gohugo.io/templates/data-templates/">data template&lt;/a>. If you want to give it a go, then reach out to me.&lt;/p>
 &lt;p>&lt;strong>P.S.&lt;/strong> Working on this page has reminded me of
 &lt;a href="https://observer.com/2015/06/life-is-a-game-this-is-your-strategy-guide/">&amp;ldquo;Life Is a Game. This Is Your Strategy Guide.&amp;rdquo;&lt;/a>
 by Oliver Emberton. It was recommended to me by a fantastic person and it opened my eyes. I hope you too will find it
