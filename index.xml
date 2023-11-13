@@ -49,7 +49,7 @@ produced by the project.&lt;/p>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├─ README.md
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├─ Makefile
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├─ setup.py
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├─ Manifest.in
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├─ MANIFEST.in
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├─ pyproject.toml
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">└─ Changelog.md
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This is a pretty standard (and also minimalistic!) take on a Python project. The pipeline defined in
