@@ -18,29 +18,29 @@ software project, and the changelog usually includes records of changes such as 
 changelog: workflow updates, typo fixes in README, SonarQube settings; they all are transparent to the Python package
 produced by the project.&lt;/p>
 &lt;p>Let&amp;rsquo;s take a look at an example:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>.
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├─ .github
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>│ └─ workflows
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>│ └── workflow.yaml
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├─ docs
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>│ ├─ conf.py
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>│ ├─ index.rst
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>│ └─ Makefile
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├─ foo
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>│ ├─ __init__.py
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>│ └─ bar
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>│ ├─ __init__.py
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>│ └─ baz.py
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├─ tests
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>│ ├─ __init__.py
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>│ └─ test_bar.py
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├─ .gitignore
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├─ README.md
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├─ Makefile
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├─ setup.py
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├─ Manifest.in
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├─ pyproject.toml
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>└─ Changelog.md
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-text" data-lang="text">&lt;span class="line">&lt;span class="cl">.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├─ .github
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ └─ workflows
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ └── workflow.yaml
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├─ docs
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ ├─ conf.py
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ ├─ index.rst
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ └─ Makefile
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├─ foo
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ ├─ __init__.py
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ └─ bar
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ ├─ __init__.py
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ └─ baz.py
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├─ tests
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ ├─ __init__.py
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ └─ test_bar.py
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├─ .gitignore
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├─ README.md
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├─ Makefile
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├─ setup.py
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├─ Manifest.in
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├─ pyproject.toml
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">└─ Changelog.md
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This is a pretty standard (and also minimalistic!) take on a Python project. The pipeline defined in
 &lt;code>.github/workflows/workflow.yaml&lt;/code> builds, tests and publishes the package. Initially project stored its version in
 &lt;code>pyproject.toml&lt;/code>, while &lt;code>Changelog.md&lt;/code> contained human-readable lists of additions, fixes, and improvements for each
@@ -49,33 +49,33 @@ release. Having a standard usually makes things easier, so we adopted
 &lt;a href="https://semver.org/spec/v2.0.0.html">Semantic Versioning 2.0.0&lt;/a>, so that was nice.&lt;/p>
 &lt;p>&lt;a href="https://keepachangelog.com/en/1.1.0/">Keep a changelog&lt;/a> is just a Markdown template &amp;ndash; it has no associated toolset.
 Here&amp;rsquo;s an example of a changelog with two entries:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-md" data-lang="md">&lt;span style="display:flex;">&lt;span># Changelog
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>All notable changes to this project will be documented in this file.
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>The format is based on [&lt;span style="color:#f92672">Keep a Changelog&lt;/span>](&lt;span style="color:#75af00">https://keepachangelog.com/en/1.0.0/&lt;/span>),
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>and this project adheres to [&lt;span style="color:#f92672">Semantic Versioning&lt;/span>](&lt;span style="color:#75af00">https://semver.org/spec/v2.0.0.html&lt;/span>).
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>## [1.2.0] - 2023-10-01
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>### Added
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#00a8c8">-&lt;/span> Support for Python 3.12.
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#00a8c8">-&lt;/span> Utility for parsing &lt;span style="color:#d88200">`foo`&lt;/span>.
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>### Fixed
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#00a8c8">-&lt;/span> Worker subprocesses are now correctly closed.
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>### Changed
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#00a8c8">-&lt;/span> Update &lt;span style="color:#d88200">`pylint`&lt;/span> version to &lt;span style="color:#d88200">`~= 2.17`&lt;/span>.
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>## [1.1.2] - 2019-02-15
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>### Fixed
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#00a8c8">-&lt;/span> Typo in project&amp;#39;s title in docs.
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-md" data-lang="md">&lt;span class="line">&lt;span class="cl">&lt;span class="gh"># Changelog
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gh">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">All notable changes to this project will be documented in this file.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">The format is based on [&lt;span class="nt">Keep a Changelog&lt;/span>](&lt;span class="na">https://keepachangelog.com/en/1.0.0/&lt;/span>),
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">and this project adheres to [&lt;span class="nt">Semantic Versioning&lt;/span>](&lt;span class="na">https://semver.org/spec/v2.0.0.html&lt;/span>).
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gu">## [1.2.0] - 2023-10-01
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gu">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gu">### Added
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gu">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">-&lt;/span> Support for Python 3.12.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">-&lt;/span> Utility for parsing &lt;span class="sb">`foo`&lt;/span>.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gu">### Fixed
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gu">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">-&lt;/span> Worker subprocesses are now correctly closed.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gu">### Changed
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gu">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">-&lt;/span> Update &lt;span class="sb">`pylint`&lt;/span> version to &lt;span class="sb">`~= 2.17`&lt;/span>.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gu">## [1.1.2] - 2019-02-15
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gu">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gu">### Fixed
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gu">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">-&lt;/span> Typo in project&amp;#39;s title in docs.
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="keeping-a-changelog-up-to-date" >
 Keep(ing) a changelog up-to-date
 &lt;a class="anchor" href="#keeping-a-changelog-up-to-date" aria-label="Anchor">
@@ -88,47 +88,47 @@ Keep(ing) a changelog up-to-date
 both places are in sync, but relaying on CI to inform contributors about the necessary changes seems far from ideal.&lt;/p>
 &lt;p>Instead, we made &lt;code>Changelog.md&lt;/code> the only place where the version can be updated. &lt;code>pyproject.toml&lt;/code> expects the version to
 be statically defined; we can disable that behavior by marking the version as &lt;em>dynamic&lt;/em>.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-toml" data-lang="toml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#111">[&lt;/span>&lt;span style="color:#75af00">build-system&lt;/span>&lt;span style="color:#111">]&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75af00">requires&lt;/span> &lt;span style="color:#111">=&lt;/span> &lt;span style="color:#111">[&lt;/span>&lt;span style="color:#d88200">&amp;#34;setuptools&amp;#34;&lt;/span>&lt;span style="color:#111">,&lt;/span> &lt;span style="color:#d88200">&amp;#34;wheel&amp;#34;&lt;/span>&lt;span style="color:#111">]&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75af00">build-backend&lt;/span> &lt;span style="color:#111">=&lt;/span> &lt;span style="color:#d88200">&amp;#34;setuptools.build_meta&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#111">[&lt;/span>&lt;span style="color:#75af00">project&lt;/span>&lt;span style="color:#111">]&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75af00">name&lt;/span> &lt;span style="color:#111">=&lt;/span> &lt;span style="color:#d88200">&amp;#34;foo&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75af00">readme&lt;/span> &lt;span style="color:#111">=&lt;/span> &lt;span style="color:#d88200">&amp;#34;README.md&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75af00">requires-python&lt;/span> &lt;span style="color:#111">=&lt;/span> &lt;span style="color:#d88200">&amp;#34;&amp;gt;=3.9&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75af00">dependencies&lt;/span> &lt;span style="color:#111">=&lt;/span> &lt;span style="color:#111">[&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#d88200">&amp;#34;requests&amp;#34;&lt;/span>&lt;span style="color:#111">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#111">]&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75af00">dynamic&lt;/span> &lt;span style="color:#111">=&lt;/span> &lt;span style="color:#111">[&lt;/span>&lt;span style="color:#d88200">&amp;#34;version&amp;#34;&lt;/span>&lt;span style="color:#111">]&lt;/span> &lt;span style="color:#75715e"># &amp;lt;----&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-toml" data-lang="toml">&lt;span class="line">&lt;span class="cl">&lt;span class="p">[&lt;/span>&lt;span class="nx">build-system&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">requires&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;setuptools&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;wheel&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">build-backend&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;setuptools.build_meta&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">[&lt;/span>&lt;span class="nx">project&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">name&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;foo&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">readme&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;README.md&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">requires-python&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;&amp;gt;=3.9&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">dependencies&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="p">[&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;requests&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">dynamic&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;version&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="c"># &amp;lt;----&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The version still needs to be defined somewhere, and using &lt;code>setup.py&lt;/code> for that purpose gives us an advantage &amp;ndash; we can
 execute an arbitrary Python code there.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> &lt;span style="color:#111">re&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> &lt;span style="color:#111">pathlib&lt;/span> &lt;span style="color:#f92672">import&lt;/span> &lt;span style="color:#111">Path&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> &lt;span style="color:#111">typing&lt;/span> &lt;span style="color:#f92672">import&lt;/span> &lt;span style="color:#111">Generator&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> &lt;span style="color:#111">setuptools&lt;/span> &lt;span style="color:#f92672">import&lt;/span> &lt;span style="color:#111">setup&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#00a8c8">def&lt;/span> &lt;span style="color:#75af00">__get_versions&lt;/span>&lt;span style="color:#111">()&lt;/span> &lt;span style="color:#f92672">-&amp;gt;&lt;/span> &lt;span style="color:#111">Generator&lt;/span>&lt;span style="color:#111">[&lt;/span>&lt;span style="color:#111">tuple&lt;/span>&lt;span style="color:#111">[&lt;/span>&lt;span style="color:#111">int&lt;/span>&lt;span style="color:#111">,&lt;/span> &lt;span style="color:#111">int&lt;/span>&lt;span style="color:#111">,&lt;/span> &lt;span style="color:#111">int&lt;/span>&lt;span style="color:#111">],&lt;/span> &lt;span style="color:#00a8c8">None&lt;/span>&lt;span style="color:#111">,&lt;/span> &lt;span style="color:#00a8c8">None&lt;/span>&lt;span style="color:#111">]:&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#111">dir_name&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#111">Path&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#111">__file__&lt;/span>&lt;span style="color:#111">)&lt;/span>&lt;span style="color:#f92672">.&lt;/span>&lt;span style="color:#111">parent&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#00a8c8">with&lt;/span> &lt;span style="color:#111">open&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#111">dir_name&lt;/span> &lt;span style="color:#f92672">/&lt;/span> &lt;span style="color:#d88200">&amp;#34;Changelog.md&amp;#34;&lt;/span>&lt;span style="color:#111">,&lt;/span> &lt;span style="color:#d88200">&amp;#34;r&amp;#34;&lt;/span>&lt;span style="color:#111">)&lt;/span> &lt;span style="color:#00a8c8">as&lt;/span> &lt;span style="color:#111">file&lt;/span>&lt;span style="color:#111">:&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#111">lines&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#111">file&lt;/span>&lt;span style="color:#f92672">.&lt;/span>&lt;span style="color:#111">readlines&lt;/span>&lt;span style="color:#111">()&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#00a8c8">for&lt;/span> &lt;span style="color:#111">line&lt;/span> &lt;span style="color:#f92672">in&lt;/span> &lt;span style="color:#111">lines&lt;/span>&lt;span style="color:#111">:&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#111">m&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#111">re&lt;/span>&lt;span style="color:#f92672">.&lt;/span>&lt;span style="color:#00a8c8">match&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#d88200">r&lt;/span>&lt;span style="color:#d88200">&amp;#34;^##\s+\[(\d+\.\d+\.\d+)\]&amp;#34;&lt;/span>&lt;span style="color:#111">,&lt;/span> &lt;span style="color:#111">line&lt;/span>&lt;span style="color:#111">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#00a8c8">if&lt;/span> &lt;span style="color:#111">m&lt;/span>&lt;span style="color:#111">:&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#111">x&lt;/span>&lt;span style="color:#111">,&lt;/span> &lt;span style="color:#111">y&lt;/span>&lt;span style="color:#111">,&lt;/span> &lt;span style="color:#111">z&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#111">m&lt;/span>&lt;span style="color:#f92672">.&lt;/span>&lt;span style="color:#111">group&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#111">)&lt;/span>&lt;span style="color:#f92672">.&lt;/span>&lt;span style="color:#111">split&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#d88200">&amp;#34;.&amp;#34;&lt;/span>&lt;span style="color:#111">,&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#111">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#00a8c8">yield&lt;/span> &lt;span style="color:#111">int&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#111">x&lt;/span>&lt;span style="color:#111">),&lt;/span> &lt;span style="color:#111">int&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#111">y&lt;/span>&lt;span style="color:#111">),&lt;/span> &lt;span style="color:#111">int&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#111">z&lt;/span>&lt;span style="color:#111">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#00a8c8">def&lt;/span> &lt;span style="color:#75af00">__get_highest_version&lt;/span>&lt;span style="color:#111">()&lt;/span> &lt;span style="color:#f92672">-&amp;gt;&lt;/span> &lt;span style="color:#111">str&lt;/span>&lt;span style="color:#111">:&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#111">highest_version&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#111">max&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#111">__get_versions&lt;/span>&lt;span style="color:#111">())&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#00a8c8">return&lt;/span> &lt;span style="color:#d88200">&amp;#34;.&amp;#34;&lt;/span>&lt;span style="color:#f92672">.&lt;/span>&lt;span style="color:#111">join&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#111">map&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#111">str&lt;/span>&lt;span style="color:#111">,&lt;/span> &lt;span style="color:#111">highest_version&lt;/span>&lt;span style="color:#111">))&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#111">setup&lt;/span>&lt;span style="color:#111">(&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#111">version&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#111">__get_highest_version&lt;/span>&lt;span style="color:#111">(),&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#111">)&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">re&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">from&lt;/span> &lt;span class="nn">pathlib&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">Path&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">from&lt;/span> &lt;span class="nn">typing&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">Generator&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">from&lt;/span> &lt;span class="nn">setuptools&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">setup&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">__get_versions&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">Generator&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="nb">tuple&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="nb">int&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nb">int&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nb">int&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="kc">None&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="kc">None&lt;/span>&lt;span class="p">]:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">dir_name&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">Path&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="vm">__file__&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">parent&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">with&lt;/span> &lt;span class="nb">open&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">dir_name&lt;/span> &lt;span class="o">/&lt;/span> &lt;span class="s2">&amp;#34;Changelog.md&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;r&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">as&lt;/span> &lt;span class="n">file&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">lines&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">file&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">readlines&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">for&lt;/span> &lt;span class="n">line&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="n">lines&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">m&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">re&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="k">match&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="sa">r&lt;/span>&lt;span class="s2">&amp;#34;^##\s+\[(\d+\.\d+\.\d+)\]&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">line&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="n">m&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">x&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">y&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">z&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">m&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">group&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">split&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;.&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">yield&lt;/span> &lt;span class="nb">int&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">),&lt;/span> &lt;span class="nb">int&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">y&lt;/span>&lt;span class="p">),&lt;/span> &lt;span class="nb">int&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">z&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">__get_highest_version&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="nb">str&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">highest_version&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">max&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">__get_versions&lt;/span>&lt;span class="p">())&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="s2">&amp;#34;.&amp;#34;&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">join&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">map&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">str&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">highest_version&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">setup&lt;/span>&lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">version&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="n">__get_highest_version&lt;/span>&lt;span class="p">(),&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">)&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Now the only place where package&amp;rsquo;s version needs to be updated is the changelog itself. Note that this change does not
 enforce updating the changelog for every change. However, to release a new version of the package one is required to
 add a new changelog entry.&lt;/p>
@@ -136,8 +136,8 @@ add a new changelog entry.&lt;/p>
 this dependency. &lt;code>MANIFEST.in&lt;/code> contains include/exclude patters for non-standard files (see
 &lt;a href="https://packaging.python.org/en/latest/guides/using-manifest-in/">official docs&lt;/a>). Add the following line to the
 manifest:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span># ...
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>include Changelog.md
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-text" data-lang="text">&lt;span class="line">&lt;span class="cl"># ...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">include Changelog.md
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="accessing-project-version-from-sphinx" >
 Accessing project version from Sphinx
 &lt;a class="anchor" href="#accessing-project-version-from-sphinx" aria-label="Anchor">
@@ -157,59 +157,59 @@ version:&lt;/p>
 &lt;p>With the current setup it&amp;rsquo;s hard for Sphinx to read the version, since it&amp;rsquo;s only accessible from &lt;code>setup.py&lt;/code>. The easiest
 workaround is to extract the parsing to an external module and then use that module as a dependency in both &lt;code>conf.py&lt;/code>
 and &lt;code>setup.py&lt;/code>.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># version.py&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> &lt;span style="color:#111">re&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> &lt;span style="color:#111">pathlib&lt;/span> &lt;span style="color:#f92672">import&lt;/span> &lt;span style="color:#111">Path&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> &lt;span style="color:#111">typing&lt;/span> &lt;span style="color:#f92672">import&lt;/span> &lt;span style="color:#111">Generator&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> &lt;span style="color:#111">setuptools&lt;/span> &lt;span style="color:#f92672">import&lt;/span> &lt;span style="color:#111">setup&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#00a8c8">def&lt;/span> &lt;span style="color:#75af00">__get_versions&lt;/span>&lt;span style="color:#111">()&lt;/span> &lt;span style="color:#f92672">-&amp;gt;&lt;/span> &lt;span style="color:#111">Generator&lt;/span>&lt;span style="color:#111">[&lt;/span>&lt;span style="color:#111">tuple&lt;/span>&lt;span style="color:#111">[&lt;/span>&lt;span style="color:#111">int&lt;/span>&lt;span style="color:#111">,&lt;/span> &lt;span style="color:#111">int&lt;/span>&lt;span style="color:#111">,&lt;/span> &lt;span style="color:#111">int&lt;/span>&lt;span style="color:#111">],&lt;/span> &lt;span style="color:#00a8c8">None&lt;/span>&lt;span style="color:#111">,&lt;/span> &lt;span style="color:#00a8c8">None&lt;/span>&lt;span style="color:#111">]:&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#111">dir_name&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#111">Path&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#111">__file__&lt;/span>&lt;span style="color:#111">)&lt;/span>&lt;span style="color:#f92672">.&lt;/span>&lt;span style="color:#111">parent&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#00a8c8">with&lt;/span> &lt;span style="color:#111">open&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#111">dir_name&lt;/span> &lt;span style="color:#f92672">/&lt;/span> &lt;span style="color:#d88200">&amp;#34;Changelog.md&amp;#34;&lt;/span>&lt;span style="color:#111">,&lt;/span> &lt;span style="color:#d88200">&amp;#34;r&amp;#34;&lt;/span>&lt;span style="color:#111">)&lt;/span> &lt;span style="color:#00a8c8">as&lt;/span> &lt;span style="color:#111">file&lt;/span>&lt;span style="color:#111">:&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#111">lines&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#111">file&lt;/span>&lt;span style="color:#f92672">.&lt;/span>&lt;span style="color:#111">readlines&lt;/span>&lt;span style="color:#111">()&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#00a8c8">for&lt;/span> &lt;span style="color:#111">line&lt;/span> &lt;span style="color:#f92672">in&lt;/span> &lt;span style="color:#111">lines&lt;/span>&lt;span style="color:#111">:&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#111">m&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#111">re&lt;/span>&lt;span style="color:#f92672">.&lt;/span>&lt;span style="color:#00a8c8">match&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#d88200">r&lt;/span>&lt;span style="color:#d88200">&amp;#34;^##\s+\[(\d+\.\d+\.\d+)\]&amp;#34;&lt;/span>&lt;span style="color:#111">,&lt;/span> &lt;span style="color:#111">line&lt;/span>&lt;span style="color:#111">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#00a8c8">if&lt;/span> &lt;span style="color:#111">m&lt;/span>&lt;span style="color:#111">:&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#111">x&lt;/span>&lt;span style="color:#111">,&lt;/span> &lt;span style="color:#111">y&lt;/span>&lt;span style="color:#111">,&lt;/span> &lt;span style="color:#111">z&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#111">m&lt;/span>&lt;span style="color:#f92672">.&lt;/span>&lt;span style="color:#111">group&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#111">)&lt;/span>&lt;span style="color:#f92672">.&lt;/span>&lt;span style="color:#111">split&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#d88200">&amp;#34;.&amp;#34;&lt;/span>&lt;span style="color:#111">,&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#111">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#00a8c8">yield&lt;/span> &lt;span style="color:#111">int&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#111">x&lt;/span>&lt;span style="color:#111">),&lt;/span> &lt;span style="color:#111">int&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#111">y&lt;/span>&lt;span style="color:#111">),&lt;/span> &lt;span style="color:#111">int&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#111">z&lt;/span>&lt;span style="color:#111">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#00a8c8">def&lt;/span> &lt;span style="color:#75af00">__get_highest_version&lt;/span>&lt;span style="color:#111">()&lt;/span> &lt;span style="color:#f92672">-&amp;gt;&lt;/span> &lt;span style="color:#111">str&lt;/span>&lt;span style="color:#111">:&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#111">highest_version&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#111">max&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#111">__get_versions&lt;/span>&lt;span style="color:#111">())&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#00a8c8">return&lt;/span> &lt;span style="color:#d88200">&amp;#34;.&amp;#34;&lt;/span>&lt;span style="color:#f92672">.&lt;/span>&lt;span style="color:#111">join&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#111">map&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#111">str&lt;/span>&lt;span style="color:#111">,&lt;/span> &lt;span style="color:#111">highest_version&lt;/span>&lt;span style="color:#111">))&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#111">version&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#111">__get_highest_version&lt;/span>&lt;span style="color:#111">()&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># version.py&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">re&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">from&lt;/span> &lt;span class="nn">pathlib&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">Path&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">from&lt;/span> &lt;span class="nn">typing&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">Generator&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">from&lt;/span> &lt;span class="nn">setuptools&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">setup&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">__get_versions&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">Generator&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="nb">tuple&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="nb">int&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nb">int&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nb">int&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="kc">None&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="kc">None&lt;/span>&lt;span class="p">]:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">dir_name&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">Path&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="vm">__file__&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">parent&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">with&lt;/span> &lt;span class="nb">open&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">dir_name&lt;/span> &lt;span class="o">/&lt;/span> &lt;span class="s2">&amp;#34;Changelog.md&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;r&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">as&lt;/span> &lt;span class="n">file&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">lines&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">file&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">readlines&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">for&lt;/span> &lt;span class="n">line&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="n">lines&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">m&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">re&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="k">match&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="sa">r&lt;/span>&lt;span class="s2">&amp;#34;^##\s+\[(\d+\.\d+\.\d+)\]&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">line&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="n">m&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">x&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">y&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">z&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">m&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">group&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">split&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;.&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">yield&lt;/span> &lt;span class="nb">int&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">),&lt;/span> &lt;span class="nb">int&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">y&lt;/span>&lt;span class="p">),&lt;/span> &lt;span class="nb">int&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">z&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">__get_highest_version&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="nb">str&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">highest_version&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">max&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">__get_versions&lt;/span>&lt;span class="p">())&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="s2">&amp;#34;.&amp;#34;&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">join&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">map&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">str&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">highest_version&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">version&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">__get_highest_version&lt;/span>&lt;span class="p">()&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>After that we can import the module in &lt;code>setup.py&lt;/code>:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> &lt;span style="color:#111">setuptools&lt;/span> &lt;span style="color:#f92672">import&lt;/span> &lt;span style="color:#111">setup&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> &lt;span style="color:#111">version&lt;/span> &lt;span style="color:#f92672">import&lt;/span> &lt;span style="color:#111">version&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#111">setup&lt;/span>&lt;span style="color:#111">(&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#111">version&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#111">__get_highest_version&lt;/span>&lt;span style="color:#111">(),&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#111">)&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">from&lt;/span> &lt;span class="nn">setuptools&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">setup&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">from&lt;/span> &lt;span class="nn">version&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">version&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">setup&lt;/span>&lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">version&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="n">__get_highest_version&lt;/span>&lt;span class="p">(),&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">)&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&amp;hellip; and &lt;code>conf.py&lt;/code>:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> &lt;span style="color:#111">sys&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> &lt;span style="color:#111">pathlib&lt;/span> &lt;span style="color:#f92672">import&lt;/span> &lt;span style="color:#111">Path&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#111">project&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#d88200">&amp;#34;foo&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#111">copyright&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#d88200">&amp;#34;2023&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#111">author&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#d88200">&amp;#34;Kamil Rusin&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#111">root_dir&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#111">Path&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#111">__file__&lt;/span>&lt;span style="color:#111">)&lt;/span>&lt;span style="color:#f92672">.&lt;/span>&lt;span style="color:#111">parents&lt;/span>&lt;span style="color:#111">[&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#111">]&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#111">sys&lt;/span>&lt;span style="color:#f92672">.&lt;/span>&lt;span style="color:#111">path&lt;/span>&lt;span style="color:#f92672">.&lt;/span>&lt;span style="color:#111">insert&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>&lt;span style="color:#111">,&lt;/span> &lt;span style="color:#111">str&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#111">root_dir&lt;/span>&lt;span style="color:#111">))&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> &lt;span style="color:#111">version&lt;/span> &lt;span style="color:#f92672">import&lt;/span> &lt;span style="color:#111">version&lt;/span> &lt;span style="color:#00a8c8">as&lt;/span> &lt;span style="color:#111">__project_version&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#111">version&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#111">__project_version&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#111">release&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#111">version&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">sys&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">from&lt;/span> &lt;span class="nn">pathlib&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">Path&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">project&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;foo&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">copyright&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;2023&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">author&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;Kamil Rusin&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">root_dir&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">Path&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="vm">__file__&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">parents&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">sys&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">path&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">insert&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nb">str&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">root_dir&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">from&lt;/span> &lt;span class="nn">version&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">version&lt;/span> &lt;span class="k">as&lt;/span> &lt;span class="n">__project_version&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">version&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">__project_version&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">release&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">version&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Again, we cannot forget about informing the build system about the new dependency in &lt;code>MANIFEST.in&lt;/code>:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span># ...
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>include Changelog.md
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>include version.py
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-text" data-lang="text">&lt;span class="line">&lt;span class="cl"># ...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">include Changelog.md
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">include version.py
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="afterthought" >
 Afterthought
 &lt;a class="anchor" href="#afterthought" aria-label="Anchor">
