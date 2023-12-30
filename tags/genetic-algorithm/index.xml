@@ -642,4 +642,23 @@ alt="Order and Chaos" class="img-thumbnail"loading="lazy"
 &lt;a href="https://en.wikipedia.org/wiki/Algorithmic_art">Algorithmic art&lt;/a>.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/div></description></item></channel></rss>
+&lt;/div></description></item><item><title>Franklin</title><link>https://madebyme.today/projects/franklin/</link><pubDate>Thu, 30 Jun 2022 00:00:00 +0000</pubDate><guid>https://madebyme.today/projects/franklin/</guid><category>Genetic Algorithm</category><category>Art</category><description>&lt;p>&lt;a href="https://github.com/nathiss/franklin">Franklin&lt;/a> is a CLI tool for generating
+&lt;a href="https://en.wikipedia.org/wiki/Evolutionary_art">evolutionary art&lt;/a>.&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>Q:&lt;/strong> What is art?&lt;br>
+&lt;strong>A:&lt;/strong> Something more than sum of its parts.&lt;/p>
+&lt;/blockquote>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:center">Original&lt;/th>
+&lt;th style="text-align:center">Evolutionary Art&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:center">&lt;img src="./Mona_Lisa_322_480.png" alt="Mona Lisa">&lt;/td>
+&lt;td style="text-align:center">&lt;img src="./example_5_4000.png" alt="Mona Lisa - generation #4000">&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item></channel></rss>
