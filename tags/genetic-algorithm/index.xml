@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Genetic Algorithm on MadeByMe</title><link>https://madebyme.today/tags/genetic-algorithm/</link><description>Recent content in Genetic Algorithm on MadeByMe</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright 2023, Kamil Rusin</copyright><lastBuildDate>Sun, 02 Apr 2023 14:50:51 +0200</lastBuildDate><atom:link href="https://madebyme.today/tags/genetic-algorithm/index.xml" rel="self" type="application/rss+xml"/><item><title>Natural Selection and Loss Functions</title><link>https://madebyme.today/articles/franklin/natural-selection-and-loss-functions/</link><pubDate>Sun, 02 Apr 2023 14:50:51 +0200</pubDate><guid>https://madebyme.today/articles/franklin/natural-selection-and-loss-functions/</guid><category>Genetic Algorithm</category><category>Rust</category><description>&lt;p>Natural Selection is what allows our species (and images!) to improve over time. In this article we&amp;rsquo;ll implement a
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Genetic Algorithm on MadeByMe</title><link>https://madebyme.today/tags/genetic-algorithm/</link><description>Recent content in Genetic Algorithm on MadeByMe</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright 2024, Kamil Rusin</copyright><lastBuildDate>Sun, 02 Apr 2023 14:50:51 +0200</lastBuildDate><atom:link href="https://madebyme.today/tags/genetic-algorithm/index.xml" rel="self" type="application/rss+xml"/><item><title>Natural Selection and Loss Functions</title><link>https://madebyme.today/articles/franklin/natural-selection-and-loss-functions/</link><pubDate>Sun, 02 Apr 2023 14:50:51 +0200</pubDate><guid>https://madebyme.today/articles/franklin/natural-selection-and-loss-functions/</guid><category>Genetic Algorithm</category><category>Rust</category><description>&lt;p>Natural Selection is what allows our species (and images!) to improve over time. In this article we&amp;rsquo;ll implement a
 scoring mechanism, through which &amp;ldquo;&lt;a href="https://madebyme.today/articles/franklin/randomness-of-life/">Mona Lisa&lt;/a>&amp;rdquo; will actually
 look like one.&lt;/p>
 &lt;h2 id="natural-selection" >
@@ -642,23 +642,4 @@ alt="Order and Chaos" class="img-thumbnail"loading="lazy"
 &lt;a href="https://en.wikipedia.org/wiki/Algorithmic_art">Algorithmic art&lt;/a>.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/div></description></item><item><title>Franklin</title><link>https://madebyme.today/projects/franklin/</link><pubDate>Thu, 30 Jun 2022 00:00:00 +0000</pubDate><guid>https://madebyme.today/projects/franklin/</guid><category>Genetic Algorithm</category><category>Art</category><description>&lt;p>&lt;a href="https://github.com/nathiss/franklin">Franklin&lt;/a> is a CLI tool for generating
-&lt;a href="https://en.wikipedia.org/wiki/Evolutionary_art">evolutionary art&lt;/a>.&lt;/p>
-&lt;blockquote>
-&lt;p>&lt;strong>Q:&lt;/strong> What is art?&lt;br>
-&lt;strong>A:&lt;/strong> Something more than sum of its parts.&lt;/p>
-&lt;/blockquote>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th style="text-align:center">Original&lt;/th>
-&lt;th style="text-align:center">Evolutionary Art&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td style="text-align:center">&lt;img src="./Mona_Lisa_322_480.png" alt="Mona Lisa">&lt;/td>
-&lt;td style="text-align:center">&lt;img src="./example_5_4000.png" alt="Mona Lisa - generation #4000">&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table></description></item></channel></rss>
+&lt;/div></description></item></channel></rss>

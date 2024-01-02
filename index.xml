@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MadeByMe</title><link>https://madebyme.today/</link><description>Recent content on MadeByMe</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright 2023, Kamil Rusin</copyright><lastBuildDate>Sun, 29 Oct 2023 15:22:21 +0200</lastBuildDate><atom:link href="https://madebyme.today/index.xml" rel="self" type="application/rss+xml"/><item><title>Life in Weeks</title><link>https://madebyme.today/projects/life-in-weeks/</link><pubDate>Sun, 29 Oct 2023 15:22:21 +0200</pubDate><guid>https://madebyme.today/projects/life-in-weeks/</guid><description>&lt;p>This entry has been inspired by &lt;a href="https://busterbenson.com/">Buster Benson&lt;/a>&amp;rsquo;s
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MadeByMe</title><link>https://madebyme.today/</link><description>Recent content on MadeByMe</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright 2024, Kamil Rusin</copyright><lastBuildDate>Sun, 29 Oct 2023 15:22:21 +0200</lastBuildDate><atom:link href="https://madebyme.today/index.xml" rel="self" type="application/rss+xml"/><item><title>Life in Weeks</title><link>https://madebyme.today/articles/life-in-weeks/</link><pubDate>Sun, 29 Oct 2023 15:22:21 +0200</pubDate><guid>https://madebyme.today/articles/life-in-weeks/</guid><description>&lt;p>This entry has been inspired by &lt;a href="https://busterbenson.com/">Buster Benson&lt;/a>&amp;rsquo;s
 &lt;a href="https://busterbenson.com/life-in-weeks">Life in Weeks&lt;/a>. The rules are very similar: each block represents a week in my
 life. More significant events are named and might have descriptions.&lt;/p>
 &lt;p>It&amp;rsquo;s not the end product. I&amp;rsquo;ll add entries frequently, but irregularly. My goal in this exercise is to understand how
@@ -240,7 +240,7 @@ alt="Log" class="img-thumbnail"loading="lazy"
 &lt;p>Photo by &lt;a href="https://unsplash.com/@jaspergarrattphotography?utm_content=creditCopyText&amp;amp;utm_medium=referral&amp;amp;utm_source=unsplash">Jasper Garratt&lt;/a> on &lt;a href="https://unsplash.com/photos/green-moss-on-brown-tree-trunk-esc26JcEdek?utm_content=creditCopyText&amp;amp;utm_medium=referral&amp;amp;utm_source=unsplash">Unsplash&lt;/a>&lt;/p>
 &lt;/figcaption>
 &lt;/figure>
-&lt;!-- raw HTML omitted --></description></item><item><title>Cancellable</title><link>https://madebyme.today/projects/cancellable/</link><pubDate>Wed, 26 Jul 2023 09:08:18 +0200</pubDate><guid>https://madebyme.today/projects/cancellable/</guid><category>Rust</category><category>Crates</category><category>Open Source</category><description>&lt;p>Recently I&amp;rsquo;m investing a lot of time to developing a game server in &lt;a href="https://www.rust-lang.org/">Rust&lt;/a>. I started with
+&lt;!-- raw HTML omitted --></description></item><item><title>Cancellable</title><link>https://madebyme.today/projects/cancellable/</link><pubDate>Wed, 26 Jul 2023 09:08:18 +0200</pubDate><guid>https://madebyme.today/projects/cancellable/</guid><category>Rust</category><category>Crates</category><category>Open Source</category><description>&lt;p>Recently I&amp;rsquo;m investing a lot of time into developing a game server in &lt;a href="https://www.rust-lang.org/">Rust&lt;/a>. I started with
 implementing network layer based on &lt;a href="https://en.wikipedia.org/wiki/WebSocket">WebSockets&lt;/a>. It&amp;rsquo;s far from being ready,
 but I developed a helper crate for creating detached, cancellable services.&lt;/p>
 &lt;h2 id="game-server-backstory" >
@@ -1275,23 +1275,4 @@ new content though. I believe it will also tilt me significantly into learning a
 &lt;p>There are still some adjustments I need to make on the website, I&amp;rsquo;m probably going to focus on them before I&amp;rsquo;ll work on
 new articles, but in general it is functionally complete.&lt;/p>
 &lt;p>So as of now, thank you for reading.&lt;/p>
-&lt;p>🌊&lt;/p></description></item><item><title>Franklin</title><link>https://madebyme.today/projects/franklin/</link><pubDate>Thu, 30 Jun 2022 00:00:00 +0000</pubDate><guid>https://madebyme.today/projects/franklin/</guid><category>Genetic Algorithm</category><category>Art</category><description>&lt;p>&lt;a href="https://github.com/nathiss/franklin">Franklin&lt;/a> is a CLI tool for generating
-&lt;a href="https://en.wikipedia.org/wiki/Evolutionary_art">evolutionary art&lt;/a>.&lt;/p>
-&lt;blockquote>
-&lt;p>&lt;strong>Q:&lt;/strong> What is art?&lt;br>
-&lt;strong>A:&lt;/strong> Something more than sum of its parts.&lt;/p>
-&lt;/blockquote>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th style="text-align:center">Original&lt;/th>
-&lt;th style="text-align:center">Evolutionary Art&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td style="text-align:center">&lt;img src="./Mona_Lisa_322_480.png" alt="Mona Lisa">&lt;/td>
-&lt;td style="text-align:center">&lt;img src="./example_5_4000.png" alt="Mona Lisa - generation #4000">&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table></description></item></channel></rss>
+&lt;p>🌊&lt;/p></description></item></channel></rss>
