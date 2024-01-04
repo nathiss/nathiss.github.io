@@ -4,9 +4,8 @@ can be&amp;hellip; I&amp;rsquo;m writing this blog post to create a clear trace 
 comes to set up &lt;em>an another&lt;/em> key, it&amp;rsquo;ll be as easy as opening up a blog entry.&lt;/p>
 &lt;h2 id="in-general" >
 In general
-&lt;a class="anchor" href="#in-general" aria-label="Anchor">
-&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
-&lt;/span>
+&lt;a class="ms-2 text-reset" href="#in-general" aria-label="Anchor">
+&lt;i class="bi bi-link-45deg">&lt;/i>
 &lt;/a>
 &lt;/h2>
 &lt;p>I started to learn about security keys a few years back. I read &amp;ldquo;&lt;a href="https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/45409.pdf">Security Keys: Practical Cryptographic Second
@@ -17,9 +16,8 @@ yet written in a easy-to-follow way. If you&amp;rsquo;re interested in security,
 moment, you can give it amiss.&lt;/p>
 &lt;h2 id="setting-up-a-new-key" >
 Setting up a new key
-&lt;a class="anchor" href="#setting-up-a-new-key" aria-label="Anchor">
-&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
-&lt;/span>
+&lt;a class="ms-2 text-reset" href="#setting-up-a-new-key" aria-label="Anchor">
+&lt;i class="bi bi-link-45deg">&lt;/i>
 &lt;/a>
 &lt;/h2>
 &lt;p>&lt;a href="https://www.yubico.com/">Yubico&lt;/a> offers &lt;a href="https://www.yubico.com/support/download/">great software&lt;/a> for managing your
@@ -27,9 +25,8 @@ keys. If you&amp;rsquo;re planning on using yours as a &lt;a href="https://en.wi
 &lt;a href="https://www.yubico.com/resources/glossary/fido-2/">FIDO2&lt;/a>, then you are a happier person.&lt;/p>
 &lt;h3 id="yubikey--macos" >
 Yubikey &amp;amp; macOS
-&lt;a class="anchor" href="#yubikey--macos" aria-label="Anchor">
-&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
-&lt;/span>
+&lt;a class="ms-2 text-reset" href="#yubikey--macos" aria-label="Anchor">
+&lt;i class="bi bi-link-45deg">&lt;/i>
 &lt;/a>
 &lt;/h3>
 &lt;p>To start with, I could not make the key detectable by &lt;a href="https://gnupg.org/">GnuPG&lt;/a>. I was getting &amp;ldquo;Operation not
@@ -42,9 +39,8 @@ supported by device&amp;rdquo; error.&lt;/p>
 a config file was missing in my GnuPG home.&lt;/p>
 &lt;h3 id="yubikey--openpgp" >
 Yubikey &amp;amp; OpenPGP
-&lt;a class="anchor" href="#yubikey--openpgp" aria-label="Anchor">
-&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
-&lt;/span>
+&lt;a class="ms-2 text-reset" href="#yubikey--openpgp" aria-label="Anchor">
+&lt;i class="bi bi-link-45deg">&lt;/i>
 &lt;/a>
 &lt;/h3>
 &lt;p>Working with &lt;code>gpg&lt;/code> sucks.&lt;/p>
@@ -56,9 +52,8 @@ much you care about security. I &lt;strong>highly&lt;/strong> encourage you to c
 &lt;p>It got me through most of the OpenPGP stuff pretty smoothly. Again, I was lost on making the key work with &lt;code>gpg-agent&lt;/code>.&lt;/p>
 &lt;h3 id="yubikey--ssh" >
 Yubikey &amp;amp; SSH
-&lt;a class="anchor" href="#yubikey--ssh" aria-label="Anchor">
-&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
-&lt;/span>
+&lt;a class="ms-2 text-reset" href="#yubikey--ssh" aria-label="Anchor">
+&lt;i class="bi bi-link-45deg">&lt;/i>
 &lt;/a>
 &lt;/h3>
 &lt;p>Once all three keys (Signing, Encryption, Authentication) are correctly set up, it&amp;rsquo;s the moment for the agent. I always
@@ -76,9 +71,8 @@ miss two parts: &lt;strong>configuring gpg-agent&lt;/strong> and &lt;strong>enab
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>It should hopefully work.&lt;/p>
 &lt;h3 id="tips" >
 Tips
-&lt;a class="anchor" href="#tips" aria-label="Anchor">
-&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
-&lt;/span>
+&lt;a class="ms-2 text-reset" href="#tips" aria-label="Anchor">
+&lt;i class="bi bi-link-45deg">&lt;/i>
 &lt;/a>
 &lt;/h3>
 &lt;ol>

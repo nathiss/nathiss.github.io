@@ -3,9 +3,8 @@ implementing network layer based on &lt;a href="https://en.wikipedia.org/wiki/We
 but I developed a helper crate for creating detached, cancellable services.&lt;/p>
 &lt;h2 id="game-server-backstory" >
 Game server backstory
-&lt;a class="anchor" href="#game-server-backstory" aria-label="Anchor">
-&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
-&lt;/span>
+&lt;a class="ms-2 text-reset" href="#game-server-backstory" aria-label="Anchor">
+&lt;i class="bi bi-link-45deg">&lt;/i>
 &lt;/a>
 &lt;/h2>
 &lt;p>The idea of developing an authoritative game server always seemed appealing to me. Network programming, however, has
@@ -36,13 +35,13 @@ alt="xkcd: Making Progress"loading="lazy"
 &lt;!-- raw HTML omitted -->
 &lt;h2 id="cancellable-crate" >
 Cancellable crate
-&lt;a class="anchor" href="#cancellable-crate" aria-label="Anchor">
-&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
-&lt;/span>
+&lt;a class="ms-2 text-reset" href="#cancellable-crate" aria-label="Anchor">
+&lt;i class="bi bi-link-45deg">&lt;/i>
 &lt;/a>
 &lt;/h2>
 &lt;p>Network functionalities in game servers (listeners, TCP streams, etc.) await for some input and &lt;em>usually&lt;/em> yield a
 result.&lt;/p>
+&lt;div class="table-responsive">
 &lt;table>
 &lt;thead>
 &lt;tr>
@@ -69,6 +68,7 @@ result.&lt;/p>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
+&lt;/div>
 &lt;p>We can define a &lt;code>trait&lt;/code> that will describe common interface for all of them:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">#[async_trait::async_trait]&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">pub&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">trait&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">Cancellable&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
@@ -127,9 +127,8 @@ if the server decides the connection should be terminated, then the service shou
 &lt;p>Enter&amp;hellip;&lt;/p>
 &lt;h3 id="communicating-with-detached-service" >
 Communicating with detached service
-&lt;a class="anchor" href="#communicating-with-detached-service" aria-label="Anchor">
-&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
-&lt;/span>
+&lt;a class="ms-2 text-reset" href="#communicating-with-detached-service" aria-label="Anchor">
+&lt;i class="bi bi-link-45deg">&lt;/i>
 &lt;/a>
 &lt;/h3>
 &lt;p>When we spawn the service task we already get a handle:&lt;/p>
@@ -157,9 +156,8 @@ scoring mechanism, through which &amp;ldquo;&lt;a href="https://madebyme.today/a
 look like one.&lt;/p>
 &lt;h2 id="natural-selection" >
 Natural Selection
-&lt;a class="anchor" href="#natural-selection" aria-label="Anchor">
-&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
-&lt;/span>
+&lt;a class="ms-2 text-reset" href="#natural-selection" aria-label="Anchor">
+&lt;i class="bi bi-link-45deg">&lt;/i>
 &lt;/a>
 &lt;/h2>
 &lt;p>&lt;a href="https://en.wikipedia.org/wiki/Natural_selection">Natural selection&lt;/a> is the process though which species adapt to their
@@ -183,9 +181,8 @@ of the specified genotype or phenotype.&lt;/p>
 no obvious way of substituting one image from another and produce an integer. We&amp;rsquo;ll get back to that in a bit.&lt;/p>
 &lt;h2 id="loss-functions" >
 Loss functions
-&lt;a class="anchor" href="#loss-functions" aria-label="Anchor">
-&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
-&lt;/span>
+&lt;a class="ms-2 text-reset" href="#loss-functions" aria-label="Anchor">
+&lt;i class="bi bi-link-45deg">&lt;/i>
 &lt;/a>
 &lt;/h2>
 &lt;p>&lt;a href="https://en.wikipedia.org/wiki/Genetic_algorithm">Genetic Algorithms&lt;/a> (and
@@ -212,9 +209,8 @@ f(O, S) = \sum_{i=0}^n \vert (r_2 - r_1)^2 + (g_2 - g_1)^2 + (b_2 - b_1)^2 \vert
 $$&lt;/p>
 &lt;h2 id="scoring-mechanism" >
 Scoring mechanism
-&lt;a class="anchor" href="#scoring-mechanism" aria-label="Anchor">
-&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
-&lt;/span>
+&lt;a class="ms-2 text-reset" href="#scoring-mechanism" aria-label="Anchor">
+&lt;i class="bi bi-link-45deg">&lt;/i>
 &lt;/a>
 &lt;/h2>
 &lt;p>First, let&amp;rsquo;s define a trait whereby the rest of the system will be able to interact with scoring methods.&lt;/p>
@@ -235,9 +231,8 @@ about these loss functions, is that they return absolute values &amp;ndash; it d
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
 &lt;h3 id="implementation-of-l1-absolute-distance" >
 Implementation of L1: AbsoluteDistance
-&lt;a class="anchor" href="#implementation-of-l1-absolute-distance" aria-label="Anchor">
-&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
-&lt;/span>
+&lt;a class="ms-2 text-reset" href="#implementation-of-l1-absolute-distance" aria-label="Anchor">
+&lt;i class="bi bi-link-45deg">&lt;/i>
 &lt;/a>
 &lt;/h3>
 &lt;p>The implementation isn&amp;rsquo;t complex - first we &lt;em>fold&lt;/em> each pixel pair to a &lt;code>usize&lt;/code>, and then we sum those parts together to
@@ -273,9 +268,8 @@ produce the score. Actually, we can do both by using Iterator&amp;rsquo;s &lt;co
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
 &lt;h3 id="implementation-of-l1-square-distance" >
 Implementation of L2: SquareDistance
-&lt;a class="anchor" href="#implementation-of-l1-square-distance" aria-label="Anchor">
-&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
-&lt;/span>
+&lt;a class="ms-2 text-reset" href="#implementation-of-l1-square-distance" aria-label="Anchor">
+&lt;i class="bi bi-link-45deg">&lt;/i>
 &lt;/a>
 &lt;/h3>
 &lt;p>Implementation of &lt;code>SquareDistance&lt;/code> is almost identical. The only difference is the squaring of color channels.&lt;/p>
@@ -309,9 +303,8 @@ Implementation of L2: SquareDistance
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="fixing-mona-lisa" >
 Fixing &amp;ldquo;Mona Lisa&amp;rdquo;
-&lt;a class="anchor" href="#fixing-mona-lisa" aria-label="Anchor">
-&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
-&lt;/span>
+&lt;a class="ms-2 text-reset" href="#fixing-mona-lisa" aria-label="Anchor">
+&lt;i class="bi bi-link-45deg">&lt;/i>
 &lt;/a>
 &lt;/h2>
 &lt;p>Let&amp;rsquo;s wire up the scoring component with generation&amp;rsquo;s flow. During each generation, every specimens will be scored
@@ -353,9 +346,8 @@ genetic algorithms and how they can be used to generate art. Now let&amp;rsquo;s
 implementing the first part of our artistic toolset: &lt;strong>mutators&lt;/strong>.&lt;/p>
 &lt;h2 id="preparing-the-ecosystem" >
 Preparing the ecosystem
-&lt;a class="anchor" href="#preparing-the-ecosystem" aria-label="Anchor">
-&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
-&lt;/span>
+&lt;a class="ms-2 text-reset" href="#preparing-the-ecosystem" aria-label="Anchor">
+&lt;i class="bi bi-link-45deg">&lt;/i>
 &lt;/a>
 &lt;/h2>
 &lt;p>Before we begin working on mutators, we need to prepare an environment in which our specimens can thrive. We don&amp;rsquo;t need
@@ -431,9 +423,8 @@ solution space search, but will produce images that are more visually interestin
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This code takes care of initializing the generation. 👌&lt;/p>
 &lt;h2 id="throwing-dice-and-hoping-for-the-best" >
 Throwing dice and hoping for the best
-&lt;a class="anchor" href="#throwing-dice-and-hoping-for-the-best" aria-label="Anchor">
-&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
-&lt;/span>
+&lt;a class="ms-2 text-reset" href="#throwing-dice-and-hoping-for-the-best" aria-label="Anchor">
+&lt;i class="bi bi-link-45deg">&lt;/i>
 &lt;/a>
 &lt;/h2>
 &lt;p>As was mentioned in the previous article, mutators act only on one specimen at a time, inserting random modification
@@ -452,9 +443,8 @@ alt="Genetic Algorithm Flow"loading="lazy"
 &lt;/figure>
 &lt;h3 id="throwing-a-rectangular-dice" >
 Throwing a rectangular dice
-&lt;a class="anchor" href="#throwing-a-rectangular-dice" aria-label="Anchor">
-&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
-&lt;/span>
+&lt;a class="ms-2 text-reset" href="#throwing-a-rectangular-dice" aria-label="Anchor">
+&lt;i class="bi bi-link-45deg">&lt;/i>
 &lt;/a>
 &lt;/h3>
 &lt;p>Rectangles are the easiest shape to draw both algorithmically and IRL; our first mutator will use rectangles as a
@@ -552,9 +542,8 @@ Since we don&amp;rsquo;t have any scoring logic yet (that&amp;rsquo;s a topic fo
 noise. We&amp;rsquo;ll need to wait a bit longer to get an image that even remotely reflects &amp;ldquo;Mona Lisa&amp;rdquo;.&lt;/p>
 &lt;h3 id="throwing-dice-of-other-shapes" >
 Throwing dice of other shapes
-&lt;a class="anchor" href="#throwing-dice-of-other-shapes" aria-label="Anchor">
-&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
-&lt;/span>
+&lt;a class="ms-2 text-reset" href="#throwing-dice-of-other-shapes" aria-label="Anchor">
+&lt;i class="bi bi-link-45deg">&lt;/i>
 &lt;/a>
 &lt;/h3>
 &lt;p>It&amp;rsquo;d be nice to have mutators other than &lt;code>RectangleMutator&lt;/code>, which are able to mutate images with different shapes, but
@@ -564,9 +553,8 @@ boundaries first and then you need to draw the desired shape. I&amp;rsquo;ve imp
 &lt;a href="https://github.com/nathiss/franklin/tree/73aa8dada3e8c3cae9aff5e24637785268e3527a/src/mutators">here&lt;/a>.&lt;/p>
 &lt;h2 id="afterword" >
 Afterword
-&lt;a class="anchor" href="#afterword" aria-label="Anchor">
-&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
-&lt;/span>
+&lt;a class="ms-2 text-reset" href="#afterword" aria-label="Anchor">
+&lt;i class="bi bi-link-45deg">&lt;/i>
 &lt;/a>
 &lt;/h2>
 &lt;p>You might&amp;rsquo;ve noticed that the code examples of this article are not strictly bounded together, meaning you cannot just

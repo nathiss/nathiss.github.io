@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>DNS on MadeByMe</title><link>https://madebyme.today/tags/dns/</link><description>Recent content in DNS on MadeByMe</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright 2024, Kamil Rusin</copyright><lastBuildDate>Thu, 04 Jan 2024 14:52:47 +0100</lastBuildDate><atom:link href="https://madebyme.today/tags/dns/index.xml" rel="self" type="application/rss+xml"/><item><title>Redirecting Subdomains to URLs</title><link>https://madebyme.today/articles/redirecting-subdomains-to-urls/</link><pubDate>Thu, 04 Jan 2024 14:52:47 +0100</pubDate><guid>https://madebyme.today/articles/redirecting-subdomains-to-urls/</guid><category>GitHub</category><category>GitHub Pages</category><category>DNS</category><category>HTTP</category><description>&lt;p>This blog is hosted on &lt;a href="https://github.com/nathiss/nathiss.github.io">GitHub Pages&lt;/a>. The service offers free static
+website hosting (TLS included!). The way it works is that GitHub issues a dedicated subdomain for each hosted website;
+for this one it&amp;rsquo;s: &lt;a href="https://nathiss.github.io/">nathiss.github.io&lt;/a>. However, if you try to access it you&amp;rsquo;ll be
+redirected to &lt;a href="https://madebyme.today/">madebyme.today&lt;/a> instead.&lt;/p>
+&lt;p>I&amp;rsquo;ve set up a custom domain, and GitHub is kind enough to respond with
+&lt;a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301">301 Moved Permanently&lt;/a> to requests using the old
+subdomain.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">$ curl -i https://nathiss.github.io/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">HTTP/2 &lt;span class="m">301&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">server: GitHub.com
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">content-type: text/html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">location: https://madebyme.today/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># ...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">content-length: &lt;span class="m">162&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;html&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;head&amp;gt;&amp;lt;title&amp;gt;301 Moved Permanently&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;body&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;center&amp;gt;&amp;lt;h1&amp;gt;301 Moved Permanently&amp;lt;/h1&amp;gt;&amp;lt;/center&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;hr&amp;gt;&amp;lt;center&amp;gt;nginx&amp;lt;/center&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;/body&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;/html&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Let&amp;rsquo;s take a closer look and see how it&amp;rsquo;s done.&lt;/p>
+&lt;h2 id="setting-up-custom-domain-for-github-pages" >
+Setting up custom domain for GitHub Pages
+&lt;a class="ms-2 text-reset" href="#setting-up-custom-domain-for-github-pages" aria-label="Anchor">
+&lt;i class="bi bi-link-45deg">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;p>GitHub Pages supports custom domains with very little config; you, as the owner, only need to set up these DNS
+records:&lt;/p>
+&lt;div class="table-responsive">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Name&lt;/th>
+&lt;th>Type&lt;/th>
+&lt;th>Content/Target&lt;/th>
+&lt;th>TTL&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>@&lt;/td>
+&lt;td>A&lt;/td>
+&lt;td>185.199.108.153&lt;/td>
+&lt;td>600&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>@&lt;/td>
+&lt;td>A&lt;/td>
+&lt;td>185.199.109.153&lt;/td>
+&lt;td>600&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>@&lt;/td>
+&lt;td>A&lt;/td>
+&lt;td>185.199.110.153&lt;/td>
+&lt;td>600&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>@&lt;/td>
+&lt;td>A&lt;/td>
+&lt;td>185.199.111.153&lt;/td>
+&lt;td>600&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>@&lt;/td>
+&lt;td>AAAA&lt;/td>
+&lt;td>2606:50c0:8000::153&lt;/td>
+&lt;td>600&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>@&lt;/td>
+&lt;td>AAAA&lt;/td>
+&lt;td>2606:50c0:8001::153&lt;/td>
+&lt;td>600&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>@&lt;/td>
+&lt;td>AAAA&lt;/td>
+&lt;td>2606:50c0:8002::153&lt;/td>
+&lt;td>600&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>@&lt;/td>
+&lt;td>AAAA&lt;/td>
+&lt;td>2606:50c0:8003::153&lt;/td>
+&lt;td>600&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>www&lt;/td>
+&lt;td>CNAME&lt;/td>
+&lt;td>&amp;lt;username&amp;gt;.github.io.&lt;/td>
+&lt;td>600&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>&amp;hellip; and create the &lt;code>CNAME&lt;/code> file in the root of your repository with the new domain:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-txt" data-lang="txt">&lt;span class="line">&lt;span class="cl">example.com
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The last thing to do is to enable GitHub Pages for your repository. GitHub will validate DNS records and serve the
+website under the configured domain. Anyone accessing &lt;code>https://example.com&lt;/code> will see your website.&lt;/p>
+&lt;p>It&amp;rsquo;s pretty well explained in &lt;a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages">About custom domains and GitHub Pages&lt;/a>,
+and &lt;a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site">Managing a custom domain for your GitHub Pages site&lt;/a>.&lt;/p>
+&lt;div class="alert alert-info">
+&lt;h6 class="alert-heading">
+&lt;i class="bi bi-pencil me-2">&lt;/i>
+Note
+&lt;/h6>
+&lt;p class="my-3">
+&lt;p>Optionally, you may want to verify your domain for GitHub Pages; it prevents other users from taking over your
+domain. It can happen when your GitHub Pages site gets disabled one way or another.&lt;/p>
+&lt;p>See &lt;a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages">Verifying your custom domain for GitHub Pages&lt;/a>
+for details.&lt;/p>
+&lt;/p>
+&lt;/div>
+&lt;h2 id="using-domains-as-aliases" >
+Using domains as aliases
+&lt;a class="ms-2 text-reset" href="#using-domains-as-aliases" aria-label="Anchor">
+&lt;i class="bi bi-link-45deg">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;p>Recently I came up with an idea to configure subdomains, that will redirect to a few tools I&amp;rsquo;d like to make accessible
+online. For example &lt;code>calendar.madebyme.today&lt;/code> could be a redirect to my GCalendar.&lt;/p>
+&lt;p>However, &lt;a href="https://en.wikipedia.org/wiki/Domain_Name_System">DNS&lt;/a> can&amp;rsquo;t be used like that. It&amp;rsquo;s a
+&lt;a href="https://en.wikipedia.org/wiki/Name_resolution_(computer_systems)">name resolution system&lt;/a> &amp;ndash; it knowns nothing about
+HTTP. If I&amp;rsquo;d host my own web server, then I could configure it to do redirects with the proper 301 status code.&lt;/p>
+&lt;p>Snippet below shows an example config with
+&lt;a href="http://nginx.org/en/docs/http/ngx_http_core_module.html#server_name">Nginx&amp;rsquo;s &lt;code>server_name&lt;/code>&lt;/a>.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-txt" data-lang="txt">&lt;span class="line">&lt;span class="cl">server {
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> server_name calendar.madebyme.today;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> return 301 https://example.com/;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>However, that&amp;rsquo;s not the case and, as far as I know, GitHub does not provide any way of setting up HTTP redirects for
+GitHub Pages.&lt;/p>
+&lt;h3 id="redir-301" >
+Redir 301
+&lt;a class="ms-2 text-reset" href="#redir-301" aria-label="Anchor">
+&lt;i class="bi bi-link-45deg">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>&lt;a href="https://redir301.link/">Redir 301&lt;/a> is a service that uses DNS records to redirect subdomains to URLs. It requires two
+DNS records in order to work:&lt;/p>
+&lt;div class="table-responsive">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Name&lt;/th>
+&lt;th>Type&lt;/th>
+&lt;th>Content/Target&lt;/th>
+&lt;th>TTL&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>subdomain&lt;/td>
+&lt;td>CNAME&lt;/td>
+&lt;td>redir301.link.&lt;/td>
+&lt;td>600&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>301.subdomain&lt;/td>
+&lt;td>TXT&lt;/td>
+&lt;td>&amp;lt;destination URL&amp;gt;&lt;/td>
+&lt;td>600&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>Let&amp;rsquo;s test it, shall we?&lt;/p>
+&lt;p>I&amp;rsquo;d very much prefer not to mess with my current DNS records, so let&amp;rsquo;s use &lt;a href="https://messwithdns.net/">mess with dns&lt;/a> for
+this experiment.&lt;/p>
+&lt;div class="alert alert-primary">
+&lt;h6 class="alert-heading">
+&lt;i class="bi bi-fire me-2">&lt;/i>
+Tip
+&lt;/h6>
+&lt;p class="my-3">
+If you&amp;rsquo;re planning on changing your DNS records and are unsure about the changes, then I&amp;rsquo;d suggest to do so first via
+&lt;a href="https://messwithdns.net/">mess with dns&lt;/a>, a tool by &lt;a href="https://jvns.ca/">Julia Evans&lt;/a> and
+&lt;a href="https://marieflanagan.com/">Marie Claire LeBlanc Flanagan&lt;/a>. It&amp;rsquo;s a service for performing experiments with DNS. Anyone
+can set up their DNS records and test with them for free.
+&lt;/p>
+&lt;/div>
+&lt;p>By following the guide we&amp;rsquo;ve got:&lt;/p>
+&lt;figure>&lt;img src="./mess_with_dns.png"
+alt="mess with dns configuration for Redir 301"loading="lazy"
+/>
+&lt;/figure>
+&lt;p>Let&amp;rsquo;s wait for the DNS records to propagate&amp;hellip; 🕓&lt;/p>
+&lt;p>&amp;hellip;and when we request the subdomain:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">$ curl -i http://calendar.aster176.messwithdns.com
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">HTTP/1.1 &lt;span class="m">301&lt;/span> Moved Permanently
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Date: Thu, &lt;span class="m">04&lt;/span> Jan &lt;span class="m">2024&lt;/span> 09:47:53 GMT
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Server: Apache
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Location: https://example.com/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Cache-Control: no-cache, no-store, must-revalidate
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Pragma: no-cache
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Expires: &lt;span class="m">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Transfer-Encoding: chunked
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Content-Type: application/cgi
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&amp;hellip;it returns 301 with the &lt;a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Location">Location&lt;/a> header
+👍&lt;/p>
+&lt;p>It&amp;rsquo;s worth to point out that it does not support HTTPS, only HTTP. It&amp;rsquo;s a Redir 301 limitation; the free tier of the
+service does not offer TLS certificates.&lt;/p>
+&lt;p>Additionally, as stated by the owner, a &amp;ldquo;fair use&amp;rdquo; policy applies to Redir 301. There&amp;rsquo;s a non-zero cost to run the
+service, so if you decide on using the system, please consider donating the maintainer. See &lt;a href="https://redir301.link/">https://redir301.link/&lt;/a>
+for details.&lt;/p>
+&lt;h3 id="redirecting-with-github-pages" >
+Redirecting with GitHub Pages
+&lt;a class="ms-2 text-reset" href="#redirecting-with-github-pages" aria-label="Anchor">
+&lt;i class="bi bi-link-45deg">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>The HTTP Location header isn&amp;rsquo;t the only way of redirecting to a URL. Another method is to use JavaScript, and the
+simplest way to achieve this is:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">body&lt;/span> &lt;span class="na">onload&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;window.location = &amp;#39;https://example.com/&amp;#39;&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c">&amp;lt;!-- ... --&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This approach is not recommended, because users might have disabled JavaScript in their browsers.&lt;/p>
+&lt;p>Yet another way is to inform the browser to perform the redirection for us; that can be done via the
+&lt;a href="https://en.wikipedia.org/wiki/Meta_refresh">meta refresh&lt;/a> tag:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">meta&lt;/span> &lt;span class="na">http-equiv&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;refresh&amp;#34;&lt;/span> &lt;span class="na">content&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;0; url=https://example.com/&amp;#34;&lt;/span> &lt;span class="p">/&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>To use this, we need to set up a website under &lt;code>calendar.aster176.messwithdns.com&lt;/code>, that will have the correct meta
+refresh tag. However, due to the fact that the domain &lt;code>madebyme.today&lt;/code> is already associated with my GitHub account, I
+had some issues with making the &lt;code>calendar.aster176.messwithdns.com&lt;/code> subdomain work. As a workaround I&amp;rsquo;ll switch to
+&lt;code>example.madebyme.today&lt;/code> from now on.&lt;/p>
+&lt;p>Let&amp;rsquo;s set up required DNS records first, to give them time to propagate. Since I already have my domain configured to
+be used by GitHub Pages, I only really need to add one more record:&lt;/p>
+&lt;div class="table-responsive">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Name&lt;/th>
+&lt;th>Type&lt;/th>
+&lt;th>Content/Target&lt;/th>
+&lt;th>TTL&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>example&lt;/td>
+&lt;td>CNAME&lt;/td>
+&lt;td>nathiss.github.io.&lt;/td>
+&lt;td>1h&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>With that out of the way, we can create a new repo.&lt;/p>
+&lt;p>We need two files:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;code>index.html&lt;/code> with the meta tag:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">&amp;lt;!DOCTYPE html&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">html&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">head&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">meta&lt;/span> &lt;span class="na">charset&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;utf-8&amp;#34;&lt;/span> &lt;span class="p">/&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">meta&lt;/span> &lt;span class="na">http-equiv&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;refresh&amp;#34;&lt;/span> &lt;span class="na">content&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;0; url=https://example.com/&amp;#34;&lt;/span> &lt;span class="p">/&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">link&lt;/span> &lt;span class="na">href&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;https://example.com&amp;#34;&lt;/span> &lt;span class="na">rel&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;canonical&amp;#34;&lt;/span> &lt;span class="p">/&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">title&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>Redirecting to https://example.com&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">title&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">head&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">a&lt;/span> &lt;span class="na">href&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;https://example.com/&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>Redirect&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">a&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">html&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>&lt;code>CNAME&lt;/code> to point to GitHub which subdomain it should use:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-txt" data-lang="txt">&lt;span class="line">&lt;span class="cl">example.madebyme.today
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;p>See the full setup here: &lt;a href="https://github.com/nathiss/redirect-example">redirect-example&lt;/a>.&lt;/p>
+&lt;p>Alright, let&amp;rsquo;s see if our new DNS record has propagated:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">$ dig example.madebyme.today CNAME +noall +answer
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">;&lt;/span> &amp;lt;&amp;lt;&amp;gt;&amp;gt; DiG 9.10.6 &amp;lt;&amp;lt;&amp;gt;&amp;gt; example.madebyme.today CNAME +noall +answer
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">;;&lt;/span> global options: +cmd
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">example.madebyme.today. &lt;span class="m">3233&lt;/span> IN CNAME nathiss.github.io.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>It has indeed.&lt;/p>
+&lt;p>The last thing to do, is to enable GitHub Pages for the new repo. Go to &lt;code>Settings &amp;gt; Pages&lt;/code>.&lt;/p>
+&lt;figure>&lt;img src="./gh_pages_enable.png"
+alt="GitHub Pages configuration for redirect-example repository"loading="lazy"
+/>
+&lt;/figure>
+&lt;p>Select a branch and a folder your site will be served from. GitHub automatically picks up custom domain name configured
+in the &lt;code>CNAME&lt;/code> file. Wait a moment for it to perform some DNS checks and to provision a new TLS certificate for your
+subdomain, then enable HTTPS enforcement for your site.&lt;/p>
+&lt;figure>&lt;img src="./gh_pages_custom_domain.png"loading="lazy"
+/>
+&lt;/figure>
+&lt;p>All parts should be in place, let&amp;rsquo;s check if it works:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">$ curl -i https://example.madebyme.today/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">HTTP/2 &lt;span class="m">200&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">server: GitHub.com
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">content-type: text/html&lt;span class="p">;&lt;/span> &lt;span class="nv">charset&lt;/span>&lt;span class="o">=&lt;/span>utf-8
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># ...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">content-length: &lt;span class="m">356&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;!DOCTYPE html&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;html&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;lt;head&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;lt;meta &lt;span class="nv">charset&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;utf-8&amp;#34;&lt;/span> /&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;lt;meta http-equiv&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;refresh&amp;#34;&lt;/span> &lt;span class="nv">content&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;0; url=https://example.com/&amp;#34;&lt;/span> /&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;lt;link &lt;span class="nv">href&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;https://example.com&amp;#34;&lt;/span> &lt;span class="nv">rel&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;canonical&amp;#34;&lt;/span> /&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;lt;title&amp;gt;Redirecting to https://example.com&amp;lt;/title&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;lt;/head&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;lt;body&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;lt;a &lt;span class="nv">href&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;https://example.com/&amp;#34;&lt;/span>&amp;gt;Redirect&amp;lt;/a&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;lt;/body&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;/html&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>🎉&lt;/p>
+&lt;p>If a browser respects the meta refresh tag, then it works. When it doesn&amp;rsquo;t, the user has an option to manually click on
+the &amp;ldquo;Redirect&amp;rdquo; link.&lt;/p>
+&lt;h2 id="conclusion" >
+Conclusion
+&lt;a class="ms-2 text-reset" href="#conclusion" aria-label="Anchor">
+&lt;i class="bi bi-link-45deg">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;p>Redirects via GitHub Pages is not an ideal solution. Having to use meta&amp;rsquo;s &lt;code>http-equiv=&amp;quot;refresh&amp;quot;&lt;/code>, instead of the proper
+301 Moved Permanently makes me sad. Having said that, personally, I&amp;rsquo;d prefer to use GitHub Pages, as the backing
+service, rather than Redir 301.&lt;/p>
+&lt;p>The only benefit of Redir 301 over GitHub Pages is the 301 status code with the Location header. However, it&amp;rsquo;s
+reasonable to assume that &lt;em>vast majority&lt;/em> of modern browsers supports (and does not block) the meta refresh tag.&lt;/p>
+&lt;p>I think GitHub Pages can prove to be a more reliable service in the long run, plus it provisions free TLS certificates
+out-of-the-box.&lt;/p>
+&lt;p>I&amp;rsquo;d love to hear about other approaches of doing domain-to-URL redirects without a self-hosted web server. Let me know
+in the comments what works for you.&lt;/p></description></item></channel></rss>

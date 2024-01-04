@@ -4,9 +4,8 @@ and it&amp;rsquo;s quality will decline over time. This article proposes a featu
 required to do so.&lt;/p>
 &lt;h2 id="whats-a-changelog" >
 What&amp;rsquo;s a changelog
-&lt;a class="anchor" href="#whats-a-changelog" aria-label="Anchor">
-&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
-&lt;/span>
+&lt;a class="ms-2 text-reset" href="#whats-a-changelog" aria-label="Anchor">
+&lt;i class="bi bi-link-45deg">&lt;/i>
 &lt;/a>
 &lt;/h2>
 &lt;blockquote>
@@ -78,9 +77,8 @@ Here&amp;rsquo;s an example of a changelog with two entries:&lt;/p>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">-&lt;/span> Typo in project&amp;#39;s title in docs.
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="keeping-a-changelog-up-to-date" >
 Keep(ing) a changelog up-to-date
-&lt;a class="anchor" href="#keeping-a-changelog-up-to-date" aria-label="Anchor">
-&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
-&lt;/span>
+&lt;a class="ms-2 text-reset" href="#keeping-a-changelog-up-to-date" aria-label="Anchor">
+&lt;i class="bi bi-link-45deg">&lt;/i>
 &lt;/a>
 &lt;/h2>
 &lt;p>When releasing a new package version one needs to remember to update the version in two places: &lt;code>pyproject.toml&lt;/code> and
@@ -140,9 +138,8 @@ manifest:&lt;/p>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">include Changelog.md
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="accessing-project-version-from-sphinx" >
 Accessing project version from Sphinx
-&lt;a class="anchor" href="#accessing-project-version-from-sphinx" aria-label="Anchor">
-&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
-&lt;/span>
+&lt;a class="ms-2 text-reset" href="#accessing-project-version-from-sphinx" aria-label="Anchor">
+&lt;i class="bi bi-link-45deg">&lt;/i>
 &lt;/a>
 &lt;/h3>
 &lt;p>&lt;a href="https://www.sphinx-doc.org/en/master/">Sphinx&lt;/a> is a most popular tool for generating documentation out of Python source
@@ -212,9 +209,8 @@ and &lt;code>setup.py&lt;/code>.&lt;/p>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">include version.py
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="afterthought" >
 Afterthought
-&lt;a class="anchor" href="#afterthought" aria-label="Anchor">
-&lt;span class="inline-svg">&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">&lt;path fill="none" d="M10.6666 13.3333 10.0808 12.7475c-.78102-.7811-.78102-2.0474.0-2.82845l4.5049-4.50489C15.3668 4.63311 16.6331 4.63311 17.4142 5.41415l1.1715 1.17157C19.3668 7.36677 19.3668 8.6331 18.5857 9.41415L16.9999 10.9999m-3.6666-.3333L13.919 11.2524c.7811.7811.7811 2.0474.0 2.8284L9.41415 18.5857C8.6331 19.3668 7.36677 19.3668 6.58572 18.5857L5.41416 17.4142C4.63311 16.6331 4.63311 15.3668 5.41416 14.5857l1.58578-1.5858" stroke="#393636" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>
-&lt;/span>
+&lt;a class="ms-2 text-reset" href="#afterthought" aria-label="Anchor">
+&lt;i class="bi bi-link-45deg">&lt;/i>
 &lt;/a>
 &lt;/h2>
 &lt;p>Maintaining a changelog can make a project easier to understand. Hopefully, with the changes proposed in this article
