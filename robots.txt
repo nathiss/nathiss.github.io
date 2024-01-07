@@ -2,4 +2,6 @@ User-agent: *
 Disallow: /pub.key
 Disallow: /CNAME
 Disallow: /.nojekyll
+Disallow: /404
+Disallow: /404.html
 Sitemap: https://madebyme.today/sitemap.xml
