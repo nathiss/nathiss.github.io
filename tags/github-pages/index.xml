@@ -184,7 +184,7 @@ can set up their DNS records and test with them for free.
 &lt;/p>
 &lt;/div>
 &lt;p>By following the guide we&amp;rsquo;ve got:&lt;/p>
-&lt;figure>&lt;a href="./mess_with_dns.png">&lt;img src="./mess_with_dns.png"
+&lt;figure>&lt;a href="./mess_with_dns.png" class="hide-external" >&lt;img src="./mess_with_dns.png"
 alt="mess with dns configuration for Redir 301"loading="lazy"
 />&lt;/a>&lt;figcaption>
 &lt;p>Click on the image for the full size.&lt;/p>
@@ -282,7 +282,7 @@ be used by GitHub Pages, I only really need to add one more record:&lt;/p>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">example.madebyme.today. &lt;span class="m">3233&lt;/span> IN CNAME nathiss.github.io.
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>It has indeed.&lt;/p>
 &lt;p>The last thing to do, is to enable GitHub Pages for the new repo. Go to &lt;code>Settings &amp;gt; Pages&lt;/code>.&lt;/p>
-&lt;figure>&lt;a href="./gh_pages_enable.png">&lt;img src="./gh_pages_enable.png"
+&lt;figure>&lt;a href="./gh_pages_enable.png" class="hide-external" >&lt;img src="./gh_pages_enable.png"
 alt="GitHub Pages configuration for redirect-example repository"loading="lazy"
 />&lt;/a>&lt;figcaption>
 &lt;p>Click on the image for the full size.&lt;/p>
@@ -291,7 +291,7 @@ alt="GitHub Pages configuration for redirect-example repository"loading="lazy"
 &lt;p>Select a branch and a folder your site will be served from. GitHub automatically picks up custom domain name configured
 in the &lt;code>CNAME&lt;/code> file. Wait a moment for it to perform some DNS checks and to provision a new TLS certificate for your
 subdomain, then enable HTTPS enforcement for your site.&lt;/p>
-&lt;figure>&lt;a href="./gh_pages_custom_domain.png">&lt;img src="./gh_pages_custom_domain.png"
+&lt;figure>&lt;a href="./gh_pages_custom_domain.png" class="hide-external" >&lt;img src="./gh_pages_custom_domain.png"
 alt="GitHub Pages configuration with custom domain and enforced HTTPS"loading="lazy"
 />&lt;/a>&lt;figcaption>
 &lt;p>Click on the image for the full size.&lt;/p>
