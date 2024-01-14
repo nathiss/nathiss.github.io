@@ -1,9 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MadeByMe</title><link>https://madebyme.today/</link><description>Recent content on MadeByMe</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright 2024, Kamil Rusin</copyright><lastBuildDate>Thu, 04 Jan 2024 14:52:47 +0100</lastBuildDate><atom:link href="https://madebyme.today/index.xml" rel="self" type="application/rss+xml"/><item><title>Redirecting Subdomains to URLs</title><link>https://madebyme.today/blog/redirecting-subdomains-to-urls/</link><pubDate>Thu, 04 Jan 2024 14:52:47 +0100</pubDate><guid>https://madebyme.today/blog/redirecting-subdomains-to-urls/</guid><category>GitHub</category><category>GitHub Pages</category><category>DNS</category><category>HTTP</category><description>&lt;p>This blog is hosted on &lt;a href="https://github.com/nathiss/nathiss.github.io">GitHub Pages&lt;/a>. The service offers free static
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MadeByMe</title><link>https://madebyme.today/</link><description>Recent content on MadeByMe</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright 2024, Kamil Rusin</copyright><lastBuildDate>Thu, 04 Jan 2024 14:52:47 +0100</lastBuildDate><atom:link href="https://madebyme.today/index.xml" rel="self" type="application/rss+xml"/><item><title>Redirecting Subdomains to URLs</title><link>https://madebyme.today/blog/redirecting-subdomains-to-urls/</link><pubDate>Thu, 04 Jan 2024 14:52:47 +0100</pubDate><guid>https://madebyme.today/blog/redirecting-subdomains-to-urls/</guid><category>GitHub</category><category>GitHub Pages</category><category>DNS</category><category>HTTP</category><description>&lt;p>This blog is hosted on &lt;a
+href="https://github.com/nathiss/nathiss.github.io"
+>GitHub Pages&lt;/a>
+. The service offers free static
 website hosting (TLS included!). The way it works is that GitHub issues a dedicated subdomain for each hosted website;
-for this one it&amp;rsquo;s: &lt;a href="https://nathiss.github.io/">nathiss.github.io&lt;/a>. However, if you try to access it you&amp;rsquo;ll be
-redirected to &lt;a href="https://madebyme.today/">madebyme.today&lt;/a> instead.&lt;/p>
+for this one it&amp;rsquo;s: &lt;a
+href="https://nathiss.github.io/"
+>nathiss.github.io&lt;/a>
+. However, if you try to access it you&amp;rsquo;ll be
+redirected to &lt;a
+href="https://madebyme.today/"
+>madebyme.today&lt;/a>
+instead.&lt;/p>
 &lt;p>I&amp;rsquo;ve set up a custom domain, and GitHub is kind enough to respond with
-&lt;a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301">301 Moved Permanently&lt;/a> to requests using the old
+&lt;a
+href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301"
+>301 Moved Permanently&lt;/a>
+to requests using the old
 subdomain.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">$ curl -i https://nathiss.github.io/
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">HTTP/2 &lt;span class="m">301&lt;/span>
@@ -101,8 +113,14 @@ records:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-txt" data-lang="txt">&lt;span class="line">&lt;span class="cl">example.com
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The last thing to do is to enable GitHub Pages for your repository. GitHub will validate DNS records and serve the
 website under the configured domain. Anyone accessing &lt;code>https://example.com&lt;/code> will see your website.&lt;/p>
-&lt;p>It&amp;rsquo;s pretty well explained in &lt;a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages">About custom domains and GitHub Pages&lt;/a>,
-and &lt;a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site">Managing a custom domain for your GitHub Pages site&lt;/a>.&lt;/p>
+&lt;p>It&amp;rsquo;s pretty well explained in &lt;a
+href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages"
+>About custom domains and GitHub Pages&lt;/a>
+,
+and &lt;a
+href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site"
+>Managing a custom domain for your GitHub Pages site&lt;/a>
+.&lt;/p>
 &lt;div class="alert alert-info">
 &lt;h6 class="alert-heading">
 &lt;i class="bi bi-pencil me-2">&lt;/i>
@@ -111,7 +129,9 @@ Note
 &lt;p class="my-3">
 &lt;p>Optionally, you may want to verify your domain for GitHub Pages; it prevents other users from taking over your
 domain. It can happen when your GitHub Pages site gets disabled one way or another.&lt;/p>
-&lt;p>See &lt;a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages">Verifying your custom domain for GitHub Pages&lt;/a>
+&lt;p>See &lt;a
+href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages"
+>Verifying your custom domain for GitHub Pages&lt;/a>
 for details.&lt;/p>
 &lt;/p>
 &lt;/div>
@@ -123,11 +143,20 @@ Using domains as aliases
 &lt;/h2>
 &lt;p>Recently I came up with an idea to configure subdomains, that will redirect to a few tools I&amp;rsquo;d like to make accessible
 online. For example &lt;code>calendar.madebyme.today&lt;/code> could be a redirect to my GCalendar.&lt;/p>
-&lt;p>However, &lt;a href="https://en.wikipedia.org/wiki/Domain_Name_System">DNS&lt;/a> can&amp;rsquo;t be used like that. It&amp;rsquo;s a
-&lt;a href="https://en.wikipedia.org/wiki/Name_resolution_(computer_systems)">name resolution system&lt;/a> &amp;ndash; it knowns nothing about
+&lt;p>However, &lt;a
+href="https://en.wikipedia.org/wiki/Domain_Name_System"
+>DNS&lt;/a>
+can&amp;rsquo;t be used like that. It&amp;rsquo;s a
+&lt;a
+href="https://en.wikipedia.org/wiki/Name_resolution_%28computer_systems%29"
+>name resolution system&lt;/a>
+&amp;ndash; it knowns nothing about
 HTTP. If I&amp;rsquo;d host my own web server, then I could configure it to do redirects with the proper 301 status code.&lt;/p>
 &lt;p>Snippet below shows an example config with
-&lt;a href="http://nginx.org/en/docs/http/ngx_http_core_module.html#server_name">Nginx&amp;rsquo;s &lt;code>server_name&lt;/code>&lt;/a>.&lt;/p>
+&lt;a
+href="http://nginx.org/en/docs/http/ngx_http_core_module.html#server_name"
+>Nginx&amp;rsquo;s &lt;code>server_name&lt;/code>&lt;/a>
+.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-txt" data-lang="txt">&lt;span class="line">&lt;span class="cl">server {
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> server_name calendar.madebyme.today;
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> return 301 https://example.com/;
@@ -140,7 +169,10 @@ Redir 301
 &lt;i class="bi bi-link-45deg">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>&lt;a href="https://redir301.link/">Redir 301&lt;/a> is a service that uses DNS records to redirect subdomains to URLs. It requires two
+&lt;p>&lt;a
+href="https://redir301.link/"
+>Redir 301&lt;/a>
+is a service that uses DNS records to redirect subdomains to URLs. It requires two
 DNS records in order to work:&lt;/p>
 &lt;div class="table-responsive">
 &lt;table>
@@ -169,7 +201,10 @@ DNS records in order to work:&lt;/p>
 &lt;/table>
 &lt;/div>
 &lt;p>Let&amp;rsquo;s test it, shall we?&lt;/p>
-&lt;p>I&amp;rsquo;d very much prefer not to mess with my current DNS records, so let&amp;rsquo;s use &lt;a href="https://messwithdns.net/">mess with dns&lt;/a> for
+&lt;p>I&amp;rsquo;d very much prefer not to mess with my current DNS records, so let&amp;rsquo;s use &lt;a
+href="https://messwithdns.net/"
+>mess with dns&lt;/a>
+for
 this experiment.&lt;/p>
 &lt;div class="alert alert-primary">
 &lt;h6 class="alert-heading">
@@ -178,8 +213,17 @@ Tip
 &lt;/h6>
 &lt;p class="my-3">
 If you&amp;rsquo;re planning on changing your DNS records and are unsure about the changes, then I&amp;rsquo;d suggest to do so first via
-&lt;a href="https://messwithdns.net/">mess with dns&lt;/a>, a tool by &lt;a href="https://jvns.ca/">Julia Evans&lt;/a> and
-&lt;a href="https://marieflanagan.com/">Marie Claire LeBlanc Flanagan&lt;/a>. It&amp;rsquo;s a service for performing experiments with DNS. Anyone
+&lt;a
+href="https://messwithdns.net/"
+>mess with dns&lt;/a>
+, a tool by &lt;a
+href="https://jvns.ca/"
+>Julia Evans&lt;/a>
+and
+&lt;a
+href="https://marieflanagan.com/"
+>Marie Claire LeBlanc Flanagan&lt;/a>
+. It&amp;rsquo;s a service for performing experiments with DNS. Anyone
 can set up their DNS records and test with them for free.
 &lt;/p>
 &lt;/div>
@@ -202,12 +246,18 @@ alt="mess with dns configuration for Redir 301"loading="lazy"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Expires: &lt;span class="m">0&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Transfer-Encoding: chunked
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Content-Type: application/cgi
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&amp;hellip;it returns 301 with the &lt;a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Location">Location&lt;/a> header
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&amp;hellip;it returns 301 with the &lt;a
+href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Location"
+>Location&lt;/a>
+header
 👍&lt;/p>
 &lt;p>It&amp;rsquo;s worth to point out that it does not support HTTPS, only HTTP. It&amp;rsquo;s a Redir 301 limitation; the free tier of the
 service does not offer TLS certificates.&lt;/p>
 &lt;p>Additionally, as stated by the owner, a &amp;ldquo;fair use&amp;rdquo; policy applies to Redir 301. There&amp;rsquo;s a non-zero cost to run the
-service, so if you decide on using the system, please consider donating the maintainer. See &lt;a href="https://redir301.link/">https://redir301.link/&lt;/a>
+service, so if you decide on using the system, please consider donating the maintainer. See &lt;a
+href="https://redir301.link/"
+class="hide-external"
+>https://redir301.link/&lt;/a>
 for details.&lt;/p>
 &lt;h3 id="redirecting-with-github-pages" >
 Redirecting with GitHub Pages
@@ -222,7 +272,10 @@ simplest way to achieve this is:&lt;/p>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This approach is not recommended, because users might have disabled JavaScript in their browsers.&lt;/p>
 &lt;p>Yet another way is to inform the browser to perform the redirection for us; that can be done via the
-&lt;a href="https://en.wikipedia.org/wiki/Meta_refresh">meta refresh&lt;/a> tag:&lt;/p>
+&lt;a
+href="https://en.wikipedia.org/wiki/Meta_refresh"
+>meta refresh&lt;/a>
+tag:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">meta&lt;/span> &lt;span class="na">http-equiv&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;refresh&amp;#34;&lt;/span> &lt;span class="na">content&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;0; url=https://example.com/&amp;#34;&lt;/span> &lt;span class="p">/&amp;gt;&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>To use this, we need to set up a website under &lt;code>calendar.aster176.messwithdns.com&lt;/code>, that will have the correct meta
 refresh tag. However, due to the fact that the domain &lt;code>madebyme.today&lt;/code> is already associated with my GitHub account, I
@@ -273,7 +326,10 @@ be used by GitHub Pages, I only really need to add one more record:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-txt" data-lang="txt">&lt;span class="line">&lt;span class="cl">example.madebyme.today
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;/ul>
-&lt;p>See the full setup here: &lt;a href="https://github.com/nathiss/redirect-example">redirect-example&lt;/a>.&lt;/p>
+&lt;p>See the full setup here: &lt;a
+href="https://github.com/nathiss/redirect-example"
+>redirect-example&lt;/a>
+.&lt;/p>
 &lt;p>Alright, let&amp;rsquo;s see if our new DNS record has propagated:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">$ dig example.madebyme.today CNAME +noall +answer
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
@@ -334,17 +390,34 @@ reasonable to assume that &lt;em>vast majority&lt;/em> of modern browsers suppor
 &lt;p>I think GitHub Pages can prove to be a more reliable service in the long run, plus it provisions free TLS certificates
 out-of-the-box.&lt;/p>
 &lt;p>I&amp;rsquo;d love to hear about other approaches of doing domain-to-URL redirects without a self-hosted web server. Let me know
-in the comments what works for you.&lt;/p></description></item><item><title>Life in Weeks</title><link>https://madebyme.today/blog/life-in-weeks/</link><pubDate>Sun, 29 Oct 2023 15:22:21 +0200</pubDate><guid>https://madebyme.today/blog/life-in-weeks/</guid><description>&lt;p>This entry has been inspired by &lt;a href="https://busterbenson.com/">Buster Benson&lt;/a>&amp;rsquo;s
-&lt;a href="https://busterbenson.com/life-in-weeks">Life in Weeks&lt;/a>. The rules are very similar: each block represents a week in my
+in the comments what works for you.&lt;/p></description></item><item><title>Life in Weeks</title><link>https://madebyme.today/blog/life-in-weeks/</link><pubDate>Sun, 29 Oct 2023 15:22:21 +0200</pubDate><guid>https://madebyme.today/blog/life-in-weeks/</guid><description>&lt;p>This entry has been inspired by &lt;a
+href="https://busterbenson.com/"
+>Buster Benson&lt;/a>
+&amp;rsquo;s
+&lt;a
+href="https://busterbenson.com/life-in-weeks"
+>Life in Weeks&lt;/a>
+. The rules are very similar: each block represents a week in my
 life. More significant events are named and might have descriptions.&lt;/p>
 &lt;p>It&amp;rsquo;s not the end product. I&amp;rsquo;ll add entries frequently, but irregularly. My goal in this exercise is to understand how
 the sum of forces that have acted upon me has influenced my life.&lt;/p>
 &lt;p>I&amp;rsquo;m happy to share this template with anyone willing to try a similar board. It&amp;rsquo;s just a
-&lt;a href="https://gohugo.io/templates/partials/">partial template&lt;/a>, and a
-&lt;a href="https://gohugo.io/templates/data-templates/">data template&lt;/a>. If you want to give it a go, then reach out to me.&lt;/p>
+&lt;a
+href="https://gohugo.io/templates/partials/"
+>partial template&lt;/a>
+, and a
+&lt;a
+href="https://gohugo.io/templates/data-templates/"
+>data template&lt;/a>
+. If you want to give it a go, then reach out to me.&lt;/p>
 &lt;p>&lt;strong>P.S.&lt;/strong> Working on this page has reminded me of
-&lt;a href="https://oliveremberton.com/2014/life-is-a-game-this-is-your-strategy-guide/">&amp;ldquo;Life Is a Game. This Is Your Strategy Guide.&amp;rdquo;&lt;/a>
-by &lt;a href="https://oliveremberton.com/">Oliver Emberton&lt;/a>. It was recommended to me by a fantastic person and it opened my eyes.
+&lt;a
+href="https://oliveremberton.com/2014/life-is-a-game-this-is-your-strategy-guide/"
+>&amp;ldquo;Life Is a Game. This Is Your Strategy Guide.&amp;rdquo;&lt;/a>
+by &lt;a
+href="https://oliveremberton.com/"
+>Oliver Emberton&lt;/a>
+. It was recommended to me by a fantastic person and it opened my eyes.
 I hope you too will find it both entertaining and insightful. So, for anyone intrigued, happy reading!&lt;/p></description></item><item><title>Keep a Changelog</title><link>https://madebyme.today/blog/keep-a-changelog/</link><pubDate>Sat, 21 Oct 2023 23:16:09 +0200</pubDate><guid>https://madebyme.today/blog/keep-a-changelog/</guid><category>Python</category><category>Changelog</category><description>&lt;p>Recently I was tasked with initialization of a new Python project. One of the requirements was to prepare a changelog.
 I liked the idea, but my gut feeling was that the future project contributors won&amp;rsquo;t keep the changelog always up-to-date
 and it&amp;rsquo;s quality will decline over time. This article proposes a feature which enforces changelog updates, when it&amp;rsquo;s
@@ -359,7 +432,10 @@ What&amp;rsquo;s a changelog
 &lt;p>A &lt;strong>changelog&lt;/strong> is a log or record of all notable changes made to a project. The project is often a website or
 software project, and the changelog usually includes records of changes such as bug fixes, new features, etc.&lt;/p>
 &lt;/blockquote>
-&lt;p>from &lt;a href="https://en.wikipedia.org/wiki/Changelog">Wikipedia&lt;/a>.&lt;/p>
+&lt;p>from &lt;a
+href="https://en.wikipedia.org/wiki/Changelog"
+>Wikipedia&lt;/a>
+.&lt;/p>
 &lt;p>The phrase &amp;ldquo;notable changes&amp;rdquo; is the key here. Not all changes to the project are required to have an entry in its
 changelog: workflow updates, typo fixes in README, SonarQube settings; they all are transparent to the Python package
 produced by the project.&lt;/p>
@@ -391,9 +467,18 @@ produced by the project.&lt;/p>
 &lt;code>.github/workflows/workflow.yaml&lt;/code> builds, tests and publishes the package. Initially project stored its version in
 &lt;code>pyproject.toml&lt;/code>, while &lt;code>Changelog.md&lt;/code> contained human-readable lists of additions, fixes, and improvements for each
 release. Having a standard usually makes things easier, so we adopted
-&lt;a href="https://keepachangelog.com/en/1.1.0/">keep a changelog&lt;/a>, which also uses
-&lt;a href="https://semver.org/spec/v2.0.0.html">Semantic Versioning 2.0.0&lt;/a>, so that was nice.&lt;/p>
-&lt;p>&lt;a href="https://keepachangelog.com/en/1.1.0/">Keep a changelog&lt;/a> is just a Markdown template &amp;ndash; it has no associated toolset.
+&lt;a
+href="https://keepachangelog.com/en/1.1.0/"
+>keep a changelog&lt;/a>
+, which also uses
+&lt;a
+href="https://semver.org/spec/v2.0.0.html"
+>Semantic Versioning 2.0.0&lt;/a>
+, so that was nice.&lt;/p>
+&lt;p>&lt;a
+href="https://keepachangelog.com/en/1.1.0/"
+>Keep a changelog&lt;/a>
+is just a Markdown template &amp;ndash; it has no associated toolset.
 Here&amp;rsquo;s an example of a changelog with two entries:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-md" data-lang="md">&lt;span class="line">&lt;span class="cl">&lt;span class="gh"># Changelog
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gh">&lt;/span>
@@ -479,7 +564,10 @@ enforce updating the changelog for every change. However, to release a new versi
 add a new changelog entry.&lt;/p>
 &lt;p>Now, since the presence of &lt;code>Changelog.md&lt;/code> is necessary for the build to succeed, we should inform the build system about
 this dependency. &lt;code>MANIFEST.in&lt;/code> contains include/exclude patters for non-standard files (see
-&lt;a href="https://packaging.python.org/en/latest/guides/using-manifest-in/">official docs&lt;/a>). Add the following line to the
+&lt;a
+href="https://packaging.python.org/en/latest/guides/using-manifest-in/"
+>official docs&lt;/a>
+). Add the following line to the
 manifest:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-text" data-lang="text">&lt;span class="line">&lt;span class="cl"># ...
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">include Changelog.md
@@ -489,14 +577,23 @@ Accessing project version from Sphinx
 &lt;i class="bi bi-link-45deg">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>&lt;a href="https://www.sphinx-doc.org/en/master/">Sphinx&lt;/a> is a most popular tool for generating documentation out of Python source
+&lt;p>&lt;a
+href="https://www.sphinx-doc.org/en/master/"
+>Sphinx&lt;/a>
+is a most popular tool for generating documentation out of Python source
 files. It keeps its configuration in the &lt;code>conf.py&lt;/code> file, which has two special attributes related to the project&amp;rsquo;s
 version:&lt;/p>
 &lt;ul>
 &lt;li>&lt;code>version&lt;/code> &amp;ndash; the major project version (see
-&lt;a href="https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-version">official documentation&lt;/a>),&lt;/li>
+&lt;a
+href="https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-version"
+>official documentation&lt;/a>
+),&lt;/li>
 &lt;li>&lt;code>release&lt;/code> &amp;ndash; the full project version (see
-&lt;a href="https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-release">official documentation&lt;/a>).&lt;/li>
+&lt;a
+href="https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-release"
+>official documentation&lt;/a>
+).&lt;/li>
 &lt;/ul>
 &lt;p>With the current setup it&amp;rsquo;s hard for Sphinx to read the version, since it&amp;rsquo;s only accessible from &lt;code>setup.py&lt;/code>. The easiest
 workaround is to extract the parsing to an external module and then use that module as a dependency in both &lt;code>conf.py&lt;/code>
@@ -569,11 +666,22 @@ observable for the users. Whether it&amp;rsquo;s worth to add changelog entries 
 &lt;figure class="img-thumbnail">&lt;img src="./jasper-garratt-esc26JcEdek-unsplash.webp"
 alt="Log" class="img-thumbnail"loading="lazy"
 />&lt;figcaption>
-&lt;p>Photo by &lt;a href="https://unsplash.com/@jaspergarrattphotography?utm_content=creditCopyText&amp;amp;utm_medium=referral&amp;amp;utm_source=unsplash">Jasper Garratt&lt;/a> on &lt;a href="https://unsplash.com/photos/green-moss-on-brown-tree-trunk-esc26JcEdek?utm_content=creditCopyText&amp;amp;utm_medium=referral&amp;amp;utm_source=unsplash">Unsplash&lt;/a>&lt;/p>
+&lt;p>Photo by &lt;a
+href="https://unsplash.com/@jaspergarrattphotography?utm_content=creditCopyText&amp;amp;utm_medium=referral&amp;amp;utm_source=unsplash"
+>Jasper Garratt&lt;/a>
+on &lt;a
+href="https://unsplash.com/photos/green-moss-on-brown-tree-trunk-esc26JcEdek?utm_content=creditCopyText&amp;amp;utm_medium=referral&amp;amp;utm_source=unsplash"
+>Unsplash&lt;/a>&lt;/p>
 &lt;/figcaption>
 &lt;/figure>
-&lt;!-- raw HTML omitted --></description></item><item><title>Cancellable</title><link>https://madebyme.today/projects/cancellable/</link><pubDate>Wed, 26 Jul 2023 09:08:18 +0200</pubDate><guid>https://madebyme.today/projects/cancellable/</guid><category>Rust</category><category>Crates</category><category>Open Source</category><description>&lt;p>Recently I&amp;rsquo;m investing a lot of time into developing a game server in &lt;a href="https://www.rust-lang.org/">Rust&lt;/a>. I started with
-implementing network layer based on &lt;a href="https://en.wikipedia.org/wiki/WebSocket">WebSockets&lt;/a>. It&amp;rsquo;s far from being ready,
+&lt;!-- raw HTML omitted --></description></item><item><title>Cancellable</title><link>https://madebyme.today/projects/cancellable/</link><pubDate>Wed, 26 Jul 2023 09:08:18 +0200</pubDate><guid>https://madebyme.today/projects/cancellable/</guid><category>Rust</category><category>Crates</category><category>Open Source</category><description>&lt;p>Recently I&amp;rsquo;m investing a lot of time into developing a game server in &lt;a
+href="https://www.rust-lang.org/"
+>Rust&lt;/a>
+. I started with
+implementing network layer based on &lt;a
+href="https://en.wikipedia.org/wiki/WebSocket"
+>WebSockets&lt;/a>
+. It&amp;rsquo;s far from being ready,
 but I developed a helper crate for creating detached, cancellable services.&lt;/p>
 &lt;h2 id="game-server-backstory" >
 Game server backstory
@@ -586,12 +694,21 @@ many pitfalls:&lt;/p>
 &lt;ul>
 &lt;li>Server need to validate all use inputs to protect game state from bad actors.&lt;/li>
 &lt;li>Ill-formed data sent by one client &lt;em>should&lt;/em> not deny service for another player.&lt;/li>
-&lt;li>&lt;a href="https://en.wikipedia.org/wiki/Async/await">Async programming&lt;/a> is hard in general.&lt;/li>
+&lt;li>&lt;a
+href="https://en.wikipedia.org/wiki/Async/await"
+>Async programming&lt;/a>
+is hard in general.&lt;/li>
 &lt;/ul>
 &lt;p>So, in the past I have had many attempts to develop a game server. Each improving on mistakes made in the previous one.&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://github.com/nathiss/spectrum-old">spectrum-old&lt;/a> &amp;ndash; A real-time multiplayer browser game,&lt;/li>
-&lt;li>&lt;a href="https://github.com/nathiss/Fusion-cpp">Fusion-cpp&lt;/a> &amp;ndash; This is the source code of the server for the Fusion game,&lt;/li>
+&lt;li>&lt;a
+href="https://github.com/nathiss/spectrum-old"
+>spectrum-old&lt;/a>
+&amp;ndash; A real-time multiplayer browser game,&lt;/li>
+&lt;li>&lt;a
+href="https://github.com/nathiss/Fusion-cpp"
+>Fusion-cpp&lt;/a>
+&amp;ndash; This is the source code of the server for the Fusion game,&lt;/li>
 &lt;li>&lt;em>[private repo]&lt;/em>,&lt;/li>
 &lt;li>&lt;em>[private repo]&lt;/em>,&lt;/li>
 &lt;li>&lt;em>[private repo]&lt;/em>.&lt;/li>
@@ -668,7 +785,10 @@ should return &lt;code>Ok(CancellationResult)&lt;/code>. &lt;code>CancellationRe
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Enum&amp;rsquo;s variant control whether the service will continue to perform its work. If the service produces a value, then it
 should wrap it as &lt;code>CancellableResult::Item(t)&lt;/code>; it&amp;rsquo;s also a signal that the service should continue to work. If no
 value is available, but the service should continue then it returns &lt;code>CancellableResult::Continue&lt;/code> (similar to
-&lt;a href="https://doc.rust-lang.org/stable/std/task/enum.Poll.html#variant.Pending">&lt;code>Poll::Pending&lt;/code>&lt;/a>).&lt;/p>
+&lt;a
+href="https://doc.rust-lang.org/stable/std/task/enum.Poll.html#variant.Pending"
+>&lt;code>Poll::Pending&lt;/code>&lt;/a>
+).&lt;/p>
 &lt;p>If the service finishes its work successfully (e.g. when the peer closes the connection) then the service should return
 &lt;code>CancellableResult::Break&lt;/code>.&lt;/p>
 &lt;p>&lt;code>Cancellable&lt;/code> trait has methods for spawning the service as a detached, background task:&lt;/p>
@@ -724,9 +844,15 @@ the trait we get:&lt;/p>
 the handle. The handle is owned by &lt;code>CancellableHandle&lt;/code>, which implements &lt;code>Deref&lt;/code> for &lt;code>Self::Handle&lt;/code> type. With that
 setup, we can define a channel by which spawner can communicate with spawnee.&lt;/p>
 &lt;p>I like the final product, so I&amp;rsquo;ve packaged it as a crate. It&amp;rsquo;s available on
-&lt;a href="https://crates.io/crates/cancellable">crates.io&lt;/a>.&lt;/p>
+&lt;a
+href="https://crates.io/crates/cancellable"
+>crates.io&lt;/a>
+.&lt;/p>
 &lt;p>🌊&lt;/p></description></item><item><title>Natural Selection and Loss Functions</title><link>https://madebyme.today/blog/franklin/natural-selection-and-loss-functions/</link><pubDate>Sun, 02 Apr 2023 14:50:51 +0200</pubDate><guid>https://madebyme.today/blog/franklin/natural-selection-and-loss-functions/</guid><category>Genetic Algorithm</category><category>Rust</category><description>&lt;p>Natural Selection is what allows our species (and images!) to improve over time. In this article we&amp;rsquo;ll implement a
-scoring mechanism, through which &amp;ldquo;&lt;a href="https://madebyme.today/blog/franklin/randomness-of-life/">Mona Lisa&lt;/a>&amp;rdquo; will actually
+scoring mechanism, through which &amp;ldquo;&lt;a
+href="https://madebyme.today/blog/franklin/randomness-of-life/"
+>Mona Lisa&lt;/a>
+&amp;rdquo; will actually
 look like one.&lt;/p>
 &lt;h2 id="natural-selection" >
 Natural Selection
@@ -734,12 +860,21 @@ Natural Selection
 &lt;i class="bi bi-link-45deg">&lt;/i>
 &lt;/a>
 &lt;/h2>
-&lt;p>&lt;a href="https://en.wikipedia.org/wiki/Natural_selection">Natural selection&lt;/a> is the process though which species adapt to their
-environments. If the &lt;a href="https://en.wikipedia.org/wiki/Evolution">evolution&lt;/a> is a wheel, then natural selection is the
+&lt;p>&lt;a
+href="https://en.wikipedia.org/wiki/Natural_selection"
+>Natural selection&lt;/a>
+is the process though which species adapt to their
+environments. If the &lt;a
+href="https://en.wikipedia.org/wiki/Evolution"
+>evolution&lt;/a>
+is a wheel, then natural selection is the
 force that spins it. Organism that are better adapted tend to produce more offspring and pass on their genes. This
 process favours genes that aided their bearers to survive/reproduce, increasing their number in the following
 generations.&lt;/p>
-&lt;p>&lt;a href="https://en.wikipedia.org/wiki/Fitness_(biology)">In biology&lt;/a> &lt;em>&amp;ldquo;fitness&amp;rdquo;&lt;/em> is defined by how successful an organism is at
+&lt;p>&lt;a
+href="https://en.wikipedia.org/wiki/Fitness_%28biology%29"
+>In biology&lt;/a>
+&lt;em>&amp;ldquo;fitness&amp;rdquo;&lt;/em> is defined by how successful an organism is at
 reproduction.&lt;/p>
 &lt;p>Wikipedia says:&lt;/p>
 &lt;blockquote>
@@ -759,9 +894,18 @@ Loss functions
 &lt;i class="bi bi-link-45deg">&lt;/i>
 &lt;/a>
 &lt;/h2>
-&lt;p>&lt;a href="https://en.wikipedia.org/wiki/Genetic_algorithm">Genetic Algorithms&lt;/a> (and
-&lt;a href="https://en.wikipedia.org/wiki/Evolutionary_algorithm">Evolutionary Algorithms&lt;/a>) are
-&lt;a href="https://en.wikipedia.org/wiki/Optimization_problem">optimization&lt;/a> algorithms that need a &amp;ldquo;goodness&amp;rdquo; of an organism, in
+&lt;p>&lt;a
+href="https://en.wikipedia.org/wiki/Genetic_algorithm"
+>Genetic Algorithms&lt;/a>
+(and
+&lt;a
+href="https://en.wikipedia.org/wiki/Evolutionary_algorithm"
+>Evolutionary Algorithms&lt;/a>
+) are
+&lt;a
+href="https://en.wikipedia.org/wiki/Optimization_problem"
+>optimization&lt;/a>
+algorithms that need a &amp;ldquo;goodness&amp;rdquo; of an organism, in
 order to decide whether to discard it. We&amp;rsquo;re going to implement two scoring methods, both based on loss functions. L1
 Loss Function and L2 Loss Function are defined as follows:&lt;/p>
 &lt;p>$$
@@ -776,7 +920,10 @@ should be picked then? &lt;em>In general&lt;/em> L2 Loss Function is preferred i
 outliers, then L2 Loss Function does not perform well &amp;ndash; it leads to much larger errors.&lt;/p>
 &lt;p>Cool, we have a way of calculating differences between images&amp;rsquo; pixels. But how to calculate a difference between two
 pixels? That question was already answered in
-&lt;a href="https://madebyme.today/blog/franklin/art-from-chaos/#step-2-scoring">Art From Chaos&lt;/a>. We take each of the pixels color
+&lt;a
+href="https://madebyme.today/blog/franklin/art-from-chaos/#step-2-scoring"
+>Art From Chaos&lt;/a>
+. We take each of the pixels color
 channels and calculate their differences.&lt;/p>
 &lt;p>$$
 f(O, S) = \sum_{i=0}^n \vert (r_2 - r_1)^2 + (g_2 - g_1)^2 + (b_2 - b_1)^2 \vert
@@ -901,7 +1048,12 @@ derivative of specimen score with respect to generation number.&lt;/p>
 &lt;figure class="img-thumbnail">&lt;img src="./fernando-venzano-ddVYvmwrvV4-unsplash.webp"
 alt="On the Origin of Species" class="img-thumbnail"loading="lazy"
 />&lt;figcaption>
-&lt;p>Photo by &lt;a href="https://unsplash.com/pt-br/@fernandovenzano?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText">Fernando Venzano&lt;/a> on &lt;a href="https://unsplash.com/photos/ddVYvmwrvV4?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText">Unsplash&lt;/a>&lt;/p>
+&lt;p>Photo by &lt;a
+href="https://unsplash.com/pt-br/@fernandovenzano?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"
+>Fernando Venzano&lt;/a>
+on &lt;a
+href="https://unsplash.com/photos/ddVYvmwrvV4?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"
+>Unsplash&lt;/a>&lt;/p>
 &lt;/figcaption>
 &lt;/figure>
 &lt;!-- raw HTML omitted -->
@@ -916,7 +1068,10 @@ images is to discard mutations that resulted in decreasing overall &amp;ldquo;go
 &lt;/li>
 &lt;/ol>
 &lt;/div></description></item><item><title>How to: Security Keys</title><link>https://madebyme.today/blog/how-to-security-keys/</link><pubDate>Wed, 29 Mar 2023 20:25:35 +0200</pubDate><guid>https://madebyme.today/blog/how-to-security-keys/</guid><category>how-to</category><category>yubikey</category><description>&lt;p>Today I was &lt;em>again&lt;/em> setting up OpenPGP application on a new
-&lt;a href="https://www.yubico.com/products/yubikey-5-overview/">Yubikey&lt;/a>. After over two years I already forgot how &lt;em>tedious&lt;/em> that
+&lt;a
+href="https://www.yubico.com/products/yubikey-5-overview/"
+>Yubikey&lt;/a>
+. After over two years I already forgot how &lt;em>tedious&lt;/em> that
 can be&amp;hellip; I&amp;rsquo;m writing this blog post to create a clear trace of what I needed to do today and hopefully, when the time
 comes to set up &lt;em>an another&lt;/em> key, it&amp;rsquo;ll be as easy as opening up a blog entry.&lt;/p>
 &lt;h2 id="in-general" >
@@ -925,8 +1080,11 @@ In general
 &lt;i class="bi bi-link-45deg">&lt;/i>
 &lt;/a>
 &lt;/h2>
-&lt;p>I started to learn about security keys a few years back. I read &amp;ldquo;&lt;a href="https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/45409.pdf">Security Keys: Practical Cryptographic Second
-Factors for the Modern Web&lt;/a>&amp;rdquo;
+&lt;p>I started to learn about security keys a few years back. I read &amp;ldquo;&lt;a
+href="https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/45409.pdf"
+>Security Keys: Practical Cryptographic Second
+Factors for the Modern Web&lt;/a>
+&amp;rdquo;
 research paper by Google, explaining how they work and how they made them &amp;ldquo;fool-proof&amp;rdquo;. The article is very detailed and
 yet written in a easy-to-follow way. If you&amp;rsquo;re interested in security, then give it a try!&lt;/p>
 &lt;p>The rest of this article is a ramp about configuring a new key. If you don&amp;rsquo;t have one/not having issues with one at the
@@ -937,22 +1095,40 @@ Setting up a new key
 &lt;i class="bi bi-link-45deg">&lt;/i>
 &lt;/a>
 &lt;/h2>
-&lt;p>&lt;a href="https://www.yubico.com/">Yubico&lt;/a> offers &lt;a href="https://www.yubico.com/support/download/">great software&lt;/a> for managing your
-keys. If you&amp;rsquo;re planning on using yours as a &lt;a href="https://en.wikipedia.org/wiki/Multi-factor_authentication">2FA&lt;/a> method or
-&lt;a href="https://www.yubico.com/resources/glossary/fido-2/">FIDO2&lt;/a>, then you are a happier person.&lt;/p>
+&lt;p>&lt;a
+href="https://www.yubico.com/"
+>Yubico&lt;/a>
+offers &lt;a
+href="https://www.yubico.com/support/download/"
+>great software&lt;/a>
+for managing your
+keys. If you&amp;rsquo;re planning on using yours as a &lt;a
+href="https://en.wikipedia.org/wiki/Multi-factor_authentication"
+>2FA&lt;/a>
+method or
+&lt;a
+href="https://www.yubico.com/resources/glossary/fido-2/"
+>FIDO2&lt;/a>
+, then you are a happier person.&lt;/p>
 &lt;h3 id="yubikey--macos" >
 Yubikey &amp;amp; macOS
 &lt;a class="ms-2 text-reset" href="#yubikey--macos" aria-label="Anchor">
 &lt;i class="bi bi-link-45deg">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>To start with, I could not make the key detectable by &lt;a href="https://gnupg.org/">GnuPG&lt;/a>. I was getting &amp;ldquo;Operation not
+&lt;p>To start with, I could not make the key detectable by &lt;a
+href="https://gnupg.org/"
+>GnuPG&lt;/a>
+. I was getting &amp;ldquo;Operation not
 supported by device&amp;rdquo; error.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">gpg --card-status
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">gpg: selecting card failed: Operation not supported by device
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">gpg: OpenPGP card not available: Operation not supported by device
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Then I found DataDog&amp;rsquo;s Yubikey
-&lt;a href="https://github.com/DataDog/yubikey/blob/master/docs/troubleshooting.md">troubleshooting guide&lt;/a>. It fixed my problem &amp;ndash;
+&lt;a
+href="https://github.com/DataDog/yubikey/blob/master/docs/troubleshooting.md"
+>troubleshooting guide&lt;/a>
+. It fixed my problem &amp;ndash;
 a config file was missing in my GnuPG home.&lt;/p>
 &lt;h3 id="yubikey--openpgp" >
 Yubikey &amp;amp; OpenPGP
@@ -963,7 +1139,10 @@ Yubikey &amp;amp; OpenPGP
 &lt;p>Working with &lt;code>gpg&lt;/code> sucks.&lt;/p>
 &lt;p>The tool is very advanced and offering a lot of features, so naturally its CLI is complex, to say the least. As it was
 before, so it was now, I was saved by
-&lt;a href="https://github.com/drduh/YubiKey-Guide">this marvelous guide on how to prepare PGP keys for a Yubikey&lt;/a>.&lt;/p>
+&lt;a
+href="https://github.com/drduh/YubiKey-Guide"
+>this marvelous guide on how to prepare PGP keys for a Yubikey&lt;/a>
+.&lt;/p>
 &lt;p>It encompasses everything: from generating keys, to rotating keys. It also offers different solutions depending on how
 much you care about security. I &lt;strong>highly&lt;/strong> encourage you to configure your key with this guide.&lt;/p>
 &lt;p>It got me through most of the OpenPGP stuff pretty smoothly. Again, I was lost on making the key work with &lt;code>gpg-agent&lt;/code>.&lt;/p>
@@ -999,9 +1178,18 @@ Tips
 working. I lost a significant amount of time looking for some configuration issue, but there wasn&amp;rsquo;t any. I redid
 everything again to no avail.&lt;/p>
 &lt;p>Then I saw that some of my GitHub Actions are not being triggered. 🤔 I dig a bit more and it turned out
-&lt;a href="https://www.githubstatus.com/incidents/z3c6q056q332">GitHub was having issues&lt;/a>.&lt;/p>
-&lt;p>&lt;a href="https://www.githubstatus.com/">GitHub Status&lt;/a> is a great site to keep in your RSS feed. When issues arise, they
-cascade.&lt;/p></description></item><item><title>Randomness of Life</title><link>https://madebyme.today/blog/franklin/randomness-of-life/</link><pubDate>Mon, 20 Mar 2023 10:02:19 +0100</pubDate><guid>https://madebyme.today/blog/franklin/randomness-of-life/</guid><category>Genetic Algorithm</category><category>Rust</category><description>&lt;p>In &lt;a href="https://madebyme.today/blog/franklin/art-from-chaos/">the previous article&lt;/a> from this series, we&amp;rsquo;ve talked about
+&lt;a
+href="https://www.githubstatus.com/incidents/z3c6q056q332"
+>GitHub was having issues&lt;/a>
+.&lt;/p>
+&lt;p>&lt;a
+href="https://www.githubstatus.com/"
+>GitHub Status&lt;/a>
+is a great site to keep in your RSS feed. When issues arise, they
+cascade.&lt;/p></description></item><item><title>Randomness of Life</title><link>https://madebyme.today/blog/franklin/randomness-of-life/</link><pubDate>Mon, 20 Mar 2023 10:02:19 +0100</pubDate><guid>https://madebyme.today/blog/franklin/randomness-of-life/</guid><category>Genetic Algorithm</category><category>Rust</category><description>&lt;p>In &lt;a
+href="https://madebyme.today/blog/franklin/art-from-chaos/"
+>the previous article&lt;/a>
+from this series, we&amp;rsquo;ve talked about
 genetic algorithms and how they can be used to generate art. Now let&amp;rsquo;s put those ideas into action and focus on
 implementing the first part of our artistic toolset: &lt;strong>mutators&lt;/strong>.&lt;/p>
 &lt;h2 id="preparing-the-ecosystem" >
@@ -1026,8 +1214,14 @@ specimens are images, they can be represented by the following structs:&lt;/p>
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">pixels&lt;/span>: &lt;span class="nb">Vec&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="n">Pixel&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Representing each pixel as a 24-bit value gives us some flexibility here &amp;ndash; it allows us to operate on two color depths:
-&lt;a href="https://en.wikipedia.org/wiki/Color_depth#True_color_(24-bit)">true color&lt;/a> (which uses 24-bit colors) and
-&lt;a href="https://en.wikipedia.org/wiki/Grayscale">grayscale&lt;/a> (8-bit). Creating a grayscale pixel can be done by setting up all
+&lt;a
+href="https://en.wikipedia.org/wiki/Color_depth#True_color_%2824-bit%29"
+>true color&lt;/a>
+(which uses 24-bit colors) and
+&lt;a
+href="https://en.wikipedia.org/wiki/Grayscale"
+>grayscale&lt;/a>
+(8-bit). Creating a grayscale pixel can be done by setting up all
 color channels to the same value. True, it uses thrice as much memory as it could, but&amp;hellip;&lt;/p>
 &lt;blockquote>
 &lt;p>Premature optimization is the root of all evil.&lt;br>
@@ -1189,7 +1383,10 @@ channels, and finally draw the shape. Drawing itself is done by two nested loops
 image. With the two indexes it references a specific pixel: &lt;code>j * image_width + 1&lt;/code> and finally overrides it using the
 color channels.&lt;/p>
 &lt;p>Cool, let&amp;rsquo;s see what the program generates after 10 000 generations when initialized with
-&amp;ldquo;&lt;a href="https://en.wikipedia.org/wiki/File:Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.webp">Mona Lisa&lt;/a>&amp;rdquo;.&lt;/p>
+&amp;ldquo;&lt;a
+href="https://en.wikipedia.org/wiki/File:Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.webp"
+>Mona Lisa&lt;/a>
+&amp;rdquo;.&lt;/p>
 &lt;figure class="img-thumbnail">&lt;img src="./output_010000.png"
 alt="Random noise" class="img-thumbnail"loading="lazy"
 />&lt;figcaption>
@@ -1210,7 +1407,10 @@ Throwing dice of other shapes
 I&amp;rsquo;m not going to cover them here. The reason is simple &amp;ndash; they operate under the same rules: you need to define
 boundaries first and then you need to draw the desired shape. I&amp;rsquo;ve implemented two other mutators: &lt;code>TriangleMutator&lt;/code> and
 &lt;code>CircleMutator&lt;/code>. Their sources can be found
-&lt;a href="https://github.com/nathiss/franklin/tree/73aa8dada3e8c3cae9aff5e24637785268e3527a/src/mutators">here&lt;/a>.&lt;/p>
+&lt;a
+href="https://github.com/nathiss/franklin/tree/73aa8dada3e8c3cae9aff5e24637785268e3527a/src/mutators"
+>here&lt;/a>
+.&lt;/p>
 &lt;h2 id="afterword" >
 Afterword
 &lt;a class="ms-2 text-reset" href="#afterword" aria-label="Anchor">
@@ -1220,7 +1420,10 @@ Afterword
 &lt;p>You might&amp;rsquo;ve noticed that the code examples of this article are not strictly bounded together, meaning you cannot just
 copy them to have a working example. A bunch of things like: &lt;code>Random&lt;/code> implementation, loading the original image,
 mutation loop, and the whole &lt;code>impl Image&lt;/code> block are missing. If you want to have a working solution it&amp;rsquo;s
-&lt;a href="https://github.com/nathiss/franklin/tree/73aa8dada3e8c3cae9aff5e24637785268e3527a">here&lt;/a> &lt;em>(locked down to the newest
+&lt;a
+href="https://github.com/nathiss/franklin/tree/73aa8dada3e8c3cae9aff5e24637785268e3527a"
+>here&lt;/a>
+&lt;em>(locked down to the newest
 commit at the moment of writing &amp;ndash; 73aa8da)&lt;/em>. The goal of this series is not to go through every single line of code to
 build a working utility, but rather to present an idea. So, moving forward all future articles from this series will
 also be done in that style.&lt;/p>
@@ -1228,7 +1431,12 @@ also be done in that style.&lt;/p>
 &lt;figure class="img-thumbnail">&lt;img src="./alexander-grey-2eAkk5lIkC8-unsplash.webp"
 alt="Randomness of Life" class="img-thumbnail"loading="lazy"
 />&lt;figcaption>
-&lt;p>Photo by &lt;a href="https://unsplash.com/@sharonmccutcheon?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText">Alexander Grey&lt;/a> on &lt;a href="https://unsplash.com/photos/2eAkk5lIkC8?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText">Unsplash&lt;/a>&lt;/p>
+&lt;p>Photo by &lt;a
+href="https://unsplash.com/@sharonmccutcheon?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"
+>Alexander Grey&lt;/a>
+on &lt;a
+href="https://unsplash.com/photos/2eAkk5lIkC8?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"
+>Unsplash&lt;/a>&lt;/p>
 &lt;/figcaption>
 &lt;/figure>
 &lt;!-- raw HTML omitted -->
@@ -1239,11 +1447,17 @@ alt="Randomness of Life" class="img-thumbnail"loading="lazy"
 &lt;ol>
 &lt;li id="fn:1">
 &lt;p>Usually the generation is generated randomly. See
-&lt;a href="https://en.wikipedia.org/wiki/Genetic_algorithm#Initialization">here&lt;/a>.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;a
+href="https://en.wikipedia.org/wiki/Genetic_algorithm#Initialization"
+>here&lt;/a>
+.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;li id="fn:2">
 &lt;p>&lt;code>Random&lt;/code> is a project-private utility class. Source can be found
-&lt;a href="https://github.com/nathiss/franklin/blob/73aa8dada3e8c3cae9aff5e24637785268e3527a/src/util/random.rs">here&lt;/a>.&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;a
+href="https://github.com/nathiss/franklin/blob/73aa8dada3e8c3cae9aff5e24637785268e3527a/src/util/random.rs"
+>here&lt;/a>
+.&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
 &lt;/div></description></item><item><title>Art From Chaos</title><link>https://madebyme.today/blog/franklin/art-from-chaos/</link><pubDate>Sat, 04 Mar 2023 14:50:59 +0100</pubDate><guid>https://madebyme.today/blog/franklin/art-from-chaos/</guid><category>Genetic Algorithm</category><category>Art</category><description>&lt;p>Making art is hard. Drawing pictures is tedious. With programming, however, we can automate things. The point of
@@ -1257,7 +1471,10 @@ Concepts and definitions
 &lt;/h2>
 &lt;p>Before we dive deep into making art, we need to understand some important concepts &amp;ndash; first things first.
 &lt;span class="text-decoration-underline">Automatic art&lt;/span>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>, at its core, uses generic algorithms.
-&lt;a href="https://en.wikipedia.org/wiki/Genetic_algorithm">Wikipedia&lt;/a> has a really nice page about them, if you&amp;rsquo;d like to read
+&lt;a
+href="https://en.wikipedia.org/wiki/Genetic_algorithm"
+>Wikipedia&lt;/a>
+has a really nice page about them, if you&amp;rsquo;d like to read
 it. However for the sake of the article this is enough:&lt;/p>
 &lt;p>A &lt;strong>Genetic Algorithm&lt;/strong> is an algorithm inspired by the process of natural selection used to find solutions for
 optimization problems. It has three main parts:&lt;/p>
@@ -1269,7 +1486,10 @@ optimization problems. It has three main parts:&lt;/p>
 &lt;p>OK. 👌&lt;/p>
 &lt;p>With these terms out of the way, let&amp;rsquo;s try to understand how exactly it works. Imagine we need to find a solution
 for a problem. It can be anything, like finding optimal timetable for a university class. Firstly, we need to encode a
-solution as a series of bytes (their &lt;a href="https://en.wikipedia.org/wiki/Genetic_representation">Genetic representation&lt;/a>, if
+solution as a series of bytes (their &lt;a
+href="https://en.wikipedia.org/wiki/Genetic_representation"
+>Genetic representation&lt;/a>
+, if
 you will). Once we have that we can clone the encoded representation to create a generation.&lt;/p>
 &lt;p>Each member of the generation will be randomly &lt;strong>mutated&lt;/strong> and then &lt;strong>scored&lt;/strong> based on how well they fit in our
 constrains set. For example: we might want to have a timetable which leaves just enough break time to eat a quick lunch,
@@ -1303,13 +1523,19 @@ if Wikipedia has something insightful to say:&lt;/p>
 &lt;blockquote>
 &lt;p>The population size depends on the nature of the problem, but typically contains several hundreds or thousands of
 possible solutions.&lt;br>
-~ &lt;a href="https://en.wikipedia.org/wiki/Genetic_algorithm">Genetic algorithm @ Wikipedia&lt;/a>&lt;/p>
+~ &lt;a
+href="https://en.wikipedia.org/wiki/Genetic_algorithm"
+>Genetic algorithm @ Wikipedia&lt;/a>
+&lt;/p>
 &lt;/blockquote>
 &lt;p>Well, that&amp;rsquo;s really not the most helpful answer. 😐&lt;br>
 It really boils down to this: the more specimen we have, the more memory the program requires and more CPU time to
 process each generation. On the other hand, the more specimen a generation have, the wider portion of solution space it
 can search. Whatever the generation size will be, we need to have a prototype - a specimen, which cloned will fill the
-generation. Since we&amp;rsquo;re dealing with art here, a &lt;em>&lt;a href="https://en.wikipedia.org/wiki/Tabula_rasa">tabula rasa&lt;/a>&lt;/em> should be a
+generation. Since we&amp;rsquo;re dealing with art here, a &lt;em>&lt;a
+href="https://en.wikipedia.org/wiki/Tabula_rasa"
+>tabula rasa&lt;/a>
+&lt;/em> should be a
 fitting choice.&lt;/p>
 &lt;h3 id="step-1-mutation" >
 Step 1: Mutation
@@ -1324,7 +1550,10 @@ pixels. This works, but the final image looks too detailed (in a bad way).&lt;/p
 &lt;p>Now, the changes does not technically need to be &lt;em>small&lt;/em> per se, however applying too big changes might result in
 overriding a portion of the genome that was making this particular specimen a good candidate, thus resulting in loosing
 progress achieved by previous generations.&lt;/p>
-&lt;p>&lt;a href="https://www.google.com/search?q=generating+images+with+genetic+algorithm">If you&amp;rsquo;d google &amp;ldquo;generating images with genetic algorithm&amp;rdquo;&lt;/a>,
+&lt;p>&lt;a
+href="https://www.google.com/search?q=generating&amp;#43;images&amp;#43;with&amp;#43;genetic&amp;#43;algorithm"
+>If you&amp;rsquo;d google &amp;ldquo;generating images with genetic algorithm&amp;rdquo;&lt;/a>
+,
 you&amp;rsquo;d find that most projects on the subject use geometric shapes when applying mutation. Simple onces, like
 &lt;strong>circles&lt;/strong>, &lt;strong>rectangles&lt;/strong>, and &lt;strong>triangles&lt;/strong> are a good choice. From these it&amp;rsquo;s rectangles, that can be the most
 easily represented in code. Having said that let&amp;rsquo;s see how a single specimen might change over a few first iterations.&lt;/p>
@@ -1364,7 +1593,10 @@ thus allowing us to index their pixels and calculate a difference between them. 
 piece of advice, as it glides over the fact that we a calculating a difference of &lt;em>pixels&lt;/em> not numbers, we cannot do
 arithmetics on them. To fix that we need to be a bit more clever here.&lt;/p>
 &lt;p>We can utilize the fact that pixels are just color, usually represented in
-&lt;a href="https://en.wikipedia.org/wiki/RGB_color_model">RGB&lt;/a> notation. Each color in the RGB color space is represented by three
+&lt;a
+href="https://en.wikipedia.org/wiki/RGB_color_model"
+>RGB&lt;/a>
+notation. Each color in the RGB color space is represented by three
 numbers from 0 to 255 (each encoding the amount of red, green, and blue). Numbers on their own don&amp;rsquo;t have any meaning,
 its the context that makes them colors, points, or geometric shapes. If we&amp;rsquo;d interpret these three numbers as
 coordinates in three-dimensional space, then they would become points. In that case, the difference between two points
@@ -1387,7 +1619,10 @@ Step 3: Crossing
 &lt;blockquote>
 &lt;p>[&amp;hellip;] a genetic operator used to combine the genetic information of two parents to generate new offspring. [&amp;hellip;]
 Solutions can also be generated by cloning an existing solution, which is analogous to asexual reproduction.&lt;br>
-~ &lt;a href="https://en.wikipedia.org/wiki/Crossover_(genetic_algorithm)">Crossover (genetic algorithm)&lt;/a>&lt;/p>
+~ &lt;a
+href="https://en.wikipedia.org/wiki/Crossover_%28genetic_algorithm%29"
+>Crossover (genetic algorithm)&lt;/a>
+&lt;/p>
 &lt;/blockquote>
 &lt;p>There are several ways we can make it work, from naive ones:&lt;/p>
 &lt;ul>
@@ -1415,14 +1650,22 @@ Next steps
 &lt;/a>
 &lt;/h2>
 &lt;p>This is the first article from a series about generating art through genetic algorithms. In the next articles &lt;em>(coming
-up soon-ish)&lt;/em> we&amp;rsquo;ll turn those ideas into &lt;a href="https://www.rust-lang.org/">Rust&lt;/a> code and after that we&amp;rsquo;ll finally make art
+up soon-ish)&lt;/em> we&amp;rsquo;ll turn those ideas into &lt;a
+href="https://www.rust-lang.org/"
+>Rust&lt;/a>
+code and after that we&amp;rsquo;ll finally make art
 that makes itself.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;!-- raw HTML omitted -->
 &lt;figure class="img-thumbnail">&lt;img src="./brett-jordan-M3cxjDNiLlQ-unsplash.webp"
 alt="Order and Chaos" class="img-thumbnail"loading="lazy"
 />&lt;figcaption>
-&lt;p>Photo by &lt;a href="https://unsplash.com/@brett_jordan?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText">Brett Jordan&lt;/a> on &lt;a href="https://unsplash.com/photos/M3cxjDNiLlQ?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText">Unsplash&lt;/a>&lt;/p>
+&lt;p>Photo by &lt;a
+href="https://unsplash.com/@brett_jordan?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"
+>Brett Jordan&lt;/a>
+on &lt;a
+href="https://unsplash.com/photos/M3cxjDNiLlQ?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"
+>Unsplash&lt;/a>&lt;/p>
 &lt;/figcaption>
 &lt;/figure>
 &lt;!-- raw HTML omitted -->
@@ -1434,7 +1677,10 @@ alt="Order and Chaos" class="img-thumbnail"loading="lazy"
 &lt;ol>
 &lt;li id="fn:1">
 &lt;p>Term coined by me. If you want to read more about art generated by algorithms you should probably look for
-&lt;a href="https://en.wikipedia.org/wiki/Algorithmic_art">Algorithmic art&lt;/a>.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;a
+href="https://en.wikipedia.org/wiki/Algorithmic_art"
+>Algorithmic art&lt;/a>
+.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
 &lt;/div></description></item><item><title>Beginnings Are Hard</title><link>https://madebyme.today/blog/beginnings-are-hard/</link><pubDate>Sat, 25 Feb 2023 20:14:43 +0100</pubDate><guid>https://madebyme.today/blog/beginnings-are-hard/</guid><category>meta</category><category>Polaris</category><description>&lt;p>Well it took some time (almost 6 years) to create a personal blog, but here we are.&lt;/p>
@@ -1444,7 +1690,10 @@ How did we come here?
 &lt;i class="bi bi-link-45deg">&lt;/i>
 &lt;/a>
 &lt;/h2>
-&lt;p>This is not the first attempt on creating my own website. On my &lt;a href="https://github.com/nathiss">GitHub&lt;/a> there are many
+&lt;p>This is not the first attempt on creating my own website. On my &lt;a
+href="https://github.com/nathiss"
+>GitHub&lt;/a>
+there are many
 (most of them private) repos, which contains some sort of &lt;em>personal website&lt;/em>. All of them abandoned, but not this one!&lt;/p>
 &lt;p>&amp;hellip; at least not yet. ✌(-‿-)✌ However I&amp;rsquo;m optimistic.&lt;/p>
 &lt;p>To better understand why I have such high hopes for this project let&amp;rsquo;s go down the rabbit hole and analyze its ancestors
@@ -1455,12 +1704,18 @@ Platform 1: 0x52 (Django 2.2)
 &lt;i class="bi bi-link-45deg">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>&lt;a href="https://www.djangoproject.com/">Django&lt;/a> is one of the first tools I&amp;rsquo;ve ever used to create something on the web.&lt;/p>
+&lt;p>&lt;a
+href="https://www.djangoproject.com/"
+>Django&lt;/a>
+is one of the first tools I&amp;rsquo;ve ever used to create something on the web.&lt;/p>
 &lt;blockquote>
 &lt;p>Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design.
 Built by experienced developers, it takes care of much of the hassle of web development, so you can focus on writing
 your app without needing to reinvent the wheel. It’s free and open source.&lt;br>
-~ &lt;a href="https://www.djangoproject.com/">Django website&lt;/a>&lt;/p>
+~ &lt;a
+href="https://www.djangoproject.com/"
+>Django website&lt;/a>
+&lt;/p>
 &lt;/blockquote>
 &lt;p>Using that framework I&amp;rsquo;ve built a web journal. The idea was that at any moment I could use one of my devices to create
 a new journal entry. They were automatically sorted by creation date and tagged with tokens retrieved from the entry&amp;rsquo;s
@@ -1482,8 +1737,14 @@ was referenced by no entry)&lt;/em> the logic was able to take care of that too.
 access only their own entries and tags.&lt;/p>
 &lt;p>What happened with that project? I used it for a while, but after some time I wasn&amp;rsquo;t really actively adding new entries,
 so it just fated away. Also it was more of a personal utility website, than a blog. It was publicly available on
-&lt;a href="https://www.heroku.com/">Heroku&lt;/a> until quite recently actually. I took down the website when &lt;a href="https://help.heroku.com/RSBRUH58/removal-of-heroku-free-product-plans-faq">Heroku announced their
-removal of free product plans&lt;/a>.&lt;/p>
+&lt;a
+href="https://www.heroku.com/"
+>Heroku&lt;/a>
+until quite recently actually. I took down the website when &lt;a
+href="https://help.heroku.com/RSBRUH58/removal-of-heroku-free-product-plans-faq"
+>Heroku announced their
+removal of free product plans&lt;/a>
+.&lt;/p>
 &lt;h3 id="platform-2-titan-aspnet" >
 Platform 2: Titan (ASP.NET)
 &lt;a class="ms-2 text-reset" href="#platform-2-titan-aspnet" aria-label="Anchor">
@@ -1491,16 +1752,25 @@ Platform 2: Titan (ASP.NET)
 &lt;/a>
 &lt;/h3>
 &lt;p>This was &lt;em>an another&lt;/em> iteration of personal website development. I&amp;rsquo;ve decided to use
-&lt;a href="https://en.wikipedia.org/wiki/.NET">.NET&lt;/a> for this one, because earlier in that year I got my first job in the field
+&lt;a
+href="https://en.wikipedia.org/wiki/.NET"
+>.NET&lt;/a>
+for this one, because earlier in that year I got my first job in the field
 and I was hyped to build something with the technology we used at work &lt;em>(we were developing a few solutions and one of
-them was built on top of &lt;a href="https://en.wikipedia.org/wiki/.NET_Framework">.NET Framework&lt;/a>)&lt;/em>.&lt;/p>
+them was built on top of &lt;a
+href="https://en.wikipedia.org/wiki/.NET_Framework"
+>.NET Framework&lt;/a>
+)&lt;/em>.&lt;/p>
 &lt;p>Sadly I deleted the source code some time ago as a part of my GitHub purge, but I remember quite vividly the problem(s)
 with this one. In a sentence: it was too overengineered.&lt;/p>
 &lt;blockquote>
 &lt;p>the strategy is definitely: first make it work, then make it right, and, finally, make it fast.&lt;br>
 ~ &amp;ldquo;The C Language and Models for Systems Programming&amp;rdquo; in Byte magazine (August 1983)&lt;/p>
 &lt;/blockquote>
-&lt;p>I wanted to use &lt;a href="https://en.wikipedia.org/wiki/JSON_Web_Token">JWT&lt;/a> as a user authentication method. I&amp;rsquo;ve read on many
+&lt;p>I wanted to use &lt;a
+href="https://en.wikipedia.org/wiki/JSON_Web_Token"
+>JWT&lt;/a>
+as a user authentication method. I&amp;rsquo;ve read on many
 places on the web that it&amp;rsquo;s a bad idea, but still I was devoted to make it work. One of the issues I was aware of was
 that you cannot &lt;em>easily&lt;/em> and &lt;em>permanently&lt;/em> logout a user when using JWT.&lt;/p>
 &lt;p>In a nutshell JWT are tokens stored on the client-side. However, due to encryption, they can only be read by the
@@ -1513,7 +1783,10 @@ of modifying &lt;code>&amp;quot;expiryDate&amp;quot;&lt;/code>.&lt;/p>
 which would indicate that its no longer valid and send it back to the client. The problem though is that the client does
 not &lt;strong>need&lt;/strong> to use the new token. It still can use the old one and, since we don&amp;rsquo;t store session information on the
 server, the service has not way of detecting that. 💢&lt;/p>
-&lt;p>The solution I came up with was to use &lt;a href="https://redis.io/">Redis&lt;/a>. To store that information on the server-side.&lt;/p>
+&lt;p>The solution I came up with was to use &lt;a
+href="https://redis.io/"
+>Redis&lt;/a>
+. To store that information on the server-side.&lt;/p>
 &lt;blockquote>
 &lt;p>&lt;strong>Redis:&lt;/strong>
 The open source, in-memory data store used by millions of developers as a database, cache, streaming engine,
@@ -1529,11 +1802,20 @@ Platform 3: Polaris (React)
 &lt;i class="bi bi-link-45deg">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>I&amp;rsquo;m actually quite proud of this one. It&amp;rsquo;s a static website running on &lt;a href="https://reactjs.org/">React&lt;/a> and hosting my
+&lt;p>I&amp;rsquo;m actually quite proud of this one. It&amp;rsquo;s a static website running on &lt;a
+href="https://reactjs.org/"
+>React&lt;/a>
+and hosting my
 vector graphics. It&amp;rsquo;s painfully simple, but that was kinda the point. I wanted to have a way of hosting those images
-ASAP, hence React and GitHub Pages, &lt;a href="https://www.madebyme.today/Polaris/">where the website is actually hosted&lt;/a>.&lt;/p>
+ASAP, hence React and GitHub Pages, &lt;a
+href="https://www.madebyme.today/Polaris/"
+>where the website is actually hosted&lt;/a>
+.&lt;/p>
 &lt;p>It wasn&amp;rsquo;t my first contact with technologies used in frontend, but it was the first time when I used &lt;em>state of the art&lt;/em>
-tools for a new website. My knowledge of &lt;a href="https://nodejs.org/en/">NodeJS&lt;/a> and utilities built on top of it was
+tools for a new website. My knowledge of &lt;a
+href="https://nodejs.org/en/"
+>NodeJS&lt;/a>
+and utilities built on top of it was
 practically nonexistent. That changed once I&amp;rsquo;ve written Polaris; now I&amp;rsquo;m just new to this stuff.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;figure class="img-thumbnail">&lt;a href="https://madebyme.today/Polaris/" class="hide-external" target="_blank">&lt;img src="./steam-on-the-horizon-small.webp"
@@ -1543,7 +1825,10 @@ alt="Steam on the horizon" class="img-thumbnail"loading="lazy"
 &lt;/figcaption>
 &lt;/figure>
 &lt;!-- raw HTML omitted -->
-&lt;p>I don&amp;rsquo;t have much more to say here other that, it was a while when I&amp;rsquo;ve used &lt;a href="https://inkscape.org/">Inkscape&lt;/a> to create
+&lt;p>I don&amp;rsquo;t have much more to say here other that, it was a while when I&amp;rsquo;ve used &lt;a
+href="https://inkscape.org/"
+>Inkscape&lt;/a>
+to create
 those images and when I needed to use it again, for the sake of this blog, it was terrifying to see how much one can
 forget what one has learned. ಠ_ಠ&lt;/p>
 &lt;h3 id="platforms-long-forgotten" >
@@ -1560,7 +1845,10 @@ still remembered by me enough to write a few sentences about.&lt;/p>
 &lt;li>they were trying to solve all possible future problem without aiming to deliver the most basic functionality,&lt;/li>
 &lt;li>backend is hard.&lt;/li>
 &lt;/ul>
-&lt;p>This blog, on the other hand, is a static content website build with &lt;a href="https://gohugo.io/">Hugo&lt;/a>. I think to some extend
+&lt;p>This blog, on the other hand, is a static content website build with &lt;a
+href="https://gohugo.io/"
+>Hugo&lt;/a>
+. I think to some extend
 I was aware that tools like Hugo existed, but I&amp;rsquo;ve never considered using them. I cannot really explain as to why; maybe
 I was trying too hard to use a new fancy tool I&amp;rsquo;ve just learned about.&lt;/p>
 &lt;h2 id="the-goal-and-future-of-this-project" >
