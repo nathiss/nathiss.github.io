@@ -234,7 +234,7 @@ alt="mess with dns configuration for Redir 301"loading="lazy"
 &lt;p>Click on the image for the full size.&lt;/p>
 &lt;/figcaption>
 &lt;/figure>
-&lt;p>Let&amp;rsquo;s wait for the DNS records to propagate&amp;hellip; 🕓&lt;/p>
+&lt;p>Let&amp;rsquo;s wait for the DNS records to propagate&amp;hellip; &amp;#x1f553;&lt;/p>
 &lt;p>&amp;hellip;and when we request the subdomain:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">$ curl -i http://calendar.aster176.messwithdns.com
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">HTTP/1.1 &lt;span class="m">301&lt;/span> Moved Permanently
@@ -250,7 +250,7 @@ alt="mess with dns configuration for Redir 301"loading="lazy"
 href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Location"
 >Location&lt;/a>
 header
-👍&lt;/p>
+:thumbs_up:&lt;/p>
 &lt;p>It&amp;rsquo;s worth to point out that it does not support HTTPS, only HTTP. It&amp;rsquo;s a Redir 301 limitation; the free tier of the
 service does not offer TLS certificates.&lt;/p>
 &lt;p>Additionally, as stated by the owner, a &amp;ldquo;fair use&amp;rdquo; policy applies to Redir 301. There&amp;rsquo;s a non-zero cost to run the
@@ -373,7 +373,7 @@ alt="GitHub Pages configuration with custom domain and enforced HTTPS"loading="l
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;lt;a &lt;span class="nv">href&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;https://example.com/&amp;#34;&lt;/span>&amp;gt;Redirect&amp;lt;/a&amp;gt;
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;lt;/body&amp;gt;
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;/html&amp;gt;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>🎉&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&amp;#x1f389;&lt;/p>
 &lt;p>If a browser respects the meta refresh tag, then it works. When it doesn&amp;rsquo;t, the user has an option to manually click on
 the &amp;ldquo;Redirect&amp;rdquo; link.&lt;/p>
 &lt;h2 id="conclusion" >
@@ -713,7 +713,7 @@ href="https://github.com/nathiss/Fusion-cpp"
 &lt;li>&lt;em>[private repo]&lt;/em>,&lt;/li>
 &lt;li>&lt;em>[private repo]&lt;/em>.&lt;/li>
 &lt;/ul>
-&lt;p>And now I&amp;rsquo;m working on another. 👍&lt;/p>
+&lt;p>And now I&amp;rsquo;m working on another. :thumbs_up:&lt;/p>
 &lt;p>This time, improvements over the previous one are creating implementation that depend on traits and organizing TODOs to
 a single GitHub project.&lt;/p>
 &lt;!-- raw HTML omitted -->
@@ -848,7 +848,7 @@ setup, we can define a channel by which spawner can communicate with spawnee.&lt
 href="https://crates.io/crates/cancellable"
 >crates.io&lt;/a>
 .&lt;/p>
-&lt;p>🌊&lt;/p></description></item><item><title>Natural Selection and Loss Functions</title><link>https://madebyme.today/blog/franklin/natural-selection-and-loss-functions/</link><pubDate>Sun, 02 Apr 2023 14:50:51 +0200</pubDate><guid>https://madebyme.today/blog/franklin/natural-selection-and-loss-functions/</guid><category>Genetic Algorithm</category><category>Rust</category><description>&lt;p>Natural Selection is what allows our species (and images!) to improve over time. In this article we&amp;rsquo;ll implement a
+&lt;p>&amp;#x1f30a;&lt;/p></description></item><item><title>Natural Selection and Loss Functions</title><link>https://madebyme.today/blog/franklin/natural-selection-and-loss-functions/</link><pubDate>Sun, 02 Apr 2023 14:50:51 +0200</pubDate><guid>https://madebyme.today/blog/franklin/natural-selection-and-loss-functions/</guid><category>Genetic Algorithm</category><category>Rust</category><description>&lt;p>Natural Selection is what allows our species (and images!) to improve over time. In this article we&amp;rsquo;ll implement a
 scoring mechanism, through which &amp;ldquo;&lt;a
 href="https://madebyme.today/blog/franklin/randomness-of-life/"
 >Mona Lisa&lt;/a>
@@ -1039,7 +1039,7 @@ alt="Mona Lisa (generation #10 000)" class="img-thumbnail"loading="lazy"
 &lt;h4>Mona Lisa (generation #10 000)&lt;/h4>
 &lt;/figcaption>
 &lt;/figure>
-&lt;p>🤌&lt;/p>
+&lt;p>&amp;#x1f90c;&lt;/p>
 &lt;p>The image does look recognizable. And it&amp;rsquo;s still missing the last part &amp;ndash; crossing. However, as it&amp;rsquo;s not &lt;em>&amp;ldquo;required&amp;rdquo;&lt;/em>,
 the algorithm works and it produces acceptable results.&lt;/p>
 &lt;p>Next, we&amp;rsquo;ll implement the crossing function and we&amp;rsquo;ll see how much it improves algorithm&amp;rsquo;s efficiency &amp;ndash; defined as the
@@ -1155,9 +1155,9 @@ Yubikey &amp;amp; SSH
 &lt;p>Once all three keys (Signing, Encryption, Authentication) are correctly set up, it&amp;rsquo;s the moment for the agent. I always
 miss two parts: &lt;strong>configuring gpg-agent&lt;/strong> and &lt;strong>enabling SSH for gpg-agent&lt;/strong>.&lt;/p>
 &lt;p>The first one requires these few lines at the end of your &lt;code>rc&lt;/code> file. I use Z shell, so it&amp;rsquo;s &lt;code>.zshrc&lt;/code> for me.&lt;/p>
-&lt;script type="application/javascript" src="https://gist.github.com/nathiss/9a5a6b6db02ac31081ad3484da06e08e.js?file=.zshrc">&lt;/script>
+&lt;script src="https://gist.github.com/nathiss/9a5a6b6db02ac31081ad3484da06e08e.js?file=.zshrc">&lt;/script>
 &lt;p>Enabling SSH for gpg-agent can be done by adding &lt;code>gpg-agent.conf&lt;/code> file to your GnuPG home.&lt;/p>
-&lt;script type="application/javascript" src="https://gist.github.com/nathiss/9a5a6b6db02ac31081ad3484da06e08e.js?file=gpg-agent.conf">&lt;/script>
+&lt;script src="https://gist.github.com/nathiss/9a5a6b6db02ac31081ad3484da06e08e.js?file=gpg-agent.conf">&lt;/script>
 &lt;p>You&amp;rsquo;ll probably need to update the path pointing to &lt;code>pinentry-program&lt;/code>. Just run&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">which pinentry-mac
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>If you don&amp;rsquo;t have &lt;code>pinentry-mac&lt;/code> installed, then&lt;/p>
@@ -1177,7 +1177,7 @@ Tips
 &lt;p>It was around that time, when I tried to fetch my remote repo from GitHub&amp;hellip; and it wasn&amp;rsquo;t
 working. I lost a significant amount of time looking for some configuration issue, but there wasn&amp;rsquo;t any. I redid
 everything again to no avail.&lt;/p>
-&lt;p>Then I saw that some of my GitHub Actions are not being triggered. 🤔 I dig a bit more and it turned out
+&lt;p>Then I saw that some of my GitHub Actions are not being triggered. :thinking_face: I dig a bit more and it turned out
 &lt;a
 href="https://www.githubstatus.com/incidents/z3c6q056q332"
 >GitHub was having issues&lt;/a>
@@ -1233,7 +1233,7 @@ really care about how &lt;em>fast&lt;/em> the optimum can be achieved, frankly, 
 the first place. It is &lt;em>the process&lt;/em> of getting more fitted images and seeing how they evolve what&amp;rsquo;s really interesting.
 Therefore our generation will be initialized by blank images - images filled by white pixels. It will reduce pace of
 solution space search, but will produce images that are more visually interesting. We are here to do art, after all.
-🎨&lt;/p>
+&amp;#x1f3a8;&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="line">&lt;span class="cl">&lt;span class="k">impl&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">Pixel&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="cp">#[must_use]&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">pub&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">const&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">fn&lt;/span> &lt;span class="nf">white&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="w"> &lt;/span>-&amp;gt; &lt;span class="nc">Self&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
@@ -1274,7 +1274,7 @@ solution space search, but will produce images that are more visually interestin
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="kd">let&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">pixel&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">Pixel&lt;/span>::&lt;span class="n">white&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="fm">vec!&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">Image&lt;/span>::&lt;span class="n">blank&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">height&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">width&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">&amp;amp;&lt;/span>&lt;span class="n">pixel&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">vec_len&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This code takes care of initializing the generation. 👌&lt;/p>
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This code takes care of initializing the generation. &amp;#x1f44c;&lt;/p>
 &lt;h2 id="throwing-dice-and-hoping-for-the-best" >
 Throwing dice and hoping for the best
 &lt;a class="ms-2 text-reset" href="#throwing-dice-and-hoping-for-the-best" aria-label="Anchor">
@@ -1322,7 +1322,7 @@ height \in \lbrack 1 .. m - y + 1 \lbrack \newline
 $$&lt;/p>
 &lt;p>Why coordinates intervals are right-open? Because if the mutator selects the very right or bottom edge, then the
 rectangle would need to have zero width/height. By not right-closing the intervals, we ensure that there&amp;rsquo;s at least one
-pixel which can be mutated 👌. Similarly both &lt;span class="font-monospace">width&lt;/span>
+pixel which can be mutated &amp;#x1f44c;. Similarly both &lt;span class="font-monospace">width&lt;/span>
 and &lt;span class="font-monospace">height&lt;/span>
 intervals are right-open to ensure that the rectangle will not overflow the image.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="line">&lt;span class="cl">&lt;span class="k">struct&lt;/span> &lt;span class="nc">RandomRectangle&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
@@ -1393,7 +1393,7 @@ alt="Random noise" class="img-thumbnail"loading="lazy"
 &lt;h4>Mona Lisa (generation #10 000)&lt;/h4>
 &lt;/figcaption>
 &lt;/figure>
-&lt;p>Doesn&amp;rsquo;t really looks like anything. 😐&lt;br>
+&lt;p>Doesn&amp;rsquo;t really looks like anything. &amp;#x1f610;&lt;br>
 Which isn&amp;rsquo;t very surprising; the code did what it was suppose to do: it generated random rectangles on the white image.
 Since we don&amp;rsquo;t have any scoring logic yet (that&amp;rsquo;s a topic for another article) the resulting image is composed of random
 noise. We&amp;rsquo;ll need to wait a bit longer to get an image that even remotely reflects &amp;ldquo;Mona Lisa&amp;rdquo;.&lt;/p>
@@ -1440,7 +1440,7 @@ href="https://unsplash.com/photos/2eAkk5lIkC8?utm_source=unsplash&amp;amp;utm_me
 &lt;/figcaption>
 &lt;/figure>
 &lt;!-- raw HTML omitted -->
-&lt;p>Stay tuned 🌊&lt;/p>
+&lt;p>Stay tuned &amp;#x1f30a;&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="footnotes" role="doc-endnotes">
 &lt;hr>
@@ -1483,7 +1483,7 @@ optimization problems. It has three main parts:&lt;/p>
 &lt;li>&lt;strong>Scoring&lt;/strong> - during which specimens are ranked by their &amp;ldquo;ability to adapt to their environment&amp;rdquo;,&lt;/li>
 &lt;li>&lt;strong>Crossing&lt;/strong> - during which one or more specimens are mixed together to produce a new member.&lt;/li>
 &lt;/ul>
-&lt;p>OK. 👌&lt;/p>
+&lt;p>OK. &amp;#x1f44c;&lt;/p>
 &lt;p>With these terms out of the way, let&amp;rsquo;s try to understand how exactly it works. Imagine we need to find a solution
 for a problem. It can be anything, like finding optimal timetable for a university class. Firstly, we need to encode a
 solution as a series of bytes (their &lt;a
@@ -1494,7 +1494,7 @@ you will). Once we have that we can clone the encoded representation to create a
 &lt;p>Each member of the generation will be randomly &lt;strong>mutated&lt;/strong> and then &lt;strong>scored&lt;/strong> based on how well they fit in our
 constrains set. For example: we might want to have a timetable which leaves just enough break time to eat a quick lunch,
 but not too much, so that we can go home earlier. This (and similar constrains) might be used to evaluate the value of
-our new mutated timetable. With each specimen evaluated we leave a few of the best and discard the rest 💀.&lt;br>
+our new mutated timetable. With each specimen evaluated we leave a few of the best and discard the rest &amp;#x1f480;.&lt;br>
 The last step is to mix our &lt;em>special&lt;/em> timetables to create new ones to fill the generation again.&lt;/p>
 &lt;figure>&lt;img src="./genetic-algorithm-cycle.webp"
 alt="Genetic Algorithm Cycle"loading="lazy"
@@ -1528,7 +1528,7 @@ href="https://en.wikipedia.org/wiki/Genetic_algorithm"
 >Genetic algorithm @ Wikipedia&lt;/a>
 &lt;/p>
 &lt;/blockquote>
-&lt;p>Well, that&amp;rsquo;s really not the most helpful answer. 😐&lt;br>
+&lt;p>Well, that&amp;rsquo;s really not the most helpful answer. &amp;#x1f610;&lt;br>
 It really boils down to this: the more specimen we have, the more memory the program requires and more CPU time to
 process each generation. On the other hand, the more specimen a generation have, the wider portion of solution space it
 can search. Whatever the generation size will be, we need to have a prototype - a specimen, which cloned will fill the
@@ -1602,7 +1602,7 @@ its the context that makes them colors, points, or geometric shapes. If we&amp;r
 coordinates in three-dimensional space, then they would become points. In that case, the difference between two points
 can be implemented as the distance between then:&lt;/p>
 &lt;p>$$ d(A, B) = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2} $$&lt;/p>
-&lt;p>Alright 👌. The final thought: this formula calculates the difference between two points in space, but we don&amp;rsquo;t
+&lt;p>Alright &amp;#x1f44c;. The final thought: this formula calculates the difference between two points in space, but we don&amp;rsquo;t
 really need &lt;em>the distance&lt;/em>, just &lt;em>an indication&lt;/em> of how similar the two pixels are. Since calculating a square root on
 computers is expensive, we can remove that bit and we&amp;rsquo;re left with:&lt;/p>
 &lt;p>$$ g(A, B) = (x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2 \tag{2} $$&lt;/p>
@@ -1642,7 +1642,7 @@ more fitting specimens, relative to a one without the 3&lt;sup>rd&lt;/sup>
 step, in the same number of
 generations.&lt;/p>
 &lt;p>We will take a look at several of &lt;strong>crossing&lt;/strong> methods mentioned above and we will plot scores of their specimens as a
-function of generation number, to see how well they perform. 📈&lt;/p>
+function of generation number, to see how well they perform. &amp;#x1f4c8;&lt;/p>
 &lt;h2 id="next-steps" >
 Next steps
 &lt;a class="ms-2 text-reset" href="#next-steps" aria-label="Anchor">
@@ -1670,7 +1670,7 @@ href="https://unsplash.com/photos/M3cxjDNiLlQ?utm_source=unsplash&amp;amp;utm_me
 &lt;/figure>
 &lt;!-- raw HTML omitted -->
 &lt;p>See you around!&lt;/p>
-&lt;p>🌊&lt;/p>
+&lt;p>&amp;#x1f30a;&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="footnotes" role="doc-endnotes">
 &lt;hr>
@@ -1732,7 +1732,7 @@ either created or modified, then the logic extracted tags from content:&lt;/p>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">words&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">list&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">filter&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kc">None&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">words&lt;/span>&lt;span class="p">))&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="n">tag_name&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">:]&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">lower&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="k">for&lt;/span> &lt;span class="n">tag_name&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="n">words&lt;/span> &lt;span class="k">if&lt;/span> &lt;span class="n">tag_name&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">startswith&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">Tag&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">TAG_SYMBOL&lt;/span>&lt;span class="p">)]&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>It worked pretty well. I could create a new tag or use an already existing one. When the tag was orphaned &lt;em>(meaning it
-was referenced by no entry)&lt;/em> the logic was able to take care of that too. 👀&lt;/p>
+was referenced by no entry)&lt;/em> the logic was able to take care of that too. &amp;#x1f440;&lt;/p>
 &lt;p>The solution was designed to be used by more that one user: each person would have an account and they would be able to
 access only their own entries and tags.&lt;/p>
 &lt;p>What happened with that project? I used it for a while, but after some time I wasn&amp;rsquo;t really actively adding new entries,
@@ -1782,7 +1782,7 @@ of modifying &lt;code>&amp;quot;expiryDate&amp;quot;&lt;/code>.&lt;/p>
 &lt;p>Yet it&amp;rsquo;s much harder to kill the session before token expiries. My attempt was to add a new field to token&amp;rsquo;s payload
 which would indicate that its no longer valid and send it back to the client. The problem though is that the client does
 not &lt;strong>need&lt;/strong> to use the new token. It still can use the old one and, since we don&amp;rsquo;t store session information on the
-server, the service has not way of detecting that. 💢&lt;/p>
+server, the service has not way of detecting that. &amp;#x1f4a2;&lt;/p>
 &lt;p>The solution I came up with was to use &lt;a
 href="https://redis.io/"
 >Redis&lt;/a>
@@ -1864,4 +1864,4 @@ new content though. I believe it will also tilt me significantly into learning a
 &lt;p>There are still some adjustments I need to make on the website, I&amp;rsquo;m probably going to focus on them before I&amp;rsquo;ll work on
 new articles, but in general it is functionally complete.&lt;/p>
 &lt;p>So as of now, thank you for reading.&lt;/p>
-&lt;p>🌊&lt;/p></description></item></channel></rss>
+&lt;p>&amp;#x1f30a;&lt;/p></description></item></channel></rss>

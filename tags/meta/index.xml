@@ -47,7 +47,7 @@ either created or modified, then the logic extracted tags from content:&lt;/p>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">words&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">list&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">filter&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kc">None&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">words&lt;/span>&lt;span class="p">))&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="n">tag_name&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">:]&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">lower&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="k">for&lt;/span> &lt;span class="n">tag_name&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="n">words&lt;/span> &lt;span class="k">if&lt;/span> &lt;span class="n">tag_name&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">startswith&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">Tag&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">TAG_SYMBOL&lt;/span>&lt;span class="p">)]&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>It worked pretty well. I could create a new tag or use an already existing one. When the tag was orphaned &lt;em>(meaning it
-was referenced by no entry)&lt;/em> the logic was able to take care of that too. 👀&lt;/p>
+was referenced by no entry)&lt;/em> the logic was able to take care of that too. &amp;#x1f440;&lt;/p>
 &lt;p>The solution was designed to be used by more that one user: each person would have an account and they would be able to
 access only their own entries and tags.&lt;/p>
 &lt;p>What happened with that project? I used it for a while, but after some time I wasn&amp;rsquo;t really actively adding new entries,
@@ -97,7 +97,7 @@ of modifying &lt;code>&amp;quot;expiryDate&amp;quot;&lt;/code>.&lt;/p>
 &lt;p>Yet it&amp;rsquo;s much harder to kill the session before token expiries. My attempt was to add a new field to token&amp;rsquo;s payload
 which would indicate that its no longer valid and send it back to the client. The problem though is that the client does
 not &lt;strong>need&lt;/strong> to use the new token. It still can use the old one and, since we don&amp;rsquo;t store session information on the
-server, the service has not way of detecting that. 💢&lt;/p>
+server, the service has not way of detecting that. &amp;#x1f4a2;&lt;/p>
 &lt;p>The solution I came up with was to use &lt;a
 href="https://redis.io/"
 >Redis&lt;/a>
@@ -179,4 +179,4 @@ new content though. I believe it will also tilt me significantly into learning a
 &lt;p>There are still some adjustments I need to make on the website, I&amp;rsquo;m probably going to focus on them before I&amp;rsquo;ll work on
 new articles, but in general it is functionally complete.&lt;/p>
 &lt;p>So as of now, thank you for reading.&lt;/p>
-&lt;p>🌊&lt;/p></description></item></channel></rss>
+&lt;p>&amp;#x1f30a;&lt;/p></description></item></channel></rss>

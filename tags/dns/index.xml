@@ -234,7 +234,7 @@ alt="mess with dns configuration for Redir 301"loading="lazy"
 &lt;p>Click on the image for the full size.&lt;/p>
 &lt;/figcaption>
 &lt;/figure>
-&lt;p>Let&amp;rsquo;s wait for the DNS records to propagate&amp;hellip; 🕓&lt;/p>
+&lt;p>Let&amp;rsquo;s wait for the DNS records to propagate&amp;hellip; &amp;#x1f553;&lt;/p>
 &lt;p>&amp;hellip;and when we request the subdomain:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">$ curl -i http://calendar.aster176.messwithdns.com
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">HTTP/1.1 &lt;span class="m">301&lt;/span> Moved Permanently
@@ -250,7 +250,7 @@ alt="mess with dns configuration for Redir 301"loading="lazy"
 href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Location"
 >Location&lt;/a>
 header
-👍&lt;/p>
+:thumbs_up:&lt;/p>
 &lt;p>It&amp;rsquo;s worth to point out that it does not support HTTPS, only HTTP. It&amp;rsquo;s a Redir 301 limitation; the free tier of the
 service does not offer TLS certificates.&lt;/p>
 &lt;p>Additionally, as stated by the owner, a &amp;ldquo;fair use&amp;rdquo; policy applies to Redir 301. There&amp;rsquo;s a non-zero cost to run the
@@ -373,7 +373,7 @@ alt="GitHub Pages configuration with custom domain and enforced HTTPS"loading="l
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;lt;a &lt;span class="nv">href&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;https://example.com/&amp;#34;&lt;/span>&amp;gt;Redirect&amp;lt;/a&amp;gt;
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;lt;/body&amp;gt;
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;/html&amp;gt;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>🎉&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&amp;#x1f389;&lt;/p>
 &lt;p>If a browser respects the meta refresh tag, then it works. When it doesn&amp;rsquo;t, the user has an option to manually click on
 the &amp;ldquo;Redirect&amp;rdquo; link.&lt;/p>
 &lt;h2 id="conclusion" >

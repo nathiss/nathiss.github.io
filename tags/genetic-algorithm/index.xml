@@ -189,7 +189,7 @@ alt="Mona Lisa (generation #10 000)" class="img-thumbnail"loading="lazy"
 &lt;h4>Mona Lisa (generation #10 000)&lt;/h4>
 &lt;/figcaption>
 &lt;/figure>
-&lt;p>🤌&lt;/p>
+&lt;p>&amp;#x1f90c;&lt;/p>
 &lt;p>The image does look recognizable. And it&amp;rsquo;s still missing the last part &amp;ndash; crossing. However, as it&amp;rsquo;s not &lt;em>&amp;ldquo;required&amp;rdquo;&lt;/em>,
 the algorithm works and it produces acceptable results.&lt;/p>
 &lt;p>Next, we&amp;rsquo;ll implement the crossing function and we&amp;rsquo;ll see how much it improves algorithm&amp;rsquo;s efficiency &amp;ndash; defined as the
@@ -264,7 +264,7 @@ really care about how &lt;em>fast&lt;/em> the optimum can be achieved, frankly, 
 the first place. It is &lt;em>the process&lt;/em> of getting more fitted images and seeing how they evolve what&amp;rsquo;s really interesting.
 Therefore our generation will be initialized by blank images - images filled by white pixels. It will reduce pace of
 solution space search, but will produce images that are more visually interesting. We are here to do art, after all.
-🎨&lt;/p>
+&amp;#x1f3a8;&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="line">&lt;span class="cl">&lt;span class="k">impl&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">Pixel&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="cp">#[must_use]&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">pub&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">const&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">fn&lt;/span> &lt;span class="nf">white&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="w"> &lt;/span>-&amp;gt; &lt;span class="nc">Self&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
@@ -305,7 +305,7 @@ solution space search, but will produce images that are more visually interestin
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="kd">let&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">pixel&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">Pixel&lt;/span>::&lt;span class="n">white&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="fm">vec!&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">Image&lt;/span>::&lt;span class="n">blank&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">height&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">width&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">&amp;amp;&lt;/span>&lt;span class="n">pixel&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">vec_len&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This code takes care of initializing the generation. 👌&lt;/p>
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This code takes care of initializing the generation. &amp;#x1f44c;&lt;/p>
 &lt;h2 id="throwing-dice-and-hoping-for-the-best" >
 Throwing dice and hoping for the best
 &lt;a class="ms-2 text-reset" href="#throwing-dice-and-hoping-for-the-best" aria-label="Anchor">
@@ -353,7 +353,7 @@ height \in \lbrack 1 .. m - y + 1 \lbrack \newline
 $$&lt;/p>
 &lt;p>Why coordinates intervals are right-open? Because if the mutator selects the very right or bottom edge, then the
 rectangle would need to have zero width/height. By not right-closing the intervals, we ensure that there&amp;rsquo;s at least one
-pixel which can be mutated 👌. Similarly both &lt;span class="font-monospace">width&lt;/span>
+pixel which can be mutated &amp;#x1f44c;. Similarly both &lt;span class="font-monospace">width&lt;/span>
 and &lt;span class="font-monospace">height&lt;/span>
 intervals are right-open to ensure that the rectangle will not overflow the image.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="line">&lt;span class="cl">&lt;span class="k">struct&lt;/span> &lt;span class="nc">RandomRectangle&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
@@ -424,7 +424,7 @@ alt="Random noise" class="img-thumbnail"loading="lazy"
 &lt;h4>Mona Lisa (generation #10 000)&lt;/h4>
 &lt;/figcaption>
 &lt;/figure>
-&lt;p>Doesn&amp;rsquo;t really looks like anything. 😐&lt;br>
+&lt;p>Doesn&amp;rsquo;t really looks like anything. &amp;#x1f610;&lt;br>
 Which isn&amp;rsquo;t very surprising; the code did what it was suppose to do: it generated random rectangles on the white image.
 Since we don&amp;rsquo;t have any scoring logic yet (that&amp;rsquo;s a topic for another article) the resulting image is composed of random
 noise. We&amp;rsquo;ll need to wait a bit longer to get an image that even remotely reflects &amp;ldquo;Mona Lisa&amp;rdquo;.&lt;/p>
@@ -471,7 +471,7 @@ href="https://unsplash.com/photos/2eAkk5lIkC8?utm_source=unsplash&amp;amp;utm_me
 &lt;/figcaption>
 &lt;/figure>
 &lt;!-- raw HTML omitted -->
-&lt;p>Stay tuned 🌊&lt;/p>
+&lt;p>Stay tuned &amp;#x1f30a;&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="footnotes" role="doc-endnotes">
 &lt;hr>
@@ -514,7 +514,7 @@ optimization problems. It has three main parts:&lt;/p>
 &lt;li>&lt;strong>Scoring&lt;/strong> - during which specimens are ranked by their &amp;ldquo;ability to adapt to their environment&amp;rdquo;,&lt;/li>
 &lt;li>&lt;strong>Crossing&lt;/strong> - during which one or more specimens are mixed together to produce a new member.&lt;/li>
 &lt;/ul>
-&lt;p>OK. 👌&lt;/p>
+&lt;p>OK. &amp;#x1f44c;&lt;/p>
 &lt;p>With these terms out of the way, let&amp;rsquo;s try to understand how exactly it works. Imagine we need to find a solution
 for a problem. It can be anything, like finding optimal timetable for a university class. Firstly, we need to encode a
 solution as a series of bytes (their &lt;a
@@ -525,7 +525,7 @@ you will). Once we have that we can clone the encoded representation to create a
 &lt;p>Each member of the generation will be randomly &lt;strong>mutated&lt;/strong> and then &lt;strong>scored&lt;/strong> based on how well they fit in our
 constrains set. For example: we might want to have a timetable which leaves just enough break time to eat a quick lunch,
 but not too much, so that we can go home earlier. This (and similar constrains) might be used to evaluate the value of
-our new mutated timetable. With each specimen evaluated we leave a few of the best and discard the rest 💀.&lt;br>
+our new mutated timetable. With each specimen evaluated we leave a few of the best and discard the rest &amp;#x1f480;.&lt;br>
 The last step is to mix our &lt;em>special&lt;/em> timetables to create new ones to fill the generation again.&lt;/p>
 &lt;figure>&lt;img src="./genetic-algorithm-cycle.webp"
 alt="Genetic Algorithm Cycle"loading="lazy"
@@ -559,7 +559,7 @@ href="https://en.wikipedia.org/wiki/Genetic_algorithm"
 >Genetic algorithm @ Wikipedia&lt;/a>
 &lt;/p>
 &lt;/blockquote>
-&lt;p>Well, that&amp;rsquo;s really not the most helpful answer. 😐&lt;br>
+&lt;p>Well, that&amp;rsquo;s really not the most helpful answer. &amp;#x1f610;&lt;br>
 It really boils down to this: the more specimen we have, the more memory the program requires and more CPU time to
 process each generation. On the other hand, the more specimen a generation have, the wider portion of solution space it
 can search. Whatever the generation size will be, we need to have a prototype - a specimen, which cloned will fill the
@@ -633,7 +633,7 @@ its the context that makes them colors, points, or geometric shapes. If we&amp;r
 coordinates in three-dimensional space, then they would become points. In that case, the difference between two points
 can be implemented as the distance between then:&lt;/p>
 &lt;p>$$ d(A, B) = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2} $$&lt;/p>
-&lt;p>Alright 👌. The final thought: this formula calculates the difference between two points in space, but we don&amp;rsquo;t
+&lt;p>Alright &amp;#x1f44c;. The final thought: this formula calculates the difference between two points in space, but we don&amp;rsquo;t
 really need &lt;em>the distance&lt;/em>, just &lt;em>an indication&lt;/em> of how similar the two pixels are. Since calculating a square root on
 computers is expensive, we can remove that bit and we&amp;rsquo;re left with:&lt;/p>
 &lt;p>$$ g(A, B) = (x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2 \tag{2} $$&lt;/p>
@@ -673,7 +673,7 @@ more fitting specimens, relative to a one without the 3&lt;sup>rd&lt;/sup>
 step, in the same number of
 generations.&lt;/p>
 &lt;p>We will take a look at several of &lt;strong>crossing&lt;/strong> methods mentioned above and we will plot scores of their specimens as a
-function of generation number, to see how well they perform. 📈&lt;/p>
+function of generation number, to see how well they perform. &amp;#x1f4c8;&lt;/p>
 &lt;h2 id="next-steps" >
 Next steps
 &lt;a class="ms-2 text-reset" href="#next-steps" aria-label="Anchor">
@@ -701,7 +701,7 @@ href="https://unsplash.com/photos/M3cxjDNiLlQ?utm_source=unsplash&amp;amp;utm_me
 &lt;/figure>
 &lt;!-- raw HTML omitted -->
 &lt;p>See you around!&lt;/p>
-&lt;p>🌊&lt;/p>
+&lt;p>&amp;#x1f30a;&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="footnotes" role="doc-endnotes">
 &lt;hr>

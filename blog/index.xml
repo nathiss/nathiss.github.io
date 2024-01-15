@@ -234,7 +234,7 @@ alt="mess with dns configuration for Redir 301"loading="lazy"
 &lt;p>Click on the image for the full size.&lt;/p>
 &lt;/figcaption>
 &lt;/figure>
-&lt;p>Let&amp;rsquo;s wait for the DNS records to propagate&amp;hellip; 🕓&lt;/p>
+&lt;p>Let&amp;rsquo;s wait for the DNS records to propagate&amp;hellip; &amp;#x1f553;&lt;/p>
 &lt;p>&amp;hellip;and when we request the subdomain:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">$ curl -i http://calendar.aster176.messwithdns.com
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">HTTP/1.1 &lt;span class="m">301&lt;/span> Moved Permanently
@@ -250,7 +250,7 @@ alt="mess with dns configuration for Redir 301"loading="lazy"
 href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Location"
 >Location&lt;/a>
 header
-👍&lt;/p>
+:thumbs_up:&lt;/p>
 &lt;p>It&amp;rsquo;s worth to point out that it does not support HTTPS, only HTTP. It&amp;rsquo;s a Redir 301 limitation; the free tier of the
 service does not offer TLS certificates.&lt;/p>
 &lt;p>Additionally, as stated by the owner, a &amp;ldquo;fair use&amp;rdquo; policy applies to Redir 301. There&amp;rsquo;s a non-zero cost to run the
@@ -373,7 +373,7 @@ alt="GitHub Pages configuration with custom domain and enforced HTTPS"loading="l
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;lt;a &lt;span class="nv">href&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;https://example.com/&amp;#34;&lt;/span>&amp;gt;Redirect&amp;lt;/a&amp;gt;
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;lt;/body&amp;gt;
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;/html&amp;gt;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>🎉&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&amp;#x1f389;&lt;/p>
 &lt;p>If a browser respects the meta refresh tag, then it works. When it doesn&amp;rsquo;t, the user has an option to manually click on
 the &amp;ldquo;Redirect&amp;rdquo; link.&lt;/p>
 &lt;h2 id="conclusion" >
@@ -762,9 +762,9 @@ Yubikey &amp;amp; SSH
 &lt;p>Once all three keys (Signing, Encryption, Authentication) are correctly set up, it&amp;rsquo;s the moment for the agent. I always
 miss two parts: &lt;strong>configuring gpg-agent&lt;/strong> and &lt;strong>enabling SSH for gpg-agent&lt;/strong>.&lt;/p>
 &lt;p>The first one requires these few lines at the end of your &lt;code>rc&lt;/code> file. I use Z shell, so it&amp;rsquo;s &lt;code>.zshrc&lt;/code> for me.&lt;/p>
-&lt;script type="application/javascript" src="https://gist.github.com/nathiss/9a5a6b6db02ac31081ad3484da06e08e.js?file=.zshrc">&lt;/script>
+&lt;script src="https://gist.github.com/nathiss/9a5a6b6db02ac31081ad3484da06e08e.js?file=.zshrc">&lt;/script>
 &lt;p>Enabling SSH for gpg-agent can be done by adding &lt;code>gpg-agent.conf&lt;/code> file to your GnuPG home.&lt;/p>
-&lt;script type="application/javascript" src="https://gist.github.com/nathiss/9a5a6b6db02ac31081ad3484da06e08e.js?file=gpg-agent.conf">&lt;/script>
+&lt;script src="https://gist.github.com/nathiss/9a5a6b6db02ac31081ad3484da06e08e.js?file=gpg-agent.conf">&lt;/script>
 &lt;p>You&amp;rsquo;ll probably need to update the path pointing to &lt;code>pinentry-program&lt;/code>. Just run&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">which pinentry-mac
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>If you don&amp;rsquo;t have &lt;code>pinentry-mac&lt;/code> installed, then&lt;/p>
@@ -784,7 +784,7 @@ Tips
 &lt;p>It was around that time, when I tried to fetch my remote repo from GitHub&amp;hellip; and it wasn&amp;rsquo;t
 working. I lost a significant amount of time looking for some configuration issue, but there wasn&amp;rsquo;t any. I redid
 everything again to no avail.&lt;/p>
-&lt;p>Then I saw that some of my GitHub Actions are not being triggered. 🤔 I dig a bit more and it turned out
+&lt;p>Then I saw that some of my GitHub Actions are not being triggered. :thinking_face: I dig a bit more and it turned out
 &lt;a
 href="https://www.githubstatus.com/incidents/z3c6q056q332"
 >GitHub was having issues&lt;/a>
@@ -842,7 +842,7 @@ either created or modified, then the logic extracted tags from content:&lt;/p>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">words&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">list&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">filter&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kc">None&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">words&lt;/span>&lt;span class="p">))&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="n">tag_name&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">:]&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">lower&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="k">for&lt;/span> &lt;span class="n">tag_name&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="n">words&lt;/span> &lt;span class="k">if&lt;/span> &lt;span class="n">tag_name&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">startswith&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">Tag&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">TAG_SYMBOL&lt;/span>&lt;span class="p">)]&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>It worked pretty well. I could create a new tag or use an already existing one. When the tag was orphaned &lt;em>(meaning it
-was referenced by no entry)&lt;/em> the logic was able to take care of that too. 👀&lt;/p>
+was referenced by no entry)&lt;/em> the logic was able to take care of that too. &amp;#x1f440;&lt;/p>
 &lt;p>The solution was designed to be used by more that one user: each person would have an account and they would be able to
 access only their own entries and tags.&lt;/p>
 &lt;p>What happened with that project? I used it for a while, but after some time I wasn&amp;rsquo;t really actively adding new entries,
@@ -892,7 +892,7 @@ of modifying &lt;code>&amp;quot;expiryDate&amp;quot;&lt;/code>.&lt;/p>
 &lt;p>Yet it&amp;rsquo;s much harder to kill the session before token expiries. My attempt was to add a new field to token&amp;rsquo;s payload
 which would indicate that its no longer valid and send it back to the client. The problem though is that the client does
 not &lt;strong>need&lt;/strong> to use the new token. It still can use the old one and, since we don&amp;rsquo;t store session information on the
-server, the service has not way of detecting that. 💢&lt;/p>
+server, the service has not way of detecting that. &amp;#x1f4a2;&lt;/p>
 &lt;p>The solution I came up with was to use &lt;a
 href="https://redis.io/"
 >Redis&lt;/a>
@@ -974,4 +974,4 @@ new content though. I believe it will also tilt me significantly into learning a
 &lt;p>There are still some adjustments I need to make on the website, I&amp;rsquo;m probably going to focus on them before I&amp;rsquo;ll work on
 new articles, but in general it is functionally complete.&lt;/p>
 &lt;p>So as of now, thank you for reading.&lt;/p>
-&lt;p>🌊&lt;/p></description></item></channel></rss>
+&lt;p>&amp;#x1f30a;&lt;/p></description></item></channel></rss>

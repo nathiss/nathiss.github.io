@@ -37,7 +37,7 @@ href="https://github.com/nathiss/Fusion-cpp"
 &lt;li>&lt;em>[private repo]&lt;/em>,&lt;/li>
 &lt;li>&lt;em>[private repo]&lt;/em>.&lt;/li>
 &lt;/ul>
-&lt;p>And now I&amp;rsquo;m working on another. 👍&lt;/p>
+&lt;p>And now I&amp;rsquo;m working on another. :thumbs_up:&lt;/p>
 &lt;p>This time, improvements over the previous one are creating implementation that depend on traits and organizing TODOs to
 a single GitHub project.&lt;/p>
 &lt;!-- raw HTML omitted -->
@@ -172,4 +172,4 @@ setup, we can define a channel by which spawner can communicate with spawnee.&lt
 href="https://crates.io/crates/cancellable"
 >crates.io&lt;/a>
 .&lt;/p>
-&lt;p>🌊&lt;/p></description></item></channel></rss>
+&lt;p>&amp;#x1f30a;&lt;/p></description></item></channel></rss>

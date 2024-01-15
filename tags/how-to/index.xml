@@ -86,9 +86,9 @@ Yubikey &amp;amp; SSH
 &lt;p>Once all three keys (Signing, Encryption, Authentication) are correctly set up, it&amp;rsquo;s the moment for the agent. I always
 miss two parts: &lt;strong>configuring gpg-agent&lt;/strong> and &lt;strong>enabling SSH for gpg-agent&lt;/strong>.&lt;/p>
 &lt;p>The first one requires these few lines at the end of your &lt;code>rc&lt;/code> file. I use Z shell, so it&amp;rsquo;s &lt;code>.zshrc&lt;/code> for me.&lt;/p>
-&lt;script type="application/javascript" src="https://gist.github.com/nathiss/9a5a6b6db02ac31081ad3484da06e08e.js?file=.zshrc">&lt;/script>
+&lt;script src="https://gist.github.com/nathiss/9a5a6b6db02ac31081ad3484da06e08e.js?file=.zshrc">&lt;/script>
 &lt;p>Enabling SSH for gpg-agent can be done by adding &lt;code>gpg-agent.conf&lt;/code> file to your GnuPG home.&lt;/p>
-&lt;script type="application/javascript" src="https://gist.github.com/nathiss/9a5a6b6db02ac31081ad3484da06e08e.js?file=gpg-agent.conf">&lt;/script>
+&lt;script src="https://gist.github.com/nathiss/9a5a6b6db02ac31081ad3484da06e08e.js?file=gpg-agent.conf">&lt;/script>
 &lt;p>You&amp;rsquo;ll probably need to update the path pointing to &lt;code>pinentry-program&lt;/code>. Just run&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">which pinentry-mac
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>If you don&amp;rsquo;t have &lt;code>pinentry-mac&lt;/code> installed, then&lt;/p>
@@ -108,7 +108,7 @@ Tips
 &lt;p>It was around that time, when I tried to fetch my remote repo from GitHub&amp;hellip; and it wasn&amp;rsquo;t
 working. I lost a significant amount of time looking for some configuration issue, but there wasn&amp;rsquo;t any. I redid
 everything again to no avail.&lt;/p>
-&lt;p>Then I saw that some of my GitHub Actions are not being triggered. 🤔 I dig a bit more and it turned out
+&lt;p>Then I saw that some of my GitHub Actions are not being triggered. :thinking_face: I dig a bit more and it turned out
 &lt;a
 href="https://www.githubstatus.com/incidents/z3c6q056q332"
 >GitHub was having issues&lt;/a>

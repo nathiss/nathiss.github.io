@@ -21,7 +21,7 @@ optimization problems. It has three main parts:&lt;/p>
 &lt;li>&lt;strong>Scoring&lt;/strong> - during which specimens are ranked by their &amp;ldquo;ability to adapt to their environment&amp;rdquo;,&lt;/li>
 &lt;li>&lt;strong>Crossing&lt;/strong> - during which one or more specimens are mixed together to produce a new member.&lt;/li>
 &lt;/ul>
-&lt;p>OK. 👌&lt;/p>
+&lt;p>OK. &amp;#x1f44c;&lt;/p>
 &lt;p>With these terms out of the way, let&amp;rsquo;s try to understand how exactly it works. Imagine we need to find a solution
 for a problem. It can be anything, like finding optimal timetable for a university class. Firstly, we need to encode a
 solution as a series of bytes (their &lt;a
@@ -32,7 +32,7 @@ you will). Once we have that we can clone the encoded representation to create a
 &lt;p>Each member of the generation will be randomly &lt;strong>mutated&lt;/strong> and then &lt;strong>scored&lt;/strong> based on how well they fit in our
 constrains set. For example: we might want to have a timetable which leaves just enough break time to eat a quick lunch,
 but not too much, so that we can go home earlier. This (and similar constrains) might be used to evaluate the value of
-our new mutated timetable. With each specimen evaluated we leave a few of the best and discard the rest 💀.&lt;br>
+our new mutated timetable. With each specimen evaluated we leave a few of the best and discard the rest &amp;#x1f480;.&lt;br>
 The last step is to mix our &lt;em>special&lt;/em> timetables to create new ones to fill the generation again.&lt;/p>
 &lt;figure>&lt;img src="./genetic-algorithm-cycle.webp"
 alt="Genetic Algorithm Cycle"loading="lazy"
@@ -66,7 +66,7 @@ href="https://en.wikipedia.org/wiki/Genetic_algorithm"
 >Genetic algorithm @ Wikipedia&lt;/a>
 &lt;/p>
 &lt;/blockquote>
-&lt;p>Well, that&amp;rsquo;s really not the most helpful answer. 😐&lt;br>
+&lt;p>Well, that&amp;rsquo;s really not the most helpful answer. &amp;#x1f610;&lt;br>
 It really boils down to this: the more specimen we have, the more memory the program requires and more CPU time to
 process each generation. On the other hand, the more specimen a generation have, the wider portion of solution space it
 can search. Whatever the generation size will be, we need to have a prototype - a specimen, which cloned will fill the
@@ -140,7 +140,7 @@ its the context that makes them colors, points, or geometric shapes. If we&amp;r
 coordinates in three-dimensional space, then they would become points. In that case, the difference between two points
 can be implemented as the distance between then:&lt;/p>
 &lt;p>$$ d(A, B) = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2} $$&lt;/p>
-&lt;p>Alright 👌. The final thought: this formula calculates the difference between two points in space, but we don&amp;rsquo;t
+&lt;p>Alright &amp;#x1f44c;. The final thought: this formula calculates the difference between two points in space, but we don&amp;rsquo;t
 really need &lt;em>the distance&lt;/em>, just &lt;em>an indication&lt;/em> of how similar the two pixels are. Since calculating a square root on
 computers is expensive, we can remove that bit and we&amp;rsquo;re left with:&lt;/p>
 &lt;p>$$ g(A, B) = (x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2 \tag{2} $$&lt;/p>
@@ -180,7 +180,7 @@ more fitting specimens, relative to a one without the 3&lt;sup>rd&lt;/sup>
 step, in the same number of
 generations.&lt;/p>
 &lt;p>We will take a look at several of &lt;strong>crossing&lt;/strong> methods mentioned above and we will plot scores of their specimens as a
-function of generation number, to see how well they perform. 📈&lt;/p>
+function of generation number, to see how well they perform. &amp;#x1f4c8;&lt;/p>
 &lt;h2 id="next-steps" >
 Next steps
 &lt;a class="ms-2 text-reset" href="#next-steps" aria-label="Anchor">
@@ -208,7 +208,7 @@ href="https://unsplash.com/photos/M3cxjDNiLlQ?utm_source=unsplash&amp;amp;utm_me
 &lt;/figure>
 &lt;!-- raw HTML omitted -->
 &lt;p>See you around!&lt;/p>
-&lt;p>🌊&lt;/p>
+&lt;p>&amp;#x1f30a;&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="footnotes" role="doc-endnotes">
 &lt;hr>
