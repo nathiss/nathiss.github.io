@@ -2,7 +2,7 @@
 &lt;h2 id="how-did-we-come-here" >
 How did we come here?
 &lt;a class="ms-2 text-reset" href="#how-did-we-come-here" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg">&lt;/i>
+&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h2>
 &lt;p>This is not the first attempt on creating my own website. On my &lt;a
@@ -16,7 +16,7 @@ and try to point out why they failed.&lt;/p>
 &lt;h3 id="platform-1-0x52-django-22" >
 Platform 1: 0x52 (Django 2.2)
 &lt;a class="ms-2 text-reset" href="#platform-1-0x52-django-22" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg">&lt;/i>
+&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
 &lt;p>&lt;a
@@ -63,7 +63,7 @@ removal of free product plans&lt;/a>
 &lt;h3 id="platform-2-titan-aspnet" >
 Platform 2: Titan (ASP.NET)
 &lt;a class="ms-2 text-reset" href="#platform-2-titan-aspnet" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg">&lt;/i>
+&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
 &lt;p>This was &lt;em>an another&lt;/em> iteration of personal website development. I&amp;rsquo;ve decided to use
@@ -114,7 +114,7 @@ ended because I was too wornout to finish it.&lt;/p>
 &lt;h3 id="platform-3-polaris-react" >
 Platform 3: Polaris (React)
 &lt;a class="ms-2 text-reset" href="#platform-3-polaris-react" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg">&lt;/i>
+&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
 &lt;p>I&amp;rsquo;m actually quite proud of this one. It&amp;rsquo;s a static website running on &lt;a
@@ -149,7 +149,7 @@ forget what one has learned. ಠ_ಠ&lt;/p>
 &lt;h3 id="platforms-long-forgotten" >
 Platforms long forgotten
 &lt;a class="ms-2 text-reset" href="#platforms-long-forgotten" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg">&lt;/i>
+&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
 &lt;p>There were many more projects which aimed to create my personal space on the web, but only these mentioned above are
@@ -169,7 +169,7 @@ I was trying too hard to use a new fancy tool I&amp;rsquo;ve just learned about.
 &lt;h2 id="the-goal-and-future-of-this-project" >
 The goal and future of this project
 &lt;a class="ms-2 text-reset" href="#the-goal-and-future-of-this-project" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg">&lt;/i>
+&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h2>
 &lt;p>The goal of this project is to create an archive for stuff I&amp;rsquo;m going to learn. It&amp;rsquo;s still unclear as to what I&amp;rsquo;m going

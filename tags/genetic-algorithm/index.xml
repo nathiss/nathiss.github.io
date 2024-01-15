@@ -7,7 +7,7 @@ look like one.&lt;/p>
 &lt;h2 id="natural-selection" >
 Natural Selection
 &lt;a class="ms-2 text-reset" href="#natural-selection" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg">&lt;/i>
+&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h2>
 &lt;p>&lt;a
@@ -41,7 +41,7 @@ no obvious way of substituting one image from another and produce an integer. We
 &lt;h2 id="loss-functions" >
 Loss functions
 &lt;a class="ms-2 text-reset" href="#loss-functions" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg">&lt;/i>
+&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h2>
 &lt;p>&lt;a
@@ -81,7 +81,7 @@ $$&lt;/p>
 &lt;h2 id="scoring-mechanism" >
 Scoring mechanism
 &lt;a class="ms-2 text-reset" href="#scoring-mechanism" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg">&lt;/i>
+&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h2>
 &lt;p>First, let&amp;rsquo;s define a trait whereby the rest of the system will be able to interact with scoring methods.&lt;/p>
@@ -103,7 +103,7 @@ about these loss functions, is that they return absolute values &amp;ndash; it d
 &lt;h3 id="implementation-of-l1-absolute-distance" >
 Implementation of L1: AbsoluteDistance
 &lt;a class="ms-2 text-reset" href="#implementation-of-l1-absolute-distance" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg">&lt;/i>
+&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
 &lt;p>The implementation isn&amp;rsquo;t complex - first we &lt;em>fold&lt;/em> each pixel pair to a &lt;code>usize&lt;/code>, and then we sum those parts together to
@@ -140,7 +140,7 @@ produce the score. Actually, we can do both by using Iterator&amp;rsquo;s &lt;co
 &lt;h3 id="implementation-of-l1-square-distance" >
 Implementation of L2: SquareDistance
 &lt;a class="ms-2 text-reset" href="#implementation-of-l1-square-distance" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg">&lt;/i>
+&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
 &lt;p>Implementation of &lt;code>SquareDistance&lt;/code> is almost identical. The only difference is the squaring of color channels.&lt;/p>
@@ -175,7 +175,7 @@ Implementation of L2: SquareDistance
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="fixing-mona-lisa" >
 Fixing &amp;ldquo;Mona Lisa&amp;rdquo;
 &lt;a class="ms-2 text-reset" href="#fixing-mona-lisa" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg">&lt;/i>
+&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h2>
 &lt;p>Let&amp;rsquo;s wire up the scoring component with generation&amp;rsquo;s flow. During each generation, every specimens will be scored
@@ -226,7 +226,7 @@ implementing the first part of our artistic toolset: &lt;strong>mutators&lt;/str
 &lt;h2 id="preparing-the-ecosystem" >
 Preparing the ecosystem
 &lt;a class="ms-2 text-reset" href="#preparing-the-ecosystem" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg">&lt;/i>
+&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h2>
 &lt;p>Before we begin working on mutators, we need to prepare an environment in which our specimens can thrive. We don&amp;rsquo;t need
@@ -309,7 +309,7 @@ solution space search, but will produce images that are more visually interestin
 &lt;h2 id="throwing-dice-and-hoping-for-the-best" >
 Throwing dice and hoping for the best
 &lt;a class="ms-2 text-reset" href="#throwing-dice-and-hoping-for-the-best" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg">&lt;/i>
+&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h2>
 &lt;p>As was mentioned in the previous article, mutators act only on one specimen at a time, inserting random modification
@@ -329,7 +329,7 @@ alt="Genetic Algorithm Flow"loading="lazy"
 &lt;h3 id="throwing-a-rectangular-dice" >
 Throwing a rectangular dice
 &lt;a class="ms-2 text-reset" href="#throwing-a-rectangular-dice" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg">&lt;/i>
+&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
 &lt;p>Rectangles are the easiest shape to draw both algorithmically and IRL; our first mutator will use rectangles as a
@@ -431,7 +431,7 @@ noise. We&amp;rsquo;ll need to wait a bit longer to get an image that even remot
 &lt;h3 id="throwing-dice-of-other-shapes" >
 Throwing dice of other shapes
 &lt;a class="ms-2 text-reset" href="#throwing-dice-of-other-shapes" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg">&lt;/i>
+&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
 &lt;p>It&amp;rsquo;d be nice to have mutators other than &lt;code>RectangleMutator&lt;/code>, which are able to mutate images with different shapes, but
@@ -445,7 +445,7 @@ href="https://github.com/nathiss/franklin/tree/73aa8dada3e8c3cae9aff5e2463778526
 &lt;h2 id="afterword" >
 Afterword
 &lt;a class="ms-2 text-reset" href="#afterword" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg">&lt;/i>
+&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h2>
 &lt;p>You might&amp;rsquo;ve noticed that the code examples of this article are not strictly bounded together, meaning you cannot just
@@ -497,7 +497,7 @@ that &lt;em>makes&lt;/em> itself. Pictures that &lt;em>draw&lt;/em> themselves.&
 &lt;h2 id="concepts-and-definitions" >
 Concepts and definitions
 &lt;a class="ms-2 text-reset" href="#concepts-and-definitions" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg">&lt;/i>
+&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h2>
 &lt;p>Before we dive deep into making art, we need to understand some important concepts &amp;ndash; first things first.
@@ -536,7 +536,7 @@ shockingly efficient in searching the solution space.&lt;/p>
 &lt;h2 id="art-from-evolution" >
 Art from evolution
 &lt;a class="ms-2 text-reset" href="#art-from-evolution" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg">&lt;/i>
+&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h2>
 &lt;p>Alright. Now with the theory out of the way, let&amp;rsquo;s conceptualize a program for generating automatic art. Probably it&amp;rsquo;s
@@ -546,7 +546,7 @@ cycle is parametrized by the results of its predecessor.&lt;/p>
 &lt;h3 id="step-0-initialization" >
 Step 0: Initialization
 &lt;a class="ms-2 text-reset" href="#step-0-initialization" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg">&lt;/i>
+&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
 &lt;p>Before we do anything towards evolution we need to prepare a generation first. So what&amp;rsquo;s our generation size? Let&amp;rsquo;s see
@@ -571,7 +571,7 @@ fitting choice.&lt;/p>
 &lt;h3 id="step-1-mutation" >
 Step 1: Mutation
 &lt;a class="ms-2 text-reset" href="#step-1-mutation" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg">&lt;/i>
+&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
 &lt;p>Mutation method greatly affects the end result, so it&amp;rsquo;s imperative to select a right one. Mutation algorithms are
@@ -607,7 +607,7 @@ completely.&lt;/p>
 &lt;h3 id="step-2-scoring" >
 Step 2: Scoring
 &lt;a class="ms-2 text-reset" href="#step-2-scoring" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg">&lt;/i>
+&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
 &lt;p>Implementing scoring function can be tricky. Basically we need to have a way of mapping each specimen into an integer
@@ -643,7 +643,7 @@ computers is expensive, we can remove that bit and we&amp;rsquo;re left with:&lt
 &lt;h3 id="step-3-crossing" >
 Step 3: Crossing
 &lt;a class="ms-2 text-reset" href="#step-3-crossing" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg">&lt;/i>
+&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
 &lt;p>In the last step the algorithm has to fill up &lt;em>almost&lt;/em> emptied generation. This step, quoting Wikipedia, it&amp;rsquo;s:&lt;/p>
@@ -677,7 +677,7 @@ function of generation number, to see how well they perform. &amp;#x1f4c8;&lt;/p
 &lt;h2 id="next-steps" >
 Next steps
 &lt;a class="ms-2 text-reset" href="#next-steps" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg">&lt;/i>
+&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h2>
 &lt;p>This is the first article from a series about generating art through genetic algorithms. In the next articles &lt;em>(coming

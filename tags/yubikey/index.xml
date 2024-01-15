@@ -8,7 +8,7 @@ comes to set up &lt;em>an another&lt;/em> key, it&amp;rsquo;ll be as easy as ope
 &lt;h2 id="in-general" >
 In general
 &lt;a class="ms-2 text-reset" href="#in-general" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg">&lt;/i>
+&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h2>
 &lt;p>I started to learn about security keys a few years back. I read &amp;ldquo;&lt;a
@@ -23,7 +23,7 @@ moment, you can give it amiss.&lt;/p>
 &lt;h2 id="setting-up-a-new-key" >
 Setting up a new key
 &lt;a class="ms-2 text-reset" href="#setting-up-a-new-key" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg">&lt;/i>
+&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h2>
 &lt;p>&lt;a
@@ -44,7 +44,7 @@ href="https://www.yubico.com/resources/glossary/fido-2/"
 &lt;h3 id="yubikey--macos" >
 Yubikey &amp;amp; macOS
 &lt;a class="ms-2 text-reset" href="#yubikey--macos" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg">&lt;/i>
+&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
 &lt;p>To start with, I could not make the key detectable by &lt;a
@@ -64,7 +64,7 @@ a config file was missing in my GnuPG home.&lt;/p>
 &lt;h3 id="yubikey--openpgp" >
 Yubikey &amp;amp; OpenPGP
 &lt;a class="ms-2 text-reset" href="#yubikey--openpgp" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg">&lt;/i>
+&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
 &lt;p>Working with &lt;code>gpg&lt;/code> sucks.&lt;/p>
@@ -80,7 +80,7 @@ much you care about security. I &lt;strong>highly&lt;/strong> encourage you to c
 &lt;h3 id="yubikey--ssh" >
 Yubikey &amp;amp; SSH
 &lt;a class="ms-2 text-reset" href="#yubikey--ssh" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg">&lt;/i>
+&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
 &lt;p>Once all three keys (Signing, Encryption, Authentication) are correctly set up, it&amp;rsquo;s the moment for the agent. I always
@@ -99,7 +99,7 @@ miss two parts: &lt;strong>configuring gpg-agent&lt;/strong> and &lt;strong>enab
 &lt;h3 id="tips" >
 Tips
 &lt;a class="ms-2 text-reset" href="#tips" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg">&lt;/i>
+&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
 &lt;ol>

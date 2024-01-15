@@ -36,7 +36,7 @@ subdomain.&lt;/p>
 &lt;h2 id="setting-up-custom-domain-for-github-pages" >
 Setting up custom domain for GitHub Pages
 &lt;a class="ms-2 text-reset" href="#setting-up-custom-domain-for-github-pages" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg">&lt;/i>
+&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h2>
 &lt;p>GitHub Pages supports custom domains with very little config; you, as the owner, only need to set up these DNS
@@ -123,7 +123,7 @@ href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-gith
 .&lt;/p>
 &lt;div class="alert alert-info">
 &lt;h6 class="alert-heading">
-&lt;i class="bi bi-pencil me-2">&lt;/i>
+&lt;i class="bi bi-pencil me-2" aria-hidden="true">&lt;/i>
 Note
 &lt;/h6>
 &lt;p class="my-3">
@@ -138,7 +138,7 @@ for details.&lt;/p>
 &lt;h2 id="using-domains-as-aliases" >
 Using domains as aliases
 &lt;a class="ms-2 text-reset" href="#using-domains-as-aliases" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg">&lt;/i>
+&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h2>
 &lt;p>Recently I came up with an idea to configure subdomains, that will redirect to a few tools I&amp;rsquo;d like to make accessible
@@ -166,7 +166,7 @@ GitHub Pages.&lt;/p>
 &lt;h3 id="redir-301" >
 Redir 301
 &lt;a class="ms-2 text-reset" href="#redir-301" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg">&lt;/i>
+&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
 &lt;p>&lt;a
@@ -208,7 +208,7 @@ for
 this experiment.&lt;/p>
 &lt;div class="alert alert-primary">
 &lt;h6 class="alert-heading">
-&lt;i class="bi bi-fire me-2">&lt;/i>
+&lt;i class="bi bi-fire me-2" aria-hidden="true">&lt;/i>
 Tip
 &lt;/h6>
 &lt;p class="my-3">
@@ -262,7 +262,7 @@ for details.&lt;/p>
 &lt;h3 id="redirecting-with-github-pages" >
 Redirecting with GitHub Pages
 &lt;a class="ms-2 text-reset" href="#redirecting-with-github-pages" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg">&lt;/i>
+&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
 &lt;p>The HTTP Location header isn&amp;rsquo;t the only way of redirecting to a URL. Another method is to use JavaScript, and the
@@ -379,7 +379,7 @@ the &amp;ldquo;Redirect&amp;rdquo; link.&lt;/p>
 &lt;h2 id="conclusion" >
 Conclusion
 &lt;a class="ms-2 text-reset" href="#conclusion" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg">&lt;/i>
+&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h2>
 &lt;p>Redirects via GitHub Pages is not an ideal solution. Having to use meta&amp;rsquo;s &lt;code>http-equiv=&amp;quot;refresh&amp;quot;&lt;/code>, instead of the proper

@@ -5,7 +5,7 @@ required to do so.&lt;/p>
 &lt;h2 id="whats-a-changelog" >
 What&amp;rsquo;s a changelog
 &lt;a class="ms-2 text-reset" href="#whats-a-changelog" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg">&lt;/i>
+&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h2>
 &lt;blockquote>
@@ -90,7 +90,7 @@ Here&amp;rsquo;s an example of a changelog with two entries:&lt;/p>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="keeping-a-changelog-up-to-date" >
 Keep(ing) a changelog up-to-date
 &lt;a class="ms-2 text-reset" href="#keeping-a-changelog-up-to-date" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg">&lt;/i>
+&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h2>
 &lt;p>When releasing a new package version one needs to remember to update the version in two places: &lt;code>pyproject.toml&lt;/code> and
@@ -154,7 +154,7 @@ manifest:&lt;/p>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="accessing-project-version-from-sphinx" >
 Accessing project version from Sphinx
 &lt;a class="ms-2 text-reset" href="#accessing-project-version-from-sphinx" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg">&lt;/i>
+&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
 &lt;p>&lt;a
@@ -234,7 +234,7 @@ and &lt;code>setup.py&lt;/code>.&lt;/p>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="afterthought" >
 Afterthought
 &lt;a class="ms-2 text-reset" href="#afterthought" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg">&lt;/i>
+&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h2>
 &lt;p>Maintaining a changelog can make a project easier to understand. Hopefully, with the changes proposed in this article
