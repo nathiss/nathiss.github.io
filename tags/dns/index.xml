@@ -17,21 +17,21 @@ href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301"
 >301 Moved Permanently&lt;/a>
 to requests using the old
 subdomain.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">$ curl -i https://nathiss.github.io/
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">HTTP/2 &lt;span class="m">301&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">server: GitHub.com
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">content-type: text/html
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">location: https://madebyme.today/
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># ...&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">content-length: &lt;span class="m">162&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;html&amp;gt;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;head&amp;gt;&amp;lt;title&amp;gt;301 Moved Permanently&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;body&amp;gt;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;center&amp;gt;&amp;lt;h1&amp;gt;301 Moved Permanently&amp;lt;/h1&amp;gt;&amp;lt;/center&amp;gt;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;hr&amp;gt;&amp;lt;center&amp;gt;nginx&amp;lt;/center&amp;gt;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;/body&amp;gt;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;/html&amp;gt;
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="ln" id="hl-0-1">&lt;a class="lnlinks" href="#hl-0-1"> 1&lt;/a>&lt;/span>&lt;span class="cl">$ curl -i https://nathiss.github.io/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-2">&lt;a class="lnlinks" href="#hl-0-2"> 2&lt;/a>&lt;/span>&lt;span class="cl">HTTP/2 &lt;span class="m">301&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-3">&lt;a class="lnlinks" href="#hl-0-3"> 3&lt;/a>&lt;/span>&lt;span class="cl">server: GitHub.com
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-4">&lt;a class="lnlinks" href="#hl-0-4"> 4&lt;/a>&lt;/span>&lt;span class="cl">content-type: text/html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-5">&lt;a class="lnlinks" href="#hl-0-5"> 5&lt;/a>&lt;/span>&lt;span class="cl">location: https://madebyme.today/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-6">&lt;a class="lnlinks" href="#hl-0-6"> 6&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="c1"># ...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-7">&lt;a class="lnlinks" href="#hl-0-7"> 7&lt;/a>&lt;/span>&lt;span class="cl">content-length: &lt;span class="m">162&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-8">&lt;a class="lnlinks" href="#hl-0-8"> 8&lt;/a>&lt;/span>&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-9">&lt;a class="lnlinks" href="#hl-0-9"> 9&lt;/a>&lt;/span>&lt;span class="cl">&amp;lt;html&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-10">&lt;a class="lnlinks" href="#hl-0-10">10&lt;/a>&lt;/span>&lt;span class="cl">&amp;lt;head&amp;gt;&amp;lt;title&amp;gt;301 Moved Permanently&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-11">&lt;a class="lnlinks" href="#hl-0-11">11&lt;/a>&lt;/span>&lt;span class="cl">&amp;lt;body&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-12">&lt;a class="lnlinks" href="#hl-0-12">12&lt;/a>&lt;/span>&lt;span class="cl">&amp;lt;center&amp;gt;&amp;lt;h1&amp;gt;301 Moved Permanently&amp;lt;/h1&amp;gt;&amp;lt;/center&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-13">&lt;a class="lnlinks" href="#hl-0-13">13&lt;/a>&lt;/span>&lt;span class="cl">&amp;lt;hr&amp;gt;&amp;lt;center&amp;gt;nginx&amp;lt;/center&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-14">&lt;a class="lnlinks" href="#hl-0-14">14&lt;/a>&lt;/span>&lt;span class="cl">&amp;lt;/body&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-15">&lt;a class="lnlinks" href="#hl-0-15">15&lt;/a>&lt;/span>&lt;span class="cl">&amp;lt;/html&amp;gt;
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Let&amp;rsquo;s take a closer look and see how it&amp;rsquo;s done.&lt;/p>
 &lt;h2 id="setting-up-custom-domain-for-github-pages" >
 Setting up custom domain for GitHub Pages
@@ -110,7 +110,7 @@ records:&lt;/p>
 &lt;/table>
 &lt;/div>
 &lt;p>&amp;hellip; and create the &lt;code>CNAME&lt;/code> file in the root of your repository with the new domain:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-txt" data-lang="txt">&lt;span class="line">&lt;span class="cl">example.com
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-txt" data-lang="txt">&lt;span class="line">&lt;span class="ln" id="hl-1-1">&lt;a class="lnlinks" href="#hl-1-1">1&lt;/a>&lt;/span>&lt;span class="cl">example.com
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The last thing to do is to enable GitHub Pages for your repository. GitHub will validate DNS records and serve the
 website under the configured domain. Anyone accessing &lt;code>https://example.com&lt;/code> will see your website.&lt;/p>
 &lt;p>It&amp;rsquo;s pretty well explained in &lt;a
@@ -157,10 +157,10 @@ HTTP. If I&amp;rsquo;d host my own web server, then I could configure it to do r
 href="http://nginx.org/en/docs/http/ngx_http_core_module.html#server_name"
 >Nginx&amp;rsquo;s &lt;code>server_name&lt;/code>&lt;/a>
 .&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-txt" data-lang="txt">&lt;span class="line">&lt;span class="cl">server {
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> server_name calendar.madebyme.today;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> return 301 https://example.com/;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">}
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-txt" data-lang="txt">&lt;span class="line">&lt;span class="ln" id="hl-2-1">&lt;a class="lnlinks" href="#hl-2-1">1&lt;/a>&lt;/span>&lt;span class="cl">server {
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-2">&lt;a class="lnlinks" href="#hl-2-2">2&lt;/a>&lt;/span>&lt;span class="cl"> server_name calendar.madebyme.today;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-3">&lt;a class="lnlinks" href="#hl-2-3">3&lt;/a>&lt;/span>&lt;span class="cl"> return 301 https://example.com/;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-4">&lt;a class="lnlinks" href="#hl-2-4">4&lt;/a>&lt;/span>&lt;span class="cl">}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>However, that&amp;rsquo;s not the case and, as far as I know, GitHub does not provide any way of setting up HTTP redirects for
 GitHub Pages.&lt;/p>
 &lt;h3 id="redir-301" >
@@ -236,16 +236,16 @@ alt="mess with dns configuration for Redir 301"loading="lazy"
 &lt;/figure>
 &lt;p>Let&amp;rsquo;s wait for the DNS records to propagate&amp;hellip; &amp;#x1f553;&lt;/p>
 &lt;p>&amp;hellip;and when we request the subdomain:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">$ curl -i http://calendar.aster176.messwithdns.com
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">HTTP/1.1 &lt;span class="m">301&lt;/span> Moved Permanently
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Date: Thu, &lt;span class="m">04&lt;/span> Jan &lt;span class="m">2024&lt;/span> 09:47:53 GMT
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Server: Apache
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Location: https://example.com/
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Cache-Control: no-cache, no-store, must-revalidate
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Pragma: no-cache
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Expires: &lt;span class="m">0&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Transfer-Encoding: chunked
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Content-Type: application/cgi
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="ln" id="hl-3-1">&lt;a class="lnlinks" href="#hl-3-1"> 1&lt;/a>&lt;/span>&lt;span class="cl">$ curl -i http://calendar.aster176.messwithdns.com
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-2">&lt;a class="lnlinks" href="#hl-3-2"> 2&lt;/a>&lt;/span>&lt;span class="cl">HTTP/1.1 &lt;span class="m">301&lt;/span> Moved Permanently
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-3">&lt;a class="lnlinks" href="#hl-3-3"> 3&lt;/a>&lt;/span>&lt;span class="cl">Date: Thu, &lt;span class="m">04&lt;/span> Jan &lt;span class="m">2024&lt;/span> 09:47:53 GMT
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-4">&lt;a class="lnlinks" href="#hl-3-4"> 4&lt;/a>&lt;/span>&lt;span class="cl">Server: Apache
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-5">&lt;a class="lnlinks" href="#hl-3-5"> 5&lt;/a>&lt;/span>&lt;span class="cl">Location: https://example.com/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-6">&lt;a class="lnlinks" href="#hl-3-6"> 6&lt;/a>&lt;/span>&lt;span class="cl">Cache-Control: no-cache, no-store, must-revalidate
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-7">&lt;a class="lnlinks" href="#hl-3-7"> 7&lt;/a>&lt;/span>&lt;span class="cl">Pragma: no-cache
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-8">&lt;a class="lnlinks" href="#hl-3-8"> 8&lt;/a>&lt;/span>&lt;span class="cl">Expires: &lt;span class="m">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-9">&lt;a class="lnlinks" href="#hl-3-9"> 9&lt;/a>&lt;/span>&lt;span class="cl">Transfer-Encoding: chunked
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-10">&lt;a class="lnlinks" href="#hl-3-10">10&lt;/a>&lt;/span>&lt;span class="cl">Content-Type: application/cgi
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&amp;hellip;it returns 301 with the &lt;a
 href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Location"
 >Location&lt;/a>
@@ -267,16 +267,16 @@ Redirecting with GitHub Pages
 &lt;/h3>
 &lt;p>The HTTP Location header isn&amp;rsquo;t the only way of redirecting to a URL. Another method is to use JavaScript, and the
 simplest way to achieve this is:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">body&lt;/span> &lt;span class="na">onload&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;window.location = &amp;#39;https://example.com/&amp;#39;&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c">&amp;lt;!-- ... --&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="ln" id="hl-4-1">&lt;a class="lnlinks" href="#hl-4-1">1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">body&lt;/span> &lt;span class="na">onload&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;window.location = &amp;#39;https://example.com/&amp;#39;&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-4-2">&lt;a class="lnlinks" href="#hl-4-2">2&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="c">&amp;lt;!-- ... --&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-4-3">&lt;a class="lnlinks" href="#hl-4-3">3&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This approach is not recommended, because users might have disabled JavaScript in their browsers.&lt;/p>
 &lt;p>Yet another way is to inform the browser to perform the redirection for us; that can be done via the
 &lt;a
 href="https://en.wikipedia.org/wiki/Meta_refresh"
 >meta refresh&lt;/a>
 tag:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">meta&lt;/span> &lt;span class="na">http-equiv&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;refresh&amp;#34;&lt;/span> &lt;span class="na">content&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;0; url=https://example.com/&amp;#34;&lt;/span> &lt;span class="p">/&amp;gt;&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="ln" id="hl-5-1">&lt;a class="lnlinks" href="#hl-5-1">1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">meta&lt;/span> &lt;span class="na">http-equiv&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;refresh&amp;#34;&lt;/span> &lt;span class="na">content&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;0; url=https://example.com/&amp;#34;&lt;/span> &lt;span class="p">/&amp;gt;&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>To use this, we need to set up a website under &lt;code>calendar.aster176.messwithdns.com&lt;/code>, that will have the correct meta
 refresh tag. However, due to the fact that the domain &lt;code>madebyme.today&lt;/code> is already associated with my GitHub account, I
 had some issues with making the &lt;code>calendar.aster176.messwithdns.com&lt;/code> subdomain work. As a workaround I&amp;rsquo;ll switch to
@@ -308,22 +308,22 @@ be used by GitHub Pages, I only really need to add one more record:&lt;/p>
 &lt;ul>
 &lt;li>
 &lt;p>&lt;code>index.html&lt;/code> with the meta tag:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">&amp;lt;!DOCTYPE html&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">html&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">head&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">meta&lt;/span> &lt;span class="na">charset&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;utf-8&amp;#34;&lt;/span> &lt;span class="p">/&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">meta&lt;/span> &lt;span class="na">http-equiv&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;refresh&amp;#34;&lt;/span> &lt;span class="na">content&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;0; url=https://example.com/&amp;#34;&lt;/span> &lt;span class="p">/&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">link&lt;/span> &lt;span class="na">href&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;https://example.com&amp;#34;&lt;/span> &lt;span class="na">rel&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;canonical&amp;#34;&lt;/span> &lt;span class="p">/&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">title&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>Redirecting to https://example.com&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">title&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">head&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">a&lt;/span> &lt;span class="na">href&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;https://example.com/&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>Redirect&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">a&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">html&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="ln" id="hl-6-1">&lt;a class="lnlinks" href="#hl-6-1"> 1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="cp">&amp;lt;!DOCTYPE html&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-6-2">&lt;a class="lnlinks" href="#hl-6-2"> 2&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">html&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-6-3">&lt;a class="lnlinks" href="#hl-6-3"> 3&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">head&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-6-4">&lt;a class="lnlinks" href="#hl-6-4"> 4&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">meta&lt;/span> &lt;span class="na">charset&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;utf-8&amp;#34;&lt;/span> &lt;span class="p">/&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-6-5">&lt;a class="lnlinks" href="#hl-6-5"> 5&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">meta&lt;/span> &lt;span class="na">http-equiv&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;refresh&amp;#34;&lt;/span> &lt;span class="na">content&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;0; url=https://example.com/&amp;#34;&lt;/span> &lt;span class="p">/&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-6-6">&lt;a class="lnlinks" href="#hl-6-6"> 6&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">link&lt;/span> &lt;span class="na">href&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;https://example.com&amp;#34;&lt;/span> &lt;span class="na">rel&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;canonical&amp;#34;&lt;/span> &lt;span class="p">/&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-6-7">&lt;a class="lnlinks" href="#hl-6-7"> 7&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">title&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>Redirecting to https://example.com&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">title&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-6-8">&lt;a class="lnlinks" href="#hl-6-8"> 8&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">head&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-6-9">&lt;a class="lnlinks" href="#hl-6-9"> 9&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-6-10">&lt;a class="lnlinks" href="#hl-6-10">10&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">a&lt;/span> &lt;span class="na">href&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;https://example.com/&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>Redirect&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">a&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-6-11">&lt;a class="lnlinks" href="#hl-6-11">11&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-6-12">&lt;a class="lnlinks" href="#hl-6-12">12&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">html&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>
 &lt;p>&lt;code>CNAME&lt;/code> to point to GitHub which subdomain it should use:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-txt" data-lang="txt">&lt;span class="line">&lt;span class="cl">example.madebyme.today
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-txt" data-lang="txt">&lt;span class="line">&lt;span class="ln" id="hl-7-1">&lt;a class="lnlinks" href="#hl-7-1">1&lt;/a>&lt;/span>&lt;span class="cl">example.madebyme.today
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;/ul>
 &lt;p>See the full setup here: &lt;a
@@ -331,11 +331,11 @@ href="https://github.com/nathiss/redirect-example"
 >redirect-example&lt;/a>
 .&lt;/p>
 &lt;p>Alright, let&amp;rsquo;s see if our new DNS record has propagated:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">$ dig example.madebyme.today CNAME +noall +answer
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">;&lt;/span> &amp;lt;&amp;lt;&amp;gt;&amp;gt; DiG 9.10.6 &amp;lt;&amp;lt;&amp;gt;&amp;gt; example.madebyme.today CNAME +noall +answer
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">;;&lt;/span> global options: +cmd
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">example.madebyme.today. &lt;span class="m">3233&lt;/span> IN CNAME nathiss.github.io.
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="ln" id="hl-8-1">&lt;a class="lnlinks" href="#hl-8-1">1&lt;/a>&lt;/span>&lt;span class="cl">$ dig example.madebyme.today CNAME +noall +answer
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-8-2">&lt;a class="lnlinks" href="#hl-8-2">2&lt;/a>&lt;/span>&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-8-3">&lt;a class="lnlinks" href="#hl-8-3">3&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="p">;&lt;/span> &amp;lt;&amp;lt;&amp;gt;&amp;gt; DiG 9.10.6 &amp;lt;&amp;lt;&amp;gt;&amp;gt; example.madebyme.today CNAME +noall +answer
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-8-4">&lt;a class="lnlinks" href="#hl-8-4">4&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="p">;;&lt;/span> global options: +cmd
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-8-5">&lt;a class="lnlinks" href="#hl-8-5">5&lt;/a>&lt;/span>&lt;span class="cl">example.madebyme.today. &lt;span class="m">3233&lt;/span> IN CNAME nathiss.github.io.
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>It has indeed.&lt;/p>
 &lt;p>The last thing to do, is to enable GitHub Pages for the new repo. Go to &lt;code>Settings &amp;gt; Pages&lt;/code>.&lt;/p>
 &lt;figure>&lt;a href="./gh_pages_enable.png" class="hide-external" >&lt;img src="./gh_pages_enable.png"
@@ -354,25 +354,25 @@ alt="GitHub Pages configuration with custom domain and enforced HTTPS"loading="l
 &lt;/figcaption>
 &lt;/figure>
 &lt;p>All parts should be in place, let&amp;rsquo;s check if it works:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">$ curl -i https://example.madebyme.today/
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">HTTP/2 &lt;span class="m">200&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">server: GitHub.com
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">content-type: text/html&lt;span class="p">;&lt;/span> &lt;span class="nv">charset&lt;/span>&lt;span class="o">=&lt;/span>utf-8
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># ...&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">content-length: &lt;span class="m">356&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;!DOCTYPE html&amp;gt;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;html&amp;gt;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;lt;head&amp;gt;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;lt;meta &lt;span class="nv">charset&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;utf-8&amp;#34;&lt;/span> /&amp;gt;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;lt;meta http-equiv&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;refresh&amp;#34;&lt;/span> &lt;span class="nv">content&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;0; url=https://example.com/&amp;#34;&lt;/span> /&amp;gt;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;lt;link &lt;span class="nv">href&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;https://example.com&amp;#34;&lt;/span> &lt;span class="nv">rel&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;canonical&amp;#34;&lt;/span> /&amp;gt;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;lt;title&amp;gt;Redirecting to https://example.com&amp;lt;/title&amp;gt;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;lt;/head&amp;gt;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;lt;body&amp;gt;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;lt;a &lt;span class="nv">href&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;https://example.com/&amp;#34;&lt;/span>&amp;gt;Redirect&amp;lt;/a&amp;gt;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;lt;/body&amp;gt;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;/html&amp;gt;
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="ln" id="hl-9-1">&lt;a class="lnlinks" href="#hl-9-1"> 1&lt;/a>&lt;/span>&lt;span class="cl">$ curl -i https://example.madebyme.today/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-9-2">&lt;a class="lnlinks" href="#hl-9-2"> 2&lt;/a>&lt;/span>&lt;span class="cl">HTTP/2 &lt;span class="m">200&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-9-3">&lt;a class="lnlinks" href="#hl-9-3"> 3&lt;/a>&lt;/span>&lt;span class="cl">server: GitHub.com
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-9-4">&lt;a class="lnlinks" href="#hl-9-4"> 4&lt;/a>&lt;/span>&lt;span class="cl">content-type: text/html&lt;span class="p">;&lt;/span> &lt;span class="nv">charset&lt;/span>&lt;span class="o">=&lt;/span>utf-8
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-9-5">&lt;a class="lnlinks" href="#hl-9-5"> 5&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="c1"># ...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-9-6">&lt;a class="lnlinks" href="#hl-9-6"> 6&lt;/a>&lt;/span>&lt;span class="cl">content-length: &lt;span class="m">356&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-9-7">&lt;a class="lnlinks" href="#hl-9-7"> 7&lt;/a>&lt;/span>&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-9-8">&lt;a class="lnlinks" href="#hl-9-8"> 8&lt;/a>&lt;/span>&lt;span class="cl">&amp;lt;!DOCTYPE html&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-9-9">&lt;a class="lnlinks" href="#hl-9-9"> 9&lt;/a>&lt;/span>&lt;span class="cl">&amp;lt;html&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-9-10">&lt;a class="lnlinks" href="#hl-9-10">10&lt;/a>&lt;/span>&lt;span class="cl"> &amp;lt;head&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-9-11">&lt;a class="lnlinks" href="#hl-9-11">11&lt;/a>&lt;/span>&lt;span class="cl"> &amp;lt;meta &lt;span class="nv">charset&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;utf-8&amp;#34;&lt;/span> /&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-9-12">&lt;a class="lnlinks" href="#hl-9-12">12&lt;/a>&lt;/span>&lt;span class="cl"> &amp;lt;meta http-equiv&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;refresh&amp;#34;&lt;/span> &lt;span class="nv">content&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;0; url=https://example.com/&amp;#34;&lt;/span> /&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-9-13">&lt;a class="lnlinks" href="#hl-9-13">13&lt;/a>&lt;/span>&lt;span class="cl"> &amp;lt;link &lt;span class="nv">href&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;https://example.com&amp;#34;&lt;/span> &lt;span class="nv">rel&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;canonical&amp;#34;&lt;/span> /&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-9-14">&lt;a class="lnlinks" href="#hl-9-14">14&lt;/a>&lt;/span>&lt;span class="cl"> &amp;lt;title&amp;gt;Redirecting to https://example.com&amp;lt;/title&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-9-15">&lt;a class="lnlinks" href="#hl-9-15">15&lt;/a>&lt;/span>&lt;span class="cl"> &amp;lt;/head&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-9-16">&lt;a class="lnlinks" href="#hl-9-16">16&lt;/a>&lt;/span>&lt;span class="cl"> &amp;lt;body&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-9-17">&lt;a class="lnlinks" href="#hl-9-17">17&lt;/a>&lt;/span>&lt;span class="cl"> &amp;lt;a &lt;span class="nv">href&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;https://example.com/&amp;#34;&lt;/span>&amp;gt;Redirect&amp;lt;/a&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-9-18">&lt;a class="lnlinks" href="#hl-9-18">18&lt;/a>&lt;/span>&lt;span class="cl"> &amp;lt;/body&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-9-19">&lt;a class="lnlinks" href="#hl-9-19">19&lt;/a>&lt;/span>&lt;span class="cl">&amp;lt;/html&amp;gt;
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&amp;#x1f389;&lt;/p>
 &lt;p>If a browser respects the meta refresh tag, then it works. When it doesn&amp;rsquo;t, the user has an option to manually click on
 the &amp;ldquo;Redirect&amp;rdquo; link.&lt;/p>

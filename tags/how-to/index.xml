@@ -52,9 +52,9 @@ href="https://gnupg.org/"
 >GnuPG&lt;/a>
 . I was getting &amp;ldquo;Operation not
 supported by device&amp;rdquo; error.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">gpg --card-status
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">gpg: selecting card failed: Operation not supported by device
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">gpg: OpenPGP card not available: Operation not supported by device
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="ln" id="hl-0-1">&lt;a class="lnlinks" href="#hl-0-1">1&lt;/a>&lt;/span>&lt;span class="cl">gpg --card-status
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-2">&lt;a class="lnlinks" href="#hl-0-2">2&lt;/a>&lt;/span>&lt;span class="cl">gpg: selecting card failed: Operation not supported by device
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-3">&lt;a class="lnlinks" href="#hl-0-3">3&lt;/a>&lt;/span>&lt;span class="cl">gpg: OpenPGP card not available: Operation not supported by device
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Then I found DataDog&amp;rsquo;s Yubikey
 &lt;a
 href="https://github.com/DataDog/yubikey/blob/master/docs/troubleshooting.md"
@@ -90,11 +90,11 @@ miss two parts: &lt;strong>configuring gpg-agent&lt;/strong> and &lt;strong>enab
 &lt;p>Enabling SSH for gpg-agent can be done by adding &lt;code>gpg-agent.conf&lt;/code> file to your GnuPG home.&lt;/p>
 &lt;script src="https://gist.github.com/nathiss/9a5a6b6db02ac31081ad3484da06e08e.js?file=gpg-agent.conf">&lt;/script>
 &lt;p>You&amp;rsquo;ll probably need to update the path pointing to &lt;code>pinentry-program&lt;/code>. Just run&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">which pinentry-mac
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="ln" id="hl-1-1">&lt;a class="lnlinks" href="#hl-1-1">1&lt;/a>&lt;/span>&lt;span class="cl">which pinentry-mac
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>If you don&amp;rsquo;t have &lt;code>pinentry-mac&lt;/code> installed, then&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">brew install pinentry
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="ln" id="hl-2-1">&lt;a class="lnlinks" href="#hl-2-1">1&lt;/a>&lt;/span>&lt;span class="cl">brew install pinentry
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Cool. The last and yet &lt;strong>very important step&lt;/strong> is to relaunch the agent:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">gpgconf --kill gpg-agent
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="ln" id="hl-3-1">&lt;a class="lnlinks" href="#hl-3-1">1&lt;/a>&lt;/span>&lt;span class="cl">gpgconf --kill gpg-agent
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>It should hopefully work.&lt;/p>
 &lt;h3 id="tips" >
 Tips
