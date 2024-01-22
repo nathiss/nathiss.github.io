@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Crates on MadeByMe</title><link>https://madebyme.today/tags/crates/</link><description>Recent content in Crates on MadeByMe</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright 2024, Kamil Rusin</copyright><lastBuildDate>Wed, 26 Jul 2023 09:08:18 +0200</lastBuildDate><atom:link href="https://madebyme.today/tags/crates/index.xml" rel="self" type="application/rss+xml"/><item><title>Cancellable</title><link>https://madebyme.today/projects/cancellable/</link><pubDate>Wed, 26 Jul 2023 09:08:18 +0200</pubDate><guid>https://madebyme.today/projects/cancellable/</guid><category>Rust</category><category>Crates</category><category>Open Source</category><description>&lt;p>Recently I&amp;rsquo;m investing a lot of time into developing a game server in &lt;a
 href="https://www.rust-lang.org/"
->Rust&lt;/a>
-. I started with
+>Rust&lt;/a>. I started with
 implementing network layer based on &lt;a
 href="https://en.wikipedia.org/wiki/WebSocket"
->WebSockets&lt;/a>
-. It&amp;rsquo;s far from being ready,
+>WebSockets&lt;/a>. It&amp;rsquo;s far from being ready,
 but I developed a helper crate for creating detached, cancellable services.&lt;/p>
 &lt;h2 id="game-server-backstory" >
 Game server backstory
@@ -20,19 +18,16 @@ many pitfalls:&lt;/p>
 &lt;li>Ill-formed data sent by one client &lt;em>should&lt;/em> not deny service for another player.&lt;/li>
 &lt;li>&lt;a
 href="https://en.wikipedia.org/wiki/Async/await"
->Async programming&lt;/a>
-is hard in general.&lt;/li>
+>Async programming&lt;/a> is hard in general.&lt;/li>
 &lt;/ul>
 &lt;p>So, in the past I have had many attempts to develop a game server. Each improving on mistakes made in the previous one.&lt;/p>
 &lt;ul>
 &lt;li>&lt;a
 href="https://github.com/nathiss/spectrum-old"
->spectrum-old&lt;/a>
-&amp;ndash; A real-time multiplayer browser game,&lt;/li>
+>spectrum-old&lt;/a> &amp;ndash; A real-time multiplayer browser game,&lt;/li>
 &lt;li>&lt;a
 href="https://github.com/nathiss/Fusion-cpp"
->Fusion-cpp&lt;/a>
-&amp;ndash; This is the source code of the server for the Fusion game,&lt;/li>
+>Fusion-cpp&lt;/a> &amp;ndash; This is the source code of the server for the Fusion game,&lt;/li>
 &lt;li>&lt;em>[private repo]&lt;/em>,&lt;/li>
 &lt;li>&lt;em>[private repo]&lt;/em>,&lt;/li>
 &lt;li>&lt;em>[private repo]&lt;/em>.&lt;/li>
@@ -111,8 +106,7 @@ should wrap it as &lt;code>CancellableResult::Item(t)&lt;/code>; it&amp;rsquo;s 
 value is available, but the service should continue then it returns &lt;code>CancellableResult::Continue&lt;/code> (similar to
 &lt;a
 href="https://doc.rust-lang.org/stable/std/task/enum.Poll.html#variant.Pending"
->&lt;code>Poll::Pending&lt;/code>&lt;/a>
-).&lt;/p>
+>&lt;code>Poll::Pending&lt;/code>&lt;/a>).&lt;/p>
 &lt;p>If the service finishes its work successfully (e.g. when the peer closes the connection) then the service should return
 &lt;code>CancellableResult::Break&lt;/code>.&lt;/p>
 &lt;p>&lt;code>Cancellable&lt;/code> trait has methods for spawning the service as a detached, background task:&lt;/p>
@@ -170,6 +164,5 @@ setup, we can define a channel by which spawner can communicate with spawnee.&lt
 &lt;p>I like the final product, so I&amp;rsquo;ve packaged it as a crate. It&amp;rsquo;s available on
 &lt;a
 href="https://crates.io/crates/cancellable"
->crates.io&lt;/a>
-.&lt;/p>
+>crates.io&lt;/a>.&lt;/p>
 &lt;p>&amp;#x1f30a;&lt;/p></description></item></channel></rss>

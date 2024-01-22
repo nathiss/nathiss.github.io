@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Rust on MadeByMe</title><link>https://madebyme.today/tags/rust/</link><description>Recent content in Rust on MadeByMe</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright 2024, Kamil Rusin</copyright><lastBuildDate>Wed, 26 Jul 2023 09:08:18 +0200</lastBuildDate><atom:link href="https://madebyme.today/tags/rust/index.xml" rel="self" type="application/rss+xml"/><item><title>Cancellable</title><link>https://madebyme.today/projects/cancellable/</link><pubDate>Wed, 26 Jul 2023 09:08:18 +0200</pubDate><guid>https://madebyme.today/projects/cancellable/</guid><category>Rust</category><category>Crates</category><category>Open Source</category><description>&lt;p>Recently I&amp;rsquo;m investing a lot of time into developing a game server in &lt;a
 href="https://www.rust-lang.org/"
->Rust&lt;/a>
-. I started with
+>Rust&lt;/a>. I started with
 implementing network layer based on &lt;a
 href="https://en.wikipedia.org/wiki/WebSocket"
->WebSockets&lt;/a>
-. It&amp;rsquo;s far from being ready,
+>WebSockets&lt;/a>. It&amp;rsquo;s far from being ready,
 but I developed a helper crate for creating detached, cancellable services.&lt;/p>
 &lt;h2 id="game-server-backstory" >
 Game server backstory
@@ -20,19 +18,16 @@ many pitfalls:&lt;/p>
 &lt;li>Ill-formed data sent by one client &lt;em>should&lt;/em> not deny service for another player.&lt;/li>
 &lt;li>&lt;a
 href="https://en.wikipedia.org/wiki/Async/await"
->Async programming&lt;/a>
-is hard in general.&lt;/li>
+>Async programming&lt;/a> is hard in general.&lt;/li>
 &lt;/ul>
 &lt;p>So, in the past I have had many attempts to develop a game server. Each improving on mistakes made in the previous one.&lt;/p>
 &lt;ul>
 &lt;li>&lt;a
 href="https://github.com/nathiss/spectrum-old"
->spectrum-old&lt;/a>
-&amp;ndash; A real-time multiplayer browser game,&lt;/li>
+>spectrum-old&lt;/a> &amp;ndash; A real-time multiplayer browser game,&lt;/li>
 &lt;li>&lt;a
 href="https://github.com/nathiss/Fusion-cpp"
->Fusion-cpp&lt;/a>
-&amp;ndash; This is the source code of the server for the Fusion game,&lt;/li>
+>Fusion-cpp&lt;/a> &amp;ndash; This is the source code of the server for the Fusion game,&lt;/li>
 &lt;li>&lt;em>[private repo]&lt;/em>,&lt;/li>
 &lt;li>&lt;em>[private repo]&lt;/em>,&lt;/li>
 &lt;li>&lt;em>[private repo]&lt;/em>.&lt;/li>
@@ -111,8 +106,7 @@ should wrap it as &lt;code>CancellableResult::Item(t)&lt;/code>; it&amp;rsquo;s 
 value is available, but the service should continue then it returns &lt;code>CancellableResult::Continue&lt;/code> (similar to
 &lt;a
 href="https://doc.rust-lang.org/stable/std/task/enum.Poll.html#variant.Pending"
->&lt;code>Poll::Pending&lt;/code>&lt;/a>
-).&lt;/p>
+>&lt;code>Poll::Pending&lt;/code>&lt;/a>).&lt;/p>
 &lt;p>If the service finishes its work successfully (e.g. when the peer closes the connection) then the service should return
 &lt;code>CancellableResult::Break&lt;/code>.&lt;/p>
 &lt;p>&lt;code>Cancellable&lt;/code> trait has methods for spawning the service as a detached, background task:&lt;/p>
@@ -170,13 +164,11 @@ setup, we can define a channel by which spawner can communicate with spawnee.&lt
 &lt;p>I like the final product, so I&amp;rsquo;ve packaged it as a crate. It&amp;rsquo;s available on
 &lt;a
 href="https://crates.io/crates/cancellable"
->crates.io&lt;/a>
-.&lt;/p>
+>crates.io&lt;/a>.&lt;/p>
 &lt;p>&amp;#x1f30a;&lt;/p></description></item><item><title>Natural Selection and Loss Functions</title><link>https://madebyme.today/blog/franklin/natural-selection-and-loss-functions/</link><pubDate>Sun, 02 Apr 2023 14:50:51 +0200</pubDate><guid>https://madebyme.today/blog/franklin/natural-selection-and-loss-functions/</guid><category>Genetic Algorithm</category><category>Rust</category><description>&lt;p>Natural Selection is what allows our species (and images!) to improve over time. In this article we&amp;rsquo;ll implement a
 scoring mechanism, through which &amp;ldquo;&lt;a
 href="https://madebyme.today/blog/franklin/randomness-of-life/"
->Mona Lisa&lt;/a>
-&amp;rdquo; will actually
+>Mona Lisa&lt;/a>&amp;rdquo; will actually
 look like one.&lt;/p>
 &lt;h2 id="natural-selection" >
 Natural Selection
@@ -186,19 +178,16 @@ Natural Selection
 &lt;/h2>
 &lt;p>&lt;a
 href="https://en.wikipedia.org/wiki/Natural_selection"
->Natural selection&lt;/a>
-is the process though which species adapt to their
+>Natural selection&lt;/a> is the process though which species adapt to their
 environments. If the &lt;a
 href="https://en.wikipedia.org/wiki/Evolution"
->evolution&lt;/a>
-is a wheel, then natural selection is the
+>evolution&lt;/a> is a wheel, then natural selection is the
 force that spins it. Organism that are better adapted tend to produce more offspring and pass on their genes. This
 process favours genes that aided their bearers to survive/reproduce, increasing their number in the following
 generations.&lt;/p>
 &lt;p>&lt;a
 href="https://en.wikipedia.org/wiki/Fitness_%28biology%29"
->In biology&lt;/a>
-&lt;em>&amp;ldquo;fitness&amp;rdquo;&lt;/em> is defined by how successful an organism is at
+>In biology&lt;/a> &lt;em>&amp;ldquo;fitness&amp;rdquo;&lt;/em> is defined by how successful an organism is at
 reproduction.&lt;/p>
 &lt;p>Wikipedia says:&lt;/p>
 &lt;blockquote>
@@ -220,16 +209,13 @@ Loss functions
 &lt;/h2>
 &lt;p>&lt;a
 href="https://en.wikipedia.org/wiki/Genetic_algorithm"
->Genetic Algorithms&lt;/a>
-(and
+>Genetic Algorithms&lt;/a> (and
 &lt;a
 href="https://en.wikipedia.org/wiki/Evolutionary_algorithm"
->Evolutionary Algorithms&lt;/a>
-) are
+>Evolutionary Algorithms&lt;/a>) are
 &lt;a
 href="https://en.wikipedia.org/wiki/Optimization_problem"
->optimization&lt;/a>
-algorithms that need a &amp;ldquo;goodness&amp;rdquo; of an organism, in
+>optimization&lt;/a> algorithms that need a &amp;ldquo;goodness&amp;rdquo; of an organism, in
 order to decide whether to discard it. We&amp;rsquo;re going to implement two scoring methods, both based on loss functions. L1
 Loss Function and L2 Loss Function are defined as follows:&lt;/p>
 &lt;p>$$
@@ -246,8 +232,7 @@ outliers, then L2 Loss Function does not perform well &amp;ndash; it leads to mu
 pixels? That question was already answered in
 &lt;a
 href="https://madebyme.today/blog/franklin/art-from-chaos/#step-2-scoring"
->Art From Chaos&lt;/a>
-. We take each of the pixels color
+>Art From Chaos&lt;/a>. We take each of the pixels color
 channels and calculate their differences.&lt;/p>
 &lt;p>$$
 f(O, S) = \sum_{i=0}^n \vert (r_2 - r_1)^2 + (g_2 - g_1)^2 + (b_2 - b_1)^2 \vert
@@ -374,8 +359,7 @@ alt="On the Origin of Species" class="img-thumbnail"loading="lazy"
 />&lt;figcaption>
 &lt;p>Photo by &lt;a
 href="https://unsplash.com/pt-br/@fernandovenzano?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"
->Fernando Venzano&lt;/a>
-on &lt;a
+>Fernando Venzano&lt;/a> on &lt;a
 href="https://unsplash.com/photos/ddVYvmwrvV4?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"
 >Unsplash&lt;/a>&lt;/p>
 &lt;/figcaption>
@@ -393,8 +377,7 @@ images is to discard mutations that resulted in decreasing overall &amp;ldquo;go
 &lt;/ol>
 &lt;/div></description></item><item><title>Randomness of Life</title><link>https://madebyme.today/blog/franklin/randomness-of-life/</link><pubDate>Mon, 20 Mar 2023 10:02:19 +0100</pubDate><guid>https://madebyme.today/blog/franklin/randomness-of-life/</guid><category>Genetic Algorithm</category><category>Rust</category><description>&lt;p>In &lt;a
 href="https://madebyme.today/blog/franklin/art-from-chaos/"
->the previous article&lt;/a>
-from this series, we&amp;rsquo;ve talked about
+>the previous article&lt;/a> from this series, we&amp;rsquo;ve talked about
 genetic algorithms and how they can be used to generate art. Now let&amp;rsquo;s put those ideas into action and focus on
 implementing the first part of our artistic toolset: &lt;strong>mutators&lt;/strong>.&lt;/p>
 &lt;h2 id="preparing-the-ecosystem" >
@@ -421,12 +404,10 @@ specimens are images, they can be represented by the following structs:&lt;/p>
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Representing each pixel as a 24-bit value gives us some flexibility here &amp;ndash; it allows us to operate on two color depths:
 &lt;a
 href="https://en.wikipedia.org/wiki/Color_depth#True_color_%2824-bit%29"
->true color&lt;/a>
-(which uses 24-bit colors) and
+>true color&lt;/a> (which uses 24-bit colors) and
 &lt;a
 href="https://en.wikipedia.org/wiki/Grayscale"
->grayscale&lt;/a>
-(8-bit). Creating a grayscale pixel can be done by setting up all
+>grayscale&lt;/a> (8-bit). Creating a grayscale pixel can be done by setting up all
 color channels to the same value. True, it uses thrice as much memory as it could, but&amp;hellip;&lt;/p>
 &lt;blockquote>
 &lt;p>Premature optimization is the root of all evil.&lt;br>
@@ -590,8 +571,7 @@ color channels.&lt;/p>
 &lt;p>Cool, let&amp;rsquo;s see what the program generates after 10 000 generations when initialized with
 &amp;ldquo;&lt;a
 href="https://en.wikipedia.org/wiki/File:Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.webp"
->Mona Lisa&lt;/a>
-&amp;rdquo;.&lt;/p>
+>Mona Lisa&lt;/a>&amp;rdquo;.&lt;/p>
 &lt;figure class="img-thumbnail">&lt;img src="./output_010000.png"
 alt="Random noise" class="img-thumbnail"loading="lazy"
 />&lt;figcaption>
@@ -614,8 +594,7 @@ boundaries first and then you need to draw the desired shape. I&amp;rsquo;ve imp
 &lt;code>CircleMutator&lt;/code>. Their sources can be found
 &lt;a
 href="https://github.com/nathiss/franklin/tree/73aa8dada3e8c3cae9aff5e24637785268e3527a/src/mutators"
->here&lt;/a>
-.&lt;/p>
+>here&lt;/a>.&lt;/p>
 &lt;h2 id="afterword" >
 Afterword
 &lt;a class="ms-2 text-reset" href="#afterword" aria-label="Anchor">
@@ -627,8 +606,7 @@ copy them to have a working example. A bunch of things like: &lt;code>Random&lt;
 mutation loop, and the whole &lt;code>impl Image&lt;/code> block are missing. If you want to have a working solution it&amp;rsquo;s
 &lt;a
 href="https://github.com/nathiss/franklin/tree/73aa8dada3e8c3cae9aff5e24637785268e3527a"
->here&lt;/a>
-&lt;em>(locked down to the newest
+>here&lt;/a> &lt;em>(locked down to the newest
 commit at the moment of writing &amp;ndash; 73aa8da)&lt;/em>. The goal of this series is not to go through every single line of code to
 build a working utility, but rather to present an idea. So, moving forward all future articles from this series will
 also be done in that style.&lt;/p>
@@ -638,8 +616,7 @@ alt="Randomness of Life" class="img-thumbnail"loading="lazy"
 />&lt;figcaption>
 &lt;p>Photo by &lt;a
 href="https://unsplash.com/@sharonmccutcheon?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"
->Alexander Grey&lt;/a>
-on &lt;a
+>Alexander Grey&lt;/a> on &lt;a
 href="https://unsplash.com/photos/2eAkk5lIkC8?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"
 >Unsplash&lt;/a>&lt;/p>
 &lt;/figcaption>
@@ -654,15 +631,13 @@ href="https://unsplash.com/photos/2eAkk5lIkC8?utm_source=unsplash&amp;amp;utm_me
 &lt;p>Usually the generation is generated randomly. See
 &lt;a
 href="https://en.wikipedia.org/wiki/Genetic_algorithm#Initialization"
->here&lt;/a>
-.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+>here&lt;/a>.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;li id="fn:2">
 &lt;p>&lt;code>Random&lt;/code> is a project-private utility class. Source can be found
 &lt;a
 href="https://github.com/nathiss/franklin/blob/73aa8dada3e8c3cae9aff5e24637785268e3527a/src/util/random.rs"
->here&lt;/a>
-.&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+>here&lt;/a>.&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
 &lt;/div></description></item></channel></rss>

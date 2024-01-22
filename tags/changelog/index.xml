@@ -14,8 +14,7 @@ software project, and the changelog usually includes records of changes such as 
 &lt;/blockquote>
 &lt;p>from &lt;a
 href="https://en.wikipedia.org/wiki/Changelog"
->Wikipedia&lt;/a>
-.&lt;/p>
+>Wikipedia&lt;/a>.&lt;/p>
 &lt;p>The phrase &amp;ldquo;notable changes&amp;rdquo; is the key here. Not all changes to the project are required to have an entry in its
 changelog: workflow updates, typo fixes in README, SonarQube settings; they all are transparent to the Python package
 produced by the project.&lt;/p>
@@ -49,16 +48,13 @@ produced by the project.&lt;/p>
 release. Having a standard usually makes things easier, so we adopted
 &lt;a
 href="https://keepachangelog.com/en/1.1.0/"
->keep a changelog&lt;/a>
-, which also uses
+>keep a changelog&lt;/a>, which also uses
 &lt;a
 href="https://semver.org/spec/v2.0.0.html"
->Semantic Versioning 2.0.0&lt;/a>
-, so that was nice.&lt;/p>
+>Semantic Versioning 2.0.0&lt;/a>, so that was nice.&lt;/p>
 &lt;p>&lt;a
 href="https://keepachangelog.com/en/1.1.0/"
->Keep a changelog&lt;/a>
-is just a Markdown template &amp;ndash; it has no associated toolset.
+>Keep a changelog&lt;/a> is just a Markdown template &amp;ndash; it has no associated toolset.
 Here&amp;rsquo;s an example of a changelog with two entries:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-md" data-lang="md">&lt;span class="line">&lt;span class="ln" id="hl-1-1">&lt;a class="lnlinks" href="#hl-1-1"> 1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="gh"># Changelog
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-2">&lt;a class="lnlinks" href="#hl-1-2"> 2&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="gh">&lt;/span>
@@ -146,8 +142,7 @@ add a new changelog entry.&lt;/p>
 this dependency. &lt;code>MANIFEST.in&lt;/code> contains include/exclude patters for non-standard files (see
 &lt;a
 href="https://packaging.python.org/en/latest/guides/using-manifest-in/"
->official docs&lt;/a>
-). Add the following line to the
+>official docs&lt;/a>). Add the following line to the
 manifest:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-text" data-lang="text">&lt;span class="line">&lt;span class="ln" id="hl-4-1">&lt;a class="lnlinks" href="#hl-4-1">1&lt;/a>&lt;/span>&lt;span class="cl"># ...
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-4-2">&lt;a class="lnlinks" href="#hl-4-2">2&lt;/a>&lt;/span>&lt;span class="cl">include Changelog.md
@@ -159,21 +154,18 @@ Accessing project version from Sphinx
 &lt;/h3>
 &lt;p>&lt;a
 href="https://www.sphinx-doc.org/en/master/"
->Sphinx&lt;/a>
-is a most popular tool for generating documentation out of Python source
+>Sphinx&lt;/a> is a most popular tool for generating documentation out of Python source
 files. It keeps its configuration in the &lt;code>conf.py&lt;/code> file, which has two special attributes related to the project&amp;rsquo;s
 version:&lt;/p>
 &lt;ul>
 &lt;li>&lt;code>version&lt;/code> &amp;ndash; the major project version (see
 &lt;a
 href="https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-version"
->official documentation&lt;/a>
-),&lt;/li>
+>official documentation&lt;/a>),&lt;/li>
 &lt;li>&lt;code>release&lt;/code> &amp;ndash; the full project version (see
 &lt;a
 href="https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-release"
->official documentation&lt;/a>
-).&lt;/li>
+>official documentation&lt;/a>).&lt;/li>
 &lt;/ul>
 &lt;p>With the current setup it&amp;rsquo;s hard for Sphinx to read the version, since it&amp;rsquo;s only accessible from &lt;code>setup.py&lt;/code>. The easiest
 workaround is to extract the parsing to an external module and then use that module as a dependency in both &lt;code>conf.py&lt;/code>
@@ -248,8 +240,7 @@ alt="Log" class="img-thumbnail"loading="lazy"
 />&lt;figcaption>
 &lt;p>Photo by &lt;a
 href="https://unsplash.com/@jaspergarrattphotography?utm_content=creditCopyText&amp;amp;utm_medium=referral&amp;amp;utm_source=unsplash"
->Jasper Garratt&lt;/a>
-on &lt;a
+>Jasper Garratt&lt;/a> on &lt;a
 href="https://unsplash.com/photos/green-moss-on-brown-tree-trunk-esc26JcEdek?utm_content=creditCopyText&amp;amp;utm_medium=referral&amp;amp;utm_source=unsplash"
 >Unsplash&lt;/a>&lt;/p>
 &lt;/figcaption>

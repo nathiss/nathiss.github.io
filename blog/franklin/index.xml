@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Franklin on MadeByMe</title><link>https://madebyme.today/blog/franklin/</link><description>Recent content in Franklin on MadeByMe</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright 2024, Kamil Rusin</copyright><lastBuildDate>Fri, 03 Mar 2023 17:23:37 +0100</lastBuildDate><atom:link href="https://madebyme.today/blog/franklin/index.xml" rel="self" type="application/rss+xml"/><item><title>Natural Selection and Loss Functions</title><link>https://madebyme.today/blog/franklin/natural-selection-and-loss-functions/</link><pubDate>Sun, 02 Apr 2023 14:50:51 +0200</pubDate><guid>https://madebyme.today/blog/franklin/natural-selection-and-loss-functions/</guid><category>Genetic Algorithm</category><category>Rust</category><description>&lt;p>Natural Selection is what allows our species (and images!) to improve over time. In this article we&amp;rsquo;ll implement a
 scoring mechanism, through which &amp;ldquo;&lt;a
 href="https://madebyme.today/blog/franklin/randomness-of-life/"
->Mona Lisa&lt;/a>
-&amp;rdquo; will actually
+>Mona Lisa&lt;/a>&amp;rdquo; will actually
 look like one.&lt;/p>
 &lt;h2 id="natural-selection" >
 Natural Selection
@@ -12,19 +11,16 @@ Natural Selection
 &lt;/h2>
 &lt;p>&lt;a
 href="https://en.wikipedia.org/wiki/Natural_selection"
->Natural selection&lt;/a>
-is the process though which species adapt to their
+>Natural selection&lt;/a> is the process though which species adapt to their
 environments. If the &lt;a
 href="https://en.wikipedia.org/wiki/Evolution"
->evolution&lt;/a>
-is a wheel, then natural selection is the
+>evolution&lt;/a> is a wheel, then natural selection is the
 force that spins it. Organism that are better adapted tend to produce more offspring and pass on their genes. This
 process favours genes that aided their bearers to survive/reproduce, increasing their number in the following
 generations.&lt;/p>
 &lt;p>&lt;a
 href="https://en.wikipedia.org/wiki/Fitness_%28biology%29"
->In biology&lt;/a>
-&lt;em>&amp;ldquo;fitness&amp;rdquo;&lt;/em> is defined by how successful an organism is at
+>In biology&lt;/a> &lt;em>&amp;ldquo;fitness&amp;rdquo;&lt;/em> is defined by how successful an organism is at
 reproduction.&lt;/p>
 &lt;p>Wikipedia says:&lt;/p>
 &lt;blockquote>
@@ -46,16 +42,13 @@ Loss functions
 &lt;/h2>
 &lt;p>&lt;a
 href="https://en.wikipedia.org/wiki/Genetic_algorithm"
->Genetic Algorithms&lt;/a>
-(and
+>Genetic Algorithms&lt;/a> (and
 &lt;a
 href="https://en.wikipedia.org/wiki/Evolutionary_algorithm"
->Evolutionary Algorithms&lt;/a>
-) are
+>Evolutionary Algorithms&lt;/a>) are
 &lt;a
 href="https://en.wikipedia.org/wiki/Optimization_problem"
->optimization&lt;/a>
-algorithms that need a &amp;ldquo;goodness&amp;rdquo; of an organism, in
+>optimization&lt;/a> algorithms that need a &amp;ldquo;goodness&amp;rdquo; of an organism, in
 order to decide whether to discard it. We&amp;rsquo;re going to implement two scoring methods, both based on loss functions. L1
 Loss Function and L2 Loss Function are defined as follows:&lt;/p>
 &lt;p>$$
@@ -72,8 +65,7 @@ outliers, then L2 Loss Function does not perform well &amp;ndash; it leads to mu
 pixels? That question was already answered in
 &lt;a
 href="https://madebyme.today/blog/franklin/art-from-chaos/#step-2-scoring"
->Art From Chaos&lt;/a>
-. We take each of the pixels color
+>Art From Chaos&lt;/a>. We take each of the pixels color
 channels and calculate their differences.&lt;/p>
 &lt;p>$$
 f(O, S) = \sum_{i=0}^n \vert (r_2 - r_1)^2 + (g_2 - g_1)^2 + (b_2 - b_1)^2 \vert
@@ -200,8 +192,7 @@ alt="On the Origin of Species" class="img-thumbnail"loading="lazy"
 />&lt;figcaption>
 &lt;p>Photo by &lt;a
 href="https://unsplash.com/pt-br/@fernandovenzano?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"
->Fernando Venzano&lt;/a>
-on &lt;a
+>Fernando Venzano&lt;/a> on &lt;a
 href="https://unsplash.com/photos/ddVYvmwrvV4?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"
 >Unsplash&lt;/a>&lt;/p>
 &lt;/figcaption>
@@ -219,8 +210,7 @@ images is to discard mutations that resulted in decreasing overall &amp;ldquo;go
 &lt;/ol>
 &lt;/div></description></item><item><title>Randomness of Life</title><link>https://madebyme.today/blog/franklin/randomness-of-life/</link><pubDate>Mon, 20 Mar 2023 10:02:19 +0100</pubDate><guid>https://madebyme.today/blog/franklin/randomness-of-life/</guid><category>Genetic Algorithm</category><category>Rust</category><description>&lt;p>In &lt;a
 href="https://madebyme.today/blog/franklin/art-from-chaos/"
->the previous article&lt;/a>
-from this series, we&amp;rsquo;ve talked about
+>the previous article&lt;/a> from this series, we&amp;rsquo;ve talked about
 genetic algorithms and how they can be used to generate art. Now let&amp;rsquo;s put those ideas into action and focus on
 implementing the first part of our artistic toolset: &lt;strong>mutators&lt;/strong>.&lt;/p>
 &lt;h2 id="preparing-the-ecosystem" >
@@ -247,12 +237,10 @@ specimens are images, they can be represented by the following structs:&lt;/p>
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Representing each pixel as a 24-bit value gives us some flexibility here &amp;ndash; it allows us to operate on two color depths:
 &lt;a
 href="https://en.wikipedia.org/wiki/Color_depth#True_color_%2824-bit%29"
->true color&lt;/a>
-(which uses 24-bit colors) and
+>true color&lt;/a> (which uses 24-bit colors) and
 &lt;a
 href="https://en.wikipedia.org/wiki/Grayscale"
->grayscale&lt;/a>
-(8-bit). Creating a grayscale pixel can be done by setting up all
+>grayscale&lt;/a> (8-bit). Creating a grayscale pixel can be done by setting up all
 color channels to the same value. True, it uses thrice as much memory as it could, but&amp;hellip;&lt;/p>
 &lt;blockquote>
 &lt;p>Premature optimization is the root of all evil.&lt;br>
@@ -416,8 +404,7 @@ color channels.&lt;/p>
 &lt;p>Cool, let&amp;rsquo;s see what the program generates after 10 000 generations when initialized with
 &amp;ldquo;&lt;a
 href="https://en.wikipedia.org/wiki/File:Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.webp"
->Mona Lisa&lt;/a>
-&amp;rdquo;.&lt;/p>
+>Mona Lisa&lt;/a>&amp;rdquo;.&lt;/p>
 &lt;figure class="img-thumbnail">&lt;img src="./output_010000.png"
 alt="Random noise" class="img-thumbnail"loading="lazy"
 />&lt;figcaption>
@@ -440,8 +427,7 @@ boundaries first and then you need to draw the desired shape. I&amp;rsquo;ve imp
 &lt;code>CircleMutator&lt;/code>. Their sources can be found
 &lt;a
 href="https://github.com/nathiss/franklin/tree/73aa8dada3e8c3cae9aff5e24637785268e3527a/src/mutators"
->here&lt;/a>
-.&lt;/p>
+>here&lt;/a>.&lt;/p>
 &lt;h2 id="afterword" >
 Afterword
 &lt;a class="ms-2 text-reset" href="#afterword" aria-label="Anchor">
@@ -453,8 +439,7 @@ copy them to have a working example. A bunch of things like: &lt;code>Random&lt;
 mutation loop, and the whole &lt;code>impl Image&lt;/code> block are missing. If you want to have a working solution it&amp;rsquo;s
 &lt;a
 href="https://github.com/nathiss/franklin/tree/73aa8dada3e8c3cae9aff5e24637785268e3527a"
->here&lt;/a>
-&lt;em>(locked down to the newest
+>here&lt;/a> &lt;em>(locked down to the newest
 commit at the moment of writing &amp;ndash; 73aa8da)&lt;/em>. The goal of this series is not to go through every single line of code to
 build a working utility, but rather to present an idea. So, moving forward all future articles from this series will
 also be done in that style.&lt;/p>
@@ -464,8 +449,7 @@ alt="Randomness of Life" class="img-thumbnail"loading="lazy"
 />&lt;figcaption>
 &lt;p>Photo by &lt;a
 href="https://unsplash.com/@sharonmccutcheon?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"
->Alexander Grey&lt;/a>
-on &lt;a
+>Alexander Grey&lt;/a> on &lt;a
 href="https://unsplash.com/photos/2eAkk5lIkC8?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"
 >Unsplash&lt;/a>&lt;/p>
 &lt;/figcaption>
@@ -480,15 +464,13 @@ href="https://unsplash.com/photos/2eAkk5lIkC8?utm_source=unsplash&amp;amp;utm_me
 &lt;p>Usually the generation is generated randomly. See
 &lt;a
 href="https://en.wikipedia.org/wiki/Genetic_algorithm#Initialization"
->here&lt;/a>
-.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+>here&lt;/a>.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;li id="fn:2">
 &lt;p>&lt;code>Random&lt;/code> is a project-private utility class. Source can be found
 &lt;a
 href="https://github.com/nathiss/franklin/blob/73aa8dada3e8c3cae9aff5e24637785268e3527a/src/util/random.rs"
->here&lt;/a>
-.&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+>here&lt;/a>.&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
 &lt;/div></description></item><item><title>Art From Chaos</title><link>https://madebyme.today/blog/franklin/art-from-chaos/</link><pubDate>Sat, 04 Mar 2023 14:50:59 +0100</pubDate><guid>https://madebyme.today/blog/franklin/art-from-chaos/</guid><category>Genetic Algorithm</category><category>Art</category><description>&lt;p>Making art is hard. Drawing pictures is tedious. With programming, however, we can automate things. The point of
@@ -504,8 +486,7 @@ Concepts and definitions
 &lt;span class="text-decoration-underline">Automatic art&lt;/span>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>, at its core, uses generic algorithms.
 &lt;a
 href="https://en.wikipedia.org/wiki/Genetic_algorithm"
->Wikipedia&lt;/a>
-has a really nice page about them, if you&amp;rsquo;d like to read
+>Wikipedia&lt;/a> has a really nice page about them, if you&amp;rsquo;d like to read
 it. However for the sake of the article this is enough:&lt;/p>
 &lt;p>A &lt;strong>Genetic Algorithm&lt;/strong> is an algorithm inspired by the process of natural selection used to find solutions for
 optimization problems. It has three main parts:&lt;/p>
@@ -519,8 +500,7 @@ optimization problems. It has three main parts:&lt;/p>
 for a problem. It can be anything, like finding optimal timetable for a university class. Firstly, we need to encode a
 solution as a series of bytes (their &lt;a
 href="https://en.wikipedia.org/wiki/Genetic_representation"
->Genetic representation&lt;/a>
-, if
+>Genetic representation&lt;/a>, if
 you will). Once we have that we can clone the encoded representation to create a generation.&lt;/p>
 &lt;p>Each member of the generation will be randomly &lt;strong>mutated&lt;/strong> and then &lt;strong>scored&lt;/strong> based on how well they fit in our
 constrains set. For example: we might want to have a timetable which leaves just enough break time to eat a quick lunch,
@@ -556,8 +536,7 @@ if Wikipedia has something insightful to say:&lt;/p>
 possible solutions.&lt;br>
 ~ &lt;a
 href="https://en.wikipedia.org/wiki/Genetic_algorithm"
->Genetic algorithm @ Wikipedia&lt;/a>
-&lt;/p>
+>Genetic algorithm @ Wikipedia&lt;/a>&lt;/p>
 &lt;/blockquote>
 &lt;p>Well, that&amp;rsquo;s really not the most helpful answer. &amp;#x1f610;&lt;br>
 It really boils down to this: the more specimen we have, the more memory the program requires and more CPU time to
@@ -565,8 +544,7 @@ process each generation. On the other hand, the more specimen a generation have,
 can search. Whatever the generation size will be, we need to have a prototype - a specimen, which cloned will fill the
 generation. Since we&amp;rsquo;re dealing with art here, a &lt;em>&lt;a
 href="https://en.wikipedia.org/wiki/Tabula_rasa"
->tabula rasa&lt;/a>
-&lt;/em> should be a
+>tabula rasa&lt;/a>&lt;/em> should be a
 fitting choice.&lt;/p>
 &lt;h3 id="step-1-mutation" >
 Step 1: Mutation
@@ -583,8 +561,7 @@ overriding a portion of the genome that was making this particular specimen a go
 progress achieved by previous generations.&lt;/p>
 &lt;p>&lt;a
 href="https://www.google.com/search?q=generating&amp;#43;images&amp;#43;with&amp;#43;genetic&amp;#43;algorithm"
->If you&amp;rsquo;d google &amp;ldquo;generating images with genetic algorithm&amp;rdquo;&lt;/a>
-,
+>If you&amp;rsquo;d google &amp;ldquo;generating images with genetic algorithm&amp;rdquo;&lt;/a>,
 you&amp;rsquo;d find that most projects on the subject use geometric shapes when applying mutation. Simple onces, like
 &lt;strong>circles&lt;/strong>, &lt;strong>rectangles&lt;/strong>, and &lt;strong>triangles&lt;/strong> are a good choice. From these it&amp;rsquo;s rectangles, that can be the most
 easily represented in code. Having said that let&amp;rsquo;s see how a single specimen might change over a few first iterations.&lt;/p>
@@ -600,8 +577,7 @@ alt="Mutation diagram"loading="lazy"
 needed to unambiguously identify a rectangle (width, height, coordinates of one of the corners, and its color) have been
 randomly generated.&lt;/p>
 &lt;p>The above illustrates the risk of allowing mutations which are not constrained by their impact: the mutation introduced
-in 1&lt;sup>st&lt;/sup>
-step has been almost fully overwritten after 5 mutations. Don&amp;rsquo;t get me wrong, the result
+in 1&lt;sup>st&lt;/sup> step has been almost fully overwritten after 5 mutations. Don&amp;rsquo;t get me wrong, the result
 might be beneficial, but overall we want to utilize genome that have evolved in past generations, not to discard it
 completely.&lt;/p>
 &lt;h3 id="step-2-scoring" >
@@ -626,8 +602,7 @@ arithmetics on them. To fix that we need to be a bit more clever here.&lt;/p>
 &lt;p>We can utilize the fact that pixels are just color, usually represented in
 &lt;a
 href="https://en.wikipedia.org/wiki/RGB_color_model"
->RGB&lt;/a>
-notation. Each color in the RGB color space is represented by three
+>RGB&lt;/a> notation. Each color in the RGB color space is represented by three
 numbers from 0 to 255 (each encoding the amount of red, green, and blue). Numbers on their own don&amp;rsquo;t have any meaning,
 its the context that makes them colors, points, or geometric shapes. If we&amp;rsquo;d interpret these three numbers as
 coordinates in three-dimensional space, then they would become points. In that case, the difference between two points
@@ -652,8 +627,7 @@ Step 3: Crossing
 Solutions can also be generated by cloning an existing solution, which is analogous to asexual reproduction.&lt;br>
 ~ &lt;a
 href="https://en.wikipedia.org/wiki/Crossover_%28genetic_algorithm%29"
->Crossover (genetic algorithm)&lt;/a>
-&lt;/p>
+>Crossover (genetic algorithm)&lt;/a>&lt;/p>
 &lt;/blockquote>
 &lt;p>There are several ways we can make it work, from naive ones:&lt;/p>
 &lt;ul>
@@ -669,8 +643,7 @@ href="https://en.wikipedia.org/wiki/Crossover_%28genetic_algorithm%29"
 &lt;p>The methods mentioned above differ in their complexity, but more importantly, in how fitting specimens they create. It&amp;rsquo;s
 worth to mention that in opposition to the previous two steps, this one isn&amp;rsquo;t strictly mandatory. The algorithm will
 still work without it and the generated images will look acceptable. With &lt;strong>crossing&lt;/strong>, however the algorithm generates
-more fitting specimens, relative to a one without the 3&lt;sup>rd&lt;/sup>
-step, in the same number of
+more fitting specimens, relative to a one without the 3&lt;sup>rd&lt;/sup> step, in the same number of
 generations.&lt;/p>
 &lt;p>We will take a look at several of &lt;strong>crossing&lt;/strong> methods mentioned above and we will plot scores of their specimens as a
 function of generation number, to see how well they perform. &amp;#x1f4c8;&lt;/p>
@@ -683,8 +656,7 @@ Next steps
 &lt;p>This is the first article from a series about generating art through genetic algorithms. In the next articles &lt;em>(coming
 up soon-ish)&lt;/em> we&amp;rsquo;ll turn those ideas into &lt;a
 href="https://www.rust-lang.org/"
->Rust&lt;/a>
-code and after that we&amp;rsquo;ll finally make art
+>Rust&lt;/a> code and after that we&amp;rsquo;ll finally make art
 that makes itself.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;!-- raw HTML omitted -->
@@ -693,8 +665,7 @@ alt="Order and Chaos" class="img-thumbnail"loading="lazy"
 />&lt;figcaption>
 &lt;p>Photo by &lt;a
 href="https://unsplash.com/@brett_jordan?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"
->Brett Jordan&lt;/a>
-on &lt;a
+>Brett Jordan&lt;/a> on &lt;a
 href="https://unsplash.com/photos/M3cxjDNiLlQ?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"
 >Unsplash&lt;/a>&lt;/p>
 &lt;/figcaption>
@@ -710,8 +681,7 @@ href="https://unsplash.com/photos/M3cxjDNiLlQ?utm_source=unsplash&amp;amp;utm_me
 &lt;p>Term coined by me. If you want to read more about art generated by algorithms you should probably look for
 &lt;a
 href="https://en.wikipedia.org/wiki/Algorithmic_art"
->Algorithmic art&lt;/a>
-.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+>Algorithmic art&lt;/a>.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
 &lt;/div></description></item></channel></rss>

@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>DNS on MadeByMe</title><link>https://madebyme.today/tags/dns/</link><description>Recent content in DNS on MadeByMe</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright 2024, Kamil Rusin</copyright><lastBuildDate>Thu, 04 Jan 2024 14:52:47 +0100</lastBuildDate><atom:link href="https://madebyme.today/tags/dns/index.xml" rel="self" type="application/rss+xml"/><item><title>Redirecting Subdomains to URLs</title><link>https://madebyme.today/blog/redirecting-subdomains-to-urls/</link><pubDate>Thu, 04 Jan 2024 14:52:47 +0100</pubDate><guid>https://madebyme.today/blog/redirecting-subdomains-to-urls/</guid><category>GitHub</category><category>GitHub Pages</category><category>DNS</category><category>HTTP</category><description>&lt;p>This blog is hosted on &lt;a
 href="https://github.com/nathiss/nathiss.github.io"
->GitHub Pages&lt;/a>
-. The service offers free static
+>GitHub Pages&lt;/a>. The service offers free static
 website hosting (TLS included!). The way it works is that GitHub issues a dedicated subdomain for each hosted website;
 for this one it&amp;rsquo;s: &lt;a
 href="https://nathiss.github.io/"
->nathiss.github.io&lt;/a>
-. However, if you try to access it you&amp;rsquo;ll be
+>nathiss.github.io&lt;/a>. However, if you try to access it you&amp;rsquo;ll be
 redirected to &lt;a
 href="https://madebyme.today/"
->madebyme.today&lt;/a>
-instead.&lt;/p>
+>madebyme.today&lt;/a> instead.&lt;/p>
 &lt;p>I&amp;rsquo;ve set up a custom domain, and GitHub is kind enough to respond with
 &lt;a
 href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301"
->301 Moved Permanently&lt;/a>
-to requests using the old
+>301 Moved Permanently&lt;/a> to requests using the old
 subdomain.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="ln" id="hl-0-1">&lt;a class="lnlinks" href="#hl-0-1"> 1&lt;/a>&lt;/span>&lt;span class="cl">$ curl -i https://nathiss.github.io/
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-2">&lt;a class="lnlinks" href="#hl-0-2"> 2&lt;/a>&lt;/span>&lt;span class="cl">HTTP/2 &lt;span class="m">301&lt;/span>
@@ -115,12 +111,10 @@ records:&lt;/p>
 website under the configured domain. Anyone accessing &lt;code>https://example.com&lt;/code> will see your website.&lt;/p>
 &lt;p>It&amp;rsquo;s pretty well explained in &lt;a
 href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages"
->About custom domains and GitHub Pages&lt;/a>
-,
+>About custom domains and GitHub Pages&lt;/a>,
 and &lt;a
 href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site"
->Managing a custom domain for your GitHub Pages site&lt;/a>
-.&lt;/p>
+>Managing a custom domain for your GitHub Pages site&lt;/a>.&lt;/p>
 &lt;div class="alert alert-info">
 &lt;h6 class="alert-heading">
 &lt;i class="bi bi-pencil me-2" aria-hidden="true">&lt;/i>
@@ -145,18 +139,15 @@ Using domains as aliases
 online. For example &lt;code>calendar.madebyme.today&lt;/code> could be a redirect to my GCalendar.&lt;/p>
 &lt;p>However, &lt;a
 href="https://en.wikipedia.org/wiki/Domain_Name_System"
->DNS&lt;/a>
-can&amp;rsquo;t be used like that. It&amp;rsquo;s a
+>DNS&lt;/a> can&amp;rsquo;t be used like that. It&amp;rsquo;s a
 &lt;a
 href="https://en.wikipedia.org/wiki/Name_resolution_%28computer_systems%29"
->name resolution system&lt;/a>
-&amp;ndash; it knowns nothing about
+>name resolution system&lt;/a> &amp;ndash; it knowns nothing about
 HTTP. If I&amp;rsquo;d host my own web server, then I could configure it to do redirects with the proper 301 status code.&lt;/p>
 &lt;p>Snippet below shows an example config with
 &lt;a
 href="http://nginx.org/en/docs/http/ngx_http_core_module.html#server_name"
->Nginx&amp;rsquo;s &lt;code>server_name&lt;/code>&lt;/a>
-.&lt;/p>
+>Nginx&amp;rsquo;s &lt;code>server_name&lt;/code>&lt;/a>.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-txt" data-lang="txt">&lt;span class="line">&lt;span class="ln" id="hl-2-1">&lt;a class="lnlinks" href="#hl-2-1">1&lt;/a>&lt;/span>&lt;span class="cl">server {
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-2">&lt;a class="lnlinks" href="#hl-2-2">2&lt;/a>&lt;/span>&lt;span class="cl"> server_name calendar.madebyme.today;
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-3">&lt;a class="lnlinks" href="#hl-2-3">3&lt;/a>&lt;/span>&lt;span class="cl"> return 301 https://example.com/;
@@ -171,8 +162,7 @@ Redir 301
 &lt;/h3>
 &lt;p>&lt;a
 href="https://redir301.link/"
->Redir 301&lt;/a>
-is a service that uses DNS records to redirect subdomains to URLs. It requires two
+>Redir 301&lt;/a> is a service that uses DNS records to redirect subdomains to URLs. It requires two
 DNS records in order to work:&lt;/p>
 &lt;div class="table-responsive">
 &lt;table>
@@ -203,8 +193,7 @@ DNS records in order to work:&lt;/p>
 &lt;p>Let&amp;rsquo;s test it, shall we?&lt;/p>
 &lt;p>I&amp;rsquo;d very much prefer not to mess with my current DNS records, so let&amp;rsquo;s use &lt;a
 href="https://messwithdns.net/"
->mess with dns&lt;/a>
-for
+>mess with dns&lt;/a> for
 this experiment.&lt;/p>
 &lt;div class="alert alert-primary">
 &lt;h6 class="alert-heading">
@@ -215,15 +204,12 @@ Tip
 If you&amp;rsquo;re planning on changing your DNS records and are unsure about the changes, then I&amp;rsquo;d suggest to do so first via
 &lt;a
 href="https://messwithdns.net/"
->mess with dns&lt;/a>
-, a tool by &lt;a
+>mess with dns&lt;/a>, a tool by &lt;a
 href="https://jvns.ca/"
->Julia Evans&lt;/a>
-and
+>Julia Evans&lt;/a> and
 &lt;a
 href="https://marieflanagan.com/"
->Marie Claire LeBlanc Flanagan&lt;/a>
-. It&amp;rsquo;s a service for performing experiments with DNS. Anyone
+>Marie Claire LeBlanc Flanagan&lt;/a>. It&amp;rsquo;s a service for performing experiments with DNS. Anyone
 can set up their DNS records and test with them for free.
 &lt;/p>
 &lt;/div>
@@ -248,8 +234,7 @@ alt="mess with dns configuration for Redir 301"loading="lazy"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-10">&lt;a class="lnlinks" href="#hl-3-10">10&lt;/a>&lt;/span>&lt;span class="cl">Content-Type: application/cgi
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&amp;hellip;it returns 301 with the &lt;a
 href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Location"
->Location&lt;/a>
-header
+>Location&lt;/a> header
 :thumbs_up:&lt;/p>
 &lt;p>It&amp;rsquo;s worth to point out that it does not support HTTPS, only HTTP. It&amp;rsquo;s a Redir 301 limitation; the free tier of the
 service does not offer TLS certificates.&lt;/p>
@@ -274,8 +259,7 @@ simplest way to achieve this is:&lt;/p>
 &lt;p>Yet another way is to inform the browser to perform the redirection for us; that can be done via the
 &lt;a
 href="https://en.wikipedia.org/wiki/Meta_refresh"
->meta refresh&lt;/a>
-tag:&lt;/p>
+>meta refresh&lt;/a> tag:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="ln" id="hl-5-1">&lt;a class="lnlinks" href="#hl-5-1">1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">meta&lt;/span> &lt;span class="na">http-equiv&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;refresh&amp;#34;&lt;/span> &lt;span class="na">content&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;0; url=https://example.com/&amp;#34;&lt;/span> &lt;span class="p">/&amp;gt;&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>To use this, we need to set up a website under &lt;code>calendar.aster176.messwithdns.com&lt;/code>, that will have the correct meta
 refresh tag. However, due to the fact that the domain &lt;code>madebyme.today&lt;/code> is already associated with my GitHub account, I
@@ -328,8 +312,7 @@ be used by GitHub Pages, I only really need to add one more record:&lt;/p>
 &lt;/ul>
 &lt;p>See the full setup here: &lt;a
 href="https://github.com/nathiss/redirect-example"
->redirect-example&lt;/a>
-.&lt;/p>
+>redirect-example&lt;/a>.&lt;/p>
 &lt;p>Alright, let&amp;rsquo;s see if our new DNS record has propagated:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="ln" id="hl-8-1">&lt;a class="lnlinks" href="#hl-8-1">1&lt;/a>&lt;/span>&lt;span class="cl">$ dig example.madebyme.today CNAME +noall +answer
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-8-2">&lt;a class="lnlinks" href="#hl-8-2">2&lt;/a>&lt;/span>&lt;span class="cl">
