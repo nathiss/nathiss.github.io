@@ -514,7 +514,7 @@ class="hide-external"
 It does some basic pre-steps:&lt;/p>
 &lt;ul>
 &lt;li>fails if any &lt;code>kwarg&lt;/code> has been passed,&lt;/li>
-&lt;li>fails if &lt;code>args&lt;/code> has more then 1 element,&lt;/li>
+&lt;li>fails if &lt;code>args&lt;/code> has more than 1 element,&lt;/li>
 &lt;li>converts the first argument of &lt;code>args&lt;/code> to an iterable.&lt;/li>
 &lt;/ul>
 &lt;p>&lt;code>list___init___impl&lt;/code> clears the list (if not empty) and extends it by the provided iterable (by calling the
