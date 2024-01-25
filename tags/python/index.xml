@@ -18,10 +18,8 @@ href="https://docs.python.org/3.12/whatsnew/changelog.html"
 &lt;/p>
 &lt;/div>
 &lt;h2 id="pythons-dictionaries" >
+&lt;a href="#pythons-dictionaries" aria-label="Anchor">#&lt;/a>
 Python&amp;rsquo;s dictionaries
-&lt;a class="ms-2 text-reset" href="#pythons-dictionaries" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>First, let&amp;rsquo;s check what&amp;rsquo;s the performance difference between the two methods. I&amp;rsquo;ll use the &lt;a
 href="https://docs.python.org/3.12/library/timeit.html"
@@ -71,10 +69,8 @@ href="https://docs.python.org/3.12/library/dis.html"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-18">&lt;a class="lnlinks" href="#hl-1-18">18&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="mi">4&lt;/span> &lt;span class="n">RETURN_VALUE&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Although they produce the same end result these two expression, quite clearly, execute different code.&lt;/p>
 &lt;h3 id="bytecode-instructions" >
+&lt;a href="#bytecode-instructions" aria-label="Anchor">#&lt;/a>
 Bytecode instructions
-&lt;a class="ms-2 text-reset" href="#bytecode-instructions" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h3>
 &lt;p>The output of &lt;code>dis.dis&lt;/code> isn&amp;rsquo;t very hard to understand.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-text" data-lang="text">&lt;span class="line">&lt;span class="ln" id="hl-2-1">&lt;a class="lnlinks" href="#hl-2-1">1&lt;/a>&lt;/span>&lt;span class="cl"> (1) | (2) | (3) | (4) | (5)
@@ -178,10 +174,8 @@ href="https://docs.python.org/3.12/library/dis.html"
 >dis&lt;/a> module isn&amp;rsquo;t very useful for internal types and &lt;code>dict&lt;/code> is one of those types &amp;mdash; defined
 within the interpreter&amp;rsquo;s source code.&lt;/p>
 &lt;h3 id="getting-lost-in-the-cpython-source-code" >
+&lt;a href="#getting-lost-in-the-cpython-source-code" aria-label="Anchor">#&lt;/a>
 Getting lost in the CPython source code
-&lt;a class="ms-2 text-reset" href="#getting-lost-in-the-cpython-source-code" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h3>
 &lt;p>To tap into the forbidden magic, we need to clone the &lt;a
 href="https://github.com/python/cpython/tree/main"
@@ -198,10 +192,8 @@ href="https://github.com/python/cpython/blob/v3.12.0/Python/bytecodes.c"
 >&lt;code>Python/bytecodes.c&lt;/code>&lt;/a> file. It consists of a single &lt;code>switch&lt;/code>
 statement and it seems like all bytecode instruction are interpreted there.&lt;/p>
 &lt;h4 id="the-dict-type" >
+&lt;a href="#the-dict-type" aria-label="Anchor">#&lt;/a>
 The &lt;code>dict&lt;/code> type
-&lt;a class="ms-2 text-reset" href="#the-dict-type" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h4>
 &lt;p>Let&amp;rsquo;s tackle &lt;code>dict&lt;/code> first. All internal types are defined as &lt;code>PyTypeObject&lt;/code> objects and the &lt;code>dict&lt;/code> type is defined in
 the &lt;a
@@ -296,10 +288,8 @@ href="https://github.com/python/cpython/blob/v3.12.0/Objects/dictobject.c#L2678"
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
 &lt;p>It updates the dictionary from both args and kwargs.&lt;/p>
 &lt;h5 id="args--dict_update_arg" >
+&lt;a href="#args--dict_update_arg" aria-label="Anchor">#&lt;/a>
 args &amp;amp; &lt;code>dict_update_arg&lt;/code>
-&lt;a class="ms-2 text-reset" href="#args--dict_update_arg" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h5>
 &lt;p>For &lt;code>args&lt;/code> it calls the &lt;code>dict_update_arg&lt;/code> function.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="line">&lt;span class="ln" id="hl-9-1">&lt;a class="lnlinks" href="#hl-9-1"> 1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="k">static&lt;/span> &lt;span class="kt">int&lt;/span>
@@ -325,10 +315,8 @@ from a sequence of pairs (&lt;a
 href="https://github.com/python/cpython/blob/v3.12.0/Objects/dictobject.c#L2722"
 >&lt;code>PyDict_MergeFromSeq2&lt;/code>&lt;/a>).&lt;/p>
 &lt;h5 id="kwargs--pydict_merge" >
+&lt;a href="#kwargs--pydict_merge" aria-label="Anchor">#&lt;/a>
 kwargs &amp;amp; &lt;code>PyDict_Merge&lt;/code>
-&lt;a class="ms-2 text-reset" href="#kwargs--pydict_merge" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h5>
 &lt;p>The &lt;code>kwargs&lt;/code> path ends in the same place &amp;mdash; &lt;a
 href="https://github.com/python/cpython/blob/v3.12.0/Objects/dictobject.c#L2988"
@@ -370,10 +358,8 @@ href="https://docs.python.org/3.12/library/collections.abc.html#collections.abc.
 >&lt;code>Mapping&lt;/code>&lt;/a> &amp;mdash; a container object that supports arbitrary key
 lookups.&lt;/p>
 &lt;h4 id="the--expression" >
+&lt;a href="#the--expression" aria-label="Anchor">#&lt;/a>
 The &lt;code>{}&lt;/code> expression
-&lt;a class="ms-2 text-reset" href="#the--expression" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h4>
 &lt;p>The literal expression should be easier to reason about. Let&amp;rsquo;s go back to the &lt;a
 href="https://github.com/python/cpython/blob/v3.12.0/Python/bytecodes.c"
@@ -439,10 +425,8 @@ href="https://github.com/python/cpython/blob/v3.12.0/Objects/dictobject.c#L1616"
 &lt;p>I&amp;rsquo;ve marked the most interesting line: in opposition to &lt;code>dict_new&lt;/code>, it &lt;strong>pre-allocates&lt;/strong> the dictionary, so it already
 has a capacity for all of its entries. After that it inserts key-value pairs one-by-one.&lt;/p>
 &lt;h2 id="conclusions" >
+&lt;a href="#conclusions" aria-label="Anchor">#&lt;/a>
 Conclusions
-&lt;a class="ms-2 text-reset" href="#conclusions" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>To sum things up.&lt;/p>
 &lt;p>When you do &lt;code>dict(a=1, b=2)&lt;/code>, Python needs to:&lt;/p>
@@ -473,28 +457,22 @@ The &lt;code>{}&lt;/code> is always faster than &lt;code>dict&lt;/code>.
 &lt;/p>
 &lt;/div>
 &lt;h2 id="appendix" >
+&lt;a href="#appendix" aria-label="Anchor">#&lt;/a>
 Appendix
-&lt;a class="ms-2 text-reset" href="#appendix" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>Similar analysis can be done for lists, sets, and (&lt;em>possibly&lt;/em>) tuples. However, this post is already too long, so I&amp;rsquo;ll
 drop all the other resources I&amp;rsquo;ve gathered here.&lt;/p>
 &lt;h3 id="lists" >
+&lt;a href="#lists" aria-label="Anchor">#&lt;/a>
 Lists
-&lt;a class="ms-2 text-reset" href="#lists" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h3>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="ln" id="hl-13-1">&lt;a class="lnlinks" href="#hl-13-1">1&lt;/a>&lt;/span>&lt;span class="cl">$ python -m timeit &lt;span class="s2">&amp;#34;list((1, 2, &amp;#39;a&amp;#39;))&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-13-2">&lt;a class="lnlinks" href="#hl-13-2">2&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="m">5000000&lt;/span> loops, best of 5: 53.4 nsec per loop
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-13-3">&lt;a class="lnlinks" href="#hl-13-3">3&lt;/a>&lt;/span>&lt;span class="cl">$ python -m timeit &lt;span class="s2">&amp;#34;[1, 2, &amp;#39;a&amp;#39;]&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-13-4">&lt;a class="lnlinks" href="#hl-13-4">4&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="m">10000000&lt;/span> loops, best of 5: 29.7 nsec per loop
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="list-type" >
+&lt;a href="#list-type" aria-label="Anchor">#&lt;/a>
 &lt;code>list&lt;/code> type
-&lt;a class="ms-2 text-reset" href="#list-type" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h4>
 &lt;p>The Python&amp;rsquo;s &lt;code>list&lt;/code> type is defined in the &lt;code>listobject.c&lt;/code> file:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="line">&lt;span class="ln" id="hl-14-1">&lt;a class="lnlinks" href="#hl-14-1">1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="n">PyTypeObject&lt;/span> &lt;span class="n">PyList_Type&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">{&lt;/span>
@@ -534,10 +512,8 @@ Question
 &lt;/p>
 &lt;/div>
 &lt;h4 id="-literal-expression" >
+&lt;a href="#-literal-expression" aria-label="Anchor">#&lt;/a>
 &lt;code>[]&lt;/code> literal expression
-&lt;a class="ms-2 text-reset" href="#-literal-expression" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h4>
 &lt;p>Opcode &lt;code>BUILD_LIST&lt;/code> uses the &lt;code>_PyList_FromArraySteal&lt;/code> function to construct a list object and return it.&lt;/p>
 &lt;div class="alert alert-info">
@@ -567,10 +543,8 @@ inserting items to it.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="line">&lt;span class="ln" id="hl-15-1">&lt;a class="lnlinks" href="#hl-15-1">1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="n">PyObject&lt;/span> &lt;span class="o">**&lt;/span>&lt;span class="n">dst&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">list&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">ob_item&lt;/span>&lt;span class="p">;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-15-2">&lt;a class="lnlinks" href="#hl-15-2">2&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="nf">memcpy&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">dst&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">src&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">n&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="k">sizeof&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">PyObject&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="p">));&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="sets" >
+&lt;a href="#sets" aria-label="Anchor">#&lt;/a>
 Sets
-&lt;a class="ms-2 text-reset" href="#sets" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h3>
 &lt;div class="alert alert-warning">
 &lt;h6 class="alert-heading">
@@ -587,10 +561,8 @@ sets with two elements: &lt;code>1&lt;/code> and &lt;code>2&lt;/code>.
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-16-3">&lt;a class="lnlinks" href="#hl-16-3">3&lt;/a>&lt;/span>&lt;span class="cl">$ python -m timeit &lt;span class="s2">&amp;#34;{1, 2}&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-16-4">&lt;a class="lnlinks" href="#hl-16-4">4&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="m">5000000&lt;/span> loops, best of 5: 45.5 nsec per loop
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="set-type" >
+&lt;a href="#set-type" aria-label="Anchor">#&lt;/a>
 &lt;code>set&lt;/code> type
-&lt;a class="ms-2 text-reset" href="#set-type" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h4>
 &lt;p>The Python&amp;rsquo;s &lt;code>set&lt;/code> type is defined in the &lt;code>setobject.c&lt;/code> file:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="line">&lt;span class="ln" id="hl-17-1">&lt;a class="lnlinks" href="#hl-17-1">1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="n">PyTypeObject&lt;/span> &lt;span class="n">PySet_Type&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">{&lt;/span>
@@ -610,10 +582,8 @@ sets with two elements: &lt;code>1&lt;/code> and &lt;code>2&lt;/code>.
 &lt;/ul>
 &lt;p>&amp;hellip; and calls the &lt;code>set_update_internal&lt;/code> function, to insert values into the set object.&lt;/p>
 &lt;h4 id="1-2-literal-expression" >
+&lt;a href="#1-2-literal-expression" aria-label="Anchor">#&lt;/a>
 &lt;code>{1, 2}&lt;/code> literal expression
-&lt;a class="ms-2 text-reset" href="#1-2-literal-expression" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h4>
 &lt;p>The opcode handler has no dedicated helpers. It constructs a new set (empty), and then iterates over all items from the
 stack and insets them one-by-one.&lt;/p>
@@ -653,10 +623,8 @@ The generated bytecode is different if we add another argument to the literal ex
 &lt;/p>
 &lt;/div>
 &lt;h3 id="tuples" >
+&lt;a href="#tuples" aria-label="Anchor">#&lt;/a>
 Tuples
-&lt;a class="ms-2 text-reset" href="#tuples" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h3>
 &lt;p>This one&amp;rsquo;s tricky. Constructing a tuple with the &lt;code>tuple&lt;/code> type requires an iterable. The easiest way of getting one it to
 create a tuple literal, which is obviously less efficient, than using a tuple literal syntax in the first place.&lt;/p>
@@ -692,10 +660,8 @@ create a tuple literal, which is obviously less efficient, than using a tuple li
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-19-30">&lt;a class="lnlinks" href="#hl-19-30">30&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="mi">10&lt;/span> &lt;span class="n">RETURN_VALUE&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>It might not make much sense to include this example in the article.&lt;/p>
 &lt;h4 id="tuple-type" >
+&lt;a href="#tuple-type" aria-label="Anchor">#&lt;/a>
 &lt;code>tuple&lt;/code> type
-&lt;a class="ms-2 text-reset" href="#tuple-type" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h4>
 &lt;p>The Python&amp;rsquo;s &lt;code>tuple&lt;/code> type is defined in &lt;code>tupleobject.c&lt;/code>. Interestingly, it has no &lt;code>tp_alloc&lt;/code>, nor &lt;code>tp_init&lt;/code>.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="line">&lt;span class="ln" id="hl-20-1">&lt;a class="lnlinks" href="#hl-20-1">1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="n">PyTypeObject&lt;/span> &lt;span class="n">PyTuple_Type&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">{&lt;/span>
@@ -710,10 +676,8 @@ I liked the idea, but my gut feeling was that the future project contributors wo
 and it&amp;rsquo;s quality will decline over time. This article proposes a feature which enforces changelog updates, when it&amp;rsquo;s
 required to do so.&lt;/p>
 &lt;h2 id="whats-a-changelog" >
+&lt;a href="#whats-a-changelog" aria-label="Anchor">#&lt;/a>
 What&amp;rsquo;s a changelog
-&lt;a class="ms-2 text-reset" href="#whats-a-changelog" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;blockquote>
 &lt;p>A &lt;strong>changelog&lt;/strong> is a log or record of all notable changes made to a project. The project is often a website or
@@ -791,10 +755,8 @@ Here&amp;rsquo;s an example of a changelog with two entries:&lt;/p>
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-26">&lt;a class="lnlinks" href="#hl-1-26">26&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="gu">&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-27">&lt;a class="lnlinks" href="#hl-1-27">27&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="k">-&lt;/span> Typo in project&amp;#39;s title in docs.
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="keeping-a-changelog-up-to-date" >
+&lt;a href="#keeping-a-changelog-up-to-date" aria-label="Anchor">#&lt;/a>
 Keep(ing) a changelog up-to-date
-&lt;a class="ms-2 text-reset" href="#keeping-a-changelog-up-to-date" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>When releasing a new package version one needs to remember to update the version in two places: &lt;code>pyproject.toml&lt;/code> and
 &lt;code>Changelog.md&lt;/code>. Also, there&amp;rsquo;s no mechanism to enforce that behavior; we could create a workflow step to validate that
@@ -854,10 +816,8 @@ manifest:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-text" data-lang="text">&lt;span class="line">&lt;span class="ln" id="hl-4-1">&lt;a class="lnlinks" href="#hl-4-1">1&lt;/a>&lt;/span>&lt;span class="cl"># ...
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-4-2">&lt;a class="lnlinks" href="#hl-4-2">2&lt;/a>&lt;/span>&lt;span class="cl">include Changelog.md
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="accessing-project-version-from-sphinx" >
+&lt;a href="#accessing-project-version-from-sphinx" aria-label="Anchor">#&lt;/a>
 Accessing project version from Sphinx
-&lt;a class="ms-2 text-reset" href="#accessing-project-version-from-sphinx" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h3>
 &lt;p>&lt;a
 href="https://www.sphinx-doc.org/en/master/"
@@ -931,10 +891,8 @@ and &lt;code>setup.py&lt;/code>.&lt;/p>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-8-2">&lt;a class="lnlinks" href="#hl-8-2">2&lt;/a>&lt;/span>&lt;span class="cl">include Changelog.md
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-8-3">&lt;a class="lnlinks" href="#hl-8-3">3&lt;/a>&lt;/span>&lt;span class="cl">include version.py
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="afterthought" >
+&lt;a href="#afterthought" aria-label="Anchor">#&lt;/a>
 Afterthought
-&lt;a class="ms-2 text-reset" href="#afterthought" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>Maintaining a changelog can make a project easier to understand. Hopefully, with the changes proposed in this article
 you&amp;rsquo;ll find changelogs more manageable. This feature does not enforce changelog updates from the contributors &amp;ndash; they

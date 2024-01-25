@@ -4,10 +4,8 @@ href="https://madebyme.today/blog/franklin/randomness-of-life/"
 >Mona Lisa&lt;/a>&amp;rdquo; will actually
 look like one.&lt;/p>
 &lt;h2 id="natural-selection" >
+&lt;a href="#natural-selection" aria-label="Anchor">#&lt;/a>
 Natural Selection
-&lt;a class="ms-2 text-reset" href="#natural-selection" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>&lt;a
 href="https://en.wikipedia.org/wiki/Natural_selection"
@@ -35,10 +33,8 @@ of the specified genotype or phenotype.&lt;/p>
 &lt;p>We, however, will define &amp;ldquo;fitness&amp;rdquo; as a &lt;em>difference&lt;/em> between an organism and the ideal. Which is a bit vague, as there&amp;rsquo;s
 no obvious way of substituting one image from another and produce an integer. We&amp;rsquo;ll get back to that in a bit.&lt;/p>
 &lt;h2 id="loss-functions" >
+&lt;a href="#loss-functions" aria-label="Anchor">#&lt;/a>
 Loss functions
-&lt;a class="ms-2 text-reset" href="#loss-functions" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>&lt;a
 href="https://en.wikipedia.org/wiki/Genetic_algorithm"
@@ -71,10 +67,8 @@ channels and calculate their differences.&lt;/p>
 f(O, S) = \sum_{i=0}^n \vert (r_2 - r_1)^2 + (g_2 - g_1)^2 + (b_2 - b_1)^2 \vert
 $$&lt;/p>
 &lt;h2 id="scoring-mechanism" >
+&lt;a href="#scoring-mechanism" aria-label="Anchor">#&lt;/a>
 Scoring mechanism
-&lt;a class="ms-2 text-reset" href="#scoring-mechanism" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>First, let&amp;rsquo;s define a trait whereby the rest of the system will be able to interact with scoring methods.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="line">&lt;span class="ln" id="hl-0-1">&lt;a class="lnlinks" href="#hl-0-1">1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="k">pub&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">trait&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">FitnessFunction&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
@@ -93,10 +87,8 @@ about these loss functions, is that they return absolute values &amp;ndash; it d
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-5">&lt;a class="lnlinks" href="#hl-1-5">5&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
 &lt;h3 id="implementation-of-l1-absolute-distance" >
+&lt;a href="#implementation-of-l1-absolute-distance" aria-label="Anchor">#&lt;/a>
 Implementation of L1: AbsoluteDistance
-&lt;a class="ms-2 text-reset" href="#implementation-of-l1-absolute-distance" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h3>
 &lt;p>The implementation isn&amp;rsquo;t complex - first we &lt;em>fold&lt;/em> each pixel pair to a &lt;code>usize&lt;/code>, and then we sum those parts together to
 produce the score. Actually, we can do both by using Iterator&amp;rsquo;s &lt;code>fold&lt;/code> method.&lt;/p>
@@ -130,10 +122,8 @@ produce the score. Actually, we can do both by using Iterator&amp;rsquo;s &lt;co
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-28">&lt;a class="lnlinks" href="#hl-2-28">28&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
 &lt;h3 id="implementation-of-l1-square-distance" >
+&lt;a href="#implementation-of-l1-square-distance" aria-label="Anchor">#&lt;/a>
 Implementation of L2: SquareDistance
-&lt;a class="ms-2 text-reset" href="#implementation-of-l1-square-distance" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h3>
 &lt;p>Implementation of &lt;code>SquareDistance&lt;/code> is almost identical. The only difference is the squaring of color channels.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="line">&lt;span class="ln" id="hl-3-1">&lt;a class="lnlinks" href="#hl-3-1"> 1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="k">fn&lt;/span> &lt;span class="nf">fold_pixels&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">mut&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">sum&lt;/span>: &lt;span class="kt">usize&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">p1&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">p2&lt;/span>&lt;span class="p">)&lt;/span>: &lt;span class="p">(&lt;/span>&lt;span class="o">&amp;amp;&lt;/span>&lt;span class="n">Pixel&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">&amp;amp;&lt;/span>&lt;span class="n">Pixel&lt;/span>&lt;span class="p">))&lt;/span>&lt;span class="w"> &lt;/span>-&amp;gt; &lt;span class="kt">usize&lt;/span> &lt;span class="p">{&lt;/span>&lt;span class="w">
@@ -165,10 +155,8 @@ Implementation of L2: SquareDistance
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-27">&lt;a class="lnlinks" href="#hl-3-27">27&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-28">&lt;a class="lnlinks" href="#hl-3-28">28&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="fixing-mona-lisa" >
+&lt;a href="#fixing-mona-lisa" aria-label="Anchor">#&lt;/a>
 Fixing &amp;ldquo;Mona Lisa&amp;rdquo;
-&lt;a class="ms-2 text-reset" href="#fixing-mona-lisa" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>Let&amp;rsquo;s wire up the scoring component with generation&amp;rsquo;s flow. During each generation, every specimens will be scored
 relatively to the ideal image. Using the scores we will select the best &lt;span class="text-decoration-underline">5&lt;/span>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>
@@ -214,10 +202,8 @@ href="https://madebyme.today/blog/franklin/art-from-chaos/"
 genetic algorithms and how they can be used to generate art. Now let&amp;rsquo;s put those ideas into action and focus on
 implementing the first part of our artistic toolset: &lt;strong>mutators&lt;/strong>.&lt;/p>
 &lt;h2 id="preparing-the-ecosystem" >
+&lt;a href="#preparing-the-ecosystem" aria-label="Anchor">#&lt;/a>
 Preparing the ecosystem
-&lt;a class="ms-2 text-reset" href="#preparing-the-ecosystem" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>Before we begin working on mutators, we need to prepare an environment in which our specimens can thrive. We don&amp;rsquo;t need
 much - right now the only thing is &lt;em>a generation&lt;/em>. For the record, in this context, a generation is a collection of
@@ -295,10 +281,8 @@ solution space search, but will produce images that are more visually interestin
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-40">&lt;a class="lnlinks" href="#hl-1-40">40&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This code takes care of initializing the generation. &amp;#x1f44c;&lt;/p>
 &lt;h2 id="throwing-dice-and-hoping-for-the-best" >
+&lt;a href="#throwing-dice-and-hoping-for-the-best" aria-label="Anchor">#&lt;/a>
 Throwing dice and hoping for the best
-&lt;a class="ms-2 text-reset" href="#throwing-dice-and-hoping-for-the-best" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>As was mentioned in the previous article, mutators act only on one specimen at a time, inserting random modification
 onto it. With that description alone, we can already define a contract for all mutators we&amp;rsquo;re going to implement:&lt;/p>
@@ -315,10 +299,8 @@ alt="Genetic Algorithm Flow"loading="lazy"
 &lt;/figcaption>
 &lt;/figure>
 &lt;h3 id="throwing-a-rectangular-dice" >
+&lt;a href="#throwing-a-rectangular-dice" aria-label="Anchor">#&lt;/a>
 Throwing a rectangular dice
-&lt;a class="ms-2 text-reset" href="#throwing-a-rectangular-dice" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h3>
 &lt;p>Rectangles are the easiest shape to draw both algorithmically and IRL; our first mutator will use rectangles as a
 mutation primitive. To generate a random rectangle we need have the following:&lt;/p>
@@ -416,10 +398,8 @@ Which isn&amp;rsquo;t very surprising; the code did what it was suppose to do: i
 Since we don&amp;rsquo;t have any scoring logic yet (that&amp;rsquo;s a topic for another article) the resulting image is composed of random
 noise. We&amp;rsquo;ll need to wait a bit longer to get an image that even remotely reflects &amp;ldquo;Mona Lisa&amp;rdquo;.&lt;/p>
 &lt;h3 id="throwing-dice-of-other-shapes" >
+&lt;a href="#throwing-dice-of-other-shapes" aria-label="Anchor">#&lt;/a>
 Throwing dice of other shapes
-&lt;a class="ms-2 text-reset" href="#throwing-dice-of-other-shapes" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h3>
 &lt;p>It&amp;rsquo;d be nice to have mutators other than &lt;code>RectangleMutator&lt;/code>, which are able to mutate images with different shapes, but
 I&amp;rsquo;m not going to cover them here. The reason is simple &amp;ndash; they operate under the same rules: you need to define
@@ -429,10 +409,8 @@ boundaries first and then you need to draw the desired shape. I&amp;rsquo;ve imp
 href="https://github.com/nathiss/franklin/tree/73aa8dada3e8c3cae9aff5e24637785268e3527a/src/mutators"
 >here&lt;/a>.&lt;/p>
 &lt;h2 id="afterword" >
+&lt;a href="#afterword" aria-label="Anchor">#&lt;/a>
 Afterword
-&lt;a class="ms-2 text-reset" href="#afterword" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>You might&amp;rsquo;ve noticed that the code examples of this article are not strictly bounded together, meaning you cannot just
 copy them to have a working example. A bunch of things like: &lt;code>Random&lt;/code> implementation, loading the original image,
@@ -477,10 +455,8 @@ href="https://github.com/nathiss/franklin/blob/73aa8dada3e8c3cae9aff5e2463778526
 automation is to reduce the amount of manual labor. So let&amp;rsquo;s mix evolution, DNA, and programming together to make art
 that &lt;em>makes&lt;/em> itself. Pictures that &lt;em>draw&lt;/em> themselves.&lt;/p>
 &lt;h2 id="concepts-and-definitions" >
+&lt;a href="#concepts-and-definitions" aria-label="Anchor">#&lt;/a>
 Concepts and definitions
-&lt;a class="ms-2 text-reset" href="#concepts-and-definitions" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>Before we dive deep into making art, we need to understand some important concepts &amp;ndash; first things first.
 &lt;span class="text-decoration-underline">Automatic art&lt;/span>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>, at its core, uses generic algorithms.
@@ -514,20 +490,16 @@ alt="Genetic Algorithm Cycle"loading="lazy"
 &lt;p>To mutate, to score, to kill, to breed, to continue the cycle of life. It might sound simple, but in reality it is
 shockingly efficient in searching the solution space.&lt;/p>
 &lt;h2 id="art-from-evolution" >
+&lt;a href="#art-from-evolution" aria-label="Anchor">#&lt;/a>
 Art from evolution
-&lt;a class="ms-2 text-reset" href="#art-from-evolution" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>Alright. Now with the theory out of the way, let&amp;rsquo;s conceptualize a program for generating automatic art. Probably it&amp;rsquo;s
 a good moment to explain the clickbaity summary at the top of this article: the pictures will not &lt;em>draw&lt;/em> themselves, the
 goal is to make &lt;em>a program&lt;/em> which will generate art automatically. It&amp;rsquo;s going to be an iterative solution where each
 cycle is parametrized by the results of its predecessor.&lt;/p>
 &lt;h3 id="step-0-initialization" >
+&lt;a href="#step-0-initialization" aria-label="Anchor">#&lt;/a>
 Step 0: Initialization
-&lt;a class="ms-2 text-reset" href="#step-0-initialization" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h3>
 &lt;p>Before we do anything towards evolution we need to prepare a generation first. So what&amp;rsquo;s our generation size? Let&amp;rsquo;s see
 if Wikipedia has something insightful to say:&lt;/p>
@@ -547,10 +519,8 @@ href="https://en.wikipedia.org/wiki/Tabula_rasa"
 >tabula rasa&lt;/a>&lt;/em> should be a
 fitting choice.&lt;/p>
 &lt;h3 id="step-1-mutation" >
+&lt;a href="#step-1-mutation" aria-label="Anchor">#&lt;/a>
 Step 1: Mutation
-&lt;a class="ms-2 text-reset" href="#step-1-mutation" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h3>
 &lt;p>Mutation method greatly affects the end result, so it&amp;rsquo;s imperative to select a right one. Mutation algorithms are
 usually stateless, meaning modification of each specimen does not affect any other. In each iteration the mutator will
@@ -581,10 +551,8 @@ in 1&lt;sup>st&lt;/sup> step has been almost fully overwritten after 5 mutations
 might be beneficial, but overall we want to utilize genome that have evolved in past generations, not to discard it
 completely.&lt;/p>
 &lt;h3 id="step-2-scoring" >
+&lt;a href="#step-2-scoring" aria-label="Anchor">#&lt;/a>
 Step 2: Scoring
-&lt;a class="ms-2 text-reset" href="#step-2-scoring" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h3>
 &lt;p>Implementing scoring function can be tricky. Basically we need to have a way of mapping each specimen into an integer
 value. Then with values for all specimens we can calculate a threshold and filter out all images above it. The genetic
@@ -616,10 +584,8 @@ computers is expensive, we can remove that bit and we&amp;rsquo;re left with:&lt
 &lt;p>$$ f(O, S) = \sum_{i=0}^n | (r_2 - r_1)^2 + (g_2 - g_1)^2 + (b_2 - b_1)^2 | $$&lt;/p>
 &lt;p>That was a bit more mathsy that I&amp;rsquo;ve initially anticipated &lt;code>◕_◕&lt;/code>.&lt;/p>
 &lt;h3 id="step-3-crossing" >
+&lt;a href="#step-3-crossing" aria-label="Anchor">#&lt;/a>
 Step 3: Crossing
-&lt;a class="ms-2 text-reset" href="#step-3-crossing" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h3>
 &lt;p>In the last step the algorithm has to fill up &lt;em>almost&lt;/em> emptied generation. This step, quoting Wikipedia, it&amp;rsquo;s:&lt;/p>
 &lt;blockquote>
@@ -648,10 +614,8 @@ generations.&lt;/p>
 &lt;p>We will take a look at several of &lt;strong>crossing&lt;/strong> methods mentioned above and we will plot scores of their specimens as a
 function of generation number, to see how well they perform. &amp;#x1f4c8;&lt;/p>
 &lt;h2 id="next-steps" >
+&lt;a href="#next-steps" aria-label="Anchor">#&lt;/a>
 Next steps
-&lt;a class="ms-2 text-reset" href="#next-steps" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>This is the first article from a series about generating art through genetic algorithms. In the next articles &lt;em>(coming
 up soon-ish)&lt;/em> we&amp;rsquo;ll turn those ideas into &lt;a

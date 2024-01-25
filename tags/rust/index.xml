@@ -6,10 +6,8 @@ href="https://en.wikipedia.org/wiki/WebSocket"
 >WebSockets&lt;/a>. It&amp;rsquo;s far from being ready,
 but I developed a helper crate for creating detached, cancellable services.&lt;/p>
 &lt;h2 id="game-server-backstory" >
+&lt;a href="#game-server-backstory" aria-label="Anchor">#&lt;/a>
 Game server backstory
-&lt;a class="ms-2 text-reset" href="#game-server-backstory" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>The idea of developing an authoritative game server always seemed appealing to me. Network programming, however, has
 many pitfalls:&lt;/p>
@@ -44,10 +42,8 @@ alt="xkcd: Making Progress"loading="lazy"
 &lt;/figure>
 &lt;!-- raw HTML omitted -->
 &lt;h2 id="cancellable-crate" >
+&lt;a href="#cancellable-crate" aria-label="Anchor">#&lt;/a>
 Cancellable crate
-&lt;a class="ms-2 text-reset" href="#cancellable-crate" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>Network functionalities in game servers (listeners, TCP streams, etc.) await for some input and &lt;em>usually&lt;/em> yield a
 result.&lt;/p>
@@ -138,10 +134,8 @@ additional data. An example is TCP stream: it reads data packages from a peer an
 if the server decides the connection should be terminated, then the service should complete its work.&lt;/p>
 &lt;p>Enter&amp;hellip;&lt;/p>
 &lt;h3 id="communicating-with-detached-service" >
+&lt;a href="#communicating-with-detached-service" aria-label="Anchor">#&lt;/a>
 Communicating with detached service
-&lt;a class="ms-2 text-reset" href="#communicating-with-detached-service" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h3>
 &lt;p>When we spawn the service task we already get a handle:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="line">&lt;span class="ln" id="hl-3-1">&lt;a class="lnlinks" href="#hl-3-1">1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="kd">let&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">token&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">CancellableToken&lt;/span>::&lt;span class="n">new&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
@@ -171,10 +165,8 @@ href="https://madebyme.today/blog/franklin/randomness-of-life/"
 >Mona Lisa&lt;/a>&amp;rdquo; will actually
 look like one.&lt;/p>
 &lt;h2 id="natural-selection" >
+&lt;a href="#natural-selection" aria-label="Anchor">#&lt;/a>
 Natural Selection
-&lt;a class="ms-2 text-reset" href="#natural-selection" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>&lt;a
 href="https://en.wikipedia.org/wiki/Natural_selection"
@@ -202,10 +194,8 @@ of the specified genotype or phenotype.&lt;/p>
 &lt;p>We, however, will define &amp;ldquo;fitness&amp;rdquo; as a &lt;em>difference&lt;/em> between an organism and the ideal. Which is a bit vague, as there&amp;rsquo;s
 no obvious way of substituting one image from another and produce an integer. We&amp;rsquo;ll get back to that in a bit.&lt;/p>
 &lt;h2 id="loss-functions" >
+&lt;a href="#loss-functions" aria-label="Anchor">#&lt;/a>
 Loss functions
-&lt;a class="ms-2 text-reset" href="#loss-functions" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>&lt;a
 href="https://en.wikipedia.org/wiki/Genetic_algorithm"
@@ -238,10 +228,8 @@ channels and calculate their differences.&lt;/p>
 f(O, S) = \sum_{i=0}^n \vert (r_2 - r_1)^2 + (g_2 - g_1)^2 + (b_2 - b_1)^2 \vert
 $$&lt;/p>
 &lt;h2 id="scoring-mechanism" >
+&lt;a href="#scoring-mechanism" aria-label="Anchor">#&lt;/a>
 Scoring mechanism
-&lt;a class="ms-2 text-reset" href="#scoring-mechanism" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>First, let&amp;rsquo;s define a trait whereby the rest of the system will be able to interact with scoring methods.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="line">&lt;span class="ln" id="hl-0-1">&lt;a class="lnlinks" href="#hl-0-1">1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="k">pub&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">trait&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">FitnessFunction&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
@@ -260,10 +248,8 @@ about these loss functions, is that they return absolute values &amp;ndash; it d
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-5">&lt;a class="lnlinks" href="#hl-1-5">5&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
 &lt;h3 id="implementation-of-l1-absolute-distance" >
+&lt;a href="#implementation-of-l1-absolute-distance" aria-label="Anchor">#&lt;/a>
 Implementation of L1: AbsoluteDistance
-&lt;a class="ms-2 text-reset" href="#implementation-of-l1-absolute-distance" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h3>
 &lt;p>The implementation isn&amp;rsquo;t complex - first we &lt;em>fold&lt;/em> each pixel pair to a &lt;code>usize&lt;/code>, and then we sum those parts together to
 produce the score. Actually, we can do both by using Iterator&amp;rsquo;s &lt;code>fold&lt;/code> method.&lt;/p>
@@ -297,10 +283,8 @@ produce the score. Actually, we can do both by using Iterator&amp;rsquo;s &lt;co
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-28">&lt;a class="lnlinks" href="#hl-2-28">28&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
 &lt;h3 id="implementation-of-l1-square-distance" >
+&lt;a href="#implementation-of-l1-square-distance" aria-label="Anchor">#&lt;/a>
 Implementation of L2: SquareDistance
-&lt;a class="ms-2 text-reset" href="#implementation-of-l1-square-distance" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h3>
 &lt;p>Implementation of &lt;code>SquareDistance&lt;/code> is almost identical. The only difference is the squaring of color channels.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="line">&lt;span class="ln" id="hl-3-1">&lt;a class="lnlinks" href="#hl-3-1"> 1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="k">fn&lt;/span> &lt;span class="nf">fold_pixels&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">mut&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">sum&lt;/span>: &lt;span class="kt">usize&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">p1&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">p2&lt;/span>&lt;span class="p">)&lt;/span>: &lt;span class="p">(&lt;/span>&lt;span class="o">&amp;amp;&lt;/span>&lt;span class="n">Pixel&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">&amp;amp;&lt;/span>&lt;span class="n">Pixel&lt;/span>&lt;span class="p">))&lt;/span>&lt;span class="w"> &lt;/span>-&amp;gt; &lt;span class="kt">usize&lt;/span> &lt;span class="p">{&lt;/span>&lt;span class="w">
@@ -332,10 +316,8 @@ Implementation of L2: SquareDistance
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-27">&lt;a class="lnlinks" href="#hl-3-27">27&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-28">&lt;a class="lnlinks" href="#hl-3-28">28&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="fixing-mona-lisa" >
+&lt;a href="#fixing-mona-lisa" aria-label="Anchor">#&lt;/a>
 Fixing &amp;ldquo;Mona Lisa&amp;rdquo;
-&lt;a class="ms-2 text-reset" href="#fixing-mona-lisa" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>Let&amp;rsquo;s wire up the scoring component with generation&amp;rsquo;s flow. During each generation, every specimens will be scored
 relatively to the ideal image. Using the scores we will select the best &lt;span class="text-decoration-underline">5&lt;/span>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>
@@ -381,10 +363,8 @@ href="https://madebyme.today/blog/franklin/art-from-chaos/"
 genetic algorithms and how they can be used to generate art. Now let&amp;rsquo;s put those ideas into action and focus on
 implementing the first part of our artistic toolset: &lt;strong>mutators&lt;/strong>.&lt;/p>
 &lt;h2 id="preparing-the-ecosystem" >
+&lt;a href="#preparing-the-ecosystem" aria-label="Anchor">#&lt;/a>
 Preparing the ecosystem
-&lt;a class="ms-2 text-reset" href="#preparing-the-ecosystem" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>Before we begin working on mutators, we need to prepare an environment in which our specimens can thrive. We don&amp;rsquo;t need
 much - right now the only thing is &lt;em>a generation&lt;/em>. For the record, in this context, a generation is a collection of
@@ -462,10 +442,8 @@ solution space search, but will produce images that are more visually interestin
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-40">&lt;a class="lnlinks" href="#hl-1-40">40&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This code takes care of initializing the generation. &amp;#x1f44c;&lt;/p>
 &lt;h2 id="throwing-dice-and-hoping-for-the-best" >
+&lt;a href="#throwing-dice-and-hoping-for-the-best" aria-label="Anchor">#&lt;/a>
 Throwing dice and hoping for the best
-&lt;a class="ms-2 text-reset" href="#throwing-dice-and-hoping-for-the-best" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>As was mentioned in the previous article, mutators act only on one specimen at a time, inserting random modification
 onto it. With that description alone, we can already define a contract for all mutators we&amp;rsquo;re going to implement:&lt;/p>
@@ -482,10 +460,8 @@ alt="Genetic Algorithm Flow"loading="lazy"
 &lt;/figcaption>
 &lt;/figure>
 &lt;h3 id="throwing-a-rectangular-dice" >
+&lt;a href="#throwing-a-rectangular-dice" aria-label="Anchor">#&lt;/a>
 Throwing a rectangular dice
-&lt;a class="ms-2 text-reset" href="#throwing-a-rectangular-dice" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h3>
 &lt;p>Rectangles are the easiest shape to draw both algorithmically and IRL; our first mutator will use rectangles as a
 mutation primitive. To generate a random rectangle we need have the following:&lt;/p>
@@ -583,10 +559,8 @@ Which isn&amp;rsquo;t very surprising; the code did what it was suppose to do: i
 Since we don&amp;rsquo;t have any scoring logic yet (that&amp;rsquo;s a topic for another article) the resulting image is composed of random
 noise. We&amp;rsquo;ll need to wait a bit longer to get an image that even remotely reflects &amp;ldquo;Mona Lisa&amp;rdquo;.&lt;/p>
 &lt;h3 id="throwing-dice-of-other-shapes" >
+&lt;a href="#throwing-dice-of-other-shapes" aria-label="Anchor">#&lt;/a>
 Throwing dice of other shapes
-&lt;a class="ms-2 text-reset" href="#throwing-dice-of-other-shapes" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h3>
 &lt;p>It&amp;rsquo;d be nice to have mutators other than &lt;code>RectangleMutator&lt;/code>, which are able to mutate images with different shapes, but
 I&amp;rsquo;m not going to cover them here. The reason is simple &amp;ndash; they operate under the same rules: you need to define
@@ -596,10 +570,8 @@ boundaries first and then you need to draw the desired shape. I&amp;rsquo;ve imp
 href="https://github.com/nathiss/franklin/tree/73aa8dada3e8c3cae9aff5e24637785268e3527a/src/mutators"
 >here&lt;/a>.&lt;/p>
 &lt;h2 id="afterword" >
+&lt;a href="#afterword" aria-label="Anchor">#&lt;/a>
 Afterword
-&lt;a class="ms-2 text-reset" href="#afterword" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>You might&amp;rsquo;ve noticed that the code examples of this article are not strictly bounded together, meaning you cannot just
 copy them to have a working example. A bunch of things like: &lt;code>Random&lt;/code> implementation, loading the original image,

@@ -5,10 +5,8 @@ href="https://www.yubico.com/products/yubikey-5-overview/"
 can be&amp;hellip; I&amp;rsquo;m writing this blog post to create a clear trace of what I needed to do today and hopefully, when the time
 comes to set up &lt;em>an another&lt;/em> key, it&amp;rsquo;ll be as easy as opening up a blog entry.&lt;/p>
 &lt;h2 id="in-general" >
+&lt;a href="#in-general" aria-label="Anchor">#&lt;/a>
 In general
-&lt;a class="ms-2 text-reset" href="#in-general" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>I started to learn about security keys a few years back. I read &amp;ldquo;&lt;a
 href="https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/45409.pdf"
@@ -19,10 +17,8 @@ yet written in a easy-to-follow way. If you&amp;rsquo;re interested in security,
 &lt;p>The rest of this article is a ramp about configuring a new key. If you don&amp;rsquo;t have one/not having issues with one at the
 moment, you can give it amiss.&lt;/p>
 &lt;h2 id="setting-up-a-new-key" >
+&lt;a href="#setting-up-a-new-key" aria-label="Anchor">#&lt;/a>
 Setting up a new key
-&lt;a class="ms-2 text-reset" href="#setting-up-a-new-key" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>&lt;a
 href="https://www.yubico.com/"
@@ -36,10 +32,8 @@ href="https://en.wikipedia.org/wiki/Multi-factor_authentication"
 href="https://www.yubico.com/resources/glossary/fido-2/"
 >FIDO2&lt;/a>, then you are a happier person.&lt;/p>
 &lt;h3 id="yubikey--macos" >
+&lt;a href="#yubikey--macos" aria-label="Anchor">#&lt;/a>
 Yubikey &amp;amp; macOS
-&lt;a class="ms-2 text-reset" href="#yubikey--macos" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h3>
 &lt;p>To start with, I could not make the key detectable by &lt;a
 href="https://gnupg.org/"
@@ -54,10 +48,8 @@ href="https://github.com/DataDog/yubikey/blob/master/docs/troubleshooting.md"
 >troubleshooting guide&lt;/a>. It fixed my problem &amp;ndash;
 a config file was missing in my GnuPG home.&lt;/p>
 &lt;h3 id="yubikey--openpgp" >
+&lt;a href="#yubikey--openpgp" aria-label="Anchor">#&lt;/a>
 Yubikey &amp;amp; OpenPGP
-&lt;a class="ms-2 text-reset" href="#yubikey--openpgp" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h3>
 &lt;p>Working with &lt;code>gpg&lt;/code> sucks.&lt;/p>
 &lt;p>The tool is very advanced and offering a lot of features, so naturally its CLI is complex, to say the least. As it was
@@ -69,10 +61,8 @@ href="https://github.com/drduh/YubiKey-Guide"
 much you care about security. I &lt;strong>highly&lt;/strong> encourage you to configure your key with this guide.&lt;/p>
 &lt;p>It got me through most of the OpenPGP stuff pretty smoothly. Again, I was lost on making the key work with &lt;code>gpg-agent&lt;/code>.&lt;/p>
 &lt;h3 id="yubikey--ssh" >
+&lt;a href="#yubikey--ssh" aria-label="Anchor">#&lt;/a>
 Yubikey &amp;amp; SSH
-&lt;a class="ms-2 text-reset" href="#yubikey--ssh" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h3>
 &lt;p>Once all three keys (Signing, Encryption, Authentication) are correctly set up, it&amp;rsquo;s the moment for the agent. I always
 miss two parts: &lt;strong>configuring gpg-agent&lt;/strong> and &lt;strong>enabling SSH for gpg-agent&lt;/strong>.&lt;/p>
@@ -88,10 +78,8 @@ miss two parts: &lt;strong>configuring gpg-agent&lt;/strong> and &lt;strong>enab
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="ln" id="hl-3-1">&lt;a class="lnlinks" href="#hl-3-1">1&lt;/a>&lt;/span>&lt;span class="cl">gpgconf --kill gpg-agent
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>It should hopefully work.&lt;/p>
 &lt;h3 id="tips" >
+&lt;a href="#tips" aria-label="Anchor">#&lt;/a>
 Tips
-&lt;a class="ms-2 text-reset" href="#tips" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h3>
 &lt;ol>
 &lt;li>To get public SSH key run: &lt;code>ssh-add -L&lt;/code>.&lt;/li>

@@ -18,10 +18,8 @@ href="https://docs.python.org/3.12/whatsnew/changelog.html"
 &lt;/p>
 &lt;/div>
 &lt;h2 id="pythons-dictionaries" >
+&lt;a href="#pythons-dictionaries" aria-label="Anchor">#&lt;/a>
 Python&amp;rsquo;s dictionaries
-&lt;a class="ms-2 text-reset" href="#pythons-dictionaries" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>First, let&amp;rsquo;s check what&amp;rsquo;s the performance difference between the two methods. I&amp;rsquo;ll use the &lt;a
 href="https://docs.python.org/3.12/library/timeit.html"
@@ -71,10 +69,8 @@ href="https://docs.python.org/3.12/library/dis.html"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-18">&lt;a class="lnlinks" href="#hl-1-18">18&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="mi">4&lt;/span> &lt;span class="n">RETURN_VALUE&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Although they produce the same end result these two expression, quite clearly, execute different code.&lt;/p>
 &lt;h3 id="bytecode-instructions" >
+&lt;a href="#bytecode-instructions" aria-label="Anchor">#&lt;/a>
 Bytecode instructions
-&lt;a class="ms-2 text-reset" href="#bytecode-instructions" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h3>
 &lt;p>The output of &lt;code>dis.dis&lt;/code> isn&amp;rsquo;t very hard to understand.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-text" data-lang="text">&lt;span class="line">&lt;span class="ln" id="hl-2-1">&lt;a class="lnlinks" href="#hl-2-1">1&lt;/a>&lt;/span>&lt;span class="cl"> (1) | (2) | (3) | (4) | (5)
@@ -178,10 +174,8 @@ href="https://docs.python.org/3.12/library/dis.html"
 >dis&lt;/a> module isn&amp;rsquo;t very useful for internal types and &lt;code>dict&lt;/code> is one of those types &amp;mdash; defined
 within the interpreter&amp;rsquo;s source code.&lt;/p>
 &lt;h3 id="getting-lost-in-the-cpython-source-code" >
+&lt;a href="#getting-lost-in-the-cpython-source-code" aria-label="Anchor">#&lt;/a>
 Getting lost in the CPython source code
-&lt;a class="ms-2 text-reset" href="#getting-lost-in-the-cpython-source-code" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h3>
 &lt;p>To tap into the forbidden magic, we need to clone the &lt;a
 href="https://github.com/python/cpython/tree/main"
@@ -198,10 +192,8 @@ href="https://github.com/python/cpython/blob/v3.12.0/Python/bytecodes.c"
 >&lt;code>Python/bytecodes.c&lt;/code>&lt;/a> file. It consists of a single &lt;code>switch&lt;/code>
 statement and it seems like all bytecode instruction are interpreted there.&lt;/p>
 &lt;h4 id="the-dict-type" >
+&lt;a href="#the-dict-type" aria-label="Anchor">#&lt;/a>
 The &lt;code>dict&lt;/code> type
-&lt;a class="ms-2 text-reset" href="#the-dict-type" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h4>
 &lt;p>Let&amp;rsquo;s tackle &lt;code>dict&lt;/code> first. All internal types are defined as &lt;code>PyTypeObject&lt;/code> objects and the &lt;code>dict&lt;/code> type is defined in
 the &lt;a
@@ -296,10 +288,8 @@ href="https://github.com/python/cpython/blob/v3.12.0/Objects/dictobject.c#L2678"
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
 &lt;p>It updates the dictionary from both args and kwargs.&lt;/p>
 &lt;h5 id="args--dict_update_arg" >
+&lt;a href="#args--dict_update_arg" aria-label="Anchor">#&lt;/a>
 args &amp;amp; &lt;code>dict_update_arg&lt;/code>
-&lt;a class="ms-2 text-reset" href="#args--dict_update_arg" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h5>
 &lt;p>For &lt;code>args&lt;/code> it calls the &lt;code>dict_update_arg&lt;/code> function.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="line">&lt;span class="ln" id="hl-9-1">&lt;a class="lnlinks" href="#hl-9-1"> 1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="k">static&lt;/span> &lt;span class="kt">int&lt;/span>
@@ -325,10 +315,8 @@ from a sequence of pairs (&lt;a
 href="https://github.com/python/cpython/blob/v3.12.0/Objects/dictobject.c#L2722"
 >&lt;code>PyDict_MergeFromSeq2&lt;/code>&lt;/a>).&lt;/p>
 &lt;h5 id="kwargs--pydict_merge" >
+&lt;a href="#kwargs--pydict_merge" aria-label="Anchor">#&lt;/a>
 kwargs &amp;amp; &lt;code>PyDict_Merge&lt;/code>
-&lt;a class="ms-2 text-reset" href="#kwargs--pydict_merge" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h5>
 &lt;p>The &lt;code>kwargs&lt;/code> path ends in the same place &amp;mdash; &lt;a
 href="https://github.com/python/cpython/blob/v3.12.0/Objects/dictobject.c#L2988"
@@ -370,10 +358,8 @@ href="https://docs.python.org/3.12/library/collections.abc.html#collections.abc.
 >&lt;code>Mapping&lt;/code>&lt;/a> &amp;mdash; a container object that supports arbitrary key
 lookups.&lt;/p>
 &lt;h4 id="the--expression" >
+&lt;a href="#the--expression" aria-label="Anchor">#&lt;/a>
 The &lt;code>{}&lt;/code> expression
-&lt;a class="ms-2 text-reset" href="#the--expression" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h4>
 &lt;p>The literal expression should be easier to reason about. Let&amp;rsquo;s go back to the &lt;a
 href="https://github.com/python/cpython/blob/v3.12.0/Python/bytecodes.c"
@@ -439,10 +425,8 @@ href="https://github.com/python/cpython/blob/v3.12.0/Objects/dictobject.c#L1616"
 &lt;p>I&amp;rsquo;ve marked the most interesting line: in opposition to &lt;code>dict_new&lt;/code>, it &lt;strong>pre-allocates&lt;/strong> the dictionary, so it already
 has a capacity for all of its entries. After that it inserts key-value pairs one-by-one.&lt;/p>
 &lt;h2 id="conclusions" >
+&lt;a href="#conclusions" aria-label="Anchor">#&lt;/a>
 Conclusions
-&lt;a class="ms-2 text-reset" href="#conclusions" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>To sum things up.&lt;/p>
 &lt;p>When you do &lt;code>dict(a=1, b=2)&lt;/code>, Python needs to:&lt;/p>
@@ -473,28 +457,22 @@ The &lt;code>{}&lt;/code> is always faster than &lt;code>dict&lt;/code>.
 &lt;/p>
 &lt;/div>
 &lt;h2 id="appendix" >
+&lt;a href="#appendix" aria-label="Anchor">#&lt;/a>
 Appendix
-&lt;a class="ms-2 text-reset" href="#appendix" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>Similar analysis can be done for lists, sets, and (&lt;em>possibly&lt;/em>) tuples. However, this post is already too long, so I&amp;rsquo;ll
 drop all the other resources I&amp;rsquo;ve gathered here.&lt;/p>
 &lt;h3 id="lists" >
+&lt;a href="#lists" aria-label="Anchor">#&lt;/a>
 Lists
-&lt;a class="ms-2 text-reset" href="#lists" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h3>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="ln" id="hl-13-1">&lt;a class="lnlinks" href="#hl-13-1">1&lt;/a>&lt;/span>&lt;span class="cl">$ python -m timeit &lt;span class="s2">&amp;#34;list((1, 2, &amp;#39;a&amp;#39;))&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-13-2">&lt;a class="lnlinks" href="#hl-13-2">2&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="m">5000000&lt;/span> loops, best of 5: 53.4 nsec per loop
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-13-3">&lt;a class="lnlinks" href="#hl-13-3">3&lt;/a>&lt;/span>&lt;span class="cl">$ python -m timeit &lt;span class="s2">&amp;#34;[1, 2, &amp;#39;a&amp;#39;]&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-13-4">&lt;a class="lnlinks" href="#hl-13-4">4&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="m">10000000&lt;/span> loops, best of 5: 29.7 nsec per loop
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="list-type" >
+&lt;a href="#list-type" aria-label="Anchor">#&lt;/a>
 &lt;code>list&lt;/code> type
-&lt;a class="ms-2 text-reset" href="#list-type" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h4>
 &lt;p>The Python&amp;rsquo;s &lt;code>list&lt;/code> type is defined in the &lt;code>listobject.c&lt;/code> file:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="line">&lt;span class="ln" id="hl-14-1">&lt;a class="lnlinks" href="#hl-14-1">1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="n">PyTypeObject&lt;/span> &lt;span class="n">PyList_Type&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">{&lt;/span>
@@ -534,10 +512,8 @@ Question
 &lt;/p>
 &lt;/div>
 &lt;h4 id="-literal-expression" >
+&lt;a href="#-literal-expression" aria-label="Anchor">#&lt;/a>
 &lt;code>[]&lt;/code> literal expression
-&lt;a class="ms-2 text-reset" href="#-literal-expression" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h4>
 &lt;p>Opcode &lt;code>BUILD_LIST&lt;/code> uses the &lt;code>_PyList_FromArraySteal&lt;/code> function to construct a list object and return it.&lt;/p>
 &lt;div class="alert alert-info">
@@ -567,10 +543,8 @@ inserting items to it.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="line">&lt;span class="ln" id="hl-15-1">&lt;a class="lnlinks" href="#hl-15-1">1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="n">PyObject&lt;/span> &lt;span class="o">**&lt;/span>&lt;span class="n">dst&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">list&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">ob_item&lt;/span>&lt;span class="p">;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-15-2">&lt;a class="lnlinks" href="#hl-15-2">2&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="nf">memcpy&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">dst&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">src&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">n&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="k">sizeof&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">PyObject&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="p">));&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="sets" >
+&lt;a href="#sets" aria-label="Anchor">#&lt;/a>
 Sets
-&lt;a class="ms-2 text-reset" href="#sets" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h3>
 &lt;div class="alert alert-warning">
 &lt;h6 class="alert-heading">
@@ -587,10 +561,8 @@ sets with two elements: &lt;code>1&lt;/code> and &lt;code>2&lt;/code>.
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-16-3">&lt;a class="lnlinks" href="#hl-16-3">3&lt;/a>&lt;/span>&lt;span class="cl">$ python -m timeit &lt;span class="s2">&amp;#34;{1, 2}&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-16-4">&lt;a class="lnlinks" href="#hl-16-4">4&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="m">5000000&lt;/span> loops, best of 5: 45.5 nsec per loop
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="set-type" >
+&lt;a href="#set-type" aria-label="Anchor">#&lt;/a>
 &lt;code>set&lt;/code> type
-&lt;a class="ms-2 text-reset" href="#set-type" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h4>
 &lt;p>The Python&amp;rsquo;s &lt;code>set&lt;/code> type is defined in the &lt;code>setobject.c&lt;/code> file:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="line">&lt;span class="ln" id="hl-17-1">&lt;a class="lnlinks" href="#hl-17-1">1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="n">PyTypeObject&lt;/span> &lt;span class="n">PySet_Type&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">{&lt;/span>
@@ -610,10 +582,8 @@ sets with two elements: &lt;code>1&lt;/code> and &lt;code>2&lt;/code>.
 &lt;/ul>
 &lt;p>&amp;hellip; and calls the &lt;code>set_update_internal&lt;/code> function, to insert values into the set object.&lt;/p>
 &lt;h4 id="1-2-literal-expression" >
+&lt;a href="#1-2-literal-expression" aria-label="Anchor">#&lt;/a>
 &lt;code>{1, 2}&lt;/code> literal expression
-&lt;a class="ms-2 text-reset" href="#1-2-literal-expression" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h4>
 &lt;p>The opcode handler has no dedicated helpers. It constructs a new set (empty), and then iterates over all items from the
 stack and insets them one-by-one.&lt;/p>
@@ -653,10 +623,8 @@ The generated bytecode is different if we add another argument to the literal ex
 &lt;/p>
 &lt;/div>
 &lt;h3 id="tuples" >
+&lt;a href="#tuples" aria-label="Anchor">#&lt;/a>
 Tuples
-&lt;a class="ms-2 text-reset" href="#tuples" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h3>
 &lt;p>This one&amp;rsquo;s tricky. Constructing a tuple with the &lt;code>tuple&lt;/code> type requires an iterable. The easiest way of getting one it to
 create a tuple literal, which is obviously less efficient, than using a tuple literal syntax in the first place.&lt;/p>
@@ -692,10 +660,8 @@ create a tuple literal, which is obviously less efficient, than using a tuple li
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-19-30">&lt;a class="lnlinks" href="#hl-19-30">30&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="mi">10&lt;/span> &lt;span class="n">RETURN_VALUE&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>It might not make much sense to include this example in the article.&lt;/p>
 &lt;h4 id="tuple-type" >
+&lt;a href="#tuple-type" aria-label="Anchor">#&lt;/a>
 &lt;code>tuple&lt;/code> type
-&lt;a class="ms-2 text-reset" href="#tuple-type" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h4>
 &lt;p>The Python&amp;rsquo;s &lt;code>tuple&lt;/code> type is defined in &lt;code>tupleobject.c&lt;/code>. Interestingly, it has no &lt;code>tp_alloc&lt;/code>, nor &lt;code>tp_init&lt;/code>.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="line">&lt;span class="ln" id="hl-20-1">&lt;a class="lnlinks" href="#hl-20-1">1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="n">PyTypeObject&lt;/span> &lt;span class="n">PyTuple_Type&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">{&lt;/span>
@@ -737,10 +703,8 @@ subdomain.&lt;/p>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-15">&lt;a class="lnlinks" href="#hl-0-15">15&lt;/a>&lt;/span>&lt;span class="cl">&amp;lt;/html&amp;gt;
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Let&amp;rsquo;s take a closer look and see how it&amp;rsquo;s done.&lt;/p>
 &lt;h2 id="setting-up-custom-domain-for-github-pages" >
+&lt;a href="#setting-up-custom-domain-for-github-pages" aria-label="Anchor">#&lt;/a>
 Setting up custom domain for GitHub Pages
-&lt;a class="ms-2 text-reset" href="#setting-up-custom-domain-for-github-pages" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>GitHub Pages supports custom domains with very little config; you, as the owner, only need to set up these DNS
 records:&lt;/p>
@@ -837,10 +801,8 @@ for details.&lt;/p>
 &lt;/p>
 &lt;/div>
 &lt;h2 id="using-domains-as-aliases" >
+&lt;a href="#using-domains-as-aliases" aria-label="Anchor">#&lt;/a>
 Using domains as aliases
-&lt;a class="ms-2 text-reset" href="#using-domains-as-aliases" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>Recently I came up with an idea to configure subdomains, that will redirect to a few tools I&amp;rsquo;d like to make accessible
 online. For example &lt;code>calendar.madebyme.today&lt;/code> could be a redirect to my GCalendar.&lt;/p>
@@ -862,10 +824,8 @@ href="http://nginx.org/en/docs/http/ngx_http_core_module.html#server_name"
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>However, that&amp;rsquo;s not the case and, as far as I know, GitHub does not provide any way of setting up HTTP redirects for
 GitHub Pages.&lt;/p>
 &lt;h3 id="redir-301" >
+&lt;a href="#redir-301" aria-label="Anchor">#&lt;/a>
 Redir 301
-&lt;a class="ms-2 text-reset" href="#redir-301" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h3>
 &lt;p>&lt;a
 href="https://redir301.link/"
@@ -952,10 +912,8 @@ class="hide-external"
 >https://redir301.link/&lt;/a>
 for details.&lt;/p>
 &lt;h3 id="redirecting-with-github-pages" >
+&lt;a href="#redirecting-with-github-pages" aria-label="Anchor">#&lt;/a>
 Redirecting with GitHub Pages
-&lt;a class="ms-2 text-reset" href="#redirecting-with-github-pages" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h3>
 &lt;p>The HTTP Location header isn&amp;rsquo;t the only way of redirecting to a URL. Another method is to use JavaScript, and the
 simplest way to achieve this is:&lt;/p>
@@ -1067,10 +1025,8 @@ alt="GitHub Pages configuration with custom domain and enforced HTTPS"loading="l
 &lt;p>If a browser respects the meta refresh tag, then it works. When it doesn&amp;rsquo;t, the user has an option to manually click on
 the &amp;ldquo;Redirect&amp;rdquo; link.&lt;/p>
 &lt;h2 id="conclusion" >
+&lt;a href="#conclusion" aria-label="Anchor">#&lt;/a>
 Conclusion
-&lt;a class="ms-2 text-reset" href="#conclusion" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>Redirects via GitHub Pages is not an ideal solution. Having to use meta&amp;rsquo;s &lt;code>http-equiv=&amp;quot;refresh&amp;quot;&lt;/code>, instead of the proper
 301 Moved Permanently makes me sad. Having said that, personally, I&amp;rsquo;d prefer to use GitHub Pages, as the backing
@@ -1108,10 +1064,8 @@ I liked the idea, but my gut feeling was that the future project contributors wo
 and it&amp;rsquo;s quality will decline over time. This article proposes a feature which enforces changelog updates, when it&amp;rsquo;s
 required to do so.&lt;/p>
 &lt;h2 id="whats-a-changelog" >
+&lt;a href="#whats-a-changelog" aria-label="Anchor">#&lt;/a>
 What&amp;rsquo;s a changelog
-&lt;a class="ms-2 text-reset" href="#whats-a-changelog" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;blockquote>
 &lt;p>A &lt;strong>changelog&lt;/strong> is a log or record of all notable changes made to a project. The project is often a website or
@@ -1189,10 +1143,8 @@ Here&amp;rsquo;s an example of a changelog with two entries:&lt;/p>
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-26">&lt;a class="lnlinks" href="#hl-1-26">26&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="gu">&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-27">&lt;a class="lnlinks" href="#hl-1-27">27&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="k">-&lt;/span> Typo in project&amp;#39;s title in docs.
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="keeping-a-changelog-up-to-date" >
+&lt;a href="#keeping-a-changelog-up-to-date" aria-label="Anchor">#&lt;/a>
 Keep(ing) a changelog up-to-date
-&lt;a class="ms-2 text-reset" href="#keeping-a-changelog-up-to-date" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>When releasing a new package version one needs to remember to update the version in two places: &lt;code>pyproject.toml&lt;/code> and
 &lt;code>Changelog.md&lt;/code>. Also, there&amp;rsquo;s no mechanism to enforce that behavior; we could create a workflow step to validate that
@@ -1252,10 +1204,8 @@ manifest:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-text" data-lang="text">&lt;span class="line">&lt;span class="ln" id="hl-4-1">&lt;a class="lnlinks" href="#hl-4-1">1&lt;/a>&lt;/span>&lt;span class="cl"># ...
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-4-2">&lt;a class="lnlinks" href="#hl-4-2">2&lt;/a>&lt;/span>&lt;span class="cl">include Changelog.md
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="accessing-project-version-from-sphinx" >
+&lt;a href="#accessing-project-version-from-sphinx" aria-label="Anchor">#&lt;/a>
 Accessing project version from Sphinx
-&lt;a class="ms-2 text-reset" href="#accessing-project-version-from-sphinx" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h3>
 &lt;p>&lt;a
 href="https://www.sphinx-doc.org/en/master/"
@@ -1329,10 +1279,8 @@ and &lt;code>setup.py&lt;/code>.&lt;/p>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-8-2">&lt;a class="lnlinks" href="#hl-8-2">2&lt;/a>&lt;/span>&lt;span class="cl">include Changelog.md
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-8-3">&lt;a class="lnlinks" href="#hl-8-3">3&lt;/a>&lt;/span>&lt;span class="cl">include version.py
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="afterthought" >
+&lt;a href="#afterthought" aria-label="Anchor">#&lt;/a>
 Afterthought
-&lt;a class="ms-2 text-reset" href="#afterthought" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>Maintaining a changelog can make a project easier to understand. Hopefully, with the changes proposed in this article
 you&amp;rsquo;ll find changelogs more manageable. This feature does not enforce changelog updates from the contributors &amp;ndash; they
@@ -1358,10 +1306,8 @@ href="https://en.wikipedia.org/wiki/WebSocket"
 >WebSockets&lt;/a>. It&amp;rsquo;s far from being ready,
 but I developed a helper crate for creating detached, cancellable services.&lt;/p>
 &lt;h2 id="game-server-backstory" >
+&lt;a href="#game-server-backstory" aria-label="Anchor">#&lt;/a>
 Game server backstory
-&lt;a class="ms-2 text-reset" href="#game-server-backstory" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>The idea of developing an authoritative game server always seemed appealing to me. Network programming, however, has
 many pitfalls:&lt;/p>
@@ -1396,10 +1342,8 @@ alt="xkcd: Making Progress"loading="lazy"
 &lt;/figure>
 &lt;!-- raw HTML omitted -->
 &lt;h2 id="cancellable-crate" >
+&lt;a href="#cancellable-crate" aria-label="Anchor">#&lt;/a>
 Cancellable crate
-&lt;a class="ms-2 text-reset" href="#cancellable-crate" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>Network functionalities in game servers (listeners, TCP streams, etc.) await for some input and &lt;em>usually&lt;/em> yield a
 result.&lt;/p>
@@ -1490,10 +1434,8 @@ additional data. An example is TCP stream: it reads data packages from a peer an
 if the server decides the connection should be terminated, then the service should complete its work.&lt;/p>
 &lt;p>Enter&amp;hellip;&lt;/p>
 &lt;h3 id="communicating-with-detached-service" >
+&lt;a href="#communicating-with-detached-service" aria-label="Anchor">#&lt;/a>
 Communicating with detached service
-&lt;a class="ms-2 text-reset" href="#communicating-with-detached-service" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h3>
 &lt;p>When we spawn the service task we already get a handle:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="line">&lt;span class="ln" id="hl-3-1">&lt;a class="lnlinks" href="#hl-3-1">1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="kd">let&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">token&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">CancellableToken&lt;/span>::&lt;span class="n">new&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
@@ -1523,10 +1465,8 @@ href="https://madebyme.today/blog/franklin/randomness-of-life/"
 >Mona Lisa&lt;/a>&amp;rdquo; will actually
 look like one.&lt;/p>
 &lt;h2 id="natural-selection" >
+&lt;a href="#natural-selection" aria-label="Anchor">#&lt;/a>
 Natural Selection
-&lt;a class="ms-2 text-reset" href="#natural-selection" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>&lt;a
 href="https://en.wikipedia.org/wiki/Natural_selection"
@@ -1554,10 +1494,8 @@ of the specified genotype or phenotype.&lt;/p>
 &lt;p>We, however, will define &amp;ldquo;fitness&amp;rdquo; as a &lt;em>difference&lt;/em> between an organism and the ideal. Which is a bit vague, as there&amp;rsquo;s
 no obvious way of substituting one image from another and produce an integer. We&amp;rsquo;ll get back to that in a bit.&lt;/p>
 &lt;h2 id="loss-functions" >
+&lt;a href="#loss-functions" aria-label="Anchor">#&lt;/a>
 Loss functions
-&lt;a class="ms-2 text-reset" href="#loss-functions" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>&lt;a
 href="https://en.wikipedia.org/wiki/Genetic_algorithm"
@@ -1590,10 +1528,8 @@ channels and calculate their differences.&lt;/p>
 f(O, S) = \sum_{i=0}^n \vert (r_2 - r_1)^2 + (g_2 - g_1)^2 + (b_2 - b_1)^2 \vert
 $$&lt;/p>
 &lt;h2 id="scoring-mechanism" >
+&lt;a href="#scoring-mechanism" aria-label="Anchor">#&lt;/a>
 Scoring mechanism
-&lt;a class="ms-2 text-reset" href="#scoring-mechanism" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>First, let&amp;rsquo;s define a trait whereby the rest of the system will be able to interact with scoring methods.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="line">&lt;span class="ln" id="hl-0-1">&lt;a class="lnlinks" href="#hl-0-1">1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="k">pub&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">trait&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">FitnessFunction&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
@@ -1612,10 +1548,8 @@ about these loss functions, is that they return absolute values &amp;ndash; it d
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-5">&lt;a class="lnlinks" href="#hl-1-5">5&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
 &lt;h3 id="implementation-of-l1-absolute-distance" >
+&lt;a href="#implementation-of-l1-absolute-distance" aria-label="Anchor">#&lt;/a>
 Implementation of L1: AbsoluteDistance
-&lt;a class="ms-2 text-reset" href="#implementation-of-l1-absolute-distance" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h3>
 &lt;p>The implementation isn&amp;rsquo;t complex - first we &lt;em>fold&lt;/em> each pixel pair to a &lt;code>usize&lt;/code>, and then we sum those parts together to
 produce the score. Actually, we can do both by using Iterator&amp;rsquo;s &lt;code>fold&lt;/code> method.&lt;/p>
@@ -1649,10 +1583,8 @@ produce the score. Actually, we can do both by using Iterator&amp;rsquo;s &lt;co
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-28">&lt;a class="lnlinks" href="#hl-2-28">28&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
 &lt;h3 id="implementation-of-l1-square-distance" >
+&lt;a href="#implementation-of-l1-square-distance" aria-label="Anchor">#&lt;/a>
 Implementation of L2: SquareDistance
-&lt;a class="ms-2 text-reset" href="#implementation-of-l1-square-distance" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h3>
 &lt;p>Implementation of &lt;code>SquareDistance&lt;/code> is almost identical. The only difference is the squaring of color channels.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="line">&lt;span class="ln" id="hl-3-1">&lt;a class="lnlinks" href="#hl-3-1"> 1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="k">fn&lt;/span> &lt;span class="nf">fold_pixels&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">mut&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">sum&lt;/span>: &lt;span class="kt">usize&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">p1&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">p2&lt;/span>&lt;span class="p">)&lt;/span>: &lt;span class="p">(&lt;/span>&lt;span class="o">&amp;amp;&lt;/span>&lt;span class="n">Pixel&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">&amp;amp;&lt;/span>&lt;span class="n">Pixel&lt;/span>&lt;span class="p">))&lt;/span>&lt;span class="w"> &lt;/span>-&amp;gt; &lt;span class="kt">usize&lt;/span> &lt;span class="p">{&lt;/span>&lt;span class="w">
@@ -1684,10 +1616,8 @@ Implementation of L2: SquareDistance
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-27">&lt;a class="lnlinks" href="#hl-3-27">27&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-28">&lt;a class="lnlinks" href="#hl-3-28">28&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="fixing-mona-lisa" >
+&lt;a href="#fixing-mona-lisa" aria-label="Anchor">#&lt;/a>
 Fixing &amp;ldquo;Mona Lisa&amp;rdquo;
-&lt;a class="ms-2 text-reset" href="#fixing-mona-lisa" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>Let&amp;rsquo;s wire up the scoring component with generation&amp;rsquo;s flow. During each generation, every specimens will be scored
 relatively to the ideal image. Using the scores we will select the best &lt;span class="text-decoration-underline">5&lt;/span>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>
@@ -1734,10 +1664,8 @@ href="https://www.yubico.com/products/yubikey-5-overview/"
 can be&amp;hellip; I&amp;rsquo;m writing this blog post to create a clear trace of what I needed to do today and hopefully, when the time
 comes to set up &lt;em>an another&lt;/em> key, it&amp;rsquo;ll be as easy as opening up a blog entry.&lt;/p>
 &lt;h2 id="in-general" >
+&lt;a href="#in-general" aria-label="Anchor">#&lt;/a>
 In general
-&lt;a class="ms-2 text-reset" href="#in-general" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>I started to learn about security keys a few years back. I read &amp;ldquo;&lt;a
 href="https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/45409.pdf"
@@ -1748,10 +1676,8 @@ yet written in a easy-to-follow way. If you&amp;rsquo;re interested in security,
 &lt;p>The rest of this article is a ramp about configuring a new key. If you don&amp;rsquo;t have one/not having issues with one at the
 moment, you can give it amiss.&lt;/p>
 &lt;h2 id="setting-up-a-new-key" >
+&lt;a href="#setting-up-a-new-key" aria-label="Anchor">#&lt;/a>
 Setting up a new key
-&lt;a class="ms-2 text-reset" href="#setting-up-a-new-key" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>&lt;a
 href="https://www.yubico.com/"
@@ -1765,10 +1691,8 @@ href="https://en.wikipedia.org/wiki/Multi-factor_authentication"
 href="https://www.yubico.com/resources/glossary/fido-2/"
 >FIDO2&lt;/a>, then you are a happier person.&lt;/p>
 &lt;h3 id="yubikey--macos" >
+&lt;a href="#yubikey--macos" aria-label="Anchor">#&lt;/a>
 Yubikey &amp;amp; macOS
-&lt;a class="ms-2 text-reset" href="#yubikey--macos" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h3>
 &lt;p>To start with, I could not make the key detectable by &lt;a
 href="https://gnupg.org/"
@@ -1783,10 +1707,8 @@ href="https://github.com/DataDog/yubikey/blob/master/docs/troubleshooting.md"
 >troubleshooting guide&lt;/a>. It fixed my problem &amp;ndash;
 a config file was missing in my GnuPG home.&lt;/p>
 &lt;h3 id="yubikey--openpgp" >
+&lt;a href="#yubikey--openpgp" aria-label="Anchor">#&lt;/a>
 Yubikey &amp;amp; OpenPGP
-&lt;a class="ms-2 text-reset" href="#yubikey--openpgp" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h3>
 &lt;p>Working with &lt;code>gpg&lt;/code> sucks.&lt;/p>
 &lt;p>The tool is very advanced and offering a lot of features, so naturally its CLI is complex, to say the least. As it was
@@ -1798,10 +1720,8 @@ href="https://github.com/drduh/YubiKey-Guide"
 much you care about security. I &lt;strong>highly&lt;/strong> encourage you to configure your key with this guide.&lt;/p>
 &lt;p>It got me through most of the OpenPGP stuff pretty smoothly. Again, I was lost on making the key work with &lt;code>gpg-agent&lt;/code>.&lt;/p>
 &lt;h3 id="yubikey--ssh" >
+&lt;a href="#yubikey--ssh" aria-label="Anchor">#&lt;/a>
 Yubikey &amp;amp; SSH
-&lt;a class="ms-2 text-reset" href="#yubikey--ssh" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h3>
 &lt;p>Once all three keys (Signing, Encryption, Authentication) are correctly set up, it&amp;rsquo;s the moment for the agent. I always
 miss two parts: &lt;strong>configuring gpg-agent&lt;/strong> and &lt;strong>enabling SSH for gpg-agent&lt;/strong>.&lt;/p>
@@ -1817,10 +1737,8 @@ miss two parts: &lt;strong>configuring gpg-agent&lt;/strong> and &lt;strong>enab
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="ln" id="hl-3-1">&lt;a class="lnlinks" href="#hl-3-1">1&lt;/a>&lt;/span>&lt;span class="cl">gpgconf --kill gpg-agent
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>It should hopefully work.&lt;/p>
 &lt;h3 id="tips" >
+&lt;a href="#tips" aria-label="Anchor">#&lt;/a>
 Tips
-&lt;a class="ms-2 text-reset" href="#tips" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h3>
 &lt;ol>
 &lt;li>To get public SSH key run: &lt;code>ssh-add -L&lt;/code>.&lt;/li>
@@ -1841,10 +1759,8 @@ href="https://madebyme.today/blog/franklin/art-from-chaos/"
 genetic algorithms and how they can be used to generate art. Now let&amp;rsquo;s put those ideas into action and focus on
 implementing the first part of our artistic toolset: &lt;strong>mutators&lt;/strong>.&lt;/p>
 &lt;h2 id="preparing-the-ecosystem" >
+&lt;a href="#preparing-the-ecosystem" aria-label="Anchor">#&lt;/a>
 Preparing the ecosystem
-&lt;a class="ms-2 text-reset" href="#preparing-the-ecosystem" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>Before we begin working on mutators, we need to prepare an environment in which our specimens can thrive. We don&amp;rsquo;t need
 much - right now the only thing is &lt;em>a generation&lt;/em>. For the record, in this context, a generation is a collection of
@@ -1922,10 +1838,8 @@ solution space search, but will produce images that are more visually interestin
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-40">&lt;a class="lnlinks" href="#hl-1-40">40&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This code takes care of initializing the generation. &amp;#x1f44c;&lt;/p>
 &lt;h2 id="throwing-dice-and-hoping-for-the-best" >
+&lt;a href="#throwing-dice-and-hoping-for-the-best" aria-label="Anchor">#&lt;/a>
 Throwing dice and hoping for the best
-&lt;a class="ms-2 text-reset" href="#throwing-dice-and-hoping-for-the-best" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>As was mentioned in the previous article, mutators act only on one specimen at a time, inserting random modification
 onto it. With that description alone, we can already define a contract for all mutators we&amp;rsquo;re going to implement:&lt;/p>
@@ -1942,10 +1856,8 @@ alt="Genetic Algorithm Flow"loading="lazy"
 &lt;/figcaption>
 &lt;/figure>
 &lt;h3 id="throwing-a-rectangular-dice" >
+&lt;a href="#throwing-a-rectangular-dice" aria-label="Anchor">#&lt;/a>
 Throwing a rectangular dice
-&lt;a class="ms-2 text-reset" href="#throwing-a-rectangular-dice" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h3>
 &lt;p>Rectangles are the easiest shape to draw both algorithmically and IRL; our first mutator will use rectangles as a
 mutation primitive. To generate a random rectangle we need have the following:&lt;/p>
@@ -2043,10 +1955,8 @@ Which isn&amp;rsquo;t very surprising; the code did what it was suppose to do: i
 Since we don&amp;rsquo;t have any scoring logic yet (that&amp;rsquo;s a topic for another article) the resulting image is composed of random
 noise. We&amp;rsquo;ll need to wait a bit longer to get an image that even remotely reflects &amp;ldquo;Mona Lisa&amp;rdquo;.&lt;/p>
 &lt;h3 id="throwing-dice-of-other-shapes" >
+&lt;a href="#throwing-dice-of-other-shapes" aria-label="Anchor">#&lt;/a>
 Throwing dice of other shapes
-&lt;a class="ms-2 text-reset" href="#throwing-dice-of-other-shapes" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h3>
 &lt;p>It&amp;rsquo;d be nice to have mutators other than &lt;code>RectangleMutator&lt;/code>, which are able to mutate images with different shapes, but
 I&amp;rsquo;m not going to cover them here. The reason is simple &amp;ndash; they operate under the same rules: you need to define
@@ -2056,10 +1966,8 @@ boundaries first and then you need to draw the desired shape. I&amp;rsquo;ve imp
 href="https://github.com/nathiss/franklin/tree/73aa8dada3e8c3cae9aff5e24637785268e3527a/src/mutators"
 >here&lt;/a>.&lt;/p>
 &lt;h2 id="afterword" >
+&lt;a href="#afterword" aria-label="Anchor">#&lt;/a>
 Afterword
-&lt;a class="ms-2 text-reset" href="#afterword" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>You might&amp;rsquo;ve noticed that the code examples of this article are not strictly bounded together, meaning you cannot just
 copy them to have a working example. A bunch of things like: &lt;code>Random&lt;/code> implementation, loading the original image,
@@ -2104,10 +2012,8 @@ href="https://github.com/nathiss/franklin/blob/73aa8dada3e8c3cae9aff5e2463778526
 automation is to reduce the amount of manual labor. So let&amp;rsquo;s mix evolution, DNA, and programming together to make art
 that &lt;em>makes&lt;/em> itself. Pictures that &lt;em>draw&lt;/em> themselves.&lt;/p>
 &lt;h2 id="concepts-and-definitions" >
+&lt;a href="#concepts-and-definitions" aria-label="Anchor">#&lt;/a>
 Concepts and definitions
-&lt;a class="ms-2 text-reset" href="#concepts-and-definitions" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>Before we dive deep into making art, we need to understand some important concepts &amp;ndash; first things first.
 &lt;span class="text-decoration-underline">Automatic art&lt;/span>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>, at its core, uses generic algorithms.
@@ -2141,20 +2047,16 @@ alt="Genetic Algorithm Cycle"loading="lazy"
 &lt;p>To mutate, to score, to kill, to breed, to continue the cycle of life. It might sound simple, but in reality it is
 shockingly efficient in searching the solution space.&lt;/p>
 &lt;h2 id="art-from-evolution" >
+&lt;a href="#art-from-evolution" aria-label="Anchor">#&lt;/a>
 Art from evolution
-&lt;a class="ms-2 text-reset" href="#art-from-evolution" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>Alright. Now with the theory out of the way, let&amp;rsquo;s conceptualize a program for generating automatic art. Probably it&amp;rsquo;s
 a good moment to explain the clickbaity summary at the top of this article: the pictures will not &lt;em>draw&lt;/em> themselves, the
 goal is to make &lt;em>a program&lt;/em> which will generate art automatically. It&amp;rsquo;s going to be an iterative solution where each
 cycle is parametrized by the results of its predecessor.&lt;/p>
 &lt;h3 id="step-0-initialization" >
+&lt;a href="#step-0-initialization" aria-label="Anchor">#&lt;/a>
 Step 0: Initialization
-&lt;a class="ms-2 text-reset" href="#step-0-initialization" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h3>
 &lt;p>Before we do anything towards evolution we need to prepare a generation first. So what&amp;rsquo;s our generation size? Let&amp;rsquo;s see
 if Wikipedia has something insightful to say:&lt;/p>
@@ -2174,10 +2076,8 @@ href="https://en.wikipedia.org/wiki/Tabula_rasa"
 >tabula rasa&lt;/a>&lt;/em> should be a
 fitting choice.&lt;/p>
 &lt;h3 id="step-1-mutation" >
+&lt;a href="#step-1-mutation" aria-label="Anchor">#&lt;/a>
 Step 1: Mutation
-&lt;a class="ms-2 text-reset" href="#step-1-mutation" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h3>
 &lt;p>Mutation method greatly affects the end result, so it&amp;rsquo;s imperative to select a right one. Mutation algorithms are
 usually stateless, meaning modification of each specimen does not affect any other. In each iteration the mutator will
@@ -2208,10 +2108,8 @@ in 1&lt;sup>st&lt;/sup> step has been almost fully overwritten after 5 mutations
 might be beneficial, but overall we want to utilize genome that have evolved in past generations, not to discard it
 completely.&lt;/p>
 &lt;h3 id="step-2-scoring" >
+&lt;a href="#step-2-scoring" aria-label="Anchor">#&lt;/a>
 Step 2: Scoring
-&lt;a class="ms-2 text-reset" href="#step-2-scoring" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h3>
 &lt;p>Implementing scoring function can be tricky. Basically we need to have a way of mapping each specimen into an integer
 value. Then with values for all specimens we can calculate a threshold and filter out all images above it. The genetic
@@ -2243,10 +2141,8 @@ computers is expensive, we can remove that bit and we&amp;rsquo;re left with:&lt
 &lt;p>$$ f(O, S) = \sum_{i=0}^n | (r_2 - r_1)^2 + (g_2 - g_1)^2 + (b_2 - b_1)^2 | $$&lt;/p>
 &lt;p>That was a bit more mathsy that I&amp;rsquo;ve initially anticipated &lt;code>◕_◕&lt;/code>.&lt;/p>
 &lt;h3 id="step-3-crossing" >
+&lt;a href="#step-3-crossing" aria-label="Anchor">#&lt;/a>
 Step 3: Crossing
-&lt;a class="ms-2 text-reset" href="#step-3-crossing" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h3>
 &lt;p>In the last step the algorithm has to fill up &lt;em>almost&lt;/em> emptied generation. This step, quoting Wikipedia, it&amp;rsquo;s:&lt;/p>
 &lt;blockquote>
@@ -2275,10 +2171,8 @@ generations.&lt;/p>
 &lt;p>We will take a look at several of &lt;strong>crossing&lt;/strong> methods mentioned above and we will plot scores of their specimens as a
 function of generation number, to see how well they perform. &amp;#x1f4c8;&lt;/p>
 &lt;h2 id="next-steps" >
+&lt;a href="#next-steps" aria-label="Anchor">#&lt;/a>
 Next steps
-&lt;a class="ms-2 text-reset" href="#next-steps" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>This is the first article from a series about generating art through genetic algorithms. In the next articles &lt;em>(coming
 up soon-ish)&lt;/em> we&amp;rsquo;ll turn those ideas into &lt;a
@@ -2313,10 +2207,8 @@ href="https://en.wikipedia.org/wiki/Algorithmic_art"
 &lt;/ol>
 &lt;/div></description></item><item><title>Beginnings Are Hard</title><link>https://madebyme.today/blog/beginnings-are-hard/</link><pubDate>Sat, 25 Feb 2023 20:14:43 +0100</pubDate><guid>https://madebyme.today/blog/beginnings-are-hard/</guid><category>meta</category><category>Polaris</category><description>&lt;p>Well it took some time (almost 6 years) to create a personal blog, but here we are.&lt;/p>
 &lt;h2 id="how-did-we-come-here" >
+&lt;a href="#how-did-we-come-here" aria-label="Anchor">#&lt;/a>
 How did we come here?
-&lt;a class="ms-2 text-reset" href="#how-did-we-come-here" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>This is not the first attempt on creating my own website. On my &lt;a
 href="https://github.com/nathiss"
@@ -2326,10 +2218,8 @@ href="https://github.com/nathiss"
 &lt;p>To better understand why I have such high hopes for this project let&amp;rsquo;s go down the rabbit hole and analyze its ancestors
 and try to point out why they failed.&lt;/p>
 &lt;h3 id="platform-1-0x52-django-22" >
+&lt;a href="#platform-1-0x52-django-22" aria-label="Anchor">#&lt;/a>
 Platform 1: 0x52 (Django 2.2)
-&lt;a class="ms-2 text-reset" href="#platform-1-0x52-django-22" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h3>
 &lt;p>&lt;a
 href="https://www.djangoproject.com/"
@@ -2369,10 +2259,8 @@ href="https://help.heroku.com/RSBRUH58/removal-of-heroku-free-product-plans-faq"
 >Heroku announced their
 removal of free product plans&lt;/a>.&lt;/p>
 &lt;h3 id="platform-2-titan-aspnet" >
+&lt;a href="#platform-2-titan-aspnet" aria-label="Anchor">#&lt;/a>
 Platform 2: Titan (ASP.NET)
-&lt;a class="ms-2 text-reset" href="#platform-2-titan-aspnet" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h3>
 &lt;p>This was &lt;em>an another&lt;/em> iteration of personal website development. I&amp;rsquo;ve decided to use
 &lt;a
@@ -2416,10 +2304,8 @@ whether the session has ended.&lt;/p>
 &lt;p>Can you see now when I said it was overengineered? So many complex solutions for a logout functionality. The project
 ended because I was too wornout to finish it.&lt;/p>
 &lt;h3 id="platform-3-polaris-react" >
+&lt;a href="#platform-3-polaris-react" aria-label="Anchor">#&lt;/a>
 Platform 3: Polaris (React)
-&lt;a class="ms-2 text-reset" href="#platform-3-polaris-react" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h3>
 &lt;p>I&amp;rsquo;m actually quite proud of this one. It&amp;rsquo;s a static website running on &lt;a
 href="https://reactjs.org/"
@@ -2447,10 +2333,8 @@ href="https://inkscape.org/"
 those images and when I needed to use it again, for the sake of this blog, it was terrifying to see how much one can
 forget what one has learned. ಠ_ಠ&lt;/p>
 &lt;h3 id="platforms-long-forgotten" >
+&lt;a href="#platforms-long-forgotten" aria-label="Anchor">#&lt;/a>
 Platforms long forgotten
-&lt;a class="ms-2 text-reset" href="#platforms-long-forgotten" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h3>
 &lt;p>There were many more projects which aimed to create my personal space on the web, but only these mentioned above are
 still remembered by me enough to write a few sentences about.&lt;/p>
@@ -2466,10 +2350,8 @@ href="https://gohugo.io/"
 I was aware that tools like Hugo existed, but I&amp;rsquo;ve never considered using them. I cannot really explain as to why; maybe
 I was trying too hard to use a new fancy tool I&amp;rsquo;ve just learned about.&lt;/p>
 &lt;h2 id="the-goal-and-future-of-this-project" >
+&lt;a href="#the-goal-and-future-of-this-project" aria-label="Anchor">#&lt;/a>
 The goal and future of this project
-&lt;a class="ms-2 text-reset" href="#the-goal-and-future-of-this-project" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>The goal of this project is to create an archive for stuff I&amp;rsquo;m going to learn. It&amp;rsquo;s still unclear as to what I&amp;rsquo;m going
 to post on this blog, but it&amp;rsquo;s safe to say that it&amp;rsquo;s going to be techy.&lt;/p>

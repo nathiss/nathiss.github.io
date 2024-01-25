@@ -30,10 +30,8 @@ subdomain.&lt;/p>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-15">&lt;a class="lnlinks" href="#hl-0-15">15&lt;/a>&lt;/span>&lt;span class="cl">&amp;lt;/html&amp;gt;
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Let&amp;rsquo;s take a closer look and see how it&amp;rsquo;s done.&lt;/p>
 &lt;h2 id="setting-up-custom-domain-for-github-pages" >
+&lt;a href="#setting-up-custom-domain-for-github-pages" aria-label="Anchor">#&lt;/a>
 Setting up custom domain for GitHub Pages
-&lt;a class="ms-2 text-reset" href="#setting-up-custom-domain-for-github-pages" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>GitHub Pages supports custom domains with very little config; you, as the owner, only need to set up these DNS
 records:&lt;/p>
@@ -130,10 +128,8 @@ for details.&lt;/p>
 &lt;/p>
 &lt;/div>
 &lt;h2 id="using-domains-as-aliases" >
+&lt;a href="#using-domains-as-aliases" aria-label="Anchor">#&lt;/a>
 Using domains as aliases
-&lt;a class="ms-2 text-reset" href="#using-domains-as-aliases" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>Recently I came up with an idea to configure subdomains, that will redirect to a few tools I&amp;rsquo;d like to make accessible
 online. For example &lt;code>calendar.madebyme.today&lt;/code> could be a redirect to my GCalendar.&lt;/p>
@@ -155,10 +151,8 @@ href="http://nginx.org/en/docs/http/ngx_http_core_module.html#server_name"
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>However, that&amp;rsquo;s not the case and, as far as I know, GitHub does not provide any way of setting up HTTP redirects for
 GitHub Pages.&lt;/p>
 &lt;h3 id="redir-301" >
+&lt;a href="#redir-301" aria-label="Anchor">#&lt;/a>
 Redir 301
-&lt;a class="ms-2 text-reset" href="#redir-301" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h3>
 &lt;p>&lt;a
 href="https://redir301.link/"
@@ -245,10 +239,8 @@ class="hide-external"
 >https://redir301.link/&lt;/a>
 for details.&lt;/p>
 &lt;h3 id="redirecting-with-github-pages" >
+&lt;a href="#redirecting-with-github-pages" aria-label="Anchor">#&lt;/a>
 Redirecting with GitHub Pages
-&lt;a class="ms-2 text-reset" href="#redirecting-with-github-pages" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h3>
 &lt;p>The HTTP Location header isn&amp;rsquo;t the only way of redirecting to a URL. Another method is to use JavaScript, and the
 simplest way to achieve this is:&lt;/p>
@@ -360,10 +352,8 @@ alt="GitHub Pages configuration with custom domain and enforced HTTPS"loading="l
 &lt;p>If a browser respects the meta refresh tag, then it works. When it doesn&amp;rsquo;t, the user has an option to manually click on
 the &amp;ldquo;Redirect&amp;rdquo; link.&lt;/p>
 &lt;h2 id="conclusion" >
+&lt;a href="#conclusion" aria-label="Anchor">#&lt;/a>
 Conclusion
-&lt;a class="ms-2 text-reset" href="#conclusion" aria-label="Anchor">
-&lt;i class="bi bi-link-45deg" aria-hidden="true">&lt;/i>
-&lt;/a>
 &lt;/h2>
 &lt;p>Redirects via GitHub Pages is not an ideal solution. Having to use meta&amp;rsquo;s &lt;code>http-equiv=&amp;quot;refresh&amp;quot;&lt;/code>, instead of the proper
 301 Moved Permanently makes me sad. Having said that, personally, I&amp;rsquo;d prefer to use GitHub Pages, as the backing
