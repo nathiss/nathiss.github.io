@@ -443,7 +443,7 @@ href="https://github.com/python/cpython/blob/v3.12.0/Objects/dictobject.c#L2988"
 &lt;p>Whereas doing &lt;code>{}&lt;/code> causes Python to:&lt;/p>
 &lt;ul>
 &lt;li>construct a new &lt;strong>pre-allocated&lt;/strong> dictionary,&lt;/li>
-&lt;li>inserts entries one-by-one.&lt;/li>
+&lt;li>insert entries one-by-one.&lt;/li>
 &lt;/ul>
 &lt;p>To be fair, unless you construct dictionaries in a loop, I don&amp;rsquo;t believe there&amp;rsquo;s a lot to gain performance-wise by
 switching from &lt;code>dict&lt;/code> to &lt;code>{}&lt;/code>. There&amp;rsquo;s one thing I&amp;rsquo;d like you to remember after reading this post:&lt;/p>
