@@ -85,7 +85,7 @@ about these loss functions, is that they return absolute values &amp;ndash; it d
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-3">&lt;a class="lnlinks" href="#hl-1-3">3&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">scorer&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">calculate_fitness&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">first_image&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">second_image&lt;/span>&lt;span class="p">),&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-4">&lt;a class="lnlinks" href="#hl-1-4">4&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">scorer&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">calculate_fitness&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">second_image&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">first_image&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-5">&lt;a class="lnlinks" href="#hl-1-5">5&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- Custom anchor adds a dash between "absolute" and "distance" -->
 &lt;h3 id="implementation-of-l1-absolute-distance" >
 &lt;a href="#implementation-of-l1-absolute-distance" aria-label="Anchor">#&lt;/a>
 Implementation of L1: AbsoluteDistance
@@ -120,7 +120,7 @@ produce the score. Actually, we can do both by using Iterator&amp;rsquo;s &lt;co
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-26">&lt;a class="lnlinks" href="#hl-2-26">26&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">fold&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="k">usize&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">fold_pixels&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-27">&lt;a class="lnlinks" href="#hl-2-27">27&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-28">&lt;a class="lnlinks" href="#hl-2-28">28&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- Custom anchor adds a dash between "square" and "distance" -->
 &lt;h3 id="implementation-of-l1-square-distance" >
 &lt;a href="#implementation-of-l1-square-distance" aria-label="Anchor">#&lt;/a>
 Implementation of L2: SquareDistance
@@ -174,7 +174,7 @@ alt="Mona Lisa (generation #10 000)" class="img-thumbnail"loading="lazy"
 the algorithm works and it produces acceptable results.&lt;/p>
 &lt;p>Next, we&amp;rsquo;ll implement the crossing function and we&amp;rsquo;ll see how much it improves algorithm&amp;rsquo;s efficiency &amp;ndash; defined as the
 derivative of specimen score with respect to generation number.&lt;/p>
-&lt;!-- raw HTML omitted -->
+&lt;!-- markdownlint-disable line-length -->
 &lt;figure class="img-thumbnail">&lt;img src="./fernando-venzano-ddVYvmwrvV4-unsplash.webp"
 alt="On the Origin of Species" class="img-thumbnail"loading="lazy"
 />&lt;figcaption>
@@ -185,8 +185,8 @@ href="https://unsplash.com/photos/ddVYvmwrvV4?utm_source=unsplash&amp;amp;utm_me
 >Unsplash&lt;/a>&lt;/p>
 &lt;/figcaption>
 &lt;/figure>
-&lt;!-- raw HTML omitted -->
-&lt;!-- raw HTML omitted -->
+&lt;!-- markdownlint-enable line-length -->
+&lt;!-- Footnotes -->
 &lt;div class="footnotes" role="doc-endnotes">
 &lt;hr>
 &lt;ol>
@@ -421,7 +421,7 @@ href="https://github.com/nathiss/franklin/tree/73aa8dada3e8c3cae9aff5e2463778526
 commit at the moment of writing &amp;ndash; 73aa8da)&lt;/em>. The goal of this series is not to go through every single line of code to
 build a working utility, but rather to present an idea. So, moving forward all future articles from this series will
 also be done in that style.&lt;/p>
-&lt;!-- raw HTML omitted -->
+&lt;!-- markdownlint-disable line-length -->
 &lt;figure class="img-thumbnail">&lt;img src="./alexander-grey-2eAkk5lIkC8-unsplash.webp"
 alt="Randomness of Life" class="img-thumbnail"loading="lazy"
 />&lt;figcaption>
@@ -432,9 +432,9 @@ href="https://unsplash.com/photos/2eAkk5lIkC8?utm_source=unsplash&amp;amp;utm_me
 >Unsplash&lt;/a>&lt;/p>
 &lt;/figcaption>
 &lt;/figure>
-&lt;!-- raw HTML omitted -->
+&lt;!-- markdownlint-enable line-length -->
 &lt;p>Stay tuned &amp;#x1f30a;&lt;/p>
-&lt;!-- raw HTML omitted -->
+&lt;!-- Footnotes -->
 &lt;div class="footnotes" role="doc-endnotes">
 &lt;hr>
 &lt;ol>
@@ -535,14 +535,14 @@ href="https://www.google.com/search?q=generating&amp;#43;images&amp;#43;with&amp
 you&amp;rsquo;d find that most projects on the subject use geometric shapes when applying mutation. Simple onces, like
 &lt;strong>circles&lt;/strong>, &lt;strong>rectangles&lt;/strong>, and &lt;strong>triangles&lt;/strong> are a good choice. From these it&amp;rsquo;s rectangles, that can be the most
 easily represented in code. Having said that let&amp;rsquo;s see how a single specimen might change over a few first iterations.&lt;/p>
-&lt;!-- raw HTML omitted -->
+&lt;!-- markdownlint-disable line-length -->
 &lt;figure>&lt;img src="./mutation-diagram.webp"
 alt="Mutation diagram"loading="lazy"
 />&lt;figcaption>
 &lt;p>An exemplar of a 6-generation mutation process. Starting with generation 0 - no mutation applied, till generation 5 - five mutations applied.&lt;/p>
 &lt;/figcaption>
 &lt;/figure>
-&lt;!-- raw HTML omitted -->
+&lt;!-- markdownlint-enable line-length -->
 &lt;p>Each of the rectangles on that picture represents a random mutation applied onto the image, meaning that all information
 needed to unambiguously identify a rectangle (width, height, coordinates of one of the corners, and its color) have been
 randomly generated.&lt;/p>
@@ -622,8 +622,8 @@ up soon-ish)&lt;/em> we&amp;rsquo;ll turn those ideas into &lt;a
 href="https://www.rust-lang.org/"
 >Rust&lt;/a> code and after that we&amp;rsquo;ll finally make art
 that makes itself.&lt;/p>
-&lt;!-- raw HTML omitted -->
-&lt;!-- raw HTML omitted -->
+&lt;!-- Image source: https://unsplash.com/photos/M3cxjDNiLlQ -->
+&lt;!-- markdownlint-disable line-length -->
 &lt;figure class="img-thumbnail">&lt;img src="./brett-jordan-M3cxjDNiLlQ-unsplash.webp"
 alt="Order and Chaos" class="img-thumbnail"loading="lazy"
 />&lt;figcaption>
@@ -634,10 +634,10 @@ href="https://unsplash.com/photos/M3cxjDNiLlQ?utm_source=unsplash&amp;amp;utm_me
 >Unsplash&lt;/a>&lt;/p>
 &lt;/figcaption>
 &lt;/figure>
-&lt;!-- raw HTML omitted -->
+&lt;!-- markdownlint-enable line-length -->
 &lt;p>See you around!&lt;/p>
 &lt;p>&amp;#x1f30a;&lt;/p>
-&lt;!-- raw HTML omitted -->
+&lt;!-- Footnotes -->
 &lt;div class="footnotes" role="doc-endnotes">
 &lt;hr>
 &lt;ol>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>meta on MadeByMe</title><link>https://madebyme.today/tags/meta/</link><description>Recent content in meta on MadeByMe</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright 2023-2024, Kamil Rusin</copyright><lastBuildDate>Sat, 25 Feb 2023 20:14:43 +0100</lastBuildDate><atom:link href="https://madebyme.today/tags/meta/index.xml" rel="self" type="application/rss+xml"/><item><title>Beginnings Are Hard</title><link>https://madebyme.today/blog/beginnings-are-hard/</link><pubDate>Sat, 25 Feb 2023 20:14:43 +0100</pubDate><guid>https://madebyme.today/blog/beginnings-are-hard/</guid><category>meta</category><category>Polaris</category><description>&lt;p>Well it took some time (almost 6 years) to create a personal blog, but here we are.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Meta on MadeByMe</title><link>https://madebyme.today/tags/meta/</link><description>Recent content in Meta on MadeByMe</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright 2023-2024, Kamil Rusin</copyright><lastBuildDate>Sat, 25 Feb 2023 20:14:43 +0100</lastBuildDate><atom:link href="https://madebyme.today/tags/meta/index.xml" rel="self" type="application/rss+xml"/><item><title>Beginnings Are Hard</title><link>https://madebyme.today/blog/beginnings-are-hard/</link><pubDate>Sat, 25 Feb 2023 20:14:43 +0100</pubDate><guid>https://madebyme.today/blog/beginnings-are-hard/</guid><category>meta</category><category>Polaris</category><description>&lt;p>Well it took some time (almost 6 years) to create a personal blog, but here we are.&lt;/p>
 &lt;h2 id="how-did-we-come-here" >
 &lt;a href="#how-did-we-come-here" aria-label="Anchor">#&lt;/a>
 How did we come here?
@@ -112,14 +112,14 @@ tools for a new website. My knowledge of &lt;a
 href="https://nodejs.org/en/"
 >NodeJS&lt;/a> and utilities built on top of it was
 practically nonexistent. That changed once I&amp;rsquo;ve written Polaris; now I&amp;rsquo;m just new to this stuff.&lt;/p>
-&lt;!-- raw HTML omitted -->
+&lt;!-- markdownlint-disable no-bare-urls -->
 &lt;figure class="img-thumbnail">&lt;a href="https://madebyme.today/Polaris/" class="hide-external" target="_blank">&lt;img src="./steam-on-the-horizon-small.webp"
 alt="Steam on the horizon" class="img-thumbnail"loading="lazy"
 />&lt;/a>&lt;figcaption>
 &lt;h4>Steam on the horizon&lt;/h4>
 &lt;/figcaption>
 &lt;/figure>
-&lt;!-- raw HTML omitted -->
+&lt;!-- markdownlint-enable no-bare-urls -->
 &lt;p>I don&amp;rsquo;t have much more to say here other that, it was a while when I&amp;rsquo;ve used &lt;a
 href="https://inkscape.org/"
 >Inkscape&lt;/a> to create

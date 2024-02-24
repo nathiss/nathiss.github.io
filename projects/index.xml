@@ -33,14 +33,14 @@ href="https://github.com/nathiss/Fusion-cpp"
 &lt;p>And now I&amp;rsquo;m working on another. :thumbs_up:&lt;/p>
 &lt;p>This time, improvements over the previous one are creating implementation that depend on traits and organizing TODOs to
 a single GitHub project.&lt;/p>
-&lt;!-- raw HTML omitted -->
+&lt;!-- markdownlint-disable no-bare-urls -->
 &lt;figure>&lt;a href="https://xkcd.com/1906/" class="hide-external" target="_blank">&lt;img src="https://imgs.xkcd.com/comics/making_progress.png"
 alt="xkcd: Making Progress"loading="lazy"
 />&lt;/a>&lt;figcaption>
 &lt;h4>Making Progress&lt;/h4>&lt;p>xkcd #1906&lt;/p>
 &lt;/figcaption>
 &lt;/figure>
-&lt;!-- raw HTML omitted -->
+&lt;!-- markdownlint-enable no-bare-urls -->
 &lt;h2 id="cancellable-crate" >
 &lt;a href="#cancellable-crate" aria-label="Anchor">#&lt;/a>
 Cancellable crate

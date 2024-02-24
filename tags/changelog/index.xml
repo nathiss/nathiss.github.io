@@ -226,7 +226,7 @@ you&amp;rsquo;ll find changelogs more manageable. This feature does not enforce 
 will only need to do so, when they want to release a new version of the package.&lt;/p>
 &lt;p>I &lt;em>highly&lt;/em> encourage to always release a new version even for the smallest change in the project sources that is
 observable for the users. Whether it&amp;rsquo;s worth to add changelog entries for project&amp;rsquo;s meta updates, is up to you.&lt;/p>
-&lt;!-- raw HTML omitted -->
+&lt;!-- markdownlint-disable line-length -->
 &lt;figure class="img-thumbnail">&lt;img src="./jasper-garratt-esc26JcEdek-unsplash.webp"
 alt="Log" class="img-thumbnail"loading="lazy"
 />&lt;figcaption>
@@ -237,4 +237,4 @@ href="https://unsplash.com/photos/green-moss-on-brown-tree-trunk-esc26JcEdek?utm
 >Unsplash&lt;/a>&lt;/p>
 &lt;/figcaption>
 &lt;/figure>
-&lt;!-- raw HTML omitted --></description></item></channel></rss>
+&lt;!-- markdownlint-enable line-length --></description></item></channel></rss>

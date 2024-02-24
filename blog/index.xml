@@ -107,14 +107,14 @@ href="https://docs.python.org/3.12/library/dis.html#opcode-RETURN_VALUE"
 >&lt;code>RETURN_VALUE&lt;/code>&lt;/a> &amp;mdash; returns with the last element from the stack to the caller.&lt;/li>
 &lt;/ol>
 &lt;p>Compiling &lt;code>return {}&lt;/code> yields one more opcode:&lt;/p>
-&lt;!-- raw HTML omitted -->
+&lt;!-- markdownlint-disable ol-prefix -->
 &lt;ol start="5">
 &lt;li>&lt;a
 href="https://docs.python.org/3.12/library/dis.html#opcode-BUILD_MAP"
 >&lt;code>BUILD_MAP&lt;/code>&lt;/a> &amp;mdash; pushes a new dictionary object onto the stack. Pops &lt;code>2 * count&lt;/code> items so that the dictionary holds
 count entries.&lt;/li>
 &lt;/ol>
-&lt;!-- raw HTML omitted -->
+&lt;!-- markdownlint-enable ol-prefix -->
 &lt;p>Already we have a few obvious differences between the two cases. The &lt;code>{}&lt;/code> expression builds a dictionary directly, while
 &lt;code>dict()&lt;/code> delegates that to a callable object. Before that can even happen it first needs to load the global value
 (&lt;code>dict&lt;/code>) onto the stack &amp;mdash; it actually does that every single time we call that function.&lt;/p>
@@ -225,7 +225,7 @@ Note
 &lt;p>The &lt;code>dict_new&lt;/code> function is defined here: &lt;a
 href="https://github.com/python/cpython/blob/v3.12.0/Objects/dictobject.c#L3751"
 >dictobject.c#L3751&lt;/a>.&lt;/p>
-&lt;!-- raw HTML omitted -->
+&lt;!-- markdownlint-disable fenced-code-language -->
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="line">&lt;span class="ln" id="hl-7-1">&lt;a class="lnlinks" href="#hl-7-1"> 1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="k">static&lt;/span> &lt;span class="n">PyObject&lt;/span> &lt;span class="o">*&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-7-2">&lt;a class="lnlinks" href="#hl-7-2"> 2&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="nf">dict_new&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">PyTypeObject&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="n">type&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">PyObject&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">args&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">PyObject&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="n">kwds&lt;/span>&lt;span class="p">)&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-7-3">&lt;a class="lnlinks" href="#hl-7-3"> 3&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="p">{&lt;/span>
@@ -252,7 +252,7 @@ href="https://github.com/python/cpython/blob/v3.12.0/Objects/dictobject.c#L3751"
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-7-24">&lt;a class="lnlinks" href="#hl-7-24">24&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="c1">&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-7-25">&lt;a class="lnlinks" href="#hl-7-25">25&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">self&lt;/span>&lt;span class="p">;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-7-26">&lt;a class="lnlinks" href="#hl-7-26">26&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="p">}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- markdownlint-enable fenced-code-language -->
 &lt;p>We see that first, it allocates a new object via the provided allocator (9&lt;sup>th&lt;/sup> line) and then sets
 some of its internal fields (15&lt;sup>th&lt;/sup>, 19&lt;sup>th&lt;/sup>, and 20&lt;sup>th&lt;/sup>).
 Interestingly for us, it &lt;strong>does not&lt;/strong> pre-allocate the dictionary&amp;rsquo;s internal memory (see marked lines). It might seems
@@ -262,7 +262,7 @@ responsibility of the &lt;code>__new__&lt;/code> method, that what the &lt;code>
 the &lt;code>dict_update_common&lt;/code> function, which can be found here: &lt;a
 href="https://github.com/python/cpython/blob/v3.12.0/Objects/dictobject.c#L2678"
 >dictobject.c#L2678&lt;/a>.&lt;/p>
-&lt;!-- raw HTML omitted -->
+&lt;!-- markdownlint-disable fenced-code-language -->
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="line">&lt;span class="ln" id="hl-8-1">&lt;a class="lnlinks" href="#hl-8-1"> 1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="k">static&lt;/span> &lt;span class="kt">int&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-8-2">&lt;a class="lnlinks" href="#hl-8-2"> 2&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="nf">dict_update_common&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">PyObject&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">self&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">PyObject&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">args&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">PyObject&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">kwds&lt;/span>&lt;span class="p">,&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-8-3">&lt;a class="lnlinks" href="#hl-8-3"> 3&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="k">const&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">methname&lt;/span>&lt;span class="p">)&lt;/span>
@@ -285,7 +285,7 @@ href="https://github.com/python/cpython/blob/v3.12.0/Objects/dictobject.c#L2678"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-8-20">&lt;a class="lnlinks" href="#hl-8-20">20&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="p">}&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-8-21">&lt;a class="lnlinks" href="#hl-8-21">21&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">result&lt;/span>&lt;span class="p">;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-8-22">&lt;a class="lnlinks" href="#hl-8-22">22&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="p">}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- markdownlint-enable fenced-code-language -->
 &lt;p>It updates the dictionary from both args and kwargs.&lt;/p>
 &lt;h5 id="args--dict_update_arg" >
 &lt;a href="#args--dict_update_arg" aria-label="Anchor">#&lt;/a>
@@ -382,7 +382,7 @@ href="https://github.com/python/cpython/blob/v3.12.0/Python/bytecodes.c#L1541"
 &lt;p>We see that the dictionary is fully constructed and returned by &lt;a
 href="https://github.com/python/cpython/blob/v3.12.0/Objects/dictobject.c#L1616"
 >&lt;code>_PyDict_FromItems&lt;/code>&lt;/a>. Let&amp;rsquo;s go there.&lt;/p>
-&lt;!-- raw HTML omitted -->
+&lt;!-- markdownlint-disable fenced-code-language -->
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="line">&lt;span class="ln" id="hl-12-1">&lt;a class="lnlinks" href="#hl-12-1"> 1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="n">PyObject&lt;/span> &lt;span class="o">*&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-12-2">&lt;a class="lnlinks" href="#hl-12-2"> 2&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="nf">_PyDict_FromItems&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">PyObject&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="k">const&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">keys&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Py_ssize_t&lt;/span> &lt;span class="n">keys_offset&lt;/span>&lt;span class="p">,&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-12-3">&lt;a class="lnlinks" href="#hl-12-3"> 3&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="n">PyObject&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="k">const&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">values&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Py_ssize_t&lt;/span> &lt;span class="n">values_offset&lt;/span>&lt;span class="p">,&lt;/span>
@@ -421,7 +421,7 @@ href="https://github.com/python/cpython/blob/v3.12.0/Objects/dictobject.c#L1616"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-12-36">&lt;a class="lnlinks" href="#hl-12-36">36&lt;/a>&lt;/span>&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-12-37">&lt;a class="lnlinks" href="#hl-12-37">37&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">dict&lt;/span>&lt;span class="p">;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-12-38">&lt;a class="lnlinks" href="#hl-12-38">38&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="p">}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- markdownlint-enable fenced-code-language -->
 &lt;p>I&amp;rsquo;ve marked the most interesting line: in opposition to &lt;code>dict_new&lt;/code>, it &lt;strong>pre-allocates&lt;/strong> the dictionary, so it already
 has a capacity for all of its entries. After that it inserts key-value pairs one-by-one.&lt;/p>
 &lt;h2 id="conclusions" >
@@ -1287,7 +1287,7 @@ you&amp;rsquo;ll find changelogs more manageable. This feature does not enforce 
 will only need to do so, when they want to release a new version of the package.&lt;/p>
 &lt;p>I &lt;em>highly&lt;/em> encourage to always release a new version even for the smallest change in the project sources that is
 observable for the users. Whether it&amp;rsquo;s worth to add changelog entries for project&amp;rsquo;s meta updates, is up to you.&lt;/p>
-&lt;!-- raw HTML omitted -->
+&lt;!-- markdownlint-disable line-length -->
 &lt;figure class="img-thumbnail">&lt;img src="./jasper-garratt-esc26JcEdek-unsplash.webp"
 alt="Log" class="img-thumbnail"loading="lazy"
 />&lt;figcaption>
@@ -1298,7 +1298,7 @@ href="https://unsplash.com/photos/green-moss-on-brown-tree-trunk-esc26JcEdek?utm
 >Unsplash&lt;/a>&lt;/p>
 &lt;/figcaption>
 &lt;/figure>
-&lt;!-- raw HTML omitted --></description></item><item><title>How to: Security Keys</title><link>https://madebyme.today/blog/how-to-security-keys/</link><pubDate>Wed, 29 Mar 2023 20:25:35 +0200</pubDate><guid>https://madebyme.today/blog/how-to-security-keys/</guid><category>how-to</category><category>yubikey</category><description>&lt;p>Today I was &lt;em>again&lt;/em> setting up OpenPGP application on a new
+&lt;!-- markdownlint-enable line-length --></description></item><item><title>How to: Security Keys</title><link>https://madebyme.today/blog/how-to-security-keys/</link><pubDate>Wed, 29 Mar 2023 20:25:35 +0200</pubDate><guid>https://madebyme.today/blog/how-to-security-keys/</guid><category>how-to</category><category>yubikey</category><description>&lt;p>Today I was &lt;em>again&lt;/em> setting up OpenPGP application on a new
 &lt;a
 href="https://www.yubico.com/products/yubikey-5-overview/"
 >Yubikey&lt;/a>. After over two years I already forgot how &lt;em>tedious&lt;/em> that
@@ -1508,14 +1508,14 @@ tools for a new website. My knowledge of &lt;a
 href="https://nodejs.org/en/"
 >NodeJS&lt;/a> and utilities built on top of it was
 practically nonexistent. That changed once I&amp;rsquo;ve written Polaris; now I&amp;rsquo;m just new to this stuff.&lt;/p>
-&lt;!-- raw HTML omitted -->
+&lt;!-- markdownlint-disable no-bare-urls -->
 &lt;figure class="img-thumbnail">&lt;a href="https://madebyme.today/Polaris/" class="hide-external" target="_blank">&lt;img src="./steam-on-the-horizon-small.webp"
 alt="Steam on the horizon" class="img-thumbnail"loading="lazy"
 />&lt;/a>&lt;figcaption>
 &lt;h4>Steam on the horizon&lt;/h4>
 &lt;/figcaption>
 &lt;/figure>
-&lt;!-- raw HTML omitted -->
+&lt;!-- markdownlint-enable no-bare-urls -->
 &lt;p>I don&amp;rsquo;t have much more to say here other that, it was a while when I&amp;rsquo;ve used &lt;a
 href="https://inkscape.org/"
 >Inkscape&lt;/a> to create

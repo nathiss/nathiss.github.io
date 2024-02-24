@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MadeByMe</title><link>https://madebyme.today/</link><description>Recent content on MadeByMe</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright 2023-2024, Kamil Rusin</copyright><lastBuildDate>Mon, 22 Jan 2024 19:34:37 +0100</lastBuildDate><atom:link href="https://madebyme.today/index.xml" rel="self" type="application/rss+xml"/><item><title>Performance Analysis of Python's `dict()` and `{}`</title><link>https://madebyme.today/blog/python-dict-vs-curly-brackets/</link><pubDate>Mon, 22 Jan 2024 19:34:37 +0100</pubDate><guid>https://madebyme.today/blog/python-dict-vs-curly-brackets/</guid><category>Python</category><category>CPython</category><category>dictionaries</category><description>&lt;p>Some time ago, during a code review, I had a discussion with a colleague of mine about preferring &lt;code>dict()&lt;/code> over &lt;code>{}&lt;/code> in
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MadeByMe</title><link>https://madebyme.today/</link><description>Recent content on MadeByMe</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright 2023-2024, Kamil Rusin</copyright><lastBuildDate>Wed, 14 Feb 2024 18:37:17 +0100</lastBuildDate><atom:link href="https://madebyme.today/index.xml" rel="self" type="application/rss+xml"/><item><title>Performance Analysis of Python's `dict()` and `{}`</title><link>https://madebyme.today/blog/python-dict-vs-curly-brackets/</link><pubDate>Mon, 22 Jan 2024 19:34:37 +0100</pubDate><guid>https://madebyme.today/blog/python-dict-vs-curly-brackets/</guid><category>Python</category><category>CPython</category><category>dictionaries</category><description>&lt;p>Some time ago, during a code review, I had a discussion with a colleague of mine about preferring &lt;code>dict()&lt;/code> over &lt;code>{}&lt;/code> in
 new Python code. They argued that &lt;code>dict()&lt;/code> is more readable &amp;mdash; and expresses intent more clearly &amp;mdash; therefore should
 be preferred. I wasn&amp;rsquo;t convinced by that, but at that time I didn&amp;rsquo;t have any counterarguments, so I passed.&lt;/p>
 &lt;p>Yet that made me wonder: what&amp;rsquo;s the difference between the &lt;code>dict&lt;/code> type and &lt;code>{}&lt;/code> literal expression?&lt;/p>
@@ -107,14 +107,14 @@ href="https://docs.python.org/3.12/library/dis.html#opcode-RETURN_VALUE"
 >&lt;code>RETURN_VALUE&lt;/code>&lt;/a> &amp;mdash; returns with the last element from the stack to the caller.&lt;/li>
 &lt;/ol>
 &lt;p>Compiling &lt;code>return {}&lt;/code> yields one more opcode:&lt;/p>
-&lt;!-- raw HTML omitted -->
+&lt;!-- markdownlint-disable ol-prefix -->
 &lt;ol start="5">
 &lt;li>&lt;a
 href="https://docs.python.org/3.12/library/dis.html#opcode-BUILD_MAP"
 >&lt;code>BUILD_MAP&lt;/code>&lt;/a> &amp;mdash; pushes a new dictionary object onto the stack. Pops &lt;code>2 * count&lt;/code> items so that the dictionary holds
 count entries.&lt;/li>
 &lt;/ol>
-&lt;!-- raw HTML omitted -->
+&lt;!-- markdownlint-enable ol-prefix -->
 &lt;p>Already we have a few obvious differences between the two cases. The &lt;code>{}&lt;/code> expression builds a dictionary directly, while
 &lt;code>dict()&lt;/code> delegates that to a callable object. Before that can even happen it first needs to load the global value
 (&lt;code>dict&lt;/code>) onto the stack &amp;mdash; it actually does that every single time we call that function.&lt;/p>
@@ -225,7 +225,7 @@ Note
 &lt;p>The &lt;code>dict_new&lt;/code> function is defined here: &lt;a
 href="https://github.com/python/cpython/blob/v3.12.0/Objects/dictobject.c#L3751"
 >dictobject.c#L3751&lt;/a>.&lt;/p>
-&lt;!-- raw HTML omitted -->
+&lt;!-- markdownlint-disable fenced-code-language -->
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="line">&lt;span class="ln" id="hl-7-1">&lt;a class="lnlinks" href="#hl-7-1"> 1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="k">static&lt;/span> &lt;span class="n">PyObject&lt;/span> &lt;span class="o">*&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-7-2">&lt;a class="lnlinks" href="#hl-7-2"> 2&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="nf">dict_new&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">PyTypeObject&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="n">type&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">PyObject&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">args&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">PyObject&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="n">kwds&lt;/span>&lt;span class="p">)&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-7-3">&lt;a class="lnlinks" href="#hl-7-3"> 3&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="p">{&lt;/span>
@@ -252,7 +252,7 @@ href="https://github.com/python/cpython/blob/v3.12.0/Objects/dictobject.c#L3751"
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-7-24">&lt;a class="lnlinks" href="#hl-7-24">24&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="c1">&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-7-25">&lt;a class="lnlinks" href="#hl-7-25">25&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">self&lt;/span>&lt;span class="p">;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-7-26">&lt;a class="lnlinks" href="#hl-7-26">26&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="p">}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- markdownlint-enable fenced-code-language -->
 &lt;p>We see that first, it allocates a new object via the provided allocator (9&lt;sup>th&lt;/sup> line) and then sets
 some of its internal fields (15&lt;sup>th&lt;/sup>, 19&lt;sup>th&lt;/sup>, and 20&lt;sup>th&lt;/sup>).
 Interestingly for us, it &lt;strong>does not&lt;/strong> pre-allocate the dictionary&amp;rsquo;s internal memory (see marked lines). It might seems
@@ -262,7 +262,7 @@ responsibility of the &lt;code>__new__&lt;/code> method, that what the &lt;code>
 the &lt;code>dict_update_common&lt;/code> function, which can be found here: &lt;a
 href="https://github.com/python/cpython/blob/v3.12.0/Objects/dictobject.c#L2678"
 >dictobject.c#L2678&lt;/a>.&lt;/p>
-&lt;!-- raw HTML omitted -->
+&lt;!-- markdownlint-disable fenced-code-language -->
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="line">&lt;span class="ln" id="hl-8-1">&lt;a class="lnlinks" href="#hl-8-1"> 1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="k">static&lt;/span> &lt;span class="kt">int&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-8-2">&lt;a class="lnlinks" href="#hl-8-2"> 2&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="nf">dict_update_common&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">PyObject&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">self&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">PyObject&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">args&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">PyObject&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">kwds&lt;/span>&lt;span class="p">,&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-8-3">&lt;a class="lnlinks" href="#hl-8-3"> 3&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="k">const&lt;/span> &lt;span class="kt">char&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">methname&lt;/span>&lt;span class="p">)&lt;/span>
@@ -285,7 +285,7 @@ href="https://github.com/python/cpython/blob/v3.12.0/Objects/dictobject.c#L2678"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-8-20">&lt;a class="lnlinks" href="#hl-8-20">20&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="p">}&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-8-21">&lt;a class="lnlinks" href="#hl-8-21">21&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">result&lt;/span>&lt;span class="p">;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-8-22">&lt;a class="lnlinks" href="#hl-8-22">22&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="p">}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- markdownlint-enable fenced-code-language -->
 &lt;p>It updates the dictionary from both args and kwargs.&lt;/p>
 &lt;h5 id="args--dict_update_arg" >
 &lt;a href="#args--dict_update_arg" aria-label="Anchor">#&lt;/a>
@@ -382,7 +382,7 @@ href="https://github.com/python/cpython/blob/v3.12.0/Python/bytecodes.c#L1541"
 &lt;p>We see that the dictionary is fully constructed and returned by &lt;a
 href="https://github.com/python/cpython/blob/v3.12.0/Objects/dictobject.c#L1616"
 >&lt;code>_PyDict_FromItems&lt;/code>&lt;/a>. Let&amp;rsquo;s go there.&lt;/p>
-&lt;!-- raw HTML omitted -->
+&lt;!-- markdownlint-disable fenced-code-language -->
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="line">&lt;span class="ln" id="hl-12-1">&lt;a class="lnlinks" href="#hl-12-1"> 1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="n">PyObject&lt;/span> &lt;span class="o">*&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-12-2">&lt;a class="lnlinks" href="#hl-12-2"> 2&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="nf">_PyDict_FromItems&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">PyObject&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="k">const&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">keys&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Py_ssize_t&lt;/span> &lt;span class="n">keys_offset&lt;/span>&lt;span class="p">,&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-12-3">&lt;a class="lnlinks" href="#hl-12-3"> 3&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="n">PyObject&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="k">const&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">values&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Py_ssize_t&lt;/span> &lt;span class="n">values_offset&lt;/span>&lt;span class="p">,&lt;/span>
@@ -421,7 +421,7 @@ href="https://github.com/python/cpython/blob/v3.12.0/Objects/dictobject.c#L1616"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-12-36">&lt;a class="lnlinks" href="#hl-12-36">36&lt;/a>&lt;/span>&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-12-37">&lt;a class="lnlinks" href="#hl-12-37">37&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">dict&lt;/span>&lt;span class="p">;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-12-38">&lt;a class="lnlinks" href="#hl-12-38">38&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="p">}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- markdownlint-enable fenced-code-language -->
 &lt;p>I&amp;rsquo;ve marked the most interesting line: in opposition to &lt;code>dict_new&lt;/code>, it &lt;strong>pre-allocates&lt;/strong> the dictionary, so it already
 has a capacity for all of its entries. After that it inserts key-value pairs one-by-one.&lt;/p>
 &lt;h2 id="conclusions" >
@@ -1287,7 +1287,7 @@ you&amp;rsquo;ll find changelogs more manageable. This feature does not enforce 
 will only need to do so, when they want to release a new version of the package.&lt;/p>
 &lt;p>I &lt;em>highly&lt;/em> encourage to always release a new version even for the smallest change in the project sources that is
 observable for the users. Whether it&amp;rsquo;s worth to add changelog entries for project&amp;rsquo;s meta updates, is up to you.&lt;/p>
-&lt;!-- raw HTML omitted -->
+&lt;!-- markdownlint-disable line-length -->
 &lt;figure class="img-thumbnail">&lt;img src="./jasper-garratt-esc26JcEdek-unsplash.webp"
 alt="Log" class="img-thumbnail"loading="lazy"
 />&lt;figcaption>
@@ -1298,7 +1298,7 @@ href="https://unsplash.com/photos/green-moss-on-brown-tree-trunk-esc26JcEdek?utm
 >Unsplash&lt;/a>&lt;/p>
 &lt;/figcaption>
 &lt;/figure>
-&lt;!-- raw HTML omitted --></description></item><item><title>Cancellable</title><link>https://madebyme.today/projects/cancellable/</link><pubDate>Wed, 26 Jul 2023 09:08:18 +0200</pubDate><guid>https://madebyme.today/projects/cancellable/</guid><category>Rust</category><category>Crates</category><category>Open Source</category><description>&lt;p>Recently I&amp;rsquo;m investing a lot of time into developing a game server in &lt;a
+&lt;!-- markdownlint-enable line-length --></description></item><item><title>Cancellable</title><link>https://madebyme.today/projects/cancellable/</link><pubDate>Wed, 26 Jul 2023 09:08:18 +0200</pubDate><guid>https://madebyme.today/projects/cancellable/</guid><category>Rust</category><category>Crates</category><category>Open Source</category><description>&lt;p>Recently I&amp;rsquo;m investing a lot of time into developing a game server in &lt;a
 href="https://www.rust-lang.org/"
 >Rust&lt;/a>. I started with
 implementing network layer based on &lt;a
@@ -1333,14 +1333,14 @@ href="https://github.com/nathiss/Fusion-cpp"
 &lt;p>And now I&amp;rsquo;m working on another. :thumbs_up:&lt;/p>
 &lt;p>This time, improvements over the previous one are creating implementation that depend on traits and organizing TODOs to
 a single GitHub project.&lt;/p>
-&lt;!-- raw HTML omitted -->
+&lt;!-- markdownlint-disable no-bare-urls -->
 &lt;figure>&lt;a href="https://xkcd.com/1906/" class="hide-external" target="_blank">&lt;img src="https://imgs.xkcd.com/comics/making_progress.png"
 alt="xkcd: Making Progress"loading="lazy"
 />&lt;/a>&lt;figcaption>
 &lt;h4>Making Progress&lt;/h4>&lt;p>xkcd #1906&lt;/p>
 &lt;/figcaption>
 &lt;/figure>
-&lt;!-- raw HTML omitted -->
+&lt;!-- markdownlint-enable no-bare-urls -->
 &lt;h2 id="cancellable-crate" >
 &lt;a href="#cancellable-crate" aria-label="Anchor">#&lt;/a>
 Cancellable crate
@@ -1546,7 +1546,7 @@ about these loss functions, is that they return absolute values &amp;ndash; it d
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-3">&lt;a class="lnlinks" href="#hl-1-3">3&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">scorer&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">calculate_fitness&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">first_image&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">second_image&lt;/span>&lt;span class="p">),&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-4">&lt;a class="lnlinks" href="#hl-1-4">4&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">scorer&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">calculate_fitness&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">second_image&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">first_image&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-5">&lt;a class="lnlinks" href="#hl-1-5">5&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- Custom anchor adds a dash between "absolute" and "distance" -->
 &lt;h3 id="implementation-of-l1-absolute-distance" >
 &lt;a href="#implementation-of-l1-absolute-distance" aria-label="Anchor">#&lt;/a>
 Implementation of L1: AbsoluteDistance
@@ -1581,7 +1581,7 @@ produce the score. Actually, we can do both by using Iterator&amp;rsquo;s &lt;co
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-26">&lt;a class="lnlinks" href="#hl-2-26">26&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">fold&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="k">usize&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">fold_pixels&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-27">&lt;a class="lnlinks" href="#hl-2-27">27&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-28">&lt;a class="lnlinks" href="#hl-2-28">28&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- Custom anchor adds a dash between "square" and "distance" -->
 &lt;h3 id="implementation-of-l1-square-distance" >
 &lt;a href="#implementation-of-l1-square-distance" aria-label="Anchor">#&lt;/a>
 Implementation of L2: SquareDistance
@@ -1635,7 +1635,7 @@ alt="Mona Lisa (generation #10 000)" class="img-thumbnail"loading="lazy"
 the algorithm works and it produces acceptable results.&lt;/p>
 &lt;p>Next, we&amp;rsquo;ll implement the crossing function and we&amp;rsquo;ll see how much it improves algorithm&amp;rsquo;s efficiency &amp;ndash; defined as the
 derivative of specimen score with respect to generation number.&lt;/p>
-&lt;!-- raw HTML omitted -->
+&lt;!-- markdownlint-disable line-length -->
 &lt;figure class="img-thumbnail">&lt;img src="./fernando-venzano-ddVYvmwrvV4-unsplash.webp"
 alt="On the Origin of Species" class="img-thumbnail"loading="lazy"
 />&lt;figcaption>
@@ -1646,8 +1646,8 @@ href="https://unsplash.com/photos/ddVYvmwrvV4?utm_source=unsplash&amp;amp;utm_me
 >Unsplash&lt;/a>&lt;/p>
 &lt;/figcaption>
 &lt;/figure>
-&lt;!-- raw HTML omitted -->
-&lt;!-- raw HTML omitted -->
+&lt;!-- markdownlint-enable line-length -->
+&lt;!-- Footnotes -->
 &lt;div class="footnotes" role="doc-endnotes">
 &lt;hr>
 &lt;ol>
@@ -1978,7 +1978,7 @@ href="https://github.com/nathiss/franklin/tree/73aa8dada3e8c3cae9aff5e2463778526
 commit at the moment of writing &amp;ndash; 73aa8da)&lt;/em>. The goal of this series is not to go through every single line of code to
 build a working utility, but rather to present an idea. So, moving forward all future articles from this series will
 also be done in that style.&lt;/p>
-&lt;!-- raw HTML omitted -->
+&lt;!-- markdownlint-disable line-length -->
 &lt;figure class="img-thumbnail">&lt;img src="./alexander-grey-2eAkk5lIkC8-unsplash.webp"
 alt="Randomness of Life" class="img-thumbnail"loading="lazy"
 />&lt;figcaption>
@@ -1989,9 +1989,9 @@ href="https://unsplash.com/photos/2eAkk5lIkC8?utm_source=unsplash&amp;amp;utm_me
 >Unsplash&lt;/a>&lt;/p>
 &lt;/figcaption>
 &lt;/figure>
-&lt;!-- raw HTML omitted -->
+&lt;!-- markdownlint-enable line-length -->
 &lt;p>Stay tuned &amp;#x1f30a;&lt;/p>
-&lt;!-- raw HTML omitted -->
+&lt;!-- Footnotes -->
 &lt;div class="footnotes" role="doc-endnotes">
 &lt;hr>
 &lt;ol>
@@ -2092,14 +2092,14 @@ href="https://www.google.com/search?q=generating&amp;#43;images&amp;#43;with&amp
 you&amp;rsquo;d find that most projects on the subject use geometric shapes when applying mutation. Simple onces, like
 &lt;strong>circles&lt;/strong>, &lt;strong>rectangles&lt;/strong>, and &lt;strong>triangles&lt;/strong> are a good choice. From these it&amp;rsquo;s rectangles, that can be the most
 easily represented in code. Having said that let&amp;rsquo;s see how a single specimen might change over a few first iterations.&lt;/p>
-&lt;!-- raw HTML omitted -->
+&lt;!-- markdownlint-disable line-length -->
 &lt;figure>&lt;img src="./mutation-diagram.webp"
 alt="Mutation diagram"loading="lazy"
 />&lt;figcaption>
 &lt;p>An exemplar of a 6-generation mutation process. Starting with generation 0 - no mutation applied, till generation 5 - five mutations applied.&lt;/p>
 &lt;/figcaption>
 &lt;/figure>
-&lt;!-- raw HTML omitted -->
+&lt;!-- markdownlint-enable line-length -->
 &lt;p>Each of the rectangles on that picture represents a random mutation applied onto the image, meaning that all information
 needed to unambiguously identify a rectangle (width, height, coordinates of one of the corners, and its color) have been
 randomly generated.&lt;/p>
@@ -2179,8 +2179,8 @@ up soon-ish)&lt;/em> we&amp;rsquo;ll turn those ideas into &lt;a
 href="https://www.rust-lang.org/"
 >Rust&lt;/a> code and after that we&amp;rsquo;ll finally make art
 that makes itself.&lt;/p>
-&lt;!-- raw HTML omitted -->
-&lt;!-- raw HTML omitted -->
+&lt;!-- Image source: https://unsplash.com/photos/M3cxjDNiLlQ -->
+&lt;!-- markdownlint-disable line-length -->
 &lt;figure class="img-thumbnail">&lt;img src="./brett-jordan-M3cxjDNiLlQ-unsplash.webp"
 alt="Order and Chaos" class="img-thumbnail"loading="lazy"
 />&lt;figcaption>
@@ -2191,10 +2191,10 @@ href="https://unsplash.com/photos/M3cxjDNiLlQ?utm_source=unsplash&amp;amp;utm_me
 >Unsplash&lt;/a>&lt;/p>
 &lt;/figcaption>
 &lt;/figure>
-&lt;!-- raw HTML omitted -->
+&lt;!-- markdownlint-enable line-length -->
 &lt;p>See you around!&lt;/p>
 &lt;p>&amp;#x1f30a;&lt;/p>
-&lt;!-- raw HTML omitted -->
+&lt;!-- Footnotes -->
 &lt;div class="footnotes" role="doc-endnotes">
 &lt;hr>
 &lt;ol>
@@ -2319,14 +2319,14 @@ tools for a new website. My knowledge of &lt;a
 href="https://nodejs.org/en/"
 >NodeJS&lt;/a> and utilities built on top of it was
 practically nonexistent. That changed once I&amp;rsquo;ve written Polaris; now I&amp;rsquo;m just new to this stuff.&lt;/p>
-&lt;!-- raw HTML omitted -->
+&lt;!-- markdownlint-disable no-bare-urls -->
 &lt;figure class="img-thumbnail">&lt;a href="https://madebyme.today/Polaris/" class="hide-external" target="_blank">&lt;img src="./steam-on-the-horizon-small.webp"
 alt="Steam on the horizon" class="img-thumbnail"loading="lazy"
 />&lt;/a>&lt;figcaption>
 &lt;h4>Steam on the horizon&lt;/h4>
 &lt;/figcaption>
 &lt;/figure>
-&lt;!-- raw HTML omitted -->
+&lt;!-- markdownlint-enable no-bare-urls -->
 &lt;p>I don&amp;rsquo;t have much more to say here other that, it was a while when I&amp;rsquo;ve used &lt;a
 href="https://inkscape.org/"
 >Inkscape&lt;/a> to create
