@@ -1,0 +1,31 @@
+<svg id="slices-with-same-points" overflow="visible" viewBox="-1 -1 2 2" xmlns="http://www.w3.org/2000/svg">
+    <style>
+        #slices-with-same-points text {
+            font-size: 0.2px;
+            font-family: var(--bs-font-monospace);
+            fill: var(--bs-body-color);
+            display: inline-block;
+        }
+
+        #slices-with-same-points circle {
+            fill: var(--bs-body-color);
+        }
+    </style>
+
+    <path d="M 0,0 L 0,-1 A 1,1,0,0,1,1,0 z" fill="IndianRed" stroke="black" stroke-width="0.01" />
+    <path d="M 0,0 L 1,0 A 1,1,0,0,1,0,1 z" fill="LightCoral" stroke="black" stroke-width="0.01" />
+    <path d="M 0,0 L 0,1 A 1,1,0,0,1,-1,0 z" fill="Salmon" stroke="black" stroke-width="0.01" />
+    <path d="M 0,0 L -1,0 A 1,1,0,0,1,0,-1 z" fill="DarkSalmon" stroke="black" stroke-width="0.01" />
+
+    <circle cx="0.70710678118" cy="-0.70710678118" r="0.03" />
+    <text x="0.70710678118" y="-0.70710678118" text-anchor="start" dominant-baseline="text-top">(a, -a)</text>
+
+    <circle cx="0.70710678118" cy="0.70710678118" r="0.03" />
+    <text x="0.70710678118" y="0.70710678118" text-anchor="start" dominant-baseline="hanging">(a, a)</text>
+
+    <circle cx="-0.70710678118" cy="-0.70710678118" r="0.03" />
+    <text x="-0.70710678118" y="-0.70710678118" text-anchor="end" dominant-baseline="text-top">(-a, -a)</text>
+
+    <circle cx="-0.70710678118" cy="0.70710678118" r="0.03" />
+    <text x="-0.70710678118" y="0.70710678118" text-anchor="end" dominant-baseline="hanging">(-a, a)</text>
+</svg>

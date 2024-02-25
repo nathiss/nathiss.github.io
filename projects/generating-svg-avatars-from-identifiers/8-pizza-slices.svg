@@ -1,0 +1,10 @@
+<svg overflow="visible" viewBox="-1 -1 2 2" xmlns="http://www.w3.org/2000/svg">
+    <path d="M 0,0 L 0,-1 A 1,1,0,0,1,0.70710677,-0.70710677 z" fill="IndianRed" stroke="black" stroke-width="0.01" />
+    <path d="M 0,0 L 0.70710677,-0.70710677 A 1,1,0,0,1,1,0 z" fill="LightCoral" stroke="black" stroke-width="0.01" />
+    <path d="M 0,0 L 1,0 A 1,1,0,0,1,0.70710677,0.70710677 z" fill="Salmon" stroke="black" stroke-width="0.01" />
+    <path d="M 0,0 L 0.70710677,0.70710677 A 1,1,0,0,1,0,1 z" fill="DarkSalmon" stroke="black" stroke-width="0.01" />
+    <path d="M 0,0 L 0,1 A 1,1,0,0,1,-0.70710677,0.70710677 z" fill="LightSalmon" stroke="black" stroke-width="0.01" />
+    <path d="M 0,0 L -0.70710677,0.70710677 A 1,1,0,0,1,-1,0 z" fill="Coral" stroke="black" stroke-width="0.01" />
+    <path d="M 0,0 L -1,0 A 1,1,0,0,1,-0.70710677,-0.70710677 z" fill="Tomato" stroke="black" stroke-width="0.01" />
+    <path d="M 0,0 L -0.70710677,-0.70710677 A 1,1,0,0,1,0,-1 z" fill="OrangeRed" stroke="black" stroke-width="0.01" />
+</svg>

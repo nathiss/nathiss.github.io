@@ -1,0 +1,44 @@
+<svg overflow="visible" viewBox="-1 -1 2 2" xmlns="http://www.w3.org/2000/svg">
+    <path d="M 0,0 L 0,-1 A 1,1,0,0,1,0.70710677,-0.70710677 z" fill="IndianRed" stroke="black" stroke-width="0.01" />
+    <path d="M 0,0 L 0.70710677,-0.70710677 A 1,1,0,0,1,1,0 z" fill="LightCoral" stroke="black" stroke-width="0.01" />
+    <path d="M 0,0 L 1,0 A 1,1,0,0,1,0.70710677,0.70710677 z" fill="Salmon" stroke="black" stroke-width="0.01" />
+    <path d="M 0,0 L 0.70710677,0.70710677 A 1,1,0,0,1,0,1 z" fill="DarkSalmon" stroke="black" stroke-width="0.01" />
+    <path d="M 0,0 L 0,1 A 1,1,0,0,1,-0.70710677,0.70710677 z" fill="LightSalmon" stroke="black" stroke-width="0.01" />
+    <path d="M 0,0 L -0.70710677,0.70710677 A 1,1,0,0,1,-1,0 z" fill="Coral" stroke="black" stroke-width="0.01" />
+    <path d="M 0,0 L -1,0 A 1,1,0,0,1,-0.70710677,-0.70710677 z" fill="Tomato" stroke="black" stroke-width="0.01" />
+    <path d="M 0,0 L -0.70710677,-0.70710677 A 1,1,0,0,1,0,-1 z" fill="OrangeRed" stroke="black" stroke-width="0.01" />
+
+    <path d="M0,0 L0,-0.6666667 A0.6666667,0.6666667,0,0,1,0.47140452,-0.47140452 z" fill="LightYellow" stroke="black"
+        stroke-width="0.01" />
+    <path d="M0,0 L0.47140452,-0.47140452 A0.6666667,0.6666667,0,0,1,0.6666667,0 z" fill="LemonChiffon" stroke="black"
+        stroke-width="0.01" />
+    <path d="M0,0 L0.6666667,0 A0.6666667,0.6666667,0,0,1,0.47140452,0.47140452 z" fill="LightGoldenrodYellow"
+        stroke="black" stroke-width="0.01" />
+    <path d="M0,0 L0.47140452,0.47140452 A0.6666667,0.6666667,0,0,1,0,0.6666667 z" fill="PapayaWhip" stroke="black"
+        stroke-width="0.01" />
+    <path d="M0,0 L0,0.6666667 A0.6666667,0.6666667,0,0,1,-0.47140452,0.47140452 z" fill="Moccasin" stroke="black"
+        stroke-width="0.01" />
+    <path d="M0,0 L-0.47140452,0.47140452 A0.6666667,0.6666667,0,0,1,-0.6666667,0 z" fill="PeachPuff" stroke="black"
+        stroke-width="0.01" />
+    <path d="M0,0 L-0.6666667,0 A0.6666667,0.6666667,0,0,1,-0.47140452,-0.47140452 z" fill="PaleGoldenrod"
+        stroke="black" stroke-width="0.01" />
+    <path d="M0,0 L-0.47140452,-0.47140452 A0.6666667,0.6666667,0,0,1,-0,-0.6666667 z" fill="Khaki" stroke="black"
+        stroke-width="0.01" />
+
+    <path d="M0,0 L0,-0.33333334 A0.33333334,0.33333334,0,0,1,0.23570226,-0.23570226 z" fill="MediumSeaGreen"
+        stroke="black" stroke-width="0.01" />
+    <path d="M0,0 L0.23570226,-0.23570226 A0.33333334,0.33333334,0,0,1,0.33333334,0 z" fill="SeaGreen" stroke="black"
+        stroke-width="0.01" />
+    <path d="M0,0 L0.33333334,0 A0.33333334,0.33333334,0,0,1,0.23570226,0.23570226 z" fill="ForestGreen" stroke="black"
+        stroke-width="0.01" />
+    <path d="M0,0 L0.23570226,0.23570226 A0.33333334,0.33333334,0,0,1,0,0.33333334 z" fill="Green" stroke="black"
+        stroke-width="0.01" />
+    <path d="M0,0 L0,0.33333334 A0.33333334,0.33333334,0,0,1,-0.23570226,0.23570226 z" fill="DarkGreen" stroke="black"
+        stroke-width="0.01" />
+    <path d="M0,0 L-0.23570226,0.23570226 A0.33333334,0.33333334,0,0,1,-0.33333334,0 z" fill="YellowGreen"
+        stroke="black" stroke-width="0.01" />
+    <path d="M0,0 L-0.33333334,0 A0.33333334,0.33333334,0,0,1,-0.23570226,-0.23570226 z" fill="OliveDrab" stroke="black"
+        stroke-width="0.01" />
+    <path d="M0,0 L-0.23570226,-0.23570226 A0.33333334,0.33333334,0,0,1,-0,-0.33333334 z" fill="Olive" stroke="black"
+        stroke-width="0.01" />
+</svg>
