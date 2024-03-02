@@ -113,20 +113,15 @@ href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-gith
 and &lt;a
 href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site"
 >Managing a custom domain for your GitHub Pages site&lt;/a>.&lt;/p>
-&lt;div class="alert alert-info">
-&lt;h6 class="alert-heading">
-&lt;i class="bi bi-pencil me-2" aria-hidden="true">&lt;/i>
-Note
-&lt;/h6>
-&lt;p class="my-3">
-&lt;p>Optionally, you may want to verify your domain for GitHub Pages; it prevents other users from taking over your
+&lt;div class="alert alert-info">&lt;h6 class="alert-heading">
+&lt;i class="bi bi-pencil me-2" aria-hidden="true">&lt;/i>Note&lt;/h6>
+&lt;p class="my-3">&lt;p>Optionally, you may want to verify your domain for GitHub Pages; it prevents other users from taking over your
 domain. It can happen when your GitHub Pages site gets disabled one way or another.&lt;/p>
 &lt;p>See &lt;a
 href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages"
 >Verifying your custom domain for GitHub Pages&lt;/a>
 for details.&lt;/p>
-&lt;/p>
-&lt;/div>
+&lt;/p>&lt;/div>
 &lt;h2 id="using-domains-as-aliases" >
 &lt;a href="#using-domains-as-aliases" aria-label="Anchor">#&lt;/a>
 Using domains as aliases
@@ -189,13 +184,9 @@ DNS records in order to work:&lt;/p>
 href="https://messwithdns.net/"
 >mess with dns&lt;/a> for
 this experiment.&lt;/p>
-&lt;div class="alert alert-primary">
-&lt;h6 class="alert-heading">
-&lt;i class="bi bi-fire me-2" aria-hidden="true">&lt;/i>
-Tip
-&lt;/h6>
-&lt;p class="my-3">
-If you&amp;rsquo;re planning on changing your DNS records and are unsure about the changes, then I&amp;rsquo;d suggest to do so first via
+&lt;div class="alert alert-primary">&lt;h6 class="alert-heading">
+&lt;i class="bi bi-fire me-2" aria-hidden="true">&lt;/i>Tip&lt;/h6>
+&lt;p class="my-3">If you&amp;rsquo;re planning on changing your DNS records and are unsure about the changes, then I&amp;rsquo;d suggest to do so first via
 &lt;a
 href="https://messwithdns.net/"
 >mess with dns&lt;/a>, a tool by &lt;a
@@ -204,9 +195,7 @@ href="https://jvns.ca/"
 &lt;a
 href="https://marieflanagan.com/"
 >Marie Claire LeBlanc Flanagan&lt;/a>. It&amp;rsquo;s a service for performing experiments with DNS. Anyone
-can set up their DNS records and test with them for free.
-&lt;/p>
-&lt;/div>
+can set up their DNS records and test with them for free.&lt;/p>&lt;/div>
 &lt;p>By following the guide we&amp;rsquo;ve got:&lt;/p>
 &lt;figure>&lt;a href="./mess_with_dns.png" class="hide-external" >&lt;img src="./mess_with_dns.png"
 alt="mess with dns configuration for Redir 301"loading="lazy"

@@ -8,37 +8,26 @@ generate &amp;mdash; or allow you to generate &amp;mdash; a custom avatar (i.e. 
 href="https://en.wikipedia.org/wiki/Identicon"
 >Identicons&lt;/a>) for your account. Avatar auto-generation
 is especially neat, as it does not require any engagement from the user. Let&amp;rsquo;s try to figure that out on our own.&lt;/p>
-&lt;div class="alert alert-info">
-&lt;h6 class="alert-heading">
-&lt;i class="bi bi-globe-europe-africa me-2" aria-hidden="true">&lt;/i>
-Standing on the shoulders of giants
-&lt;/h6>
-&lt;p class="my-3">
-This blog post has been inspired by &lt;a
+&lt;div class="alert alert-info">&lt;h6 class="alert-heading">
+&lt;i class="bi bi-globe-europe-africa me-2" aria-hidden="true">&lt;/i>Standing on the shoulders of giants&lt;/h6>
+&lt;p class="my-3">This blog post has been inspired by &lt;a
 href="https://francoisbest.com/posts/2021/hashvatars"
 >Representing SHA-256 Hashes As Avatars&lt;/a> by &lt;a
 href="https://francoisbest.com/"
 >François Best&lt;/a>. I&amp;rsquo;m re-creating ideas
 presented by François in their article &amp;mdash; with slight modifications &amp;mdash; in &lt;a
 href="https://madebyme.today/tags/rust/"
->Rust&lt;/a>.
-&lt;/p>
-&lt;/div>
+>Rust&lt;/a>.&lt;/p>&lt;/div>
 &lt;p>I think this blog post is one of those things which are easier to understand if you&amp;rsquo;d see the end result first. So, for
 those interested here&amp;rsquo;s a spoiler.&lt;/p>
-&lt;div class="alert alert-spoiler">
-&lt;input id="callout-spoiler-1709398734517120546"
-class="collapsible-toggle"
-type="checkbox"
-/>
-&lt;label for="callout-spoiler-1709398734517120546" class="collapsible-label-toggle alert-heading">
-Spoiler!
-&lt;/label>
+&lt;div class="alert alert-spoiler">&lt;input id="callout-spoiler-1709412377364668291" class="collapsible-toggle" type="checkbox"/>
+&lt;label for="callout-spoiler-1709412377364668291" class="collapsible-label-toggle alert-heading">
+Spoiler!&lt;/label>
 &lt;div class="collapsible-content">
 &lt;div class="collapsible-content-inner">
-&lt;p>This is the end result:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1709398734516152736">
-#figure-svg-1709398734516152736 + svg {
+&lt;p class="my-3">&lt;p>This is the end result:&lt;/p>
+&lt;figure>&lt;style id="figure-svg-1709412377363964693">
+#figure-svg-1709412377363964693 + svg {
 width: 180px;
 height: 180px;
 }
@@ -111,9 +100,9 @@ href="https://en.wikipedia.org/wiki/SHA-2"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-5">&lt;a class="lnlinks" href="#hl-0-5">5&lt;/a>&lt;/span>&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-6">&lt;a class="lnlinks" href="#hl-0-6">6&lt;/a>&lt;/span>&lt;span class="cl">Base64(SHA256(&amp;#34;Foo&amp;#34;)) == LCa0a2j/xo/5m0U8HTBBNBNCLXBkg7+g+YpeiGJm564=
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The rest of this blog post focuses on translating the byte array into an avatar that looks &lt;em>nice&lt;/em>.&lt;/p>
+&lt;/p>
 &lt;/div>
-&lt;/div>
-&lt;/div>
+&lt;/div>&lt;/div>
 &lt;h2 id="svg-scaffolding" >
 &lt;a href="#svg-scaffolding" aria-label="Anchor">#&lt;/a>
 SVG scaffolding
@@ -177,8 +166,8 @@ point.&lt;/li>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-5">&lt;a class="lnlinks" href="#hl-1-5">5&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="nt">&amp;lt;path&lt;/span> &lt;span class="na">d=&lt;/span>&lt;span class="s">&amp;#34;M 0,0 L -1,0 A 1,1,0,0,1,0,-1 z&amp;#34;&lt;/span> &lt;span class="na">fill=&lt;/span>&lt;span class="s">&amp;#34;DarkSalmon&amp;#34;&lt;/span> &lt;span class="na">stroke=&lt;/span>&lt;span class="s">&amp;#34;black&amp;#34;&lt;/span> &lt;span class="na">stroke-width=&lt;/span>&lt;span class="s">&amp;#34;0.01&amp;#34;&lt;/span> &lt;span class="nt">/&amp;gt;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-6">&lt;a class="lnlinks" href="#hl-1-6">6&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="nt">&amp;lt;/svg&amp;gt;&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>It renders to:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1709398734517257947">
-#figure-svg-1709398734517257947 + svg {
+&lt;figure>&lt;style id="figure-svg-1709412377364825490">
+#figure-svg-1709412377364825490 + svg {
 width: 180px;
 height: 180px;
 }
@@ -192,16 +181,10 @@ height: 180px;
 &lt;p>$$
 r_1 = 1
 $$&lt;/p>
-&lt;div class="alert alert-info">
-&lt;h6 class="alert-heading">
-&lt;i class="bi bi-pencil me-2" aria-hidden="true">&lt;/i>
-Note
-&lt;/h6>
-&lt;p class="my-3">
-I added &lt;code>overflow=&amp;quot;visible&amp;quot;&lt;/code> to the SVG tag, because &amp;mdash; with a non-zero stroke &amp;mdash; the image is &lt;em>slightly&lt;/em> bigger than
-its &lt;code>viewBox&lt;/code> and the stroke lines get cut off at $(-1, 0)$, $(1, 0)$, $(0, 1)$, and $(-1, 0)$.
-&lt;/p>
-&lt;/div>
+&lt;div class="alert alert-info">&lt;h6 class="alert-heading">
+&lt;i class="bi bi-pencil me-2" aria-hidden="true">&lt;/i>Note&lt;/h6>
+&lt;p class="my-3">I added &lt;code>overflow=&amp;quot;visible&amp;quot;&lt;/code> to the SVG tag, because &amp;mdash; with a non-zero stroke &amp;mdash; the image is &lt;em>slightly&lt;/em> bigger than
+its &lt;code>viewBox&lt;/code> and the stroke lines get cut off at $(-1, 0)$, $(1, 0)$, $(0, 1)$, and $(-1, 0)$.&lt;/p>&lt;/div>
 &lt;p>We can see an interesting patter here: coordinates of the &lt;a
 href="https://www.w3.org/TR/SVG2/paths.html#PathDataLinetoCommands"
 >&lt;strong>&amp;ldquo;lineto&amp;rdquo;&lt;/strong>&lt;/a> command are the same, as the
@@ -210,8 +193,8 @@ href="https://www.w3.org/TR/SVG2/paths.html#PathDataEllipticalArcCommands"
 >elliptical arc curve&lt;/a> command of the &lt;em>previous&lt;/em> element.&lt;/p>
 &lt;p>&lt;em>Ok, but how to divide these slices into halves?&lt;/em> &amp;mdash; you may ask.&lt;/p>
 &lt;p>To do that we need to find the points in the middle of the arcs.&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1709398734517556250">
-#figure-svg-1709398734517556250 + svg {
+&lt;figure>&lt;style id="figure-svg-1709412377365193289">
+#figure-svg-1709412377365193289 + svg {
 width: 180px;
 height: 180px;
 }
@@ -246,8 +229,8 @@ r_1 = 1
 $$&lt;/p>
 &lt;p>Fortunately &amp;mdash; since the circle&amp;rsquo;s middle point is $(0, 0)$ and the arc points are in the middle of their arcs &amp;mdash; we
 know that the absolute value of their coordinates is the same. So, our diagram simplifies to:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1709398734517828452">
-#figure-svg-1709398734517828452 + svg {
+&lt;figure>&lt;style id="figure-svg-1709412377365360989">
+#figure-svg-1709412377365360989 + svg {
 width: 180px;
 height: 180px;
 }
@@ -292,8 +275,8 @@ a &amp;amp;= \sqrt{\frac{1}{2}}
 \end{aligned}
 $$&lt;/p>
 &lt;p>By adding four more pizza slices we get:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1709398734518114555">
-#figure-svg-1709398734518114555 + svg {
+&lt;figure>&lt;style id="figure-svg-1709412377365540988">
+#figure-svg-1709412377365540988 + svg {
 width: 180px;
 height: 180px;
 }
@@ -320,8 +303,8 @@ obvious ways of selecting division points: equal radii, or equal areas. Equal ra
 first.&lt;/p>
 &lt;p>If the outermost circle has a radius of $1$, then the middle circle will have a radius of $0.\overline{6}$, and the
 smallest one will have $0.\overline{3}$.&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1709398734518400658">
-#figure-svg-1709398734518400658 + svg {
+&lt;figure>&lt;style id="figure-svg-1709412377365707888">
+#figure-svg-1709412377365707888 + svg {
 width: 180px;
 height: 180px;
 }
@@ -397,8 +380,8 @@ r_2 = \sqrt{\frac{2}{3}}
 \end{aligned}
 $$&lt;/p>
 &lt;p>Which gives us this avatar:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1709398734518610860">
-#figure-svg-1709398734518610860 + svg {
+&lt;figure>&lt;style id="figure-svg-1709412377366189286">
+#figure-svg-1709412377366189286 + svg {
 width: 180px;
 height: 180px;
 }
@@ -456,8 +439,8 @@ $$&lt;/p>
 href="https://en.wikipedia.org/wiki/Arithmetic_mean"
 >middle
 ground&lt;/a> with which I&amp;rsquo;m happy.&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1709398734518768861">
-#figure-svg-1709398734518768861 + svg {
+&lt;figure>&lt;style id="figure-svg-1709412377366355686">
+#figure-svg-1709412377366355686 + svg {
 width: 180px;
 height: 180px;
 }
@@ -547,8 +530,8 @@ href="https://www.w3.org/TR/SVG2/painting.html#SpecifyingPaint"
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-14">&lt;a class="lnlinks" href="#hl-2-14">14&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="fm">format!&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;hsl(&lt;/span>&lt;span class="si">{h}&lt;/span>&lt;span class="s">, &lt;/span>&lt;span class="si">{s}&lt;/span>&lt;span class="s">%, &lt;/span>&lt;span class="si">{l}&lt;/span>&lt;span class="s">%)&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-15">&lt;a class="lnlinks" href="#hl-2-15">15&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Alright, let&amp;rsquo;s generate an avatar for &lt;code>&amp;quot;foo&amp;quot;&lt;/code> and see how it looks like.&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1709398734519112465">
-#figure-svg-1709398734519112465 + svg {
+&lt;figure>&lt;style id="figure-svg-1709412377366647285">
+#figure-svg-1709412377366647285 + svg {
 width: 180px;
 height: 180px;
 }
@@ -646,8 +629,8 @@ colors come from that theme. We can do that by folding all hash bytes into a sin
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-31">&lt;a class="lnlinks" href="#hl-3-31">31&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="fm">unimplemented!&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Generate SVG paths.&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-32">&lt;a class="lnlinks" href="#hl-3-32">32&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This code renders:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1709398734519328367">
-#figure-svg-1709398734519328367 + svg {
+&lt;figure>&lt;style id="figure-svg-1709412377366854184">
+#figure-svg-1709412377366854184 + svg {
 width: 180px;
 height: 180px;
 }
@@ -751,8 +734,8 @@ would be a XOR-fold of all bytes that represent a single ring &amp;mdash; and ch
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-4-38">&lt;a class="lnlinks" href="#hl-4-38">38&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="fm">unimplemented!&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Generate SVG paths.&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-4-39">&lt;a class="lnlinks" href="#hl-4-39">39&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>With the final touch we get:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1709398734519585869">
-#figure-svg-1709398734519585869 + svg {
+&lt;figure>&lt;style id="figure-svg-1709412377367039884">
+#figure-svg-1709412377367039884 + svg {
 width: 180px;
 height: 180px;
 }
@@ -832,8 +815,8 @@ href="https://www.w3.org/TR/SVG2/paths.html#PathDataEllipticalArcCommands"
 &lt;code>sweep-flag&lt;/code> parameter. It allows you to determine, whether an arc should be a smiley face or a sad face. If the
 parameter is &lt;code>1&lt;/code> &amp;mdash; as it is in our case &amp;mdash; then the arc is a sad face. However, if you&amp;rsquo;d flip the flags to be &lt;code>0&lt;/code>,
 then all arcs become smiley faces&amp;hellip;&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1709398734519840472">
-#figure-svg-1709398734519840472 + svg {
+&lt;figure>&lt;style id="figure-svg-1709412377367211283">
+#figure-svg-1709412377367211283 + svg {
 width: 180px;
 height: 180px;
 }

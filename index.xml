@@ -8,37 +8,26 @@ generate &amp;mdash; or allow you to generate &amp;mdash; a custom avatar (i.e. 
 href="https://en.wikipedia.org/wiki/Identicon"
 >Identicons&lt;/a>) for your account. Avatar auto-generation
 is especially neat, as it does not require any engagement from the user. Let&amp;rsquo;s try to figure that out on our own.&lt;/p>
-&lt;div class="alert alert-info">
-&lt;h6 class="alert-heading">
-&lt;i class="bi bi-globe-europe-africa me-2" aria-hidden="true">&lt;/i>
-Standing on the shoulders of giants
-&lt;/h6>
-&lt;p class="my-3">
-This blog post has been inspired by &lt;a
+&lt;div class="alert alert-info">&lt;h6 class="alert-heading">
+&lt;i class="bi bi-globe-europe-africa me-2" aria-hidden="true">&lt;/i>Standing on the shoulders of giants&lt;/h6>
+&lt;p class="my-3">This blog post has been inspired by &lt;a
 href="https://francoisbest.com/posts/2021/hashvatars"
 >Representing SHA-256 Hashes As Avatars&lt;/a> by &lt;a
 href="https://francoisbest.com/"
 >François Best&lt;/a>. I&amp;rsquo;m re-creating ideas
 presented by François in their article &amp;mdash; with slight modifications &amp;mdash; in &lt;a
 href="https://madebyme.today/tags/rust/"
->Rust&lt;/a>.
-&lt;/p>
-&lt;/div>
+>Rust&lt;/a>.&lt;/p>&lt;/div>
 &lt;p>I think this blog post is one of those things which are easier to understand if you&amp;rsquo;d see the end result first. So, for
 those interested here&amp;rsquo;s a spoiler.&lt;/p>
-&lt;div class="alert alert-spoiler">
-&lt;input id="callout-spoiler-1709398734517120546"
-class="collapsible-toggle"
-type="checkbox"
-/>
-&lt;label for="callout-spoiler-1709398734517120546" class="collapsible-label-toggle alert-heading">
-Spoiler!
-&lt;/label>
+&lt;div class="alert alert-spoiler">&lt;input id="callout-spoiler-1709412377364668291" class="collapsible-toggle" type="checkbox"/>
+&lt;label for="callout-spoiler-1709412377364668291" class="collapsible-label-toggle alert-heading">
+Spoiler!&lt;/label>
 &lt;div class="collapsible-content">
 &lt;div class="collapsible-content-inner">
-&lt;p>This is the end result:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1709398734516152736">
-#figure-svg-1709398734516152736 + svg {
+&lt;p class="my-3">&lt;p>This is the end result:&lt;/p>
+&lt;figure>&lt;style id="figure-svg-1709412377363964693">
+#figure-svg-1709412377363964693 + svg {
 width: 180px;
 height: 180px;
 }
@@ -111,9 +100,9 @@ href="https://en.wikipedia.org/wiki/SHA-2"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-5">&lt;a class="lnlinks" href="#hl-0-5">5&lt;/a>&lt;/span>&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-6">&lt;a class="lnlinks" href="#hl-0-6">6&lt;/a>&lt;/span>&lt;span class="cl">Base64(SHA256(&amp;#34;Foo&amp;#34;)) == LCa0a2j/xo/5m0U8HTBBNBNCLXBkg7+g+YpeiGJm564=
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The rest of this blog post focuses on translating the byte array into an avatar that looks &lt;em>nice&lt;/em>.&lt;/p>
+&lt;/p>
 &lt;/div>
-&lt;/div>
-&lt;/div>
+&lt;/div>&lt;/div>
 &lt;h2 id="svg-scaffolding" >
 &lt;a href="#svg-scaffolding" aria-label="Anchor">#&lt;/a>
 SVG scaffolding
@@ -177,8 +166,8 @@ point.&lt;/li>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-5">&lt;a class="lnlinks" href="#hl-1-5">5&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="nt">&amp;lt;path&lt;/span> &lt;span class="na">d=&lt;/span>&lt;span class="s">&amp;#34;M 0,0 L -1,0 A 1,1,0,0,1,0,-1 z&amp;#34;&lt;/span> &lt;span class="na">fill=&lt;/span>&lt;span class="s">&amp;#34;DarkSalmon&amp;#34;&lt;/span> &lt;span class="na">stroke=&lt;/span>&lt;span class="s">&amp;#34;black&amp;#34;&lt;/span> &lt;span class="na">stroke-width=&lt;/span>&lt;span class="s">&amp;#34;0.01&amp;#34;&lt;/span> &lt;span class="nt">/&amp;gt;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-6">&lt;a class="lnlinks" href="#hl-1-6">6&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="nt">&amp;lt;/svg&amp;gt;&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>It renders to:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1709398734517257947">
-#figure-svg-1709398734517257947 + svg {
+&lt;figure>&lt;style id="figure-svg-1709412377364825490">
+#figure-svg-1709412377364825490 + svg {
 width: 180px;
 height: 180px;
 }
@@ -192,16 +181,10 @@ height: 180px;
 &lt;p>$$
 r_1 = 1
 $$&lt;/p>
-&lt;div class="alert alert-info">
-&lt;h6 class="alert-heading">
-&lt;i class="bi bi-pencil me-2" aria-hidden="true">&lt;/i>
-Note
-&lt;/h6>
-&lt;p class="my-3">
-I added &lt;code>overflow=&amp;quot;visible&amp;quot;&lt;/code> to the SVG tag, because &amp;mdash; with a non-zero stroke &amp;mdash; the image is &lt;em>slightly&lt;/em> bigger than
-its &lt;code>viewBox&lt;/code> and the stroke lines get cut off at $(-1, 0)$, $(1, 0)$, $(0, 1)$, and $(-1, 0)$.
-&lt;/p>
-&lt;/div>
+&lt;div class="alert alert-info">&lt;h6 class="alert-heading">
+&lt;i class="bi bi-pencil me-2" aria-hidden="true">&lt;/i>Note&lt;/h6>
+&lt;p class="my-3">I added &lt;code>overflow=&amp;quot;visible&amp;quot;&lt;/code> to the SVG tag, because &amp;mdash; with a non-zero stroke &amp;mdash; the image is &lt;em>slightly&lt;/em> bigger than
+its &lt;code>viewBox&lt;/code> and the stroke lines get cut off at $(-1, 0)$, $(1, 0)$, $(0, 1)$, and $(-1, 0)$.&lt;/p>&lt;/div>
 &lt;p>We can see an interesting patter here: coordinates of the &lt;a
 href="https://www.w3.org/TR/SVG2/paths.html#PathDataLinetoCommands"
 >&lt;strong>&amp;ldquo;lineto&amp;rdquo;&lt;/strong>&lt;/a> command are the same, as the
@@ -210,8 +193,8 @@ href="https://www.w3.org/TR/SVG2/paths.html#PathDataEllipticalArcCommands"
 >elliptical arc curve&lt;/a> command of the &lt;em>previous&lt;/em> element.&lt;/p>
 &lt;p>&lt;em>Ok, but how to divide these slices into halves?&lt;/em> &amp;mdash; you may ask.&lt;/p>
 &lt;p>To do that we need to find the points in the middle of the arcs.&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1709398734517556250">
-#figure-svg-1709398734517556250 + svg {
+&lt;figure>&lt;style id="figure-svg-1709412377365193289">
+#figure-svg-1709412377365193289 + svg {
 width: 180px;
 height: 180px;
 }
@@ -246,8 +229,8 @@ r_1 = 1
 $$&lt;/p>
 &lt;p>Fortunately &amp;mdash; since the circle&amp;rsquo;s middle point is $(0, 0)$ and the arc points are in the middle of their arcs &amp;mdash; we
 know that the absolute value of their coordinates is the same. So, our diagram simplifies to:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1709398734517828452">
-#figure-svg-1709398734517828452 + svg {
+&lt;figure>&lt;style id="figure-svg-1709412377365360989">
+#figure-svg-1709412377365360989 + svg {
 width: 180px;
 height: 180px;
 }
@@ -292,8 +275,8 @@ a &amp;amp;= \sqrt{\frac{1}{2}}
 \end{aligned}
 $$&lt;/p>
 &lt;p>By adding four more pizza slices we get:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1709398734518114555">
-#figure-svg-1709398734518114555 + svg {
+&lt;figure>&lt;style id="figure-svg-1709412377365540988">
+#figure-svg-1709412377365540988 + svg {
 width: 180px;
 height: 180px;
 }
@@ -320,8 +303,8 @@ obvious ways of selecting division points: equal radii, or equal areas. Equal ra
 first.&lt;/p>
 &lt;p>If the outermost circle has a radius of $1$, then the middle circle will have a radius of $0.\overline{6}$, and the
 smallest one will have $0.\overline{3}$.&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1709398734518400658">
-#figure-svg-1709398734518400658 + svg {
+&lt;figure>&lt;style id="figure-svg-1709412377365707888">
+#figure-svg-1709412377365707888 + svg {
 width: 180px;
 height: 180px;
 }
@@ -397,8 +380,8 @@ r_2 = \sqrt{\frac{2}{3}}
 \end{aligned}
 $$&lt;/p>
 &lt;p>Which gives us this avatar:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1709398734518610860">
-#figure-svg-1709398734518610860 + svg {
+&lt;figure>&lt;style id="figure-svg-1709412377366189286">
+#figure-svg-1709412377366189286 + svg {
 width: 180px;
 height: 180px;
 }
@@ -456,8 +439,8 @@ $$&lt;/p>
 href="https://en.wikipedia.org/wiki/Arithmetic_mean"
 >middle
 ground&lt;/a> with which I&amp;rsquo;m happy.&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1709398734518768861">
-#figure-svg-1709398734518768861 + svg {
+&lt;figure>&lt;style id="figure-svg-1709412377366355686">
+#figure-svg-1709412377366355686 + svg {
 width: 180px;
 height: 180px;
 }
@@ -547,8 +530,8 @@ href="https://www.w3.org/TR/SVG2/painting.html#SpecifyingPaint"
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-14">&lt;a class="lnlinks" href="#hl-2-14">14&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="fm">format!&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;hsl(&lt;/span>&lt;span class="si">{h}&lt;/span>&lt;span class="s">, &lt;/span>&lt;span class="si">{s}&lt;/span>&lt;span class="s">%, &lt;/span>&lt;span class="si">{l}&lt;/span>&lt;span class="s">%)&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-15">&lt;a class="lnlinks" href="#hl-2-15">15&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Alright, let&amp;rsquo;s generate an avatar for &lt;code>&amp;quot;foo&amp;quot;&lt;/code> and see how it looks like.&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1709398734519112465">
-#figure-svg-1709398734519112465 + svg {
+&lt;figure>&lt;style id="figure-svg-1709412377366647285">
+#figure-svg-1709412377366647285 + svg {
 width: 180px;
 height: 180px;
 }
@@ -646,8 +629,8 @@ colors come from that theme. We can do that by folding all hash bytes into a sin
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-31">&lt;a class="lnlinks" href="#hl-3-31">31&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="fm">unimplemented!&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Generate SVG paths.&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-32">&lt;a class="lnlinks" href="#hl-3-32">32&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This code renders:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1709398734519328367">
-#figure-svg-1709398734519328367 + svg {
+&lt;figure>&lt;style id="figure-svg-1709412377366854184">
+#figure-svg-1709412377366854184 + svg {
 width: 180px;
 height: 180px;
 }
@@ -751,8 +734,8 @@ would be a XOR-fold of all bytes that represent a single ring &amp;mdash; and ch
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-4-38">&lt;a class="lnlinks" href="#hl-4-38">38&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="fm">unimplemented!&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Generate SVG paths.&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-4-39">&lt;a class="lnlinks" href="#hl-4-39">39&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>With the final touch we get:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1709398734519585869">
-#figure-svg-1709398734519585869 + svg {
+&lt;figure>&lt;style id="figure-svg-1709412377367039884">
+#figure-svg-1709412377367039884 + svg {
 width: 180px;
 height: 180px;
 }
@@ -832,8 +815,8 @@ href="https://www.w3.org/TR/SVG2/paths.html#PathDataEllipticalArcCommands"
 &lt;code>sweep-flag&lt;/code> parameter. It allows you to determine, whether an arc should be a smiley face or a sad face. If the
 parameter is &lt;code>1&lt;/code> &amp;mdash; as it is in our case &amp;mdash; then the arc is a sad face. However, if you&amp;rsquo;d flip the flags to be &lt;code>0&lt;/code>,
 then all arcs become smiley faces&amp;hellip;&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1709398734519840472">
-#figure-svg-1709398734519840472 + svg {
+&lt;figure>&lt;style id="figure-svg-1709412377367211283">
+#figure-svg-1709412377367211283 + svg {
 width: 180px;
 height: 180px;
 }
@@ -905,20 +888,14 @@ new Python code. They argued that &lt;code>dict()&lt;/code> is more readable &am
 be preferred. I wasn&amp;rsquo;t convinced by that, but at that time I didn&amp;rsquo;t have any counterarguments, so I passed.&lt;/p>
 &lt;p>Yet that made me wonder: what&amp;rsquo;s the difference between the &lt;code>dict&lt;/code> type and &lt;code>{}&lt;/code> literal expression?&lt;/p>
 &lt;p>Let&amp;rsquo;s go down the rabbit hole.&lt;/p>
-&lt;div class="alert alert-info">
-&lt;h6 class="alert-heading">
-&lt;i class="bi bi-pencil me-2" aria-hidden="true">&lt;/i>
-Note
-&lt;/h6>
-&lt;p class="my-3">
-I&amp;rsquo;ll be using &lt;a
+&lt;div class="alert alert-info">&lt;h6 class="alert-heading">
+&lt;i class="bi bi-pencil me-2" aria-hidden="true">&lt;/i>Note&lt;/h6>
+&lt;p class="my-3">I&amp;rsquo;ll be using &lt;a
 href="https://www.python.org/downloads/release/python-3120/"
 >Python 3.12&lt;/a> for all code samples here. This is &lt;strong>really important&lt;/strong>, as there are
 &lt;a
 href="https://docs.python.org/3.12/whatsnew/changelog.html"
->significant differences&lt;/a> between recent minor Python versions.
-&lt;/p>
-&lt;/div>
+>significant differences&lt;/a> between recent minor Python versions.&lt;/p>&lt;/div>
 &lt;h2 id="pythons-dictionaries" >
 &lt;a href="#pythons-dictionaries" aria-label="Anchor">#&lt;/a>
 Python&amp;rsquo;s dictionaries
@@ -1035,13 +1012,9 @@ we saw at the beginning of this post is a result of this overhead. However, are 
 the same code, as &lt;code>{}&lt;/code> does? &lt;code>dict&lt;/code> is a class and, luckily, the &lt;a
 href="https://docs.python.org/3/library/dis.html#dis.dis"
 >&lt;code>dis.dis&lt;/code>&lt;/a> function can compile classes to bytecode.&lt;/p>
-&lt;div class="alert alert-info">
-&lt;h6 class="alert-heading">
-&lt;i class="bi bi-pencil me-2" aria-hidden="true">&lt;/i>
-Example
-&lt;/h6>
-&lt;p class="my-3">
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="ln" id="hl-0-1">&lt;a class="lnlinks" href="#hl-0-1"> 1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">dis&lt;/span>
+&lt;div class="alert alert-info">&lt;h6 class="alert-heading">
+&lt;i class="bi bi-pencil me-2" aria-hidden="true">&lt;/i>Example&lt;/h6>
+&lt;p class="my-3">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="ln" id="hl-0-1">&lt;a class="lnlinks" href="#hl-0-1"> 1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">dis&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-2">&lt;a class="lnlinks" href="#hl-0-2"> 2&lt;/a>&lt;/span>&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-3">&lt;a class="lnlinks" href="#hl-0-3"> 3&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="k">class&lt;/span> &lt;span class="nc">Foo&lt;/span>&lt;span class="p">:&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-4">&lt;a class="lnlinks" href="#hl-0-4"> 4&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="k">def&lt;/span> &lt;span class="nf">bar&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">):&lt;/span>
@@ -1064,9 +1037,7 @@ Example
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-10">&lt;a class="lnlinks" href="#hl-1-10">10&lt;/a>&lt;/span>&lt;span class="cl"> 5 0 RESUME 0
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-11">&lt;a class="lnlinks" href="#hl-1-11">11&lt;/a>&lt;/span>&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-12">&lt;a class="lnlinks" href="#hl-1-12">12&lt;/a>&lt;/span>&lt;span class="cl"> 6 2 RETURN_CONST 1 (42)
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
-&lt;/p>
-&lt;/div>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/p>&lt;/div>
 &lt;p>Let&amp;rsquo;s try this for &lt;code>dict&lt;/code>:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="ln" id="hl-4-1">&lt;a class="lnlinks" href="#hl-4-1">1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">dis&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">dis&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">dict&lt;/span>&lt;span class="p">)&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-4-2">&lt;a class="lnlinks" href="#hl-4-2">2&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span>
@@ -1113,17 +1084,12 @@ for us:&lt;/p>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-6-9">&lt;a class="lnlinks" href="#hl-6-9"> 9&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="c1">// ...
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-6-10">&lt;a class="lnlinks" href="#hl-6-10">10&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="p">};&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The pair (&lt;code>dict_new&lt;/code> and &lt;code>dict_init&lt;/code>) will tell us what happens when someone creates a new dictionary.&lt;/p>
-&lt;div class="alert alert-info">
-&lt;h6 class="alert-heading">
-&lt;i class="bi bi-pencil me-2" aria-hidden="true">&lt;/i>
-Note
-&lt;/h6>
-&lt;p class="my-3">
-&lt;p>The constructor in Python is called &lt;code>__new__&lt;/code>. It&amp;rsquo;s a static method that returns a new object of its type.&lt;/p>
+&lt;div class="alert alert-info">&lt;h6 class="alert-heading">
+&lt;i class="bi bi-pencil me-2" aria-hidden="true">&lt;/i>Note&lt;/h6>
+&lt;p class="my-3">&lt;p>The constructor in Python is called &lt;code>__new__&lt;/code>. It&amp;rsquo;s a static method that returns a new object of its type.&lt;/p>
 &lt;p>The initializer method is called &lt;code>__init__&lt;/code>. It takes a newly created object and initializes its attributes. The
 &lt;code>__init__&lt;/code>method is called after the &lt;code>__new__&lt;/code> method.&lt;/p>
-&lt;/p>
-&lt;/div>
+&lt;/p>&lt;/div>
 &lt;p>The &lt;code>dict_new&lt;/code> function is defined here: &lt;a
 href="https://github.com/python/cpython/blob/v3.12.0/Objects/dictobject.c#L3751"
 >dictobject.c#L3751&lt;/a>.&lt;/p>
@@ -1349,15 +1315,9 @@ href="https://github.com/python/cpython/blob/v3.12.0/Objects/dictobject.c#L2988"
 &lt;/ul>
 &lt;p>To be fair, unless you construct dictionaries in a loop, I don&amp;rsquo;t believe there&amp;rsquo;s a lot to gain performance-wise by
 switching from &lt;code>dict&lt;/code> to &lt;code>{}&lt;/code>. There&amp;rsquo;s one thing I&amp;rsquo;d like you to remember after reading this post:&lt;/p>
-&lt;div class="alert alert-info">
-&lt;h6 class="alert-heading">
-&lt;i class="bi bi-clipboard2-fill me-2" aria-hidden="true">&lt;/i>
-tl;dr
-&lt;/h6>
-&lt;p class="my-3">
-The &lt;code>{}&lt;/code> is always faster than &lt;code>dict&lt;/code>.
-&lt;/p>
-&lt;/div>
+&lt;div class="alert alert-info">&lt;h6 class="alert-heading">
+&lt;i class="bi bi-clipboard2-fill me-2" aria-hidden="true">&lt;/i>tl;dr&lt;/h6>
+&lt;p class="my-3">The &lt;code>{}&lt;/code> is always faster than &lt;code>dict&lt;/code>.&lt;/p>&lt;/div>
 &lt;h2 id="appendix" >
 &lt;a href="#appendix" aria-label="Anchor">#&lt;/a>
 Appendix
@@ -1399,32 +1359,23 @@ It does some basic pre-steps:&lt;/p>
 &lt;/ul>
 &lt;p>&lt;code>list___init___impl&lt;/code> clears the list (if not empty) and extends it by the provided iterable (by calling the
 &lt;code>list_extend&lt;/code> function).&lt;/p>
-&lt;div class="alert alert-warning">
-&lt;h6 class="alert-heading">
-&lt;i class="bi bi-question-circle me-2" aria-hidden="true">&lt;/i>
-Question
-&lt;/h6>
-&lt;p class="my-3">
-&lt;p>I think the two:&lt;/p>
+&lt;div class="alert alert-warning">&lt;h6 class="alert-heading">
+&lt;i class="bi bi-question-circle me-2" aria-hidden="true">&lt;/i>Question&lt;/h6>
+&lt;p class="my-3">&lt;p>I think the two:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="ln" id="hl-0-1">&lt;a class="lnlinks" href="#hl-0-1">1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="nb">list&lt;/span>&lt;span class="p">((&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="p">))&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-2">&lt;a class="lnlinks" href="#hl-0-2">2&lt;/a>&lt;/span>&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-3">&lt;a class="lnlinks" href="#hl-0-3">3&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="n">_tmp&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">list&lt;/span>&lt;span class="p">()&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-4">&lt;a class="lnlinks" href="#hl-0-4">4&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="n">_tmp&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">extend&lt;/span>&lt;span class="p">((&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="p">))&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>are equivalent in every way (but the generated opcodes sequence) and are calling the same underlying C code.&lt;/p>
-&lt;/p>
-&lt;/div>
+&lt;/p>&lt;/div>
 &lt;h4 id="-literal-expression" >
 &lt;a href="#-literal-expression" aria-label="Anchor">#&lt;/a>
 &lt;code>[]&lt;/code> literal expression
 &lt;/h4>
 &lt;p>Opcode &lt;code>BUILD_LIST&lt;/code> uses the &lt;code>_PyList_FromArraySteal&lt;/code> function to construct a list object and return it.&lt;/p>
-&lt;div class="alert alert-info">
-&lt;h6 class="alert-heading">
-&lt;i class="bi bi-pencil me-2" aria-hidden="true">&lt;/i>
-Note
-&lt;/h6>
-&lt;p class="my-3">
-&lt;p>_PyList_FromArraySteal is used since 3.12. See &lt;a
+&lt;div class="alert alert-info">&lt;h6 class="alert-heading">
+&lt;i class="bi bi-pencil me-2" aria-hidden="true">&lt;/i>Note&lt;/h6>
+&lt;p class="my-3">&lt;p>_PyList_FromArraySteal is used since 3.12. See &lt;a
 href="https://docs.python.org/3.12/whatsnew/changelog.html"
 >3.12 changelog&lt;/a>
 and &lt;a
@@ -1438,8 +1389,7 @@ to get items from the stack, and then inserting them into the list.&lt;/p>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>See &lt;a
 href="https://github.com/python/cpython/pull/100147/files#diff-729a985b0cb8b431cb291f1edb561bbbfea22e3f8c262451cd83328a0936a342L1447-L1450"
 >change in gh-100146 PR&lt;/a>.&lt;/p>
-&lt;/p>
-&lt;/div>
+&lt;/p>&lt;/div>
 &lt;p>The &lt;code>_PyList_FromArraySteal&lt;/code> helper creates an empty list (if there are no items), or preallocates the list before
 inserting items to it.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="line">&lt;span class="ln" id="hl-15-1">&lt;a class="lnlinks" href="#hl-15-1">1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="n">PyObject&lt;/span> &lt;span class="o">**&lt;/span>&lt;span class="n">dst&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">list&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">ob_item&lt;/span>&lt;span class="p">;&lt;/span>
@@ -1448,16 +1398,10 @@ inserting items to it.&lt;/p>
 &lt;a href="#sets" aria-label="Anchor">#&lt;/a>
 Sets
 &lt;/h3>
-&lt;div class="alert alert-warning">
-&lt;h6 class="alert-heading">
-&lt;i class="bi bi-exclamation-triangle me-2" aria-hidden="true">&lt;/i>
-Warning
-&lt;/h6>
-&lt;p class="my-3">
-AFAIK there&amp;rsquo;s no way to construct a new set with a literal expression, hence the following analysis is performed for
-sets with two elements: &lt;code>1&lt;/code> and &lt;code>2&lt;/code>.
-&lt;/p>
-&lt;/div>
+&lt;div class="alert alert-warning">&lt;h6 class="alert-heading">
+&lt;i class="bi bi-exclamation-triangle me-2" aria-hidden="true">&lt;/i>Warning&lt;/h6>
+&lt;p class="my-3">AFAIK there&amp;rsquo;s no way to construct a new set with a literal expression, hence the following analysis is performed for
+sets with two elements: &lt;code>1&lt;/code> and &lt;code>2&lt;/code>.&lt;/p>&lt;/div>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="ln" id="hl-16-1">&lt;a class="lnlinks" href="#hl-16-1">1&lt;/a>&lt;/span>&lt;span class="cl">$ python -m timeit &lt;span class="s2">&amp;#34;set((1, 2))&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-16-2">&lt;a class="lnlinks" href="#hl-16-2">2&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="m">5000000&lt;/span> loops, best of 5: 82.6 nsec per loop
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-16-3">&lt;a class="lnlinks" href="#hl-16-3">3&lt;/a>&lt;/span>&lt;span class="cl">$ python -m timeit &lt;span class="s2">&amp;#34;{1, 2}&amp;#34;&lt;/span>
@@ -1509,21 +1453,15 @@ stack and insets them one-by-one.&lt;/p>
 href="https://github.com/python/cpython/blob/main/Python/bytecodes.c#L1627"
 class="hide-external"
 >https://github.com/python/cpython/blob/main/Python/bytecodes.c#L1627&lt;/a>.&lt;/p>
-&lt;div class="alert alert-warning">
-&lt;h6 class="alert-heading">
-&lt;i class="bi bi-exclamation-triangle me-2" aria-hidden="true">&lt;/i>
-Warning
-&lt;/h6>
-&lt;p class="my-3">
-&lt;p>Warning
+&lt;div class="alert alert-warning">&lt;h6 class="alert-heading">
+&lt;i class="bi bi-exclamation-triangle me-2" aria-hidden="true">&lt;/i>Warning&lt;/h6>
+&lt;p class="my-3">&lt;p>Warning
 The generated bytecode is different if we add another argument to the literal expression: &lt;code>{1, 2, 3}&lt;/code>. Then it becomes:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="ln" id="hl-0-1">&lt;a class="lnlinks" href="#hl-0-1">1&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="mi">2&lt;/span> &lt;span class="n">BUILD_SET&lt;/span> &lt;span class="mi">0&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-2">&lt;a class="lnlinks" href="#hl-0-2">2&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="mi">4&lt;/span> &lt;span class="n">LOAD_CONST&lt;/span> &lt;span class="mi">1&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nb">frozenset&lt;/span>&lt;span class="p">({&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="p">}))&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-3">&lt;a class="lnlinks" href="#hl-0-3">3&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="mi">6&lt;/span> &lt;span class="n">SET_UPDATE&lt;/span> &lt;span class="mi">1&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-4">&lt;a class="lnlinks" href="#hl-0-4">4&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="mi">8&lt;/span> &lt;span class="n">RETURN_VALUE&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
-&lt;/p>
-&lt;/div>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/p>&lt;/div>
 &lt;h3 id="tuples" >
 &lt;a href="#tuples" aria-label="Anchor">#&lt;/a>
 Tuples
@@ -1688,20 +1626,15 @@ href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-gith
 and &lt;a
 href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site"
 >Managing a custom domain for your GitHub Pages site&lt;/a>.&lt;/p>
-&lt;div class="alert alert-info">
-&lt;h6 class="alert-heading">
-&lt;i class="bi bi-pencil me-2" aria-hidden="true">&lt;/i>
-Note
-&lt;/h6>
-&lt;p class="my-3">
-&lt;p>Optionally, you may want to verify your domain for GitHub Pages; it prevents other users from taking over your
+&lt;div class="alert alert-info">&lt;h6 class="alert-heading">
+&lt;i class="bi bi-pencil me-2" aria-hidden="true">&lt;/i>Note&lt;/h6>
+&lt;p class="my-3">&lt;p>Optionally, you may want to verify your domain for GitHub Pages; it prevents other users from taking over your
 domain. It can happen when your GitHub Pages site gets disabled one way or another.&lt;/p>
 &lt;p>See &lt;a
 href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages"
 >Verifying your custom domain for GitHub Pages&lt;/a>
 for details.&lt;/p>
-&lt;/p>
-&lt;/div>
+&lt;/p>&lt;/div>
 &lt;h2 id="using-domains-as-aliases" >
 &lt;a href="#using-domains-as-aliases" aria-label="Anchor">#&lt;/a>
 Using domains as aliases
@@ -1764,13 +1697,9 @@ DNS records in order to work:&lt;/p>
 href="https://messwithdns.net/"
 >mess with dns&lt;/a> for
 this experiment.&lt;/p>
-&lt;div class="alert alert-primary">
-&lt;h6 class="alert-heading">
-&lt;i class="bi bi-fire me-2" aria-hidden="true">&lt;/i>
-Tip
-&lt;/h6>
-&lt;p class="my-3">
-If you&amp;rsquo;re planning on changing your DNS records and are unsure about the changes, then I&amp;rsquo;d suggest to do so first via
+&lt;div class="alert alert-primary">&lt;h6 class="alert-heading">
+&lt;i class="bi bi-fire me-2" aria-hidden="true">&lt;/i>Tip&lt;/h6>
+&lt;p class="my-3">If you&amp;rsquo;re planning on changing your DNS records and are unsure about the changes, then I&amp;rsquo;d suggest to do so first via
 &lt;a
 href="https://messwithdns.net/"
 >mess with dns&lt;/a>, a tool by &lt;a
@@ -1779,9 +1708,7 @@ href="https://jvns.ca/"
 &lt;a
 href="https://marieflanagan.com/"
 >Marie Claire LeBlanc Flanagan&lt;/a>. It&amp;rsquo;s a service for performing experiments with DNS. Anyone
-can set up their DNS records and test with them for free.
-&lt;/p>
-&lt;/div>
+can set up their DNS records and test with them for free.&lt;/p>&lt;/div>
 &lt;p>By following the guide we&amp;rsquo;ve got:&lt;/p>
 &lt;figure>&lt;a href="./mess_with_dns.png" class="hide-external" >&lt;img src="./mess_with_dns.png"
 alt="mess with dns configuration for Redir 301"loading="lazy"

@@ -3,20 +3,14 @@ new Python code. They argued that &lt;code>dict()&lt;/code> is more readable &am
 be preferred. I wasn&amp;rsquo;t convinced by that, but at that time I didn&amp;rsquo;t have any counterarguments, so I passed.&lt;/p>
 &lt;p>Yet that made me wonder: what&amp;rsquo;s the difference between the &lt;code>dict&lt;/code> type and &lt;code>{}&lt;/code> literal expression?&lt;/p>
 &lt;p>Let&amp;rsquo;s go down the rabbit hole.&lt;/p>
-&lt;div class="alert alert-info">
-&lt;h6 class="alert-heading">
-&lt;i class="bi bi-pencil me-2" aria-hidden="true">&lt;/i>
-Note
-&lt;/h6>
-&lt;p class="my-3">
-I&amp;rsquo;ll be using &lt;a
+&lt;div class="alert alert-info">&lt;h6 class="alert-heading">
+&lt;i class="bi bi-pencil me-2" aria-hidden="true">&lt;/i>Note&lt;/h6>
+&lt;p class="my-3">I&amp;rsquo;ll be using &lt;a
 href="https://www.python.org/downloads/release/python-3120/"
 >Python 3.12&lt;/a> for all code samples here. This is &lt;strong>really important&lt;/strong>, as there are
 &lt;a
 href="https://docs.python.org/3.12/whatsnew/changelog.html"
->significant differences&lt;/a> between recent minor Python versions.
-&lt;/p>
-&lt;/div>
+>significant differences&lt;/a> between recent minor Python versions.&lt;/p>&lt;/div>
 &lt;h2 id="pythons-dictionaries" >
 &lt;a href="#pythons-dictionaries" aria-label="Anchor">#&lt;/a>
 Python&amp;rsquo;s dictionaries
@@ -133,13 +127,9 @@ we saw at the beginning of this post is a result of this overhead. However, are 
 the same code, as &lt;code>{}&lt;/code> does? &lt;code>dict&lt;/code> is a class and, luckily, the &lt;a
 href="https://docs.python.org/3/library/dis.html#dis.dis"
 >&lt;code>dis.dis&lt;/code>&lt;/a> function can compile classes to bytecode.&lt;/p>
-&lt;div class="alert alert-info">
-&lt;h6 class="alert-heading">
-&lt;i class="bi bi-pencil me-2" aria-hidden="true">&lt;/i>
-Example
-&lt;/h6>
-&lt;p class="my-3">
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="ln" id="hl-0-1">&lt;a class="lnlinks" href="#hl-0-1"> 1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">dis&lt;/span>
+&lt;div class="alert alert-info">&lt;h6 class="alert-heading">
+&lt;i class="bi bi-pencil me-2" aria-hidden="true">&lt;/i>Example&lt;/h6>
+&lt;p class="my-3">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="ln" id="hl-0-1">&lt;a class="lnlinks" href="#hl-0-1"> 1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">dis&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-2">&lt;a class="lnlinks" href="#hl-0-2"> 2&lt;/a>&lt;/span>&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-3">&lt;a class="lnlinks" href="#hl-0-3"> 3&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="k">class&lt;/span> &lt;span class="nc">Foo&lt;/span>&lt;span class="p">:&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-4">&lt;a class="lnlinks" href="#hl-0-4"> 4&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="k">def&lt;/span> &lt;span class="nf">bar&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">):&lt;/span>
@@ -162,9 +152,7 @@ Example
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-10">&lt;a class="lnlinks" href="#hl-1-10">10&lt;/a>&lt;/span>&lt;span class="cl"> 5 0 RESUME 0
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-11">&lt;a class="lnlinks" href="#hl-1-11">11&lt;/a>&lt;/span>&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-12">&lt;a class="lnlinks" href="#hl-1-12">12&lt;/a>&lt;/span>&lt;span class="cl"> 6 2 RETURN_CONST 1 (42)
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
-&lt;/p>
-&lt;/div>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/p>&lt;/div>
 &lt;p>Let&amp;rsquo;s try this for &lt;code>dict&lt;/code>:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="ln" id="hl-4-1">&lt;a class="lnlinks" href="#hl-4-1">1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">dis&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">dis&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">dict&lt;/span>&lt;span class="p">)&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-4-2">&lt;a class="lnlinks" href="#hl-4-2">2&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span>
@@ -211,17 +199,12 @@ for us:&lt;/p>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-6-9">&lt;a class="lnlinks" href="#hl-6-9"> 9&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="c1">// ...
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-6-10">&lt;a class="lnlinks" href="#hl-6-10">10&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="p">};&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The pair (&lt;code>dict_new&lt;/code> and &lt;code>dict_init&lt;/code>) will tell us what happens when someone creates a new dictionary.&lt;/p>
-&lt;div class="alert alert-info">
-&lt;h6 class="alert-heading">
-&lt;i class="bi bi-pencil me-2" aria-hidden="true">&lt;/i>
-Note
-&lt;/h6>
-&lt;p class="my-3">
-&lt;p>The constructor in Python is called &lt;code>__new__&lt;/code>. It&amp;rsquo;s a static method that returns a new object of its type.&lt;/p>
+&lt;div class="alert alert-info">&lt;h6 class="alert-heading">
+&lt;i class="bi bi-pencil me-2" aria-hidden="true">&lt;/i>Note&lt;/h6>
+&lt;p class="my-3">&lt;p>The constructor in Python is called &lt;code>__new__&lt;/code>. It&amp;rsquo;s a static method that returns a new object of its type.&lt;/p>
 &lt;p>The initializer method is called &lt;code>__init__&lt;/code>. It takes a newly created object and initializes its attributes. The
 &lt;code>__init__&lt;/code>method is called after the &lt;code>__new__&lt;/code> method.&lt;/p>
-&lt;/p>
-&lt;/div>
+&lt;/p>&lt;/div>
 &lt;p>The &lt;code>dict_new&lt;/code> function is defined here: &lt;a
 href="https://github.com/python/cpython/blob/v3.12.0/Objects/dictobject.c#L3751"
 >dictobject.c#L3751&lt;/a>.&lt;/p>
@@ -447,15 +430,9 @@ href="https://github.com/python/cpython/blob/v3.12.0/Objects/dictobject.c#L2988"
 &lt;/ul>
 &lt;p>To be fair, unless you construct dictionaries in a loop, I don&amp;rsquo;t believe there&amp;rsquo;s a lot to gain performance-wise by
 switching from &lt;code>dict&lt;/code> to &lt;code>{}&lt;/code>. There&amp;rsquo;s one thing I&amp;rsquo;d like you to remember after reading this post:&lt;/p>
-&lt;div class="alert alert-info">
-&lt;h6 class="alert-heading">
-&lt;i class="bi bi-clipboard2-fill me-2" aria-hidden="true">&lt;/i>
-tl;dr
-&lt;/h6>
-&lt;p class="my-3">
-The &lt;code>{}&lt;/code> is always faster than &lt;code>dict&lt;/code>.
-&lt;/p>
-&lt;/div>
+&lt;div class="alert alert-info">&lt;h6 class="alert-heading">
+&lt;i class="bi bi-clipboard2-fill me-2" aria-hidden="true">&lt;/i>tl;dr&lt;/h6>
+&lt;p class="my-3">The &lt;code>{}&lt;/code> is always faster than &lt;code>dict&lt;/code>.&lt;/p>&lt;/div>
 &lt;h2 id="appendix" >
 &lt;a href="#appendix" aria-label="Anchor">#&lt;/a>
 Appendix
@@ -497,32 +474,23 @@ It does some basic pre-steps:&lt;/p>
 &lt;/ul>
 &lt;p>&lt;code>list___init___impl&lt;/code> clears the list (if not empty) and extends it by the provided iterable (by calling the
 &lt;code>list_extend&lt;/code> function).&lt;/p>
-&lt;div class="alert alert-warning">
-&lt;h6 class="alert-heading">
-&lt;i class="bi bi-question-circle me-2" aria-hidden="true">&lt;/i>
-Question
-&lt;/h6>
-&lt;p class="my-3">
-&lt;p>I think the two:&lt;/p>
+&lt;div class="alert alert-warning">&lt;h6 class="alert-heading">
+&lt;i class="bi bi-question-circle me-2" aria-hidden="true">&lt;/i>Question&lt;/h6>
+&lt;p class="my-3">&lt;p>I think the two:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="ln" id="hl-0-1">&lt;a class="lnlinks" href="#hl-0-1">1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="nb">list&lt;/span>&lt;span class="p">((&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="p">))&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-2">&lt;a class="lnlinks" href="#hl-0-2">2&lt;/a>&lt;/span>&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-3">&lt;a class="lnlinks" href="#hl-0-3">3&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="n">_tmp&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">list&lt;/span>&lt;span class="p">()&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-4">&lt;a class="lnlinks" href="#hl-0-4">4&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="n">_tmp&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">extend&lt;/span>&lt;span class="p">((&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="p">))&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>are equivalent in every way (but the generated opcodes sequence) and are calling the same underlying C code.&lt;/p>
-&lt;/p>
-&lt;/div>
+&lt;/p>&lt;/div>
 &lt;h4 id="-literal-expression" >
 &lt;a href="#-literal-expression" aria-label="Anchor">#&lt;/a>
 &lt;code>[]&lt;/code> literal expression
 &lt;/h4>
 &lt;p>Opcode &lt;code>BUILD_LIST&lt;/code> uses the &lt;code>_PyList_FromArraySteal&lt;/code> function to construct a list object and return it.&lt;/p>
-&lt;div class="alert alert-info">
-&lt;h6 class="alert-heading">
-&lt;i class="bi bi-pencil me-2" aria-hidden="true">&lt;/i>
-Note
-&lt;/h6>
-&lt;p class="my-3">
-&lt;p>_PyList_FromArraySteal is used since 3.12. See &lt;a
+&lt;div class="alert alert-info">&lt;h6 class="alert-heading">
+&lt;i class="bi bi-pencil me-2" aria-hidden="true">&lt;/i>Note&lt;/h6>
+&lt;p class="my-3">&lt;p>_PyList_FromArraySteal is used since 3.12. See &lt;a
 href="https://docs.python.org/3.12/whatsnew/changelog.html"
 >3.12 changelog&lt;/a>
 and &lt;a
@@ -536,8 +504,7 @@ to get items from the stack, and then inserting them into the list.&lt;/p>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>See &lt;a
 href="https://github.com/python/cpython/pull/100147/files#diff-729a985b0cb8b431cb291f1edb561bbbfea22e3f8c262451cd83328a0936a342L1447-L1450"
 >change in gh-100146 PR&lt;/a>.&lt;/p>
-&lt;/p>
-&lt;/div>
+&lt;/p>&lt;/div>
 &lt;p>The &lt;code>_PyList_FromArraySteal&lt;/code> helper creates an empty list (if there are no items), or preallocates the list before
 inserting items to it.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="line">&lt;span class="ln" id="hl-15-1">&lt;a class="lnlinks" href="#hl-15-1">1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="n">PyObject&lt;/span> &lt;span class="o">**&lt;/span>&lt;span class="n">dst&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">list&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="n">ob_item&lt;/span>&lt;span class="p">;&lt;/span>
@@ -546,16 +513,10 @@ inserting items to it.&lt;/p>
 &lt;a href="#sets" aria-label="Anchor">#&lt;/a>
 Sets
 &lt;/h3>
-&lt;div class="alert alert-warning">
-&lt;h6 class="alert-heading">
-&lt;i class="bi bi-exclamation-triangle me-2" aria-hidden="true">&lt;/i>
-Warning
-&lt;/h6>
-&lt;p class="my-3">
-AFAIK there&amp;rsquo;s no way to construct a new set with a literal expression, hence the following analysis is performed for
-sets with two elements: &lt;code>1&lt;/code> and &lt;code>2&lt;/code>.
-&lt;/p>
-&lt;/div>
+&lt;div class="alert alert-warning">&lt;h6 class="alert-heading">
+&lt;i class="bi bi-exclamation-triangle me-2" aria-hidden="true">&lt;/i>Warning&lt;/h6>
+&lt;p class="my-3">AFAIK there&amp;rsquo;s no way to construct a new set with a literal expression, hence the following analysis is performed for
+sets with two elements: &lt;code>1&lt;/code> and &lt;code>2&lt;/code>.&lt;/p>&lt;/div>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="ln" id="hl-16-1">&lt;a class="lnlinks" href="#hl-16-1">1&lt;/a>&lt;/span>&lt;span class="cl">$ python -m timeit &lt;span class="s2">&amp;#34;set((1, 2))&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-16-2">&lt;a class="lnlinks" href="#hl-16-2">2&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="m">5000000&lt;/span> loops, best of 5: 82.6 nsec per loop
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-16-3">&lt;a class="lnlinks" href="#hl-16-3">3&lt;/a>&lt;/span>&lt;span class="cl">$ python -m timeit &lt;span class="s2">&amp;#34;{1, 2}&amp;#34;&lt;/span>
@@ -607,21 +568,15 @@ stack and insets them one-by-one.&lt;/p>
 href="https://github.com/python/cpython/blob/main/Python/bytecodes.c#L1627"
 class="hide-external"
 >https://github.com/python/cpython/blob/main/Python/bytecodes.c#L1627&lt;/a>.&lt;/p>
-&lt;div class="alert alert-warning">
-&lt;h6 class="alert-heading">
-&lt;i class="bi bi-exclamation-triangle me-2" aria-hidden="true">&lt;/i>
-Warning
-&lt;/h6>
-&lt;p class="my-3">
-&lt;p>Warning
+&lt;div class="alert alert-warning">&lt;h6 class="alert-heading">
+&lt;i class="bi bi-exclamation-triangle me-2" aria-hidden="true">&lt;/i>Warning&lt;/h6>
+&lt;p class="my-3">&lt;p>Warning
 The generated bytecode is different if we add another argument to the literal expression: &lt;code>{1, 2, 3}&lt;/code>. Then it becomes:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="ln" id="hl-0-1">&lt;a class="lnlinks" href="#hl-0-1">1&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="mi">2&lt;/span> &lt;span class="n">BUILD_SET&lt;/span> &lt;span class="mi">0&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-2">&lt;a class="lnlinks" href="#hl-0-2">2&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="mi">4&lt;/span> &lt;span class="n">LOAD_CONST&lt;/span> &lt;span class="mi">1&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nb">frozenset&lt;/span>&lt;span class="p">({&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="p">}))&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-3">&lt;a class="lnlinks" href="#hl-0-3">3&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="mi">6&lt;/span> &lt;span class="n">SET_UPDATE&lt;/span> &lt;span class="mi">1&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-4">&lt;a class="lnlinks" href="#hl-0-4">4&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="mi">8&lt;/span> &lt;span class="n">RETURN_VALUE&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
-&lt;/p>
-&lt;/div>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/p>&lt;/div>
 &lt;h3 id="tuples" >
 &lt;a href="#tuples" aria-label="Anchor">#&lt;/a>
 Tuples
@@ -786,20 +741,15 @@ href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-gith
 and &lt;a
 href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site"
 >Managing a custom domain for your GitHub Pages site&lt;/a>.&lt;/p>
-&lt;div class="alert alert-info">
-&lt;h6 class="alert-heading">
-&lt;i class="bi bi-pencil me-2" aria-hidden="true">&lt;/i>
-Note
-&lt;/h6>
-&lt;p class="my-3">
-&lt;p>Optionally, you may want to verify your domain for GitHub Pages; it prevents other users from taking over your
+&lt;div class="alert alert-info">&lt;h6 class="alert-heading">
+&lt;i class="bi bi-pencil me-2" aria-hidden="true">&lt;/i>Note&lt;/h6>
+&lt;p class="my-3">&lt;p>Optionally, you may want to verify your domain for GitHub Pages; it prevents other users from taking over your
 domain. It can happen when your GitHub Pages site gets disabled one way or another.&lt;/p>
 &lt;p>See &lt;a
 href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages"
 >Verifying your custom domain for GitHub Pages&lt;/a>
 for details.&lt;/p>
-&lt;/p>
-&lt;/div>
+&lt;/p>&lt;/div>
 &lt;h2 id="using-domains-as-aliases" >
 &lt;a href="#using-domains-as-aliases" aria-label="Anchor">#&lt;/a>
 Using domains as aliases
@@ -862,13 +812,9 @@ DNS records in order to work:&lt;/p>
 href="https://messwithdns.net/"
 >mess with dns&lt;/a> for
 this experiment.&lt;/p>
-&lt;div class="alert alert-primary">
-&lt;h6 class="alert-heading">
-&lt;i class="bi bi-fire me-2" aria-hidden="true">&lt;/i>
-Tip
-&lt;/h6>
-&lt;p class="my-3">
-If you&amp;rsquo;re planning on changing your DNS records and are unsure about the changes, then I&amp;rsquo;d suggest to do so first via
+&lt;div class="alert alert-primary">&lt;h6 class="alert-heading">
+&lt;i class="bi bi-fire me-2" aria-hidden="true">&lt;/i>Tip&lt;/h6>
+&lt;p class="my-3">If you&amp;rsquo;re planning on changing your DNS records and are unsure about the changes, then I&amp;rsquo;d suggest to do so first via
 &lt;a
 href="https://messwithdns.net/"
 >mess with dns&lt;/a>, a tool by &lt;a
@@ -877,9 +823,7 @@ href="https://jvns.ca/"
 &lt;a
 href="https://marieflanagan.com/"
 >Marie Claire LeBlanc Flanagan&lt;/a>. It&amp;rsquo;s a service for performing experiments with DNS. Anyone
-can set up their DNS records and test with them for free.
-&lt;/p>
-&lt;/div>
+can set up their DNS records and test with them for free.&lt;/p>&lt;/div>
 &lt;p>By following the guide we&amp;rsquo;ve got:&lt;/p>
 &lt;figure>&lt;a href="./mess_with_dns.png" class="hide-external" >&lt;img src="./mess_with_dns.png"
 alt="mess with dns configuration for Redir 301"loading="lazy"
