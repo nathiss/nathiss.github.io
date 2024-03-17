@@ -163,7 +163,7 @@ relatively to the ideal image. Using the scores we will select the best &lt;span
 organisms and discard the rest.&lt;/p>
 &lt;p>Since there&amp;rsquo;s no crossover functionality yet, we need to fill the emptied generation space somehow. &lt;strong>Simplest
 solution:&lt;/strong> once we have 5 best specimens, we&amp;rsquo;ll copy them over multiple times, to get a new generation 100 strong.&lt;/p>
-&lt;figure class="img-thumbnail">&lt;img src="./output_010000.png"
+&lt;figure class="img-thumbnail">&lt;img src="https://madebyme.today/blog/franklin/natural-selection-and-loss-functions/output_010000.png"
 alt="Mona Lisa (generation #10 000)" class="img-thumbnail"loading="lazy"
 />&lt;figcaption>
 &lt;h4>Mona Lisa (generation #10 000)&lt;/h4>
@@ -175,7 +175,7 @@ the algorithm works and it produces acceptable results.&lt;/p>
 &lt;p>Next, we&amp;rsquo;ll implement the crossing function and we&amp;rsquo;ll see how much it improves algorithm&amp;rsquo;s efficiency &amp;ndash; defined as the
 derivative of specimen score with respect to generation number.&lt;/p>
 &lt;!-- markdownlint-disable line-length -->
-&lt;figure class="img-thumbnail">&lt;img src="./fernando-venzano-ddVYvmwrvV4-unsplash.webp"
+&lt;figure class="img-thumbnail">&lt;img src="https://madebyme.today/blog/franklin/natural-selection-and-loss-functions/fernando-venzano-ddVYvmwrvV4-unsplash.webp"
 alt="On the Origin of Species" class="img-thumbnail"loading="lazy"
 />&lt;figcaption>
 &lt;p>Photo by &lt;a
@@ -292,7 +292,7 @@ onto it. With that description alone, we can already define a contract for all m
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Why &lt;code>&amp;amp;self&lt;/code> and not &lt;code>&amp;amp;mut self&lt;/code>? Due to the fact that mutations are independent of one another, they can be performed
 concurrently. In fact, as we will see in the future articles, mutating and scoring are the only steps that can be
 &lt;em>easily&lt;/em> run in parallel.&lt;/p>
-&lt;figure>&lt;img src="./genetic-algorithm-flow.webp"
+&lt;figure>&lt;img src="https://madebyme.today/blog/franklin/randomness-of-life/genetic-algorithm-flow.webp"
 alt="Genetic Algorithm Flow"loading="lazy"
 />&lt;figcaption>
 &lt;p>A diagram showing the flow of actions applied on a single generation.&lt;/p>
@@ -387,7 +387,7 @@ color channels.&lt;/p>
 &amp;ldquo;&lt;a
 href="https://en.wikipedia.org/wiki/File:Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.webp"
 >Mona Lisa&lt;/a>&amp;rdquo;.&lt;/p>
-&lt;figure class="img-thumbnail">&lt;img src="./output_010000.png"
+&lt;figure class="img-thumbnail">&lt;img src="https://madebyme.today/blog/franklin/randomness-of-life/output_010000.png"
 alt="Random noise" class="img-thumbnail"loading="lazy"
 />&lt;figcaption>
 &lt;h4>Mona Lisa (generation #10 000)&lt;/h4>
@@ -422,7 +422,7 @@ commit at the moment of writing &amp;ndash; 73aa8da)&lt;/em>. The goal of this s
 build a working utility, but rather to present an idea. So, moving forward all future articles from this series will
 also be done in that style.&lt;/p>
 &lt;!-- markdownlint-disable line-length -->
-&lt;figure class="img-thumbnail">&lt;img src="./alexander-grey-2eAkk5lIkC8-unsplash.webp"
+&lt;figure class="img-thumbnail">&lt;img src="https://madebyme.today/blog/franklin/randomness-of-life/alexander-grey-2eAkk5lIkC8-unsplash.webp"
 alt="Randomness of Life" class="img-thumbnail"loading="lazy"
 />&lt;figcaption>
 &lt;p>Photo by &lt;a
@@ -483,7 +483,7 @@ constrains set. For example: we might want to have a timetable which leaves just
 but not too much, so that we can go home earlier. This (and similar constrains) might be used to evaluate the value of
 our new mutated timetable. With each specimen evaluated we leave a few of the best and discard the rest &amp;#x1f480;.&lt;br>
 The last step is to mix our &lt;em>special&lt;/em> timetables to create new ones to fill the generation again.&lt;/p>
-&lt;figure>&lt;img src="./genetic-algorithm-cycle.webp"
+&lt;figure>&lt;img src="https://madebyme.today/blog/franklin/art-from-chaos/genetic-algorithm-cycle.webp"
 alt="Genetic Algorithm Cycle"loading="lazy"
 />
 &lt;/figure>
@@ -536,7 +536,7 @@ you&amp;rsquo;d find that most projects on the subject use geometric shapes when
 &lt;strong>circles&lt;/strong>, &lt;strong>rectangles&lt;/strong>, and &lt;strong>triangles&lt;/strong> are a good choice. From these it&amp;rsquo;s rectangles, that can be the most
 easily represented in code. Having said that let&amp;rsquo;s see how a single specimen might change over a few first iterations.&lt;/p>
 &lt;!-- markdownlint-disable line-length -->
-&lt;figure>&lt;img src="./mutation-diagram.webp"
+&lt;figure>&lt;img src="https://madebyme.today/blog/franklin/art-from-chaos/mutation-diagram.webp"
 alt="Mutation diagram"loading="lazy"
 />&lt;figcaption>
 &lt;p>An exemplar of a 6-generation mutation process. Starting with generation 0 - no mutation applied, till generation 5 - five mutations applied.&lt;/p>
@@ -624,7 +624,7 @@ href="https://www.rust-lang.org/"
 that makes itself.&lt;/p>
 &lt;!-- Image source: https://unsplash.com/photos/M3cxjDNiLlQ -->
 &lt;!-- markdownlint-disable line-length -->
-&lt;figure class="img-thumbnail">&lt;img src="./brett-jordan-M3cxjDNiLlQ-unsplash.webp"
+&lt;figure class="img-thumbnail">&lt;img src="https://madebyme.today/blog/franklin/art-from-chaos/brett-jordan-M3cxjDNiLlQ-unsplash.webp"
 alt="Order and Chaos" class="img-thumbnail"loading="lazy"
 />&lt;figcaption>
 &lt;p>Photo by &lt;a

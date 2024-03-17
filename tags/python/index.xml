@@ -855,7 +855,7 @@ will only need to do so, when they want to release a new version of the package.
 &lt;p>I &lt;em>highly&lt;/em> encourage to always release a new version even for the smallest change in the project sources that is
 observable for the users. Whether it&amp;rsquo;s worth to add changelog entries for project&amp;rsquo;s meta updates, is up to you.&lt;/p>
 &lt;!-- markdownlint-disable line-length -->
-&lt;figure class="img-thumbnail">&lt;img src="./jasper-garratt-esc26JcEdek-unsplash.webp"
+&lt;figure class="img-thumbnail">&lt;img src="https://madebyme.today/blog/keep-a-changelog/jasper-garratt-esc26JcEdek-unsplash.webp"
 alt="Log" class="img-thumbnail"loading="lazy"
 />&lt;figcaption>
 &lt;p>Photo by &lt;a

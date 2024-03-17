@@ -20,14 +20,14 @@ href="https://madebyme.today/tags/rust/"
 >Rust&lt;/a>.&lt;/p>&lt;/div>
 &lt;p>I think this blog post is one of those things which are easier to understand if you&amp;rsquo;d see the end result first. So, for
 those interested here&amp;rsquo;s a spoiler.&lt;/p>
-&lt;div class="alert alert-spoiler">&lt;input id="callout-spoiler-1710670541871823847" class="collapsible-toggle" type="checkbox"/>
-&lt;label for="callout-spoiler-1710670541871823847" class="collapsible-label-toggle alert-heading">
+&lt;div class="alert alert-spoiler">&lt;input id="callout-spoiler-1710671938981050873" class="collapsible-toggle" type="checkbox"/>
+&lt;label for="callout-spoiler-1710671938981050873" class="collapsible-label-toggle alert-heading">
 Spoiler!&lt;/label>
 &lt;div class="collapsible-content">
 &lt;div class="collapsible-content-inner">
 &lt;p class="my-3">&lt;p>This is the end result:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1710670541870726931">
-#figure-svg-1710670541870726931 + svg {
+&lt;figure>&lt;style id="figure-svg-1710671938980284160">
+#figure-svg-1710671938980284160 + svg {
 width: 180px;
 height: 180px;
 }
@@ -166,8 +166,8 @@ point.&lt;/li>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-5">&lt;a class="lnlinks" href="#hl-1-5">5&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="nt">&amp;lt;path&lt;/span> &lt;span class="na">d=&lt;/span>&lt;span class="s">&amp;#34;M 0,0 L -1,0 A 1,1,0,0,1,0,-1 z&amp;#34;&lt;/span> &lt;span class="na">fill=&lt;/span>&lt;span class="s">&amp;#34;DarkSalmon&amp;#34;&lt;/span> &lt;span class="na">stroke=&lt;/span>&lt;span class="s">&amp;#34;black&amp;#34;&lt;/span> &lt;span class="na">stroke-width=&lt;/span>&lt;span class="s">&amp;#34;0.01&amp;#34;&lt;/span> &lt;span class="nt">/&amp;gt;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-6">&lt;a class="lnlinks" href="#hl-1-6">6&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="nt">&amp;lt;/svg&amp;gt;&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>It renders to:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1710670541871977750">
-#figure-svg-1710670541871977750 + svg {
+&lt;figure>&lt;style id="figure-svg-1710671938981256776">
+#figure-svg-1710671938981256776 + svg {
 width: 180px;
 height: 180px;
 }
@@ -193,8 +193,8 @@ href="https://www.w3.org/TR/SVG2/paths.html#PathDataEllipticalArcCommands"
 >elliptical arc curve&lt;/a> command of the &lt;em>previous&lt;/em> element.&lt;/p>
 &lt;p>&lt;em>Ok, but how to divide these slices into halves?&lt;/em> &amp;mdash; you may ask.&lt;/p>
 &lt;p>To do that we need to find the points in the middle of the arcs.&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1710670541872293854">
-#figure-svg-1710670541872293854 + svg {
+&lt;figure>&lt;style id="figure-svg-1710671938981597082">
+#figure-svg-1710671938981597082 + svg {
 width: 180px;
 height: 180px;
 }
@@ -229,8 +229,8 @@ r_1 = 1
 $$&lt;/p>
 &lt;p>Fortunately &amp;mdash; since the circle&amp;rsquo;s middle point is $(0, 0)$ and the arc points are in the middle of their arcs &amp;mdash; we
 know that the absolute value of their coordinates is the same. So, our diagram simplifies to:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1710670541872702260">
-#figure-svg-1710670541872702260 + svg {
+&lt;figure>&lt;style id="figure-svg-1710671938981774785">
+#figure-svg-1710671938981774785 + svg {
 width: 180px;
 height: 180px;
 }
@@ -275,8 +275,8 @@ a &amp;amp;= \sqrt{\frac{1}{2}}
 \end{aligned}
 $$&lt;/p>
 &lt;p>By adding four more pizza slices we get:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1710670541872914864">
-#figure-svg-1710670541872914864 + svg {
+&lt;figure>&lt;style id="figure-svg-1710671938981946188">
+#figure-svg-1710671938981946188 + svg {
 width: 180px;
 height: 180px;
 }
@@ -303,8 +303,8 @@ obvious ways of selecting division points: equal radii, or equal areas. Equal ra
 first.&lt;/p>
 &lt;p>If the outermost circle has a radius of $1$, then the middle circle will have a radius of $0.\overline{6}$, and the
 smallest one will have $0.\overline{3}$.&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1710670541873176667">
-#figure-svg-1710670541873176667 + svg {
+&lt;figure>&lt;style id="figure-svg-1710671938982107391">
+#figure-svg-1710671938982107391 + svg {
 width: 180px;
 height: 180px;
 }
@@ -380,8 +380,8 @@ r_2 = \sqrt{\frac{2}{3}}
 \end{aligned}
 $$&lt;/p>
 &lt;p>Which gives us this avatar:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1710670541873575173">
-#figure-svg-1710670541873575173 + svg {
+&lt;figure>&lt;style id="figure-svg-1710671938982321294">
+#figure-svg-1710671938982321294 + svg {
 width: 180px;
 height: 180px;
 }
@@ -439,8 +439,8 @@ $$&lt;/p>
 href="https://en.wikipedia.org/wiki/Arithmetic_mean"
 >middle
 ground&lt;/a> with which I&amp;rsquo;m happy.&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1710670541873766076">
-#figure-svg-1710670541873766076 + svg {
+&lt;figure>&lt;style id="figure-svg-1710671938982529398">
+#figure-svg-1710671938982529398 + svg {
 width: 180px;
 height: 180px;
 }
@@ -530,8 +530,8 @@ href="https://www.w3.org/TR/SVG2/painting.html#SpecifyingPaint"
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-14">&lt;a class="lnlinks" href="#hl-2-14">14&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="fm">format!&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;hsl(&lt;/span>&lt;span class="si">{h}&lt;/span>&lt;span class="s">, &lt;/span>&lt;span class="si">{s}&lt;/span>&lt;span class="s">%, &lt;/span>&lt;span class="si">{l}&lt;/span>&lt;span class="s">%)&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-15">&lt;a class="lnlinks" href="#hl-2-15">15&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Alright, let&amp;rsquo;s generate an avatar for &lt;code>&amp;quot;foo&amp;quot;&lt;/code> and see how it looks like.&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1710670541874862892">
-#figure-svg-1710670541874862892 + svg {
+&lt;figure>&lt;style id="figure-svg-1710671938983285410">
+#figure-svg-1710671938983285410 + svg {
 width: 180px;
 height: 180px;
 }
@@ -629,8 +629,8 @@ colors come from that theme. We can do that by folding all hash bytes into a sin
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-31">&lt;a class="lnlinks" href="#hl-3-31">31&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="fm">unimplemented!&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Generate SVG paths.&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-32">&lt;a class="lnlinks" href="#hl-3-32">32&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This code renders:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1710670541875117096">
-#figure-svg-1710670541875117096 + svg {
+&lt;figure>&lt;style id="figure-svg-1710671938983693317">
+#figure-svg-1710671938983693317 + svg {
 width: 180px;
 height: 180px;
 }
@@ -734,8 +734,8 @@ would be a XOR-fold of all bytes that represent a single ring &amp;mdash; and ch
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-4-38">&lt;a class="lnlinks" href="#hl-4-38">38&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="fm">unimplemented!&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Generate SVG paths.&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-4-39">&lt;a class="lnlinks" href="#hl-4-39">39&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>With the final touch we get:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1710670541875416101">
-#figure-svg-1710670541875416101 + svg {
+&lt;figure>&lt;style id="figure-svg-1710671938984925438">
+#figure-svg-1710671938984925438 + svg {
 width: 180px;
 height: 180px;
 }
@@ -815,8 +815,8 @@ href="https://www.w3.org/TR/SVG2/paths.html#PathDataEllipticalArcCommands"
 &lt;code>sweep-flag&lt;/code> parameter. It allows you to determine, whether an arc should be a smiley face or a sad face. If the
 parameter is &lt;code>1&lt;/code> &amp;mdash; as it is in our case &amp;mdash; then the arc is a sad face. However, if you&amp;rsquo;d flip the flags to be &lt;code>0&lt;/code>,
 then all arcs become smiley faces&amp;hellip;&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1710670541875774406">
-#figure-svg-1710670541875774406 + svg {
+&lt;figure>&lt;style id="figure-svg-1710671938985191643">
+#figure-svg-1710671938985191643 + svg {
 width: 180px;
 height: 180px;
 }
@@ -1209,7 +1209,7 @@ relatively to the ideal image. Using the scores we will select the best &lt;span
 organisms and discard the rest.&lt;/p>
 &lt;p>Since there&amp;rsquo;s no crossover functionality yet, we need to fill the emptied generation space somehow. &lt;strong>Simplest
 solution:&lt;/strong> once we have 5 best specimens, we&amp;rsquo;ll copy them over multiple times, to get a new generation 100 strong.&lt;/p>
-&lt;figure class="img-thumbnail">&lt;img src="./output_010000.png"
+&lt;figure class="img-thumbnail">&lt;img src="https://madebyme.today/blog/franklin/natural-selection-and-loss-functions/output_010000.png"
 alt="Mona Lisa (generation #10 000)" class="img-thumbnail"loading="lazy"
 />&lt;figcaption>
 &lt;h4>Mona Lisa (generation #10 000)&lt;/h4>
@@ -1221,7 +1221,7 @@ the algorithm works and it produces acceptable results.&lt;/p>
 &lt;p>Next, we&amp;rsquo;ll implement the crossing function and we&amp;rsquo;ll see how much it improves algorithm&amp;rsquo;s efficiency &amp;ndash; defined as the
 derivative of specimen score with respect to generation number.&lt;/p>
 &lt;!-- markdownlint-disable line-length -->
-&lt;figure class="img-thumbnail">&lt;img src="./fernando-venzano-ddVYvmwrvV4-unsplash.webp"
+&lt;figure class="img-thumbnail">&lt;img src="https://madebyme.today/blog/franklin/natural-selection-and-loss-functions/fernando-venzano-ddVYvmwrvV4-unsplash.webp"
 alt="On the Origin of Species" class="img-thumbnail"loading="lazy"
 />&lt;figcaption>
 &lt;p>Photo by &lt;a
@@ -1338,7 +1338,7 @@ onto it. With that description alone, we can already define a contract for all m
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Why &lt;code>&amp;amp;self&lt;/code> and not &lt;code>&amp;amp;mut self&lt;/code>? Due to the fact that mutations are independent of one another, they can be performed
 concurrently. In fact, as we will see in the future articles, mutating and scoring are the only steps that can be
 &lt;em>easily&lt;/em> run in parallel.&lt;/p>
-&lt;figure>&lt;img src="./genetic-algorithm-flow.webp"
+&lt;figure>&lt;img src="https://madebyme.today/blog/franklin/randomness-of-life/genetic-algorithm-flow.webp"
 alt="Genetic Algorithm Flow"loading="lazy"
 />&lt;figcaption>
 &lt;p>A diagram showing the flow of actions applied on a single generation.&lt;/p>
@@ -1433,7 +1433,7 @@ color channels.&lt;/p>
 &amp;ldquo;&lt;a
 href="https://en.wikipedia.org/wiki/File:Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.webp"
 >Mona Lisa&lt;/a>&amp;rdquo;.&lt;/p>
-&lt;figure class="img-thumbnail">&lt;img src="./output_010000.png"
+&lt;figure class="img-thumbnail">&lt;img src="https://madebyme.today/blog/franklin/randomness-of-life/output_010000.png"
 alt="Random noise" class="img-thumbnail"loading="lazy"
 />&lt;figcaption>
 &lt;h4>Mona Lisa (generation #10 000)&lt;/h4>
@@ -1468,7 +1468,7 @@ commit at the moment of writing &amp;ndash; 73aa8da)&lt;/em>. The goal of this s
 build a working utility, but rather to present an idea. So, moving forward all future articles from this series will
 also be done in that style.&lt;/p>
 &lt;!-- markdownlint-disable line-length -->
-&lt;figure class="img-thumbnail">&lt;img src="./alexander-grey-2eAkk5lIkC8-unsplash.webp"
+&lt;figure class="img-thumbnail">&lt;img src="https://madebyme.today/blog/franklin/randomness-of-life/alexander-grey-2eAkk5lIkC8-unsplash.webp"
 alt="Randomness of Life" class="img-thumbnail"loading="lazy"
 />&lt;figcaption>
 &lt;p>Photo by &lt;a
