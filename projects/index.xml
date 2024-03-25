@@ -20,14 +20,14 @@ href="https://madebyme.today/tags/rust/"
 >Rust&lt;/a>.&lt;/p>&lt;/div>
 &lt;p>I think this blog post is one of those things which are easier to understand if you&amp;rsquo;d see the end result first. So, for
 those interested here&amp;rsquo;s a spoiler.&lt;/p>
-&lt;div class="alert alert-spoiler">&lt;input id="callout-spoiler-1710722649630549806" class="collapsible-toggle" type="checkbox"/>
-&lt;label for="callout-spoiler-1710722649630549806" class="collapsible-label-toggle alert-heading">
+&lt;div class="alert alert-spoiler">&lt;input id="callout-spoiler-1711327495401941938" class="collapsible-toggle" type="checkbox"/>
+&lt;label for="callout-spoiler-1711327495401941938" class="collapsible-label-toggle alert-heading">
 Spoiler!&lt;/label>
 &lt;div class="collapsible-content">
 &lt;div class="collapsible-content-inner">
 &lt;p class="my-3">&lt;p>This is the end result:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1710722649629664861">
-#figure-svg-1710722649629664861 + svg {
+&lt;figure>&lt;style id="figure-svg-1711327495400162323">
+#figure-svg-1711327495400162323 + svg {
 width: 180px;
 height: 180px;
 }
@@ -166,8 +166,8 @@ point.&lt;/li>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-5">&lt;a class="lnlinks" href="#hl-1-5">5&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="nt">&amp;lt;path&lt;/span> &lt;span class="na">d=&lt;/span>&lt;span class="s">&amp;#34;M 0,0 L -1,0 A 1,1,0,0,1,0,-1 z&amp;#34;&lt;/span> &lt;span class="na">fill=&lt;/span>&lt;span class="s">&amp;#34;DarkSalmon&amp;#34;&lt;/span> &lt;span class="na">stroke=&lt;/span>&lt;span class="s">&amp;#34;black&amp;#34;&lt;/span> &lt;span class="na">stroke-width=&lt;/span>&lt;span class="s">&amp;#34;0.01&amp;#34;&lt;/span> &lt;span class="nt">/&amp;gt;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-6">&lt;a class="lnlinks" href="#hl-1-6">6&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="nt">&amp;lt;/svg&amp;gt;&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>It renders to:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1710722649630777962">
-#figure-svg-1710722649630777962 + svg {
+&lt;figure>&lt;style id="figure-svg-1711327495402165023">
+#figure-svg-1711327495402165023 + svg {
 width: 180px;
 height: 180px;
 }
@@ -193,8 +193,8 @@ href="https://www.w3.org/TR/SVG2/paths.html#PathDataEllipticalArcCommands"
 >elliptical arc curve&lt;/a> command of the &lt;em>previous&lt;/em> element.&lt;/p>
 &lt;p>&lt;em>Ok, but how to divide these slices into halves?&lt;/em> &amp;mdash; you may ask.&lt;/p>
 &lt;p>To do that we need to find the points in the middle of the arcs.&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1710722649631155679">
-#figure-svg-1710722649631155679 + svg {
+&lt;figure>&lt;style id="figure-svg-1711327495403960650">
+#figure-svg-1711327495403960650 + svg {
 width: 180px;
 height: 180px;
 }
@@ -229,8 +229,8 @@ r_1 = 1
 $$&lt;/p>
 &lt;p>Fortunately &amp;mdash; since the circle&amp;rsquo;s middle point is $(0, 0)$ and the arc points are in the middle of their arcs &amp;mdash; we
 know that the absolute value of their coordinates is the same. So, our diagram simplifies to:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1710722649631461200">
-#figure-svg-1710722649631461200 + svg {
+&lt;figure>&lt;style id="figure-svg-1711327495404239478">
+#figure-svg-1711327495404239478 + svg {
 width: 180px;
 height: 180px;
 }
@@ -275,8 +275,8 @@ a &amp;amp;= \sqrt{\frac{1}{2}}
 \end{aligned}
 $$&lt;/p>
 &lt;p>By adding four more pizza slices we get:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1710722649631699165">
-#figure-svg-1710722649631699165 + svg {
+&lt;figure>&lt;style id="figure-svg-1711327495404477560">
+#figure-svg-1711327495404477560 + svg {
 width: 180px;
 height: 180px;
 }
@@ -303,8 +303,8 @@ obvious ways of selecting division points: equal radii, or equal areas. Equal ra
 first.&lt;/p>
 &lt;p>If the outermost circle has a radius of $1$, then the middle circle will have a radius of $0.\overline{6}$, and the
 smallest one will have $0.\overline{3}$.&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1710722649631940496">
-#figure-svg-1710722649631940496 + svg {
+&lt;figure>&lt;style id="figure-svg-1711327495404708840">
+#figure-svg-1711327495404708840 + svg {
 width: 180px;
 height: 180px;
 }
@@ -380,8 +380,8 @@ r_2 = \sqrt{\frac{2}{3}}
 \end{aligned}
 $$&lt;/p>
 &lt;p>Which gives us this avatar:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1710722649632198790">
-#figure-svg-1710722649632198790 + svg {
+&lt;figure>&lt;style id="figure-svg-1711327495404948775">
+#figure-svg-1711327495404948775 + svg {
 width: 180px;
 height: 180px;
 }
@@ -439,8 +439,8 @@ $$&lt;/p>
 href="https://en.wikipedia.org/wiki/Arithmetic_mean"
 >middle
 ground&lt;/a> with which I&amp;rsquo;m happy.&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1710722649632427377">
-#figure-svg-1710722649632427377 + svg {
+&lt;figure>&lt;style id="figure-svg-1711327495406111635">
+#figure-svg-1711327495406111635 + svg {
 width: 180px;
 height: 180px;
 }
@@ -530,8 +530,8 @@ href="https://www.w3.org/TR/SVG2/painting.html#SpecifyingPaint"
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-14">&lt;a class="lnlinks" href="#hl-2-14">14&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="fm">format!&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;hsl(&lt;/span>&lt;span class="si">{h}&lt;/span>&lt;span class="s">, &lt;/span>&lt;span class="si">{s}&lt;/span>&lt;span class="s">%, &lt;/span>&lt;span class="si">{l}&lt;/span>&lt;span class="s">%)&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-15">&lt;a class="lnlinks" href="#hl-2-15">15&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Alright, let&amp;rsquo;s generate an avatar for &lt;code>&amp;quot;foo&amp;quot;&lt;/code> and see how it looks like.&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1710722649632823768">
-#figure-svg-1710722649632823768 + svg {
+&lt;figure>&lt;style id="figure-svg-1711327495406731447">
+#figure-svg-1711327495406731447 + svg {
 width: 180px;
 height: 180px;
 }
@@ -629,8 +629,8 @@ colors come from that theme. We can do that by folding all hash bytes into a sin
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-31">&lt;a class="lnlinks" href="#hl-3-31">31&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="fm">unimplemented!&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Generate SVG paths.&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-32">&lt;a class="lnlinks" href="#hl-3-32">32&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This code renders:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1710722649633073726">
-#figure-svg-1710722649633073726 + svg {
+&lt;figure>&lt;style id="figure-svg-1711327495407294873">
+#figure-svg-1711327495407294873 + svg {
 width: 180px;
 height: 180px;
 }
@@ -734,8 +734,8 @@ would be a XOR-fold of all bytes that represent a single ring &amp;mdash; and ch
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-4-38">&lt;a class="lnlinks" href="#hl-4-38">38&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="fm">unimplemented!&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Generate SVG paths.&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-4-39">&lt;a class="lnlinks" href="#hl-4-39">39&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>With the final touch we get:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1710722649633316479">
-#figure-svg-1710722649633316479 + svg {
+&lt;figure>&lt;style id="figure-svg-1711327495407606773">
+#figure-svg-1711327495407606773 + svg {
 width: 180px;
 height: 180px;
 }
@@ -815,8 +815,8 @@ href="https://www.w3.org/TR/SVG2/paths.html#PathDataEllipticalArcCommands"
 &lt;code>sweep-flag&lt;/code> parameter. It allows you to determine, whether an arc should be a smiley face or a sad face. If the
 parameter is &lt;code>1&lt;/code> &amp;mdash; as it is in our case &amp;mdash; then the arc is a sad face. However, if you&amp;rsquo;d flip the flags to be &lt;code>0&lt;/code>,
 then all arcs become smiley faces&amp;hellip;&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1710722649633555817">
-#figure-svg-1710722649633555817 + svg {
+&lt;figure>&lt;style id="figure-svg-1711327495407912430">
+#figure-svg-1711327495407912430 + svg {
 width: 180px;
 height: 180px;
 }
