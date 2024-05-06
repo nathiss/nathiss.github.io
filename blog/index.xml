@@ -7765,7 +7765,7 @@ data-week-start-date="2024-04-29"
 >
 &lt;/div>
 &lt;div
-class="week border border-light-subtle bg-light-subtle p-1 mt-1 me-1 float-start opacity-50"
+class="week border border-light-subtle bg-light-subtle p-1 mt-1 me-1 float-start opacity-100"
 data-week-start-date="2024-05-6"
 >
 &lt;/div>
