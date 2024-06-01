@@ -2,17 +2,12 @@
 I liked the idea, but my gut feeling was that the future project contributors won&amp;rsquo;t keep the changelog always up-to-date
 and it&amp;rsquo;s quality will decline over time. This article proposes a feature which enforces changelog updates, when it&amp;rsquo;s
 required to do so.&lt;/p>
-&lt;h2 id="whats-a-changelog" >
-&lt;a href="#whats-a-changelog" aria-label="Anchor">#&lt;/a>
-What&amp;rsquo;s a changelog
-&lt;/h2>
+&lt;h2 id="whats-a-changelog" >&lt;a href="#whats-a-changelog" aria-label="Anchor">#&lt;/a>What&amp;rsquo;s a changelog&lt;/h2>
 &lt;blockquote>
 &lt;p>A &lt;strong>changelog&lt;/strong> is a log or record of all notable changes made to a project. The project is often a website or
 software project, and the changelog usually includes records of changes such as bug fixes, new features, etc.&lt;/p>
 &lt;/blockquote>
-&lt;p>from &lt;a
-href="https://en.wikipedia.org/wiki/Changelog"
->Wikipedia&lt;/a>.&lt;/p>
+&lt;p>from &lt;a href="https://en.wikipedia.org/wiki/Changelog">Wikipedia&lt;/a>.&lt;/p>
 &lt;p>The phrase &amp;ldquo;notable changes&amp;rdquo; is the key here. Not all changes to the project are required to have an entry in its
 changelog: workflow updates, typo fixes in README, SonarQube settings; they all are transparent to the Python package
 produced by the project.&lt;/p>
@@ -44,15 +39,9 @@ produced by the project.&lt;/p>
 &lt;code>.github/workflows/workflow.yaml&lt;/code> builds, tests and publishes the package. Initially project stored its version in
 &lt;code>pyproject.toml&lt;/code>, while &lt;code>Changelog.md&lt;/code> contained human-readable lists of additions, fixes, and improvements for each
 release. Having a standard usually makes things easier, so we adopted
-&lt;a
-href="https://keepachangelog.com/en/1.1.0/"
->keep a changelog&lt;/a>, which also uses
-&lt;a
-href="https://semver.org/spec/v2.0.0.html"
->Semantic Versioning 2.0.0&lt;/a>, so that was nice.&lt;/p>
-&lt;p>&lt;a
-href="https://keepachangelog.com/en/1.1.0/"
->Keep a changelog&lt;/a> is just a Markdown template &amp;ndash; it has no associated toolset.
+&lt;a href="https://keepachangelog.com/en/1.1.0/">keep a changelog&lt;/a>, which also uses
+&lt;a href="https://semver.org/spec/v2.0.0.html">Semantic Versioning 2.0.0&lt;/a>, so that was nice.&lt;/p>
+&lt;p>&lt;a href="https://keepachangelog.com/en/1.1.0/">Keep a changelog&lt;/a> is just a Markdown template &amp;ndash; it has no associated toolset.
 Here&amp;rsquo;s an example of a changelog with two entries:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-md" data-lang="md">&lt;span class="line">&lt;span class="ln" id="hl-1-1">&lt;a class="lnlinks" href="#hl-1-1"> 1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="gh"># Changelog
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-2">&lt;a class="lnlinks" href="#hl-1-2"> 2&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="gh">&lt;/span>
@@ -81,10 +70,7 @@ Here&amp;rsquo;s an example of a changelog with two entries:&lt;/p>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-25">&lt;a class="lnlinks" href="#hl-1-25">25&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="gu">### Fixed
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-26">&lt;a class="lnlinks" href="#hl-1-26">26&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="gu">&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-27">&lt;a class="lnlinks" href="#hl-1-27">27&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="k">-&lt;/span> Typo in project&amp;#39;s title in docs.
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="keeping-a-changelog-up-to-date" >
-&lt;a href="#keeping-a-changelog-up-to-date" aria-label="Anchor">#&lt;/a>
-Keep(ing) a changelog up-to-date
-&lt;/h2>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="keeping-a-changelog-up-to-date" >&lt;a href="#keeping-a-changelog-up-to-date" aria-label="Anchor">#&lt;/a>Keep(ing) a changelog up-to-date&lt;/h2>
 &lt;p>When releasing a new package version one needs to remember to update the version in two places: &lt;code>pyproject.toml&lt;/code> and
 &lt;code>Changelog.md&lt;/code>. Also, there&amp;rsquo;s no mechanism to enforce that behavior; we could create a workflow step to validate that
 both places are in sync, but relaying on CI to inform contributors about the necessary changes seems far from ideal.&lt;/p>
@@ -136,30 +122,19 @@ enforce updating the changelog for every change. However, to release a new versi
 add a new changelog entry.&lt;/p>
 &lt;p>Now, since the presence of &lt;code>Changelog.md&lt;/code> is necessary for the build to succeed, we should inform the build system about
 this dependency. &lt;code>MANIFEST.in&lt;/code> contains include/exclude patters for non-standard files (see
-&lt;a
-href="https://packaging.python.org/en/latest/guides/using-manifest-in/"
->official docs&lt;/a>). Add the following line to the
+&lt;a href="https://packaging.python.org/en/latest/guides/using-manifest-in/">official docs&lt;/a>). Add the following line to the
 manifest:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-text" data-lang="text">&lt;span class="line">&lt;span class="ln" id="hl-4-1">&lt;a class="lnlinks" href="#hl-4-1">1&lt;/a>&lt;/span>&lt;span class="cl"># ...
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-4-2">&lt;a class="lnlinks" href="#hl-4-2">2&lt;/a>&lt;/span>&lt;span class="cl">include Changelog.md
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="accessing-project-version-from-sphinx" >
-&lt;a href="#accessing-project-version-from-sphinx" aria-label="Anchor">#&lt;/a>
-Accessing project version from Sphinx
-&lt;/h3>
-&lt;p>&lt;a
-href="https://www.sphinx-doc.org/en/master/"
->Sphinx&lt;/a> is a most popular tool for generating documentation out of Python source
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="accessing-project-version-from-sphinx" >&lt;a href="#accessing-project-version-from-sphinx" aria-label="Anchor">#&lt;/a>Accessing project version from Sphinx&lt;/h3>
+&lt;p>&lt;a href="https://www.sphinx-doc.org/en/master/">Sphinx&lt;/a> is a most popular tool for generating documentation out of Python source
 files. It keeps its configuration in the &lt;code>conf.py&lt;/code> file, which has two special attributes related to the project&amp;rsquo;s
 version:&lt;/p>
 &lt;ul>
 &lt;li>&lt;code>version&lt;/code> &amp;ndash; the major project version (see
-&lt;a
-href="https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-version"
->official documentation&lt;/a>),&lt;/li>
+&lt;a href="https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-version">official documentation&lt;/a>),&lt;/li>
 &lt;li>&lt;code>release&lt;/code> &amp;ndash; the full project version (see
-&lt;a
-href="https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-release"
->official documentation&lt;/a>).&lt;/li>
+&lt;a href="https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-release">official documentation&lt;/a>).&lt;/li>
 &lt;/ul>
 &lt;p>With the current setup it&amp;rsquo;s hard for Sphinx to read the version, since it&amp;rsquo;s only accessible from &lt;code>setup.py&lt;/code>. The easiest
 workaround is to extract the parsing to an external module and then use that module as a dependency in both &lt;code>conf.py&lt;/code>
@@ -217,10 +192,7 @@ and &lt;code>setup.py&lt;/code>.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-text" data-lang="text">&lt;span class="line">&lt;span class="ln" id="hl-8-1">&lt;a class="lnlinks" href="#hl-8-1">1&lt;/a>&lt;/span>&lt;span class="cl"># ...
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-8-2">&lt;a class="lnlinks" href="#hl-8-2">2&lt;/a>&lt;/span>&lt;span class="cl">include Changelog.md
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-8-3">&lt;a class="lnlinks" href="#hl-8-3">3&lt;/a>&lt;/span>&lt;span class="cl">include version.py
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="afterthought" >
-&lt;a href="#afterthought" aria-label="Anchor">#&lt;/a>
-Afterthought
-&lt;/h2>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="afterthought" >&lt;a href="#afterthought" aria-label="Anchor">#&lt;/a>Afterthought&lt;/h2>
 &lt;p>Maintaining a changelog can make a project easier to understand. Hopefully, with the changes proposed in this article
 you&amp;rsquo;ll find changelogs more manageable. This feature does not enforce changelog updates from the contributors &amp;ndash; they
 will only need to do so, when they want to release a new version of the package.&lt;/p>
@@ -230,11 +202,7 @@ observable for the users. Whether it&amp;rsquo;s worth to add changelog entries 
 &lt;figure class="img-thumbnail">&lt;img src="https://madebyme.today/blog/keep-a-changelog/jasper-garratt-esc26JcEdek-unsplash.webp"
 alt="Log" class="img-thumbnail"loading="lazy"
 />&lt;figcaption>
-&lt;p>Photo by &lt;a
-href="https://unsplash.com/@jaspergarrattphotography?utm_content=creditCopyText&amp;amp;utm_medium=referral&amp;amp;utm_source=unsplash"
->Jasper Garratt&lt;/a> on &lt;a
-href="https://unsplash.com/photos/green-moss-on-brown-tree-trunk-esc26JcEdek?utm_content=creditCopyText&amp;amp;utm_medium=referral&amp;amp;utm_source=unsplash"
->Unsplash&lt;/a>&lt;/p>
+&lt;p>Photo by &lt;a href="https://unsplash.com/@jaspergarrattphotography?utm_content=creditCopyText&amp;amp;utm_medium=referral&amp;amp;utm_source=unsplash">Jasper Garratt&lt;/a> on &lt;a href="https://unsplash.com/photos/green-moss-on-brown-tree-trunk-esc26JcEdek?utm_content=creditCopyText&amp;amp;utm_medium=referral&amp;amp;utm_source=unsplash">Unsplash&lt;/a>&lt;/p>
 &lt;/figcaption>
 &lt;/figure>
 &lt;!-- markdownlint-enable line-length --></description></item></channel></rss>
