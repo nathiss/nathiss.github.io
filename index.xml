@@ -1,4 +1,179 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MadeByMe</title><link>https://madebyme.today/</link><description>Recent content on MadeByMe</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright 2023-2024, Kamil Rusin</copyright><lastBuildDate>Thu, 06 Jun 2024 19:01:04 +0200</lastBuildDate><atom:link href="https://madebyme.today/index.xml" rel="self" type="application/rss+xml"/><item><title>Generating SVG Avatars From Identifiers</title><link>https://madebyme.today/projects/generating-svg-avatars-from-identifiers/</link><pubDate>Sun, 25 Feb 2024 14:26:12 +0100</pubDate><guid>https://madebyme.today/projects/generating-svg-avatars-from-identifiers/</guid><category>SVG</category><category>Rust</category><description>&lt;p>When you create a new social service on the internet, one of the things you need to think about is how to make a user&amp;rsquo;s
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MadeByMe</title><link>https://madebyme.today/</link><description>Recent content on MadeByMe</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright 2023-2024, Kamil Rusin</copyright><lastBuildDate>Wed, 21 Aug 2024 19:55:43 +0200</lastBuildDate><atom:link href="https://madebyme.today/index.xml" rel="self" type="application/rss+xml"/><item><title>How to Become Immortal 101: Shamir's Secret Sharing</title><link>https://madebyme.today/blog/shamirs-secret-sharing/</link><pubDate>Wed, 21 Aug 2024 19:55:43 +0200</pubDate><guid>https://madebyme.today/blog/shamirs-secret-sharing/</guid><category>Algorithm</category><description>&lt;p>Have you ever wondered how to protect your master password from getting lost? Or how to create a &lt;em>perfect&lt;/em> democracy
+where nuke access is shared between most important people in the government &lt;em>equally&lt;/em>? Or how to achieve immortality by
+splitting your soul and putting the pieces into objects? &amp;#x1fa84;&lt;/p>
+&lt;p>If so, then you&amp;rsquo;ve come to the right place. Join me, my friend, on this discovery of &lt;a href="https://en.wikipedia.org/wiki/Shamir%27s_secret_sharing">Shamir&amp;rsquo;s secret sharing&lt;/a>.&lt;/p>
+&lt;h2 id="chapter-1-learning-dark-magic" >&lt;a href="#chapter-1-learning-dark-magic" aria-label="Anchor">#&lt;/a>Chapter 1: Learning dark magic&lt;/h2>
+&lt;p>&lt;a href="https://en.wikipedia.org/wiki/Shamir%27s_secret_sharing">Shamir&amp;rsquo;s secret sharing&lt;/a> is a secret sharing algorithm first formulated by &lt;a href="https://en.wikipedia.org/wiki/Adi_Shamir">Adi Shamir&lt;/a> in &lt;a href="https://dl.acm.org/doi/10.1145/359168.359176">How to share a secret&lt;/a>
+(&lt;time datetime="1979-11-01">1979-11-01&lt;/time>). It allows to split and distribute a secret among a group, in such a way that no single
+person from that group can recreate the secret. Only when a &lt;a href="https://en.wikipedia.org/wiki/Quorum">quorum&lt;/a> decides to merge their &lt;em>shards&lt;/em>, the secret can be
+recreated.&lt;/p>
+&lt;p>At its core, &lt;a href="https://en.wikipedia.org/wiki/Shamir%27s_secret_sharing">Shamir&amp;rsquo;s secret sharing&lt;/a> is based on polynomial interpolation and is really easy to understand
+conceptually. Once of its main features is that the group size ($n$) and the minimal &lt;a href="https://en.wikipedia.org/wiki/Quorum">quorum&lt;/a> size ($k$) do not have
+to be the same number. Obviously, $n \ge k$, but other than that we can adjust those numbers to match our needs.&lt;/p>
+&lt;p>&lt;em>OK, but how does this work?&lt;/em>&lt;/p>
+&lt;p>Let&amp;rsquo;s start by encoding our secret as a number. (Technical details will be discussed in
+&lt;a href="#chapter-3-wands-out-time-to-practice">Chapter 3&lt;/a>, so for now let&amp;rsquo;s just say it&amp;rsquo;s possible.) We get $S = 42$.&lt;/p>
+&lt;p>Next step is to select $n$ and $k$. Let&amp;rsquo;s say we share our encoded master password (secret) with 8 friend and any 4 of
+them can reconstruct the secret. That gives us $n = 8$ and $k = 4$.&lt;/p>
+&lt;p>To get the shards, we need to construct a polynomial of degree $k - 1$, where coefficient zero ($a_0$) is the secret;
+the rest of coefficients are chosen randomly.&lt;/p>
+&lt;p>$$
+f(x) = 165x^3 + 51x^2 + 98x + 42
+$$&lt;/p>
+&lt;!--
+```python
+from numpy import polyval
+for i in range(1, 9):
+print(f'({i}, {polyval([165, 51, 98, 42], i)})')
+```
+-->
+&lt;p>We can clearly see that $f(0) = 42$ is our secret. Our shards are $f(1), f(2), &amp;hellip;, f(n)$, which gives us:&lt;/p>
+&lt;p>$$
+\begin{array}{ l l }
+(1, 356) &amp;amp; (2, 1762) \\[0.25em]
+(3, 5250) &amp;amp; (4, 11810) \\[0.25em]
+(5, 22432) &amp;amp; (6, 38106) \\[0.25em]
+(7, 59822) &amp;amp; (8, 88570)
+\end{array}
+$$&lt;/p>
+&lt;p>&amp;hellip;if coupled with indexes. And that&amp;rsquo;s it! Any 4 of these numbers can be used to reconstruct the polynomial, thus
+allowing to calculate the secret $\big(f(0)\big)$.&lt;/p>
+&lt;p>That&amp;rsquo;s half of our dark magic theory. Let&amp;rsquo;s learn how to undo what we did.&lt;/p>
+&lt;h3 id="reverting-spells-effect" >&lt;a href="#reverting-spells-effect" aria-label="Anchor">#&lt;/a>Reverting spell&amp;rsquo;s effect&lt;/h3>
+&lt;p>To reconstruct the secret we need any 4 shards. Chosen randomly these are:&lt;/p>
+&lt;p>$$
+\begin{aligned}
+&amp;amp;(2, 1762) \\[0.25em]
+&amp;amp;(4, 11810) \\[0.25em]
+&amp;amp;(6, 38106) \\[0.25em]
+&amp;amp;(8, 88570)
+\end{aligned}
+$$&lt;/p>
+&lt;p>There are a lot of ways we can reconstruct a polynomial from a series of points. If you like math you might be tempted
+to use the formula for &lt;a href="https://en.wikipedia.org/wiki/Lagrange_polynomial">Lagrange interpolating polynomial&lt;/a>:&lt;/p>
+&lt;p>$$
+\begin{aligned}
+f(x) &amp;amp;= \sum_{j=0}^{n}\big(y_j \cdot \ell_j(x)\big) \\[0.25em]
+\ell_j(x) &amp;amp;= \prod_{\substack{0 \le m \le k \\ m \ne j}} \frac{x - x_m}{x_j - x_m}
+\end{aligned}
+$$&lt;/p>
+&lt;p>Or &amp;mdash; if you&amp;rsquo;re lazy &amp;mdash; use &lt;a href="https://scipy.org/">&lt;code>scipy&lt;/code>&lt;/a>:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="ln" id="hl-0-1">&lt;a class="lnlinks" href="#hl-0-1">1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="kn">from&lt;/span> &lt;span class="nn">scipy.interpolate&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">lagrange&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-2">&lt;a class="lnlinks" href="#hl-0-2">2&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">lagrange&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="mi">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">4&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">6&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">8&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mi">1762&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">11810&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">38106&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">88570&lt;/span>&lt;span class="p">])&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-3">&lt;a class="lnlinks" href="#hl-0-3">3&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="n">poly1d&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="mf">165.&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mf">51.&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mf">98.&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mf">42.&lt;/span>&lt;span class="p">])&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>These, indeed, are our polynomial coefficients. Even without reconstruction, we can clearly see that $f(0) = 42$;
+secret recovered. &amp;#x1f44c;&lt;/p>
+&lt;h2 id="chapter-2-protecting-our-enchantments-from-counter-curses" >&lt;a href="#chapter-2-protecting-our-enchantments-from-counter-curses" aria-label="Anchor">#&lt;/a>Chapter 2: Protecting our enchantments from counter-curses&lt;/h2>
+&lt;p>Frankly, to &lt;em>almost&lt;/em> any curse, there&amp;rsquo;s a &lt;a href="https://en.wiktionary.org/wiki/countercurse">counter-curse&lt;/a>. A counter-curse for &lt;a href="https://en.wikipedia.org/wiki/Shamir%27s_secret_sharing">Shamir&amp;rsquo;s secret sharing&lt;/a> is integer
+arithmetic.&lt;/p>
+&lt;p>A good secret sharing algorithm should have two characteristics:&lt;/p>
+&lt;ol>
+&lt;li>Secret can be computed with any $k$ or more shards.&lt;/li>
+&lt;li>Knowledge of any number of shards less than $k$ makes does not reveal any information about the secret. In other
+words all possible values of the secret should be equally probable.&lt;/li>
+&lt;/ol>
+&lt;p>While (1) is still true, (2) is not so much. Let&amp;rsquo;s go over this step by step; assume that we only know three out of four
+required shards:&lt;/p>
+&lt;p>$$
+\begin{aligned}
+&amp;amp;(1, 456) \\[0.25em]
+&amp;amp;(2, 1762) \\[0.25em]
+&amp;amp;(3, 5250)
+\end{aligned}
+$$&lt;/p>
+&lt;p>It gives us:&lt;/p>
+&lt;p>$$
+\begin{alignat}{1}
+f(1) &amp;amp;= S + a_1 + a_2 + a_3 = 356 \\[0.25em]
+f(2) &amp;amp;= S + 2a_1 + 4a_2 + 8a_3 = 1762 \\[0.25em]
+f(3) &amp;amp;= S + 3a_1 + 9a_2 + 27a_3 = 5250
+\end{alignat}
+$$&lt;/p>
+&lt;p>By solving $(1)$ for $a_1$ and substituting $a_1$ in $(2)$ we get:&lt;/p>
+&lt;p>$$
+\begin{alignat}{1}
+a_1 &amp;amp;= 356 - S - a_2 - a_3 \\[0.25em]
+1050 &amp;amp;= - S + 2a_2 + 6a_3
+\end{alignat}
+$$&lt;/p>
+&lt;p>Solving $(5)$ for $a_2$ and substituting $a_1$, and $a_2$ in $(3)$ we get:&lt;/p>
+&lt;p>$$
+\begin{gather}{1}
+5250 = S + 3(356 - S - (525 + \frac{S}{2} - 3a_3) - a_3) + 9(525 + \frac{S}{2} - 3a_3) + 27a_3 \\[0.25em]
+S = -6(a_3 - 172)
+\end{gather}
+$$&lt;/p>
+&lt;p>From $(7)$ we conclude that $S$ is even. (See &lt;a href="https://www.wolframalpha.com/input?i=solve&amp;#43;%7BS&amp;#43;%2B&amp;#43;a_1&amp;#43;%2B&amp;#43;a_2&amp;#43;%2B&amp;#43;a_3&amp;#43;%3D&amp;#43;356%2CS&amp;#43;%2B&amp;#43;2a_1&amp;#43;%2B&amp;#43;4a_2&amp;#43;%2B&amp;#43;8a_3&amp;#43;%3D&amp;#43;1762%2CS&amp;#43;%2B&amp;#43;3a_1&amp;#43;%2B&amp;#43;9a_2&amp;#43;%2B&amp;#43;27a_3&amp;#43;%3D&amp;#43;5250%7D&amp;#43;for&amp;#43;S&amp;#43;">WolframAlpha&lt;/a>.)&lt;/p>
+&lt;h3 id="finite-field-arithmetic" >&lt;a href="#finite-field-arithmetic" aria-label="Anchor">#&lt;/a>Finite field arithmetic&lt;/h3>
+&lt;p>We can protect from this by using &lt;a href="https://en.wikipedia.org/wiki/Finite_field_arithmetic">finite field arithmetic&lt;/a>. In simple terms &amp;mdash; those of you who know math don&amp;rsquo;t kill
+me please &amp;mdash; finite field arithmetic &lt;em>is&lt;/em> applying modulo to your calculation. So, $GF(256)$ is doing calculations
+over $mod \ 256$.&lt;/p>
+&lt;p>With the Galois field of order 256 our polynomial becomes:&lt;/p>
+&lt;p>$$
+f(x) = 165x^3 + 51x^2 + 98x + 42 \mod 256
+$$&lt;/p>
+&lt;p>Which produces these shards:&lt;/p>
+&lt;!--
+```python
+from numpy import polyval
+for i in range(1, 9):
+print(f'({i}, {polyval([165, 51, 98, 42], i)%256})')
+```
+-->
+&lt;p>$$
+\begin{array}{ l l }
+(1, 100) &amp;amp; (2, 226) \\[0.25em]
+(3, 130) &amp;amp; (4, 34) \\[0.25em]
+(5, 160) &amp;amp; (6, 218) \\[0.25em]
+(7, 174) &amp;amp; (8, 250)
+\end{array}
+$$&lt;/p>
+&lt;p>By repeating the attack above we &lt;em>could&lt;/em> conclude that&lt;/p>
+&lt;p>$$
+S \equiv -6(a_3 - 172) \mod 256
+$$&lt;/p>
+&lt;p>However, it does not provide any additional information.&lt;/p>
+&lt;h2 id="chapter-3-wands-out-time-to-practice" >&lt;a href="#chapter-3-wands-out-time-to-practice" aria-label="Anchor">#&lt;/a>Chapter 3: Wands out! Time to practice&lt;/h2>
+&lt;p>&lt;strong>NB&lt;/strong>: SSS with a Galois field is &lt;em>math&lt;/em>; it doesn&amp;rsquo;t mean it&amp;rsquo;s easy to use in practice. The catch is that the order of
+the Galois field must be greater than the secret $S$. This is problematic if we decide to split a &lt;em>large enough&lt;/em> secret.
+A naive way of encoding an arbitrary string as a number can be done with &lt;em>base10&lt;/em>, or with something like:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="ln" id="hl-1-1">&lt;a class="lnlinks" href="#hl-1-1">1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="nb">int&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;An arbitrary large secret. Lorem ipsum dolor sit amet, consectetur adipiscing elit.&amp;#39;&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">encode&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">hex&lt;/span>&lt;span class="p">(),&lt;/span> &lt;span class="mi">16&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Do you want to guess how many digits it has?&lt;/p>
+&lt;div class="alert alert-spoiler">&lt;input id="callout-spoiler-1724266711104640853" class="collapsible-toggle" type="checkbox"/>
+&lt;label for="callout-spoiler-1724266711104640853" class="collapsible-label-toggle alert-heading">
+Spoiler!&lt;/label>
+&lt;div class="collapsible-content">
+&lt;div class="collapsible-content-inner">
+&lt;p class="my-3">&lt;p>It&amp;rsquo;s 200.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="ln" id="hl-0-1">&lt;a class="lnlinks" href="#hl-0-1">1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">a&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">int&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;An arbitrary large secret. Lorem ipsum dolor sit amet, consectetur adipiscing elit.&amp;#39;&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">encode&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">hex&lt;/span>&lt;span class="p">(),&lt;/span> &lt;span class="mi">16&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-2">&lt;a class="lnlinks" href="#hl-0-2">2&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">a&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-3">&lt;a class="lnlinks" href="#hl-0-3">3&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="mi">19563893103164139046164760092383861391703768554892418063070031848050953623578314862989468034439094655520808050846734560200990268693032238066103008403886443361299427067274060838050276743694708128707630&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-4">&lt;a class="lnlinks" href="#hl-0-4">4&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="nb">len&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">str&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">a&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-5">&lt;a class="lnlinks" href="#hl-0-5">5&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="mi">200&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/p>
+&lt;/div>
+&lt;/div>&lt;/div>
+&lt;p>A known solution for this is to split the secret into chunks and apply SSS to each chunk individually:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="ln" id="hl-2-1">&lt;a class="lnlinks" href="#hl-2-1">1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="n">chunks&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="nb">int&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">b&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">for&lt;/span> &lt;span class="n">b&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="s1">&amp;#39;An arbitrary large secret. Lorem ipsum dolor sit amet, consectetur adipiscing elit.&amp;#39;&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">encode&lt;/span>&lt;span class="p">()]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-2">&lt;a class="lnlinks" href="#hl-2-2">2&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="n">shards&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">sss&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">chunks&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">k&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="mi">4&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">n&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="mi">8&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Shout-out to &lt;a href="https://github.com/SpinResearch/RustySecrets">RustySecrets&lt;/a> where I first saw this idea. (Frankly, this
+project seems to be abandoned.) Still, on the web, there&amp;rsquo;re numerous other SSS implementations:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://iancoleman.io/shamir/">Shamir Secret Sharing Scheme&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://asecuritysite.com/shares/shamir">Shamir Secret Sharing @ asecuritysite.com&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://simon-frey.com/s4/">Simple Shamir&amp;rsquo;s Secret Sharing&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://point-at-infinity.org/ssss/demo.html">sss @ point-at-infinity.org&lt;/a>&lt;/li>
+&lt;li>&amp;hellip;&lt;/li>
+&lt;/ul>
+&lt;h2 id="ps-why-did-i-wrote-this-blog-post" >&lt;a href="#ps-why-did-i-wrote-this-blog-post" aria-label="Anchor">#&lt;/a>P.S. Why did I wrote this blog post?&lt;/h2>
+&lt;p>Initially, I had a grand idea of implementing SSS from scratch and writing about technical challenges along the way.
+That was on &lt;time datetime="2024-06-06">2024-06-06&lt;/time>. In that time I got busy and distracted with other things, so SSS had been
+moved to the back of my head and &lt;em>stayed&lt;/em> there. I had some time today, so I&amp;rsquo;ve decided to quickly finish this blog post
+and make it &lt;em>on-paper-only&lt;/em> without any code.&lt;/p>
+&lt;p>There&amp;rsquo;s nothing new here. If you take a look at Wikipedia&amp;rsquo;s &lt;a href="https://en.wikipedia.org/wiki/Shamir%27s_secret_sharing">Shamir&amp;rsquo;s secret sharing&lt;/a>, you&amp;rsquo;ll see that it heavily
+&lt;em>inspired&lt;/em> this blog post; it&amp;rsquo;s basically Wikipedia&amp;rsquo;s with Harry Potter&amp;rsquo;s twist in it. Still, I find value in writing
+about subjects in my own words. Helps me understand them better and SSS is something I wanted to understand for some
+time now.&lt;/p></description></item><item><title>Generating SVG Avatars From Identifiers</title><link>https://madebyme.today/projects/generating-svg-avatars-from-identifiers/</link><pubDate>Sun, 25 Feb 2024 14:26:12 +0100</pubDate><guid>https://madebyme.today/projects/generating-svg-avatars-from-identifiers/</guid><category>SVG</category><category>Rust</category><description>&lt;p>When you create a new social service on the internet, one of the things you need to think about is how to make a user&amp;rsquo;s
 space feel like their own. Services like &lt;a href="https://github.blog/2013-08-14-identicons/">GitHub&lt;/a>, Roll20, or &lt;a href="https://www.reddit.com/r/reddit/comments/vtkmni/introducing_collectible_avatars/">Reddit&lt;/a>
 generate &amp;mdash; or allow you to generate &amp;mdash; a custom avatar (i.e. &lt;a href="https://en.wikipedia.org/wiki/Identicon">Identicons&lt;/a>) for your account. Avatar auto-generation
 is especially neat, as it does not require any engagement from the user. Let&amp;rsquo;s try to figure that out on our own.&lt;/p>
@@ -8,14 +183,14 @@ is especially neat, as it does not require any engagement from the user. Let&amp
 presented by François in their article &amp;mdash; with slight modifications &amp;mdash; in &lt;a href="https://madebyme.today/tags/rust/">Rust&lt;/a>.&lt;/p>&lt;/div>
 &lt;p>I think this blog post is one of those things which are easier to understand if you&amp;rsquo;d see the end result first. So, for
 those interested here&amp;rsquo;s a spoiler.&lt;/p>
-&lt;div class="alert alert-spoiler">&lt;input id="callout-spoiler-1724028847015396464" class="collapsible-toggle" type="checkbox"/>
-&lt;label for="callout-spoiler-1724028847015396464" class="collapsible-label-toggle alert-heading">
+&lt;div class="alert alert-spoiler">&lt;input id="callout-spoiler-1724266711132457085" class="collapsible-toggle" type="checkbox"/>
+&lt;label for="callout-spoiler-1724266711132457085" class="collapsible-label-toggle alert-heading">
 Spoiler!&lt;/label>
 &lt;div class="collapsible-content">
 &lt;div class="collapsible-content-inner">
 &lt;p class="my-3">&lt;p>This is the end result:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1724028847013424225">
-#figure-svg-1724028847013424225 + svg {
+&lt;figure>&lt;style id="figure-svg-1724266711131711890">
+#figure-svg-1724266711131711890 + svg {
 width: 180px;
 height: 180px;
 }
@@ -122,8 +297,8 @@ point.&lt;/li>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-5">&lt;a class="lnlinks" href="#hl-1-5">5&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="nt">&amp;lt;path&lt;/span> &lt;span class="na">d=&lt;/span>&lt;span class="s">&amp;#34;M 0,0 L -1,0 A 1,1,0,0,1,0,-1 z&amp;#34;&lt;/span> &lt;span class="na">fill=&lt;/span>&lt;span class="s">&amp;#34;DarkSalmon&amp;#34;&lt;/span> &lt;span class="na">stroke=&lt;/span>&lt;span class="s">&amp;#34;black&amp;#34;&lt;/span> &lt;span class="na">stroke-width=&lt;/span>&lt;span class="s">&amp;#34;0.01&amp;#34;&lt;/span> &lt;span class="nt">/&amp;gt;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-6">&lt;a class="lnlinks" href="#hl-1-6">6&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="nt">&amp;lt;/svg&amp;gt;&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>It renders to:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1724028847015617548">
-#figure-svg-1724028847015617548 + svg {
+&lt;figure>&lt;style id="figure-svg-1724266711132684954">
+#figure-svg-1724266711132684954 + svg {
 width: 180px;
 height: 180px;
 }
@@ -145,8 +320,8 @@ its &lt;code>viewBox&lt;/code> and the stroke lines get cut off at $(-1, 0)$, $(
 coordinates of the &lt;a href="https://www.w3.org/TR/SVG2/paths.html#PathDataEllipticalArcCommands">elliptical arc curve&lt;/a> command of the &lt;em>previous&lt;/em> element.&lt;/p>
 &lt;p>&lt;em>Ok, but how to divide these slices into halves?&lt;/em> &amp;mdash; you may ask.&lt;/p>
 &lt;p>To do that we need to find the points in the middle of the arcs.&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1724028847016019089">
-#figure-svg-1724028847016019089 + svg {
+&lt;figure>&lt;style id="figure-svg-1724266711133057397">
+#figure-svg-1724266711133057397 + svg {
 width: 180px;
 height: 180px;
 }
@@ -181,8 +356,8 @@ r_1 = 1
 $$&lt;/p>
 &lt;p>Fortunately &amp;mdash; since the circle&amp;rsquo;s middle point is $(0, 0)$ and the arc points are in the middle of their arcs &amp;mdash; we
 know that the absolute value of their coordinates is the same. So, our diagram simplifies to:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1724028847016309622">
-#figure-svg-1724028847016309622 + svg {
+&lt;figure>&lt;style id="figure-svg-1724266711133283783">
+#figure-svg-1724266711133283783 + svg {
 width: 180px;
 height: 180px;
 }
@@ -227,8 +402,8 @@ a &amp;amp;= \sqrt{\frac{1}{2}}
 \end{aligned}
 $$&lt;/p>
 &lt;p>By adding four more pizza slices we get:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1724028847016620924">
-#figure-svg-1724028847016620924 + svg {
+&lt;figure>&lt;style id="figure-svg-1724266711133503508">
+#figure-svg-1724266711133503508 + svg {
 width: 180px;
 height: 180px;
 }
@@ -252,8 +427,8 @@ obvious ways of selecting division points: equal radii, or equal areas. Equal ra
 first.&lt;/p>
 &lt;p>If the outermost circle has a radius of $1$, then the middle circle will have a radius of $0.\overline{6}$, and the
 smallest one will have $0.\overline{3}$.&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1724028847017953838">
-#figure-svg-1724028847017953838 + svg {
+&lt;figure>&lt;style id="figure-svg-1724266711133722421">
+#figure-svg-1724266711133722421 + svg {
 width: 180px;
 height: 180px;
 }
@@ -329,8 +504,8 @@ r_2 = \sqrt{\frac{2}{3}}
 \end{aligned}
 $$&lt;/p>
 &lt;p>Which gives us this avatar:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1724028847018537800">
-#figure-svg-1724028847018537800 + svg {
+&lt;figure>&lt;style id="figure-svg-1724266711134455673">
+#figure-svg-1724266711134455673 + svg {
 width: 180px;
 height: 180px;
 }
@@ -386,8 +561,8 @@ r_3 = \sqrt{\frac{1}{3}}
 $$&lt;/p>
 &lt;p>Which is also not ideal, but the other way around&amp;hellip; I was tinkering with the radii a bit and I think I found a &lt;a href="https://en.wikipedia.org/wiki/Arithmetic_mean">middle
 ground&lt;/a> with which I&amp;rsquo;m happy.&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1724028847018840556">
-#figure-svg-1724028847018840556 + svg {
+&lt;figure>&lt;style id="figure-svg-1724266711134875715">
+#figure-svg-1724266711134875715 + svg {
 width: 180px;
 height: 180px;
 }
@@ -466,8 +641,8 @@ to.&lt;/p>
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-14">&lt;a class="lnlinks" href="#hl-2-14">14&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="fm">format!&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;hsl(&lt;/span>&lt;span class="si">{h}&lt;/span>&lt;span class="s">, &lt;/span>&lt;span class="si">{s}&lt;/span>&lt;span class="s">%, &lt;/span>&lt;span class="si">{l}&lt;/span>&lt;span class="s">%)&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-15">&lt;a class="lnlinks" href="#hl-2-15">15&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Alright, let&amp;rsquo;s generate an avatar for &lt;code>&amp;quot;foo&amp;quot;&lt;/code> and see how it looks like.&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1724028847019566424">
-#figure-svg-1724028847019566424 + svg {
+&lt;figure>&lt;style id="figure-svg-1724266711136120796">
+#figure-svg-1724266711136120796 + svg {
 width: 180px;
 height: 180px;
 }
@@ -563,8 +738,8 @@ colors come from that theme. We can do that by folding all hash bytes into a sin
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-31">&lt;a class="lnlinks" href="#hl-3-31">31&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="fm">unimplemented!&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Generate SVG paths.&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-32">&lt;a class="lnlinks" href="#hl-3-32">32&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This code renders:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1724028847019870313">
-#figure-svg-1724028847019870313 + svg {
+&lt;figure>&lt;style id="figure-svg-1724266711136457080">
+#figure-svg-1724266711136457080 + svg {
 width: 180px;
 height: 180px;
 }
@@ -666,8 +841,8 @@ would be a XOR-fold of all bytes that represent a single ring &amp;mdash; and ch
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-4-38">&lt;a class="lnlinks" href="#hl-4-38">38&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="fm">unimplemented!&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Generate SVG paths.&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-4-39">&lt;a class="lnlinks" href="#hl-4-39">39&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>With the final touch we get:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1724028847020154214">
-#figure-svg-1724028847020154214 + svg {
+&lt;figure>&lt;style id="figure-svg-1724266711137101355">
+#figure-svg-1724266711137101355 + svg {
 width: 180px;
 height: 180px;
 }
@@ -738,8 +913,8 @@ enhance it, I&amp;rsquo;d love to hear from you/check out your PRs.&lt;/p>
 &lt;code>sweep-flag&lt;/code> parameter. It allows you to determine, whether an arc should be a smiley face or a sad face. If the
 parameter is &lt;code>1&lt;/code> &amp;mdash; as it is in our case &amp;mdash; then the arc is a sad face. However, if you&amp;rsquo;d flip the flags to be &lt;code>0&lt;/code>,
 then all arcs become smiley faces&amp;hellip;&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1724028847020426884">
-#figure-svg-1724028847020426884 + svg {
+&lt;figure>&lt;style id="figure-svg-1724266711137457967">
+#figure-svg-1724266711137457967 + svg {
 width: 180px;
 height: 180px;
 }
