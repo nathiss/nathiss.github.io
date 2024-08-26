@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Art on MadeByMe</title><link>https://madebyme.today/tags/art/</link><description>Recent content in Art on MadeByMe</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright 2023-2024, Kamil Rusin</copyright><lastBuildDate>Sat, 04 Mar 2023 14:50:59 +0100</lastBuildDate><atom:link href="https://madebyme.today/tags/art/index.xml" rel="self" type="application/rss+xml"/><item><title>Art From Chaos</title><link>https://madebyme.today/blog/franklin/art-from-chaos/</link><pubDate>Sat, 04 Mar 2023 14:50:59 +0100</pubDate><guid>https://madebyme.today/blog/franklin/art-from-chaos/</guid><category>Genetic Algorithm</category><category>Art</category><description>&lt;p>Making art is hard. Drawing pictures is tedious. With programming, however, we can automate things. The point of
 automation is to reduce the amount of manual labor. So let&amp;rsquo;s mix evolution, DNA, and programming together to make art
 that &lt;em>makes&lt;/em> itself. Pictures that &lt;em>draw&lt;/em> themselves.&lt;/p>
-&lt;h2 id="concepts-and-definitions" class="my-8 md:my-12 flex items-center justify-center">
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
-href="#concepts-and-definitions" aria-label="Anchor">Concepts and definitions&lt;/a>
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;/h2>
+&lt;h2 id="concepts-and-definitions" >&lt;a href="#concepts-and-definitions" aria-label="Anchor">#&lt;/a>Concepts and definitions&lt;/h2>
 &lt;p>Before we dive deep into making art, we need to understand some important concepts &amp;ndash; first things first.
 &lt;span class="text-decoration-underline">Automatic art&lt;/span>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>, at its core, uses generic algorithms.
 &lt;a href="https://en.wikipedia.org/wiki/Genetic_algorithm">Wikipedia&lt;/a> has a really nice page about them, if you&amp;rsquo;d like to read
@@ -34,22 +29,12 @@ alt="Genetic Algorithm Cycle"loading="lazy"
 &lt;/figure>
 &lt;p>To mutate, to score, to kill, to breed, to continue the cycle of life. It might sound simple, but in reality it is
 shockingly efficient in searching the solution space.&lt;/p>
-&lt;h2 id="art-from-evolution" class="my-8 md:my-12 flex items-center justify-center">
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
-href="#art-from-evolution" aria-label="Anchor">Art from evolution&lt;/a>
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;/h2>
+&lt;h2 id="art-from-evolution" >&lt;a href="#art-from-evolution" aria-label="Anchor">#&lt;/a>Art from evolution&lt;/h2>
 &lt;p>Alright. Now with the theory out of the way, let&amp;rsquo;s conceptualize a program for generating automatic art. Probably it&amp;rsquo;s
 a good moment to explain the clickbaity summary at the top of this article: the pictures will not &lt;em>draw&lt;/em> themselves, the
 goal is to make &lt;em>a program&lt;/em> which will generate art automatically. It&amp;rsquo;s going to be an iterative solution where each
 cycle is parametrized by the results of its predecessor.&lt;/p>
-&lt;h3 id="step-0-initialization" class="my-8 md:my-12 flex items-center justify-center">
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
-href="#step-0-initialization" aria-label="Anchor">Step 0: Initialization&lt;/a>
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;/h3>
+&lt;h3 id="step-0-initialization" >&lt;a href="#step-0-initialization" aria-label="Anchor">#&lt;/a>Step 0: Initialization&lt;/h3>
 &lt;p>Before we do anything towards evolution we need to prepare a generation first. So what&amp;rsquo;s our generation size? Let&amp;rsquo;s see
 if Wikipedia has something insightful to say:&lt;/p>
 &lt;blockquote>
@@ -63,12 +48,7 @@ process each generation. On the other hand, the more specimen a generation have,
 can search. Whatever the generation size will be, we need to have a prototype - a specimen, which cloned will fill the
 generation. Since we&amp;rsquo;re dealing with art here, a &lt;em>&lt;a href="https://en.wikipedia.org/wiki/Tabula_rasa">tabula rasa&lt;/a>&lt;/em> should be a
 fitting choice.&lt;/p>
-&lt;h3 id="step-1-mutation" class="my-8 md:my-12 flex items-center justify-center">
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
-href="#step-1-mutation" aria-label="Anchor">Step 1: Mutation&lt;/a>
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;/h3>
+&lt;h3 id="step-1-mutation" >&lt;a href="#step-1-mutation" aria-label="Anchor">#&lt;/a>Step 1: Mutation&lt;/h3>
 &lt;p>Mutation method greatly affects the end result, so it&amp;rsquo;s imperative to select a right one. Mutation algorithms are
 usually stateless, meaning modification of each specimen does not affect any other. In each iteration the mutator will
 introduce a &lt;em>small&lt;/em> change into specimens&amp;rsquo; genetic representation. On images it can be, for example: changing random
@@ -95,12 +75,7 @@ randomly generated.&lt;/p>
 in 1&lt;sup>st&lt;/sup> step has been almost fully overwritten after 5 mutations. Don&amp;rsquo;t get me wrong, the result
 might be beneficial, but overall we want to utilize genome that have evolved in past generations, not to discard it
 completely.&lt;/p>
-&lt;h3 id="step-2-scoring" class="my-8 md:my-12 flex items-center justify-center">
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
-href="#step-2-scoring" aria-label="Anchor">Step 2: Scoring&lt;/a>
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;/h3>
+&lt;h3 id="step-2-scoring" >&lt;a href="#step-2-scoring" aria-label="Anchor">#&lt;/a>Step 2: Scoring&lt;/h3>
 &lt;p>Implementing scoring function can be tricky. Basically we need to have a way of mapping each specimen into an integer
 value. Then with values for all specimens we can calculate a threshold and filter out all images above it. The genetic
 algorithm does not provide to us any way of determining whether a mutation has been beneficial; that is strictly
@@ -128,12 +103,7 @@ computers is expensive, we can remove that bit and we&amp;rsquo;re left with:&lt
 &lt;p>By combining (1) and (2) together we get:&lt;/p>
 &lt;p>$$ f(O, S) = \sum_{i=0}^n | (r_2 - r_1)^2 + (g_2 - g_1)^2 + (b_2 - b_1)^2 | $$&lt;/p>
 &lt;p>That was a bit more mathsy that I&amp;rsquo;ve initially anticipated &lt;code>◕_◕&lt;/code>.&lt;/p>
-&lt;h3 id="step-3-crossing" class="my-8 md:my-12 flex items-center justify-center">
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
-href="#step-3-crossing" aria-label="Anchor">Step 3: Crossing&lt;/a>
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;/h3>
+&lt;h3 id="step-3-crossing" >&lt;a href="#step-3-crossing" aria-label="Anchor">#&lt;/a>Step 3: Crossing&lt;/h3>
 &lt;p>In the last step the algorithm has to fill up &lt;em>almost&lt;/em> emptied generation. This step, quoting Wikipedia, it&amp;rsquo;s:&lt;/p>
 &lt;blockquote>
 &lt;p>[&amp;hellip;] a genetic operator used to combine the genetic information of two parents to generate new offspring. [&amp;hellip;]
@@ -158,12 +128,7 @@ more fitting specimens, relative to a one without the 3&lt;sup>rd&lt;/sup> step,
 generations.&lt;/p>
 &lt;p>We will take a look at several of &lt;strong>crossing&lt;/strong> methods mentioned above and we will plot scores of their specimens as a
 function of generation number, to see how well they perform. &amp;#x1f4c8;&lt;/p>
-&lt;h2 id="next-steps" class="my-8 md:my-12 flex items-center justify-center">
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
-href="#next-steps" aria-label="Anchor">Next steps&lt;/a>
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;/h2>
+&lt;h2 id="next-steps" >&lt;a href="#next-steps" aria-label="Anchor">#&lt;/a>Next steps&lt;/h2>
 &lt;p>This is the first article from a series about generating art through genetic algorithms. In the next articles &lt;em>(coming
 up soon-ish)&lt;/em> we&amp;rsquo;ll turn those ideas into &lt;a href="https://www.rust-lang.org/">Rust&lt;/a> code and after that we&amp;rsquo;ll finally make art
 that makes itself.&lt;/p>

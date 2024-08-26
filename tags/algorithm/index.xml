@@ -2,12 +2,7 @@
 where nuke access is shared between most important people in the government &lt;em>equally&lt;/em>? Or how to achieve immortality by
 splitting your soul and putting the pieces into objects? &amp;#x1fa84;&lt;/p>
 &lt;p>If so, then you&amp;rsquo;ve come to the right place. Join me, my friend, on this discovery of &lt;a href="https://en.wikipedia.org/wiki/Shamir%27s_secret_sharing">Shamir&amp;rsquo;s secret sharing&lt;/a>.&lt;/p>
-&lt;h2 id="chapter-1-learning-dark-magic" class="my-8 md:my-12 flex items-center justify-center">
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
-href="#chapter-1-learning-dark-magic" aria-label="Anchor">Chapter 1: Learning dark magic&lt;/a>
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;/h2>
+&lt;h2 id="chapter-1-learning-dark-magic" >&lt;a href="#chapter-1-learning-dark-magic" aria-label="Anchor">#&lt;/a>Chapter 1: Learning dark magic&lt;/h2>
 &lt;p>&lt;a href="https://en.wikipedia.org/wiki/Shamir%27s_secret_sharing">Shamir&amp;rsquo;s secret sharing&lt;/a> is a secret sharing algorithm first formulated by &lt;a href="https://en.wikipedia.org/wiki/Adi_Shamir">Adi Shamir&lt;/a> in &lt;a href="https://dl.acm.org/doi/10.1145/359168.359176">How to share a secret&lt;/a>
 (&lt;time datetime="1979-11-01">1979-11-01&lt;/time>). It allows to split and distribute a secret among a group, in such a way that no single
 person from that group can recreate the secret. Only when a &lt;a href="https://en.wikipedia.org/wiki/Quorum">quorum&lt;/a> decides to merge their &lt;em>shards&lt;/em>, the secret can be
@@ -44,12 +39,7 @@ $$&lt;/p>
 &lt;p>&amp;hellip;if coupled with indexes. And that&amp;rsquo;s it! Any 4 of these numbers can be used to reconstruct the polynomial, thus
 allowing to calculate the secret $\big(f(0)\big)$.&lt;/p>
 &lt;p>That&amp;rsquo;s half of our dark magic theory. Let&amp;rsquo;s learn how to undo what we did.&lt;/p>
-&lt;h3 id="reverting-spells-effect" class="my-8 md:my-12 flex items-center justify-center">
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
-href="#reverting-spells-effect" aria-label="Anchor">Reverting spell&amp;rsquo;s effect&lt;/a>
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;/h3>
+&lt;h3 id="reverting-spells-effect" >&lt;a href="#reverting-spells-effect" aria-label="Anchor">#&lt;/a>Reverting spell&amp;rsquo;s effect&lt;/h3>
 &lt;p>To reconstruct the secret we need any 4 shards. Chosen randomly these are:&lt;/p>
 &lt;p>$$
 \begin{aligned}
@@ -73,12 +63,7 @@ $$&lt;/p>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-3">&lt;a class="lnlinks" href="#hl-0-3">3&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="n">poly1d&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="mf">165.&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mf">51.&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mf">98.&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mf">42.&lt;/span>&lt;span class="p">])&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>These, indeed, are our polynomial coefficients. Even without reconstruction, we can clearly see that $f(0) = 42$;
 secret recovered. &amp;#x1f44c;&lt;/p>
-&lt;h2 id="chapter-2-protecting-our-enchantments-from-counter-curses" class="my-8 md:my-12 flex items-center justify-center">
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
-href="#chapter-2-protecting-our-enchantments-from-counter-curses" aria-label="Anchor">Chapter 2: Protecting our enchantments from counter-curses&lt;/a>
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;/h2>
+&lt;h2 id="chapter-2-protecting-our-enchantments-from-counter-curses" >&lt;a href="#chapter-2-protecting-our-enchantments-from-counter-curses" aria-label="Anchor">#&lt;/a>Chapter 2: Protecting our enchantments from counter-curses&lt;/h2>
 &lt;p>Frankly, to &lt;em>almost&lt;/em> any curse, there&amp;rsquo;s a &lt;a href="https://en.wiktionary.org/wiki/countercurse">counter-curse&lt;/a>. A counter-curse for &lt;a href="https://en.wikipedia.org/wiki/Shamir%27s_secret_sharing">Shamir&amp;rsquo;s secret sharing&lt;/a> is integer
 arithmetic.&lt;/p>
 &lt;p>A good secret sharing algorithm should have two characteristics:&lt;/p>
@@ -119,12 +104,7 @@ S &amp;amp;= -6(a_3 - 172)
 \end{alignat}
 $$&lt;/p>
 &lt;p>From $(7)$ we conclude that $S$ is even. (See &lt;a href="https://www.wolframalpha.com/input?i=solve&amp;#43;%7BS&amp;#43;%2B&amp;#43;a_1&amp;#43;%2B&amp;#43;a_2&amp;#43;%2B&amp;#43;a_3&amp;#43;%3D&amp;#43;356%2CS&amp;#43;%2B&amp;#43;2a_1&amp;#43;%2B&amp;#43;4a_2&amp;#43;%2B&amp;#43;8a_3&amp;#43;%3D&amp;#43;1762%2CS&amp;#43;%2B&amp;#43;3a_1&amp;#43;%2B&amp;#43;9a_2&amp;#43;%2B&amp;#43;27a_3&amp;#43;%3D&amp;#43;5250%7D&amp;#43;for&amp;#43;S&amp;#43;">WolframAlpha&lt;/a>.)&lt;/p>
-&lt;h3 id="finite-field-arithmetic" class="my-8 md:my-12 flex items-center justify-center">
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
-href="#finite-field-arithmetic" aria-label="Anchor">Finite field arithmetic&lt;/a>
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;/h3>
+&lt;h3 id="finite-field-arithmetic" >&lt;a href="#finite-field-arithmetic" aria-label="Anchor">#&lt;/a>Finite field arithmetic&lt;/h3>
 &lt;p>We can protect from this by using &lt;a href="https://en.wikipedia.org/wiki/Finite_field_arithmetic">finite field arithmetic&lt;/a>. In simple terms &amp;mdash; those of you who know math don&amp;rsquo;t kill
 me please &amp;mdash; finite field arithmetic &lt;em>is&lt;/em> applying modulo to your calculation. So, $GF(256)$ is doing calculations
 over $mod \ 256$.&lt;/p>
@@ -153,29 +133,26 @@ $$&lt;/p>
 S \equiv -6(a_3 - 172) \mod 256
 $$&lt;/p>
 &lt;p>However, it does not provide any additional information.&lt;/p>
-&lt;h2 id="chapter-3-wands-out-time-to-practice" class="my-8 md:my-12 flex items-center justify-center">
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
-href="#chapter-3-wands-out-time-to-practice" aria-label="Anchor">Chapter 3: Wands out! Time to practice&lt;/a>
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;/h2>
+&lt;h2 id="chapter-3-wands-out-time-to-practice" >&lt;a href="#chapter-3-wands-out-time-to-practice" aria-label="Anchor">#&lt;/a>Chapter 3: Wands out! Time to practice&lt;/h2>
 &lt;p>&lt;strong>NB&lt;/strong>: SSS with a Galois field is &lt;em>math&lt;/em>; it doesn&amp;rsquo;t mean it&amp;rsquo;s easy to use in practice. The catch is that the order of
 the Galois field must be greater than the secret $S$. This is problematic if we decide to split a &lt;em>large enough&lt;/em> secret.
 A naive way of encoding an arbitrary string as a number can be done with &lt;em>base10&lt;/em>, or with something like:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="ln" id="hl-1-1">&lt;a class="lnlinks" href="#hl-1-1">1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="nb">int&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;An arbitrary large secret. Lorem ipsum dolor sit amet, consectetur adipiscing elit.&amp;#39;&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">encode&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">hex&lt;/span>&lt;span class="p">(),&lt;/span> &lt;span class="mi">16&lt;/span>&lt;span class="p">)&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Do you want to guess how many digits it has?&lt;/p>
-&lt;details class="collapse collapse-arrow alert alert-spoiler text-left p-0 text-text flex flex-col items-start gap-0" >
-&lt;summary class="collapse-title text-spoiler-content flex gap-1 items-center !my-0 !text-lg">Spoiler!&lt;/summary>
-&lt;div class="collapsible-content p-4 w-full">
-&lt;div class="mt-2 w-full text-base-content markdown-body">&lt;p>It&amp;rsquo;s 200.&lt;/p>
+&lt;div class="alert alert-spoiler">&lt;input id="callout-spoiler-1724704804576575551" class="collapsible-toggle" type="checkbox"/>
+&lt;label for="callout-spoiler-1724704804576575551" class="collapsible-label-toggle alert-heading">
+Spoiler!&lt;/label>
+&lt;div class="collapsible-content">
+&lt;div class="collapsible-content-inner">
+&lt;p class="my-3">&lt;p>It&amp;rsquo;s 200.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="ln" id="hl-0-1">&lt;a class="lnlinks" href="#hl-0-1">1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">a&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">int&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;An arbitrary large secret. Lorem ipsum dolor sit amet, consectetur adipiscing elit.&amp;#39;&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">encode&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">hex&lt;/span>&lt;span class="p">(),&lt;/span> &lt;span class="mi">16&lt;/span>&lt;span class="p">)&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-2">&lt;a class="lnlinks" href="#hl-0-2">2&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">a&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-3">&lt;a class="lnlinks" href="#hl-0-3">3&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="mi">19563893103164139046164760092383861391703768554892418063070031848050953623578314862989468034439094655520808050846734560200990268693032238066103008403886443361299427067274060838050276743694708128707630&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-4">&lt;a class="lnlinks" href="#hl-0-4">4&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="nb">len&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">str&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">a&lt;/span>&lt;span class="p">))&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-5">&lt;a class="lnlinks" href="#hl-0-5">5&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="mi">200&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/p>
 &lt;/div>
-&lt;/details>
+&lt;/div>&lt;/div>
 &lt;p>A known solution for this is to split the secret into chunks and apply SSS to each chunk individually:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="ln" id="hl-2-1">&lt;a class="lnlinks" href="#hl-2-1">1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="n">chunks&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="nb">int&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">b&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">for&lt;/span> &lt;span class="n">b&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="s1">&amp;#39;An arbitrary large secret. Lorem ipsum dolor sit amet, consectetur adipiscing elit.&amp;#39;&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">encode&lt;/span>&lt;span class="p">()]&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-2">&lt;a class="lnlinks" href="#hl-2-2">2&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="n">shards&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">sss&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">chunks&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">k&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="mi">4&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">n&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="mi">8&lt;/span>&lt;span class="p">)&lt;/span>
@@ -188,12 +165,7 @@ project seems to be abandoned.) Still, on the web, there&amp;rsquo;re numerous o
 &lt;li>&lt;a href="http://point-at-infinity.org/ssss/demo.html">sss @ point-at-infinity.org&lt;/a>&lt;/li>
 &lt;li>&amp;hellip;&lt;/li>
 &lt;/ul>
-&lt;h2 id="ps-why-did-i-wrote-this-blog-post" class="my-8 md:my-12 flex items-center justify-center">
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
-href="#ps-why-did-i-wrote-this-blog-post" aria-label="Anchor">P.S. Why did I wrote this blog post?&lt;/a>
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;/h2>
+&lt;h2 id="ps-why-did-i-wrote-this-blog-post" >&lt;a href="#ps-why-did-i-wrote-this-blog-post" aria-label="Anchor">#&lt;/a>P.S. Why did I wrote this blog post?&lt;/h2>
 &lt;p>Initially, I had a grand idea of implementing SSS from scratch and writing about technical challenges along the way.
 That was on &lt;time datetime="2024-06-06">2024-06-06&lt;/time>. In that time I got busy and distracted with other things, so SSS had been
 moved to the back of my head and &lt;em>stayed&lt;/em> there. I had some time today, so I&amp;rsquo;ve decided to quickly finish this blog post

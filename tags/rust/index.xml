@@ -2,23 +2,20 @@
 space feel like their own. Services like &lt;a href="https://github.blog/2013-08-14-identicons/">GitHub&lt;/a>, Roll20, or &lt;a href="https://www.reddit.com/r/reddit/comments/vtkmni/introducing_collectible_avatars/">Reddit&lt;/a>
 generate &amp;mdash; or allow you to generate &amp;mdash; a custom avatar (i.e. &lt;a href="https://en.wikipedia.org/wiki/Identicon">Identicons&lt;/a>) for your account. Avatar auto-generation
 is especially neat, as it does not require any engagement from the user. Let&amp;rsquo;s try to figure that out on our own.&lt;/p>
-&lt;div class="alert alert-info text-left text-text flex flex-col items-start gap-0" >
-&lt;h6 class="text-info-content flex gap-1 items-center !my-0 !text-lg">&lt;span class="">&lt;svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-&lt;path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418" />
-&lt;/svg>&lt;/span>Standing on the shoulders of giants&lt;/h6>
-&lt;div class="collapsible-content w-full">
-&lt;div class="mt-2 w-full text-base-content markdown-body">This blog post has been inspired by &lt;a href="https://francoisbest.com/posts/2021/hashvatars">Representing SHA-256 Hashes As Avatars&lt;/a> by &lt;a href="https://francoisbest.com/">François Best&lt;/a>. I&amp;rsquo;m re-creating ideas
-presented by François in their article &amp;mdash; with slight modifications &amp;mdash; in &lt;a href="https://madebyme.today/tags/rust/">Rust&lt;/a>.&lt;/div>
-&lt;/div>
-&lt;/div>
+&lt;div class="alert alert-info">&lt;h6 class="alert-heading">
+&lt;i class="bi bi-globe-europe-africa me-2" aria-hidden="true">&lt;/i>Standing on the shoulders of giants&lt;/h6>
+&lt;p class="my-3">This blog post has been inspired by &lt;a href="https://francoisbest.com/posts/2021/hashvatars">Representing SHA-256 Hashes As Avatars&lt;/a> by &lt;a href="https://francoisbest.com/">François Best&lt;/a>. I&amp;rsquo;m re-creating ideas
+presented by François in their article &amp;mdash; with slight modifications &amp;mdash; in &lt;a href="https://madebyme.today/tags/rust/">Rust&lt;/a>.&lt;/p>&lt;/div>
 &lt;p>I think this blog post is one of those things which are easier to understand if you&amp;rsquo;d see the end result first. So, for
 those interested here&amp;rsquo;s a spoiler.&lt;/p>
-&lt;details class="collapse collapse-arrow alert alert-spoiler text-left p-0 text-text flex flex-col items-start gap-0" >
-&lt;summary class="collapse-title text-spoiler-content flex gap-1 items-center !my-0 !text-lg">Spoiler!&lt;/summary>
-&lt;div class="collapsible-content p-4 w-full">
-&lt;div class="mt-2 w-full text-base-content markdown-body">&lt;p>This is the end result:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1724704629201419109">
-#figure-svg-1724704629201419109 + svg {
+&lt;div class="alert alert-spoiler">&lt;input id="callout-spoiler-1724704804604156875" class="collapsible-toggle" type="checkbox"/>
+&lt;label for="callout-spoiler-1724704804604156875" class="collapsible-label-toggle alert-heading">
+Spoiler!&lt;/label>
+&lt;div class="collapsible-content">
+&lt;div class="collapsible-content-inner">
+&lt;p class="my-3">&lt;p>This is the end result:&lt;/p>
+&lt;figure>&lt;style id="figure-svg-1724704804603462264">
+#figure-svg-1724704804603462264 + svg {
 width: 180px;
 height: 180px;
 }
@@ -87,15 +84,10 @@ colors are generated from &lt;a href="https://en.wikipedia.org/wiki/SHA-2">SHA-2
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-5">&lt;a class="lnlinks" href="#hl-0-5">5&lt;/a>&lt;/span>&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-6">&lt;a class="lnlinks" href="#hl-0-6">6&lt;/a>&lt;/span>&lt;span class="cl">Base64(SHA256(&amp;#34;Foo&amp;#34;)) == LCa0a2j/xo/5m0U8HTBBNBNCLXBkg7+g+YpeiGJm564=
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The rest of this blog post focuses on translating the byte array into an avatar that looks &lt;em>nice&lt;/em>.&lt;/p>
+&lt;/p>
 &lt;/div>
-&lt;/div>
-&lt;/details>
-&lt;h2 id="svg-scaffolding" class="my-8 md:my-12 flex items-center justify-center">
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
-href="#svg-scaffolding" aria-label="Anchor">SVG scaffolding&lt;/a>
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;/h2>
+&lt;/div>&lt;/div>
+&lt;h2 id="svg-scaffolding" >&lt;a href="#svg-scaffolding" aria-label="Anchor">#&lt;/a>SVG scaffolding&lt;/h2>
 &lt;p>Let&amp;rsquo;s think how to prepare the SVG&amp;rsquo;s structure. We know that each segment must be its own &lt;a href="https://www.w3.org/TR/SVG2/paths.html#PathElement">&lt;code>&amp;lt;path&amp;gt;&lt;/code>&lt;/a> element, so we can
 color them individually with the &lt;a href="https://www.w3.org/TR/SVG2/painting.html#SpecifyingFillPaint">fill&lt;/a> property. Generating annuluses sectors can be challenging &amp;mdash; it would require
 using two(!) &lt;a href="https://www.w3.org/TR/SVG2/paths.html#PathDataEllipticalArcCommands">arcs&lt;/a>, which is way too much &amp;mdash; instead, we can cheat a little and create overlapping
@@ -109,12 +101,7 @@ property as shown above: top-left corner is $(-1, -1)$, width is $2$, and height
 &lt;p>OK. Now we need to create circle sectors. SVG has some tags for constructing &lt;a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes">basic shapes&lt;/a> (like circles, rectangles,
 or ellipses). Sadly, pizza slices are &lt;em>not&lt;/em> considered as &amp;ldquo;basic&amp;rdquo;, so there&amp;rsquo;s no &lt;code>&amp;lt;pizza-slice&amp;gt;&lt;/code> to help us here.
 Instead, we need to use the &lt;a href="https://www.w3.org/TR/SVG2/paths.html#PathElement">&lt;code>&amp;lt;path&amp;gt;&lt;/code>&lt;/a> tag.&lt;/p>
-&lt;h3 id="making-pizza-slices-pizza" class="my-8 md:my-12 flex items-center justify-center">
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
-href="#making-pizza-slices-pizza" aria-label="Anchor">Making pizza slices &amp;#x1f355;&lt;/a>
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;/h3>
+&lt;h3 id="making-pizza-slices-pizza" >&lt;a href="#making-pizza-slices-pizza" aria-label="Anchor">#&lt;/a>Making pizza slices &amp;#x1f355;&lt;/h3>
 &lt;p>The &lt;a href="https://www.w3.org/TR/SVG2/paths.html#PathElement">&lt;code>&amp;lt;path&amp;gt;&lt;/code>&lt;/a> tag is nice, because it allows you to construct any complex shape. For it to work we need to describe how
 we want our shape to look like with its special &lt;a href="https://www.w3.org/TR/SVG2/paths.html#PathData">path data&lt;/a> syntax. It&amp;rsquo;s fairly complex, but we only need to grasp 4 of
 its commands:&lt;/p>
@@ -135,8 +122,8 @@ point.&lt;/li>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-5">&lt;a class="lnlinks" href="#hl-1-5">5&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="nt">&amp;lt;path&lt;/span> &lt;span class="na">d=&lt;/span>&lt;span class="s">&amp;#34;M 0,0 L -1,0 A 1,1,0,0,1,0,-1 z&amp;#34;&lt;/span> &lt;span class="na">fill=&lt;/span>&lt;span class="s">&amp;#34;DarkSalmon&amp;#34;&lt;/span> &lt;span class="na">stroke=&lt;/span>&lt;span class="s">&amp;#34;black&amp;#34;&lt;/span> &lt;span class="na">stroke-width=&lt;/span>&lt;span class="s">&amp;#34;0.01&amp;#34;&lt;/span> &lt;span class="nt">/&amp;gt;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-6">&lt;a class="lnlinks" href="#hl-1-6">6&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="nt">&amp;lt;/svg&amp;gt;&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>It renders to:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1724704629202717053">
-#figure-svg-1724704629202717053 + svg {
+&lt;figure>&lt;style id="figure-svg-1724704804604345481">
+#figure-svg-1724704804604345481 + svg {
 width: 180px;
 height: 180px;
 }
@@ -150,21 +137,16 @@ height: 180px;
 &lt;p>$$
 r_1 = 1
 $$&lt;/p>
-&lt;div class="alert alert-info text-left text-text flex flex-col items-start gap-0" >
-&lt;h6 class="text-info-content flex gap-1 items-center !my-0 !text-lg">&lt;span class="">&lt;svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
-&lt;path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
-&lt;/svg>&lt;/span>Note&lt;/h6>
-&lt;div class="collapsible-content w-full">
-&lt;div class="mt-2 w-full text-base-content markdown-body">I added &lt;code>overflow=&amp;quot;visible&amp;quot;&lt;/code> to the SVG tag, because &amp;mdash; with a non-zero stroke &amp;mdash; the image is &lt;em>slightly&lt;/em> bigger than
-its &lt;code>viewBox&lt;/code> and the stroke lines get cut off at $(-1, 0)$, $(1, 0)$, $(0, 1)$, and $(-1, 0)$.&lt;/div>
-&lt;/div>
-&lt;/div>
+&lt;div class="alert alert-info">&lt;h6 class="alert-heading">
+&lt;i class="bi bi-pencil me-2" aria-hidden="true">&lt;/i>Note&lt;/h6>
+&lt;p class="my-3">I added &lt;code>overflow=&amp;quot;visible&amp;quot;&lt;/code> to the SVG tag, because &amp;mdash; with a non-zero stroke &amp;mdash; the image is &lt;em>slightly&lt;/em> bigger than
+its &lt;code>viewBox&lt;/code> and the stroke lines get cut off at $(-1, 0)$, $(1, 0)$, $(0, 1)$, and $(-1, 0)$.&lt;/p>&lt;/div>
 &lt;p>We can see an interesting patter here: coordinates of the &lt;a href="https://www.w3.org/TR/SVG2/paths.html#PathDataLinetoCommands">&lt;strong>&amp;ldquo;lineto&amp;rdquo;&lt;/strong>&lt;/a> command are the same, as the
 coordinates of the &lt;a href="https://www.w3.org/TR/SVG2/paths.html#PathDataEllipticalArcCommands">elliptical arc curve&lt;/a> command of the &lt;em>previous&lt;/em> element.&lt;/p>
 &lt;p>&lt;em>Ok, but how to divide these slices into halves?&lt;/em> &amp;mdash; you may ask.&lt;/p>
 &lt;p>To do that we need to find the points in the middle of the arcs.&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1724704629203451907">
-#figure-svg-1724704629203451907 + svg {
+&lt;figure>&lt;style id="figure-svg-1724704804604745506">
+#figure-svg-1724704804604745506 + svg {
 width: 180px;
 height: 180px;
 }
@@ -178,7 +160,6 @@ display: inline-block;
 }
 #slices-with-points circle {
 fill: var(--bs-body-color);
-stroke: none;
 }
 &lt;/style>
 &lt;path d="M 0,0 L 0,-1 A 1,1,0,0,1,1,0 z" fill="IndianRed" stroke="black" stroke-width="0.01" />
@@ -200,8 +181,8 @@ r_1 = 1
 $$&lt;/p>
 &lt;p>Fortunately &amp;mdash; since the circle&amp;rsquo;s middle point is $(0, 0)$ and the arc points are in the middle of their arcs &amp;mdash; we
 know that the absolute value of their coordinates is the same. So, our diagram simplifies to:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1724704629203832414">
-#figure-svg-1724704629203832414 + svg {
+&lt;figure>&lt;style id="figure-svg-1724704804605198010">
+#figure-svg-1724704804605198010 + svg {
 width: 180px;
 height: 180px;
 }
@@ -215,7 +196,6 @@ display: inline-block;
 }
 #slices-with-same-points circle {
 fill: var(--bs-body-color);
-stroke: none;
 }
 &lt;/style>
 &lt;path d="M 0,0 L 0,-1 A 1,1,0,0,1,1,0 z" fill="IndianRed" stroke="black" stroke-width="0.01" />
@@ -247,8 +227,8 @@ a &amp;amp;= \sqrt{\frac{1}{2}}
 \end{aligned}
 $$&lt;/p>
 &lt;p>By adding four more pizza slices we get:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1724704629204574892">
-#figure-svg-1724704629204574892 + svg {
+&lt;figure>&lt;style id="figure-svg-1724704804605438453">
+#figure-svg-1724704804605438453 + svg {
 width: 180px;
 height: 180px;
 }
@@ -266,19 +246,14 @@ height: 180px;
 &lt;p>$$
 r_1 = 1
 $$&lt;/p>
-&lt;h3 id="layers-of-pizza" class="my-8 md:my-12 flex items-center justify-center">
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
-href="#layers-of-pizza" aria-label="Anchor">Layers of pizza&lt;/a>
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;/h3>
+&lt;h3 id="layers-of-pizza" >&lt;a href="#layers-of-pizza" aria-label="Anchor">#&lt;/a>Layers of pizza&lt;/h3>
 &lt;p>The next step is to create additional (smaller) layers of circle sectors. Let&amp;rsquo;s say we want three circles; there&amp;rsquo;re two
 obvious ways of selecting division points: equal radii, or equal areas. Equal radii is simpler, so let&amp;rsquo;s try this one
 first.&lt;/p>
 &lt;p>If the outermost circle has a radius of $1$, then the middle circle will have a radius of $0.\overline{6}$, and the
 smallest one will have $0.\overline{3}$.&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1724704629204826947">
-#figure-svg-1724704629204826947 + svg {
+&lt;figure>&lt;style id="figure-svg-1724704804605653198">
+#figure-svg-1724704804605653198 + svg {
 width: 180px;
 height: 180px;
 }
@@ -354,8 +329,8 @@ r_2 = \sqrt{\frac{2}{3}}
 \end{aligned}
 $$&lt;/p>
 &lt;p>Which gives us this avatar:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1724704629205166617">
-#figure-svg-1724704629205166617 + svg {
+&lt;figure>&lt;style id="figure-svg-1724704804605883593">
+#figure-svg-1724704804605883593 + svg {
 width: 180px;
 height: 180px;
 }
@@ -411,8 +386,8 @@ r_3 = \sqrt{\frac{1}{3}}
 $$&lt;/p>
 &lt;p>Which is also not ideal, but the other way around&amp;hellip; I was tinkering with the radii a bit and I think I found a &lt;a href="https://en.wikipedia.org/wiki/Arithmetic_mean">middle
 ground&lt;/a> with which I&amp;rsquo;m happy.&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1724704629205435764">
-#figure-svg-1724704629205435764 + svg {
+&lt;figure>&lt;style id="figure-svg-1724704804606101354">
+#figure-svg-1724704804606101354 + svg {
 width: 180px;
 height: 180px;
 }
@@ -467,12 +442,7 @@ r_2 = \frac{0.\overline{6} + \sqrt{\frac{2}{3}}}{2}
 r_3 = \frac{0.\overline{3} + \sqrt{\frac{1}{3}}}{2}
 $$&lt;/p>
 &lt;p>Radii in the circles above are the arithmetic average of the equal radii variant and the equal areas variant.&lt;/p>
-&lt;h2 id="working-with-colors" class="my-8 md:my-12 flex items-center justify-center">
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
-href="#working-with-colors" aria-label="Anchor">Working with colors&lt;/a>
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;/h2>
+&lt;h2 id="working-with-colors" >&lt;a href="#working-with-colors" aria-label="Anchor">#&lt;/a>Working with colors&lt;/h2>
 &lt;p>With the SVG structure out of the way we can focus on selecting quasi-random colors for the circle segments based on the
 identifier&amp;rsquo;s hash. &lt;a href="https://en.wikipedia.org/wiki/SHA-2">SHA-256&lt;/a> hashes have 32 bytes; it&amp;rsquo;s more than we need &amp;mdash; assuming we need a single byte
 per circle sector &amp;mdash; which gives us another benefit: we can slide in the 4&lt;sup>th&lt;/sup> circle, if we want
@@ -496,8 +466,8 @@ to.&lt;/p>
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-14">&lt;a class="lnlinks" href="#hl-2-14">14&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="fm">format!&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;hsl(&lt;/span>&lt;span class="si">{h}&lt;/span>&lt;span class="s">, &lt;/span>&lt;span class="si">{s}&lt;/span>&lt;span class="s">%, &lt;/span>&lt;span class="si">{l}&lt;/span>&lt;span class="s">%)&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-15">&lt;a class="lnlinks" href="#hl-2-15">15&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Alright, let&amp;rsquo;s generate an avatar for &lt;code>&amp;quot;foo&amp;quot;&lt;/code> and see how it looks like.&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1724704629205849453">
-#figure-svg-1724704629205849453 + svg {
+&lt;figure>&lt;style id="figure-svg-1724704804606496730">
+#figure-svg-1724704804606496730 + svg {
 width: 180px;
 height: 180px;
 }
@@ -593,8 +563,8 @@ colors come from that theme. We can do that by folding all hash bytes into a sin
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-31">&lt;a class="lnlinks" href="#hl-3-31">31&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="fm">unimplemented!&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Generate SVG paths.&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-32">&lt;a class="lnlinks" href="#hl-3-32">32&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This code renders:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1724704629206115183">
-#figure-svg-1724704629206115183 + svg {
+&lt;figure>&lt;style id="figure-svg-1724704804607265631">
+#figure-svg-1724704804607265631 + svg {
 width: 180px;
 height: 180px;
 }
@@ -696,8 +666,8 @@ would be a XOR-fold of all bytes that represent a single ring &amp;mdash; and ch
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-4-38">&lt;a class="lnlinks" href="#hl-4-38">38&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="fm">unimplemented!&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Generate SVG paths.&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-4-39">&lt;a class="lnlinks" href="#hl-4-39">39&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>With the final touch we get:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1724704629206375103">
-#figure-svg-1724704629206375103 + svg {
+&lt;figure>&lt;style id="figure-svg-1724704804607735087">
+#figure-svg-1724704804607735087 + svg {
 width: 180px;
 height: 180px;
 }
@@ -757,12 +727,7 @@ fill="hsl(183.92648, 20%, 40%)" stroke="black" stroke-width="0.01" />
 &lt;/figure>
 &lt;p>Which is exactly the thing that hides in the spoiler block at the top. If you restrained yourself and didn&amp;rsquo;t check it
 out: congratulations. Now feel free to do so. &amp;#x1f603;&lt;/p>
-&lt;h2 id="conclusions" class="my-8 md:my-12 flex items-center justify-center">
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
-href="#conclusions" aria-label="Anchor">Conclusions&lt;/a>
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;/h2>
+&lt;h2 id="conclusions" >&lt;a href="#conclusions" aria-label="Anchor">#&lt;/a>Conclusions&lt;/h2>
 &lt;p>Working on this blog post has been an effort I wanted to make to better understand how SVGs work from the inside, as
 well as, a challenge to reverse-engineer ideas from &lt;a href="https://francoisbest.com/posts/2021/hashvatars">Representing SHA-256 Hashes As Avatars&lt;/a>.&lt;/p>
 &lt;p>I&amp;rsquo;m not working on any service which would benefit from these avatars. If I happen to work on one in the future I&amp;rsquo;ll for
@@ -773,8 +738,8 @@ enhance it, I&amp;rsquo;d love to hear from you/check out your PRs.&lt;/p>
 &lt;code>sweep-flag&lt;/code> parameter. It allows you to determine, whether an arc should be a smiley face or a sad face. If the
 parameter is &lt;code>1&lt;/code> &amp;mdash; as it is in our case &amp;mdash; then the arc is a sad face. However, if you&amp;rsquo;d flip the flags to be &lt;code>0&lt;/code>,
 then all arcs become smiley faces&amp;hellip;&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1724704629206622338">
-#figure-svg-1724704629206622338 + svg {
+&lt;figure>&lt;style id="figure-svg-1724704804608531267">
+#figure-svg-1724704804608531267 + svg {
 width: 180px;
 height: 180px;
 }
@@ -842,12 +807,7 @@ fill="hsl(183.92648, 20%, 40%)" stroke="black" stroke-width="0.01" />
 &lt;!-- markdownlint-enable link-image-reference-definitions --></description></item><item><title>Cancellable</title><link>https://madebyme.today/projects/cancellable/</link><pubDate>Wed, 26 Jul 2023 09:08:18 +0200</pubDate><guid>https://madebyme.today/projects/cancellable/</guid><category>Rust</category><category>Crates</category><category>Open Source</category><description>&lt;p>Recently I&amp;rsquo;m investing a lot of time into developing a game server in &lt;a href="https://www.rust-lang.org/">Rust&lt;/a>. I started with
 implementing network layer based on &lt;a href="https://en.wikipedia.org/wiki/WebSocket">WebSockets&lt;/a>. It&amp;rsquo;s far from being ready,
 but I developed a helper crate for creating detached, cancellable services.&lt;/p>
-&lt;h2 id="game-server-backstory" class="my-8 md:my-12 flex items-center justify-center">
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
-href="#game-server-backstory" aria-label="Anchor">Game server backstory&lt;/a>
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;/h2>
+&lt;h2 id="game-server-backstory" >&lt;a href="#game-server-backstory" aria-label="Anchor">#&lt;/a>Game server backstory&lt;/h2>
 &lt;p>The idea of developing an authoritative game server always seemed appealing to me. Network programming, however, has
 many pitfalls:&lt;/p>
 &lt;ul>
@@ -874,12 +834,7 @@ alt="xkcd: Making Progress"loading="lazy"
 &lt;/figcaption>
 &lt;/figure>
 &lt;!-- markdownlint-enable no-bare-urls -->
-&lt;h2 id="cancellable-crate" class="my-8 md:my-12 flex items-center justify-center">
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
-href="#cancellable-crate" aria-label="Anchor">Cancellable crate&lt;/a>
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;/h2>
+&lt;h2 id="cancellable-crate" >&lt;a href="#cancellable-crate" aria-label="Anchor">#&lt;/a>Cancellable crate&lt;/h2>
 &lt;p>Network functionalities in game servers (listeners, TCP streams, etc.) await for some input and &lt;em>usually&lt;/em> yield a
 result.&lt;/p>
 &lt;div class="table-responsive">
@@ -966,12 +921,7 @@ returns &lt;code>Err(Self::Result)&lt;/code> then the service completes immediat
 additional data. An example is TCP stream: it reads data packages from a peer and consumes them via callback. However,
 if the server decides the connection should be terminated, then the service should complete its work.&lt;/p>
 &lt;p>Enter&amp;hellip;&lt;/p>
-&lt;h3 id="communicating-with-detached-service" class="my-8 md:my-12 flex items-center justify-center">
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
-href="#communicating-with-detached-service" aria-label="Anchor">Communicating with detached service&lt;/a>
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;/h3>
+&lt;h3 id="communicating-with-detached-service" >&lt;a href="#communicating-with-detached-service" aria-label="Anchor">#&lt;/a>Communicating with detached service&lt;/h3>
 &lt;p>When we spawn the service task we already get a handle:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="line">&lt;span class="ln" id="hl-3-1">&lt;a class="lnlinks" href="#hl-3-1">1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="kd">let&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">token&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">CancellableToken&lt;/span>::&lt;span class="n">new&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-2">&lt;a class="lnlinks" href="#hl-3-2">2&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">
@@ -995,12 +945,7 @@ setup, we can define a channel by which spawner can communicate with spawnee.&lt
 &lt;p>&amp;#x1f30a;&lt;/p></description></item><item><title>Natural Selection and Loss Functions</title><link>https://madebyme.today/blog/franklin/natural-selection-and-loss-functions/</link><pubDate>Sun, 02 Apr 2023 14:50:51 +0200</pubDate><guid>https://madebyme.today/blog/franklin/natural-selection-and-loss-functions/</guid><category>Genetic Algorithm</category><category>Rust</category><description>&lt;p>Natural Selection is what allows our species (and images!) to improve over time. In this article we&amp;rsquo;ll implement a
 scoring mechanism, through which &amp;ldquo;&lt;a href="https://madebyme.today/blog/franklin/randomness-of-life/">Mona Lisa&lt;/a>&amp;rdquo; will actually
 look like one.&lt;/p>
-&lt;h2 id="natural-selection" class="my-8 md:my-12 flex items-center justify-center">
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
-href="#natural-selection" aria-label="Anchor">Natural Selection&lt;/a>
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;/h2>
+&lt;h2 id="natural-selection" >&lt;a href="#natural-selection" aria-label="Anchor">#&lt;/a>Natural Selection&lt;/h2>
 &lt;p>&lt;a href="https://en.wikipedia.org/wiki/Natural_selection">Natural selection&lt;/a> is the process though which species adapt to their
 environments. If the &lt;a href="https://en.wikipedia.org/wiki/Evolution">evolution&lt;/a> is a wheel, then natural selection is the
 force that spins it. Organism that are better adapted tend to produce more offspring and pass on their genes. This
@@ -1020,12 +965,7 @@ of the specified genotype or phenotype.&lt;/p>
 &lt;/blockquote>
 &lt;p>We, however, will define &amp;ldquo;fitness&amp;rdquo; as a &lt;em>difference&lt;/em> between an organism and the ideal. Which is a bit vague, as there&amp;rsquo;s
 no obvious way of substituting one image from another and produce an integer. We&amp;rsquo;ll get back to that in a bit.&lt;/p>
-&lt;h2 id="loss-functions" class="my-8 md:my-12 flex items-center justify-center">
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
-href="#loss-functions" aria-label="Anchor">Loss functions&lt;/a>
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;/h2>
+&lt;h2 id="loss-functions" >&lt;a href="#loss-functions" aria-label="Anchor">#&lt;/a>Loss functions&lt;/h2>
 &lt;p>&lt;a href="https://en.wikipedia.org/wiki/Genetic_algorithm">Genetic Algorithms&lt;/a> (and
 &lt;a href="https://en.wikipedia.org/wiki/Evolutionary_algorithm">Evolutionary Algorithms&lt;/a>) are
 &lt;a href="https://en.wikipedia.org/wiki/Optimization_problem">optimization&lt;/a> algorithms that need a &amp;ldquo;goodness&amp;rdquo; of an organism, in
@@ -1048,12 +988,7 @@ channels and calculate their differences.&lt;/p>
 &lt;p>$$
 f(O, S) = \sum_{i=0}^n \vert (r_2 - r_1)^2 + (g_2 - g_1)^2 + (b_2 - b_1)^2 \vert
 $$&lt;/p>
-&lt;h2 id="scoring-mechanism" class="my-8 md:my-12 flex items-center justify-center">
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
-href="#scoring-mechanism" aria-label="Anchor">Scoring mechanism&lt;/a>
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;/h2>
+&lt;h2 id="scoring-mechanism" >&lt;a href="#scoring-mechanism" aria-label="Anchor">#&lt;/a>Scoring mechanism&lt;/h2>
 &lt;p>First, let&amp;rsquo;s define a trait whereby the rest of the system will be able to interact with scoring methods.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="line">&lt;span class="ln" id="hl-0-1">&lt;a class="lnlinks" href="#hl-0-1">1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="k">pub&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">trait&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">FitnessFunction&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-2">&lt;a class="lnlinks" href="#hl-0-2">2&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="sd">/// This method calculates the fitness of `second_image` relative to `first_image`.
@@ -1070,12 +1005,7 @@ about these loss functions, is that they return absolute values &amp;ndash; it d
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-4">&lt;a class="lnlinks" href="#hl-1-4">4&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">scorer&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">calculate_fitness&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">second_image&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">first_image&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-5">&lt;a class="lnlinks" href="#hl-1-5">5&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- Custom anchor adds a dash between "absolute" and "distance" -->
-&lt;h3 id="implementation-of-l1-absolute-distance" class="my-8 md:my-12 flex items-center justify-center">
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
-href="#implementation-of-l1-absolute-distance" aria-label="Anchor">Implementation of L1: AbsoluteDistance&lt;/a>
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;/h3>
+&lt;h3 id="implementation-of-l1-absolute-distance" >&lt;a href="#implementation-of-l1-absolute-distance" aria-label="Anchor">#&lt;/a>Implementation of L1: AbsoluteDistance&lt;/h3>
 &lt;p>The implementation isn&amp;rsquo;t complex - first we &lt;em>fold&lt;/em> each pixel pair to a &lt;code>usize&lt;/code>, and then we sum those parts together to
 produce the score. Actually, we can do both by using Iterator&amp;rsquo;s &lt;code>fold&lt;/code> method.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="line">&lt;span class="ln" id="hl-2-1">&lt;a class="lnlinks" href="#hl-2-1"> 1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="k">fn&lt;/span> &lt;span class="nf">fold_pixels&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">mut&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">sum&lt;/span>: &lt;span class="kt">usize&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">p1&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">p2&lt;/span>&lt;span class="p">)&lt;/span>: &lt;span class="p">(&lt;/span>&lt;span class="o">&amp;amp;&lt;/span>&lt;span class="n">Pixel&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">&amp;amp;&lt;/span>&lt;span class="n">Pixel&lt;/span>&lt;span class="p">))&lt;/span>&lt;span class="w"> &lt;/span>-&amp;gt; &lt;span class="kt">usize&lt;/span> &lt;span class="p">{&lt;/span>&lt;span class="w">
@@ -1107,12 +1037,7 @@ produce the score. Actually, we can do both by using Iterator&amp;rsquo;s &lt;co
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-27">&lt;a class="lnlinks" href="#hl-2-27">27&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-28">&lt;a class="lnlinks" href="#hl-2-28">28&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- Custom anchor adds a dash between "square" and "distance" -->
-&lt;h3 id="implementation-of-l1-square-distance" class="my-8 md:my-12 flex items-center justify-center">
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
-href="#implementation-of-l1-square-distance" aria-label="Anchor">Implementation of L2: SquareDistance&lt;/a>
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;/h3>
+&lt;h3 id="implementation-of-l1-square-distance" >&lt;a href="#implementation-of-l1-square-distance" aria-label="Anchor">#&lt;/a>Implementation of L2: SquareDistance&lt;/h3>
 &lt;p>Implementation of &lt;code>SquareDistance&lt;/code> is almost identical. The only difference is the squaring of color channels.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="line">&lt;span class="ln" id="hl-3-1">&lt;a class="lnlinks" href="#hl-3-1"> 1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="k">fn&lt;/span> &lt;span class="nf">fold_pixels&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">mut&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">sum&lt;/span>: &lt;span class="kt">usize&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">p1&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">p2&lt;/span>&lt;span class="p">)&lt;/span>: &lt;span class="p">(&lt;/span>&lt;span class="o">&amp;amp;&lt;/span>&lt;span class="n">Pixel&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">&amp;amp;&lt;/span>&lt;span class="n">Pixel&lt;/span>&lt;span class="p">))&lt;/span>&lt;span class="w"> &lt;/span>-&amp;gt; &lt;span class="kt">usize&lt;/span> &lt;span class="p">{&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-2">&lt;a class="lnlinks" href="#hl-3-2"> 2&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="kd">let&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">diff_r&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kt">isize&lt;/span>::&lt;span class="n">from&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">p1&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">get_r&lt;/span>&lt;span class="p">())&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kt">isize&lt;/span>::&lt;span class="n">from&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">p2&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">get_r&lt;/span>&lt;span class="p">());&lt;/span>&lt;span class="w">
@@ -1142,12 +1067,7 @@ href="#implementation-of-l1-square-distance" aria-label="Anchor">Implementation 
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-26">&lt;a class="lnlinks" href="#hl-3-26">26&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">fold&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="k">usize&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">fold_pixels&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-27">&lt;a class="lnlinks" href="#hl-3-27">27&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-28">&lt;a class="lnlinks" href="#hl-3-28">28&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="fixing-mona-lisa" class="my-8 md:my-12 flex items-center justify-center">
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
-href="#fixing-mona-lisa" aria-label="Anchor">Fixing &amp;ldquo;Mona Lisa&amp;rdquo;&lt;/a>
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;/h2>
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="fixing-mona-lisa" >&lt;a href="#fixing-mona-lisa" aria-label="Anchor">#&lt;/a>Fixing &amp;ldquo;Mona Lisa&amp;rdquo;&lt;/h2>
 &lt;p>Let&amp;rsquo;s wire up the scoring component with generation&amp;rsquo;s flow. During each generation, every specimens will be scored
 relatively to the ideal image. Using the scores we will select the best &lt;span class="text-decoration-underline">5&lt;/span>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>
 organisms and discard the rest.&lt;/p>
@@ -1185,12 +1105,7 @@ images is to discard mutations that resulted in decreasing overall &amp;ldquo;go
 &lt;/div></description></item><item><title>Randomness of Life</title><link>https://madebyme.today/blog/franklin/randomness-of-life/</link><pubDate>Mon, 20 Mar 2023 10:02:19 +0100</pubDate><guid>https://madebyme.today/blog/franklin/randomness-of-life/</guid><category>Genetic Algorithm</category><category>Rust</category><description>&lt;p>In &lt;a href="https://madebyme.today/blog/franklin/art-from-chaos/">the previous article&lt;/a> from this series, we&amp;rsquo;ve talked about
 genetic algorithms and how they can be used to generate art. Now let&amp;rsquo;s put those ideas into action and focus on
 implementing the first part of our artistic toolset: &lt;strong>mutators&lt;/strong>.&lt;/p>
-&lt;h2 id="preparing-the-ecosystem" class="my-8 md:my-12 flex items-center justify-center">
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
-href="#preparing-the-ecosystem" aria-label="Anchor">Preparing the ecosystem&lt;/a>
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;/h2>
+&lt;h2 id="preparing-the-ecosystem" >&lt;a href="#preparing-the-ecosystem" aria-label="Anchor">#&lt;/a>Preparing the ecosystem&lt;/h2>
 &lt;p>Before we begin working on mutators, we need to prepare an environment in which our specimens can thrive. We don&amp;rsquo;t need
 much - right now the only thing is &lt;em>a generation&lt;/em>. For the record, in this context, a generation is a collection of
 specimen which can be mutated, scored, and bred (basically experimented upon) to get us closer to the optimum. Since our
@@ -1262,12 +1177,7 @@ solution space search, but will produce images that are more visually interestin
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-39">&lt;a class="lnlinks" href="#hl-1-39">39&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="fm">vec!&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">Image&lt;/span>::&lt;span class="n">blank&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">height&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">width&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">&amp;amp;&lt;/span>&lt;span class="n">pixel&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">vec_len&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-40">&lt;a class="lnlinks" href="#hl-1-40">40&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This code takes care of initializing the generation. &amp;#x1f44c;&lt;/p>
-&lt;h2 id="throwing-dice-and-hoping-for-the-best" class="my-8 md:my-12 flex items-center justify-center">
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
-href="#throwing-dice-and-hoping-for-the-best" aria-label="Anchor">Throwing dice and hoping for the best&lt;/a>
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;/h2>
+&lt;h2 id="throwing-dice-and-hoping-for-the-best" >&lt;a href="#throwing-dice-and-hoping-for-the-best" aria-label="Anchor">#&lt;/a>Throwing dice and hoping for the best&lt;/h2>
 &lt;p>As was mentioned in the previous article, mutators act only on one specimen at a time, inserting random modification
 onto it. With that description alone, we can already define a contract for all mutators we&amp;rsquo;re going to implement:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="line">&lt;span class="ln" id="hl-2-1">&lt;a class="lnlinks" href="#hl-2-1">1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="k">pub&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">trait&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">Mutator&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
@@ -1282,12 +1192,7 @@ alt="Genetic Algorithm Flow"loading="lazy"
 &lt;p>A diagram showing the flow of actions applied on a single generation.&lt;/p>
 &lt;/figcaption>
 &lt;/figure>
-&lt;h3 id="throwing-a-rectangular-dice" class="my-8 md:my-12 flex items-center justify-center">
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
-href="#throwing-a-rectangular-dice" aria-label="Anchor">Throwing a rectangular dice&lt;/a>
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;/h3>
+&lt;h3 id="throwing-a-rectangular-dice" >&lt;a href="#throwing-a-rectangular-dice" aria-label="Anchor">#&lt;/a>Throwing a rectangular dice&lt;/h3>
 &lt;p>Rectangles are the easiest shape to draw both algorithmically and IRL; our first mutator will use rectangles as a
 mutation primitive. To generate a random rectangle we need have the following:&lt;/p>
 &lt;ul>
@@ -1381,23 +1286,13 @@ alt="Random noise" class="img-thumbnail"loading="lazy"
 Which isn&amp;rsquo;t very surprising; the code did what it was suppose to do: it generated random rectangles on the white image.
 Since we don&amp;rsquo;t have any scoring logic yet (that&amp;rsquo;s a topic for another article) the resulting image is composed of random
 noise. We&amp;rsquo;ll need to wait a bit longer to get an image that even remotely reflects &amp;ldquo;Mona Lisa&amp;rdquo;.&lt;/p>
-&lt;h3 id="throwing-dice-of-other-shapes" class="my-8 md:my-12 flex items-center justify-center">
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
-href="#throwing-dice-of-other-shapes" aria-label="Anchor">Throwing dice of other shapes&lt;/a>
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;/h3>
+&lt;h3 id="throwing-dice-of-other-shapes" >&lt;a href="#throwing-dice-of-other-shapes" aria-label="Anchor">#&lt;/a>Throwing dice of other shapes&lt;/h3>
 &lt;p>It&amp;rsquo;d be nice to have mutators other than &lt;code>RectangleMutator&lt;/code>, which are able to mutate images with different shapes, but
 I&amp;rsquo;m not going to cover them here. The reason is simple &amp;ndash; they operate under the same rules: you need to define
 boundaries first and then you need to draw the desired shape. I&amp;rsquo;ve implemented two other mutators: &lt;code>TriangleMutator&lt;/code> and
 &lt;code>CircleMutator&lt;/code>. Their sources can be found
 &lt;a href="https://github.com/nathiss/franklin/tree/73aa8dada3e8c3cae9aff5e24637785268e3527a/src/mutators">here&lt;/a>.&lt;/p>
-&lt;h2 id="afterword" class="my-8 md:my-12 flex items-center justify-center">
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
-href="#afterword" aria-label="Anchor">Afterword&lt;/a>
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;/h2>
+&lt;h2 id="afterword" >&lt;a href="#afterword" aria-label="Anchor">#&lt;/a>Afterword&lt;/h2>
 &lt;p>You might&amp;rsquo;ve noticed that the code examples of this article are not strictly bounded together, meaning you cannot just
 copy them to have a working example. A bunch of things like: &lt;code>Random&lt;/code> implementation, loading the original image,
 mutation loop, and the whole &lt;code>impl Image&lt;/code> block are missing. If you want to have a working solution it&amp;rsquo;s

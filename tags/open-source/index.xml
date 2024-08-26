@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Open Source on MadeByMe</title><link>https://madebyme.today/tags/open-source/</link><description>Recent content in Open Source on MadeByMe</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright 2023-2024, Kamil Rusin</copyright><lastBuildDate>Wed, 26 Jul 2023 09:08:18 +0200</lastBuildDate><atom:link href="https://madebyme.today/tags/open-source/index.xml" rel="self" type="application/rss+xml"/><item><title>Cancellable</title><link>https://madebyme.today/projects/cancellable/</link><pubDate>Wed, 26 Jul 2023 09:08:18 +0200</pubDate><guid>https://madebyme.today/projects/cancellable/</guid><category>Rust</category><category>Crates</category><category>Open Source</category><description>&lt;p>Recently I&amp;rsquo;m investing a lot of time into developing a game server in &lt;a href="https://www.rust-lang.org/">Rust&lt;/a>. I started with
 implementing network layer based on &lt;a href="https://en.wikipedia.org/wiki/WebSocket">WebSockets&lt;/a>. It&amp;rsquo;s far from being ready,
 but I developed a helper crate for creating detached, cancellable services.&lt;/p>
-&lt;h2 id="game-server-backstory" class="my-8 md:my-12 flex items-center justify-center">
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
-href="#game-server-backstory" aria-label="Anchor">Game server backstory&lt;/a>
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;/h2>
+&lt;h2 id="game-server-backstory" >&lt;a href="#game-server-backstory" aria-label="Anchor">#&lt;/a>Game server backstory&lt;/h2>
 &lt;p>The idea of developing an authoritative game server always seemed appealing to me. Network programming, however, has
 many pitfalls:&lt;/p>
 &lt;ul>
@@ -33,12 +28,7 @@ alt="xkcd: Making Progress"loading="lazy"
 &lt;/figcaption>
 &lt;/figure>
 &lt;!-- markdownlint-enable no-bare-urls -->
-&lt;h2 id="cancellable-crate" class="my-8 md:my-12 flex items-center justify-center">
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
-href="#cancellable-crate" aria-label="Anchor">Cancellable crate&lt;/a>
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;/h2>
+&lt;h2 id="cancellable-crate" >&lt;a href="#cancellable-crate" aria-label="Anchor">#&lt;/a>Cancellable crate&lt;/h2>
 &lt;p>Network functionalities in game servers (listeners, TCP streams, etc.) await for some input and &lt;em>usually&lt;/em> yield a
 result.&lt;/p>
 &lt;div class="table-responsive">
@@ -125,12 +115,7 @@ returns &lt;code>Err(Self::Result)&lt;/code> then the service completes immediat
 additional data. An example is TCP stream: it reads data packages from a peer and consumes them via callback. However,
 if the server decides the connection should be terminated, then the service should complete its work.&lt;/p>
 &lt;p>Enter&amp;hellip;&lt;/p>
-&lt;h3 id="communicating-with-detached-service" class="my-8 md:my-12 flex items-center justify-center">
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
-href="#communicating-with-detached-service" aria-label="Anchor">Communicating with detached service&lt;/a>
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;/h3>
+&lt;h3 id="communicating-with-detached-service" >&lt;a href="#communicating-with-detached-service" aria-label="Anchor">#&lt;/a>Communicating with detached service&lt;/h3>
 &lt;p>When we spawn the service task we already get a handle:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="line">&lt;span class="ln" id="hl-3-1">&lt;a class="lnlinks" href="#hl-3-1">1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="kd">let&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">token&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">CancellableToken&lt;/span>::&lt;span class="n">new&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-2">&lt;a class="lnlinks" href="#hl-3-2">2&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">
