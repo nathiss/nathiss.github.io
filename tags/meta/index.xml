@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Meta on MadeByMe</title><link>https://madebyme.today/tags/meta/</link><description>Recent content in Meta on MadeByMe</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright 2023-2024, Kamil Rusin</copyright><lastBuildDate>Sat, 25 Feb 2023 20:14:43 +0100</lastBuildDate><atom:link href="https://madebyme.today/tags/meta/index.xml" rel="self" type="application/rss+xml"/><item><title>Beginnings Are Hard</title><link>https://madebyme.today/blog/beginnings-are-hard/</link><pubDate>Sat, 25 Feb 2023 20:14:43 +0100</pubDate><guid>https://madebyme.today/blog/beginnings-are-hard/</guid><category>meta</category><category>Polaris</category><description>&lt;p>Well it took some time (almost 6 years) to create a personal blog, but here we are.&lt;/p>
-&lt;h2 id="how-did-we-come-here" >&lt;a href="#how-did-we-come-here" aria-label="Anchor">#&lt;/a>How did we come here?&lt;/h2>
+&lt;h2 id="how-did-we-come-here" class="my-8 md:my-12 flex items-center justify-center">
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
+href="#how-did-we-come-here" aria-label="Anchor">How did we come here?&lt;/a>
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+&lt;/h2>
 &lt;p>This is not the first attempt on creating my own website. On my &lt;a href="https://github.com/nathiss">GitHub&lt;/a> there are many
 (most of them private) repos, which contains some sort of &lt;em>personal website&lt;/em>. All of them abandoned, but not this one!&lt;/p>
 &lt;p>&amp;hellip; at least not yet. ✌(-‿-)✌ However I&amp;rsquo;m optimistic.&lt;/p>
 &lt;p>To better understand why I have such high hopes for this project let&amp;rsquo;s go down the rabbit hole and analyze its ancestors
 and try to point out why they failed.&lt;/p>
-&lt;h3 id="platform-1-0x52-django-22" >&lt;a href="#platform-1-0x52-django-22" aria-label="Anchor">#&lt;/a>Platform 1: 0x52 (Django 2.2)&lt;/h3>
+&lt;h3 id="platform-1-0x52-django-22" class="my-8 md:my-12 flex items-center justify-center">
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
+href="#platform-1-0x52-django-22" aria-label="Anchor">Platform 1: 0x52 (Django 2.2)&lt;/a>
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+&lt;/h3>
 &lt;p>&lt;a href="https://www.djangoproject.com/">Django&lt;/a> is one of the first tools I&amp;rsquo;ve ever used to create something on the web.&lt;/p>
 &lt;blockquote>
 &lt;p>Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design.
@@ -35,7 +45,12 @@ access only their own entries and tags.&lt;/p>
 so it just fated away. Also it was more of a personal utility website, than a blog. It was publicly available on
 &lt;a href="https://www.heroku.com/">Heroku&lt;/a> until quite recently actually. I took down the website when &lt;a href="https://help.heroku.com/RSBRUH58/removal-of-heroku-free-product-plans-faq">Heroku announced their
 removal of free product plans&lt;/a>.&lt;/p>
-&lt;h3 id="platform-2-titan-aspnet" >&lt;a href="#platform-2-titan-aspnet" aria-label="Anchor">#&lt;/a>Platform 2: Titan (ASP.NET)&lt;/h3>
+&lt;h3 id="platform-2-titan-aspnet" class="my-8 md:my-12 flex items-center justify-center">
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
+href="#platform-2-titan-aspnet" aria-label="Anchor">Platform 2: Titan (ASP.NET)&lt;/a>
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+&lt;/h3>
 &lt;p>This was &lt;em>an another&lt;/em> iteration of personal website development. I&amp;rsquo;ve decided to use
 &lt;a href="https://en.wikipedia.org/wiki/.NET">.NET&lt;/a> for this one, because earlier in that year I got my first job in the field
 and I was hyped to build something with the technology we used at work &lt;em>(we were developing a few solutions and one of
@@ -69,7 +84,12 @@ and message broker.&lt;/p>
 whether the session has ended.&lt;/p>
 &lt;p>Can you see now when I said it was overengineered? So many complex solutions for a logout functionality. The project
 ended because I was too wornout to finish it.&lt;/p>
-&lt;h3 id="platform-3-polaris-react" >&lt;a href="#platform-3-polaris-react" aria-label="Anchor">#&lt;/a>Platform 3: Polaris (React)&lt;/h3>
+&lt;h3 id="platform-3-polaris-react" class="my-8 md:my-12 flex items-center justify-center">
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
+href="#platform-3-polaris-react" aria-label="Anchor">Platform 3: Polaris (React)&lt;/a>
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+&lt;/h3>
 &lt;p>I&amp;rsquo;m actually quite proud of this one. It&amp;rsquo;s a static website running on &lt;a href="https://reactjs.org/">React&lt;/a> and hosting my
 vector graphics. It&amp;rsquo;s painfully simple, but that was kinda the point. I wanted to have a way of hosting those images
 ASAP, hence React and GitHub Pages, &lt;a href="https://polaris.madebyme.today/">where the website is actually hosted&lt;/a>.&lt;/p>
@@ -87,7 +107,12 @@ alt="Steam on the horizon" class="img-thumbnail"loading="lazy"
 &lt;p>I don&amp;rsquo;t have much more to say here other that, it was a while when I&amp;rsquo;ve used &lt;a href="https://inkscape.org/">Inkscape&lt;/a> to create
 those images and when I needed to use it again, for the sake of this blog, it was terrifying to see how much one can
 forget what one has learned. ಠ_ಠ&lt;/p>
-&lt;h3 id="platforms-long-forgotten" >&lt;a href="#platforms-long-forgotten" aria-label="Anchor">#&lt;/a>Platforms long forgotten&lt;/h3>
+&lt;h3 id="platforms-long-forgotten" class="my-8 md:my-12 flex items-center justify-center">
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
+href="#platforms-long-forgotten" aria-label="Anchor">Platforms long forgotten&lt;/a>
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+&lt;/h3>
 &lt;p>There were many more projects which aimed to create my personal space on the web, but only these mentioned above are
 still remembered by me enough to write a few sentences about.&lt;/p>
 &lt;p>It&amp;rsquo;s safe to say they all suffered from the same fundamental flaws:&lt;/p>
@@ -99,7 +124,12 @@ still remembered by me enough to write a few sentences about.&lt;/p>
 &lt;p>This blog, on the other hand, is a static content website build with &lt;a href="https://gohugo.io/">Hugo&lt;/a>. I think to some extend
 I was aware that tools like Hugo existed, but I&amp;rsquo;ve never considered using them. I cannot really explain as to why; maybe
 I was trying too hard to use a new fancy tool I&amp;rsquo;ve just learned about.&lt;/p>
-&lt;h2 id="the-goal-and-future-of-this-project" >&lt;a href="#the-goal-and-future-of-this-project" aria-label="Anchor">#&lt;/a>The goal and future of this project&lt;/h2>
+&lt;h2 id="the-goal-and-future-of-this-project" class="my-8 md:my-12 flex items-center justify-center">
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
+href="#the-goal-and-future-of-this-project" aria-label="Anchor">The goal and future of this project&lt;/a>
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+&lt;/h2>
 &lt;p>The goal of this project is to create an archive for stuff I&amp;rsquo;m going to learn. It&amp;rsquo;s still unclear as to what I&amp;rsquo;m going
 to post on this blog, but it&amp;rsquo;s safe to say that it&amp;rsquo;s going to be techy.&lt;/p>
 &lt;p>I cannot say with any amount of certainty how often I&amp;rsquo;ll be writing new articles. I&amp;rsquo;m really looking forward to making

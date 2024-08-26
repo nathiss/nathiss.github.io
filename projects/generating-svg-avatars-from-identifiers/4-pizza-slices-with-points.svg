@@ -9,6 +9,7 @@
 
         #slices-with-points circle {
             fill: var(--bs-body-color);
+            stroke: none;
         }
     </style>
 
