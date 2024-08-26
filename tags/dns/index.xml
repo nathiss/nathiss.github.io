@@ -21,7 +21,12 @@ subdomain.&lt;/p>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-14">&lt;a class="lnlinks" href="#hl-0-14">14&lt;/a>&lt;/span>&lt;span class="cl">&amp;lt;/body&amp;gt;
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-15">&lt;a class="lnlinks" href="#hl-0-15">15&lt;/a>&lt;/span>&lt;span class="cl">&amp;lt;/html&amp;gt;
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Let&amp;rsquo;s take a closer look and see how it&amp;rsquo;s done.&lt;/p>
-&lt;h2 id="setting-up-custom-domain-for-github-pages" >&lt;a href="#setting-up-custom-domain-for-github-pages" aria-label="Anchor">#&lt;/a>Setting up custom domain for GitHub Pages&lt;/h2>
+&lt;h2 id="setting-up-custom-domain-for-github-pages" class="my-8 md:my-12 flex items-center justify-center">
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
+href="#setting-up-custom-domain-for-github-pages" aria-label="Anchor">Setting up custom domain for GitHub Pages&lt;/a>
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+&lt;/h2>
 &lt;p>GitHub Pages supports custom domains with very little config; you, as the owner, only need to set up these DNS
 records:&lt;/p>
 &lt;div class="table-responsive">
@@ -98,14 +103,24 @@ records:&lt;/p>
 website under the configured domain. Anyone accessing &lt;code>https://example.com&lt;/code> will see your website.&lt;/p>
 &lt;p>It&amp;rsquo;s pretty well explained in &lt;a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages">About custom domains and GitHub Pages&lt;/a>,
 and &lt;a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site">Managing a custom domain for your GitHub Pages site&lt;/a>.&lt;/p>
-&lt;div class="alert alert-info">&lt;h6 class="alert-heading">
-&lt;i class="bi bi-pencil me-2" aria-hidden="true">&lt;/i>Note&lt;/h6>
-&lt;p class="my-3">&lt;p>Optionally, you may want to verify your domain for GitHub Pages; it prevents other users from taking over your
+&lt;div class="alert alert-info text-left text-text flex flex-col items-start gap-0" >
+&lt;h6 class="text-info-content flex gap-1 items-center !my-0 !text-lg">&lt;span class="">&lt;svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
+&lt;path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+&lt;/svg>&lt;/span>Note&lt;/h6>
+&lt;div class="collapsible-content w-full">
+&lt;div class="mt-2 w-full text-base-content markdown-body">&lt;p>Optionally, you may want to verify your domain for GitHub Pages; it prevents other users from taking over your
 domain. It can happen when your GitHub Pages site gets disabled one way or another.&lt;/p>
 &lt;p>See &lt;a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages">Verifying your custom domain for GitHub Pages&lt;/a>
 for details.&lt;/p>
-&lt;/p>&lt;/div>
-&lt;h2 id="using-domains-as-aliases" >&lt;a href="#using-domains-as-aliases" aria-label="Anchor">#&lt;/a>Using domains as aliases&lt;/h2>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;h2 id="using-domains-as-aliases" class="my-8 md:my-12 flex items-center justify-center">
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
+href="#using-domains-as-aliases" aria-label="Anchor">Using domains as aliases&lt;/a>
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+&lt;/h2>
 &lt;p>Recently I came up with an idea to configure subdomains, that will redirect to a few tools I&amp;rsquo;d like to make accessible
 online. For example &lt;code>calendar.madebyme.today&lt;/code> could be a redirect to my GCalendar.&lt;/p>
 &lt;p>However, &lt;a href="https://en.wikipedia.org/wiki/Domain_Name_System">DNS&lt;/a> can&amp;rsquo;t be used like that. It&amp;rsquo;s a
@@ -119,7 +134,12 @@ HTTP. If I&amp;rsquo;d host my own web server, then I could configure it to do r
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-4">&lt;a class="lnlinks" href="#hl-2-4">4&lt;/a>&lt;/span>&lt;span class="cl">}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>However, that&amp;rsquo;s not the case and, as far as I know, GitHub does not provide any way of setting up HTTP redirects for
 GitHub Pages.&lt;/p>
-&lt;h3 id="redir-301" >&lt;a href="#redir-301" aria-label="Anchor">#&lt;/a>Redir 301&lt;/h3>
+&lt;h3 id="redir-301" class="my-8 md:my-12 flex items-center justify-center">
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
+href="#redir-301" aria-label="Anchor">Redir 301&lt;/a>
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+&lt;/h3>
 &lt;p>&lt;a href="https://redir301.link/">Redir 301&lt;/a> is a service that uses DNS records to redirect subdomains to URLs. It requires two
 DNS records in order to work:&lt;/p>
 &lt;div class="table-responsive">
@@ -151,12 +171,18 @@ DNS records in order to work:&lt;/p>
 &lt;p>Let&amp;rsquo;s test it, shall we?&lt;/p>
 &lt;p>I&amp;rsquo;d very much prefer not to mess with my current DNS records, so let&amp;rsquo;s use &lt;a href="https://messwithdns.net/">mess with dns&lt;/a> for
 this experiment.&lt;/p>
-&lt;div class="alert alert-primary">&lt;h6 class="alert-heading">
-&lt;i class="bi bi-fire me-2" aria-hidden="true">&lt;/i>Tip&lt;/h6>
-&lt;p class="my-3">If you&amp;rsquo;re planning on changing your DNS records and are unsure about the changes, then I&amp;rsquo;d suggest to do so first via
+&lt;div class="alert alert-tip text-left text-text flex flex-col items-start gap-0" >
+&lt;h6 class="text-tip-content flex gap-1 items-center !my-0 !text-lg">&lt;span class="">&lt;svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+&lt;path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.047 8.287 8.287 0 0 0 9 9.601a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48Z" />
+&lt;path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 0 0 .495-7.468 5.99 5.99 0 0 0-1.925 3.547 5.975 5.975 0 0 1-2.133-1.001A3.75 3.75 0 0 0 12 18Z" />
+&lt;/svg>&lt;/span>Tip&lt;/h6>
+&lt;div class="collapsible-content w-full">
+&lt;div class="mt-2 w-full text-base-content markdown-body">If you&amp;rsquo;re planning on changing your DNS records and are unsure about the changes, then I&amp;rsquo;d suggest to do so first via
 &lt;a href="https://messwithdns.net/">mess with dns&lt;/a>, a tool by &lt;a href="https://jvns.ca/">Julia Evans&lt;/a> and
 &lt;a href="https://marieflanagan.com/">Marie Claire LeBlanc Flanagan&lt;/a>. It&amp;rsquo;s a service for performing experiments with DNS. Anyone
-can set up their DNS records and test with them for free.&lt;/p>&lt;/div>
+can set up their DNS records and test with them for free.&lt;/div>
+&lt;/div>
+&lt;/div>
 &lt;p>By following the guide we&amp;rsquo;ve got:&lt;/p>
 &lt;figure>&lt;a href="mess_with_dns.png" class="hide-external" >&lt;img src="https://madebyme.today/blog/redirecting-subdomains-to-urls/mess_with_dns.png"
 alt="mess with dns configuration for Redir 301"loading="lazy"
@@ -183,7 +209,12 @@ service does not offer TLS certificates.&lt;/p>
 &lt;p>Additionally, as stated by the owner, a &amp;ldquo;fair use&amp;rdquo; policy applies to Redir 301. There&amp;rsquo;s a non-zero cost to run the
 service, so if you decide on using the system, please consider donating the maintainer. See &lt;a href="https://redir301.link/" class="hide-external">https://redir301.link/&lt;/a>
 for details.&lt;/p>
-&lt;h3 id="redirecting-with-github-pages" >&lt;a href="#redirecting-with-github-pages" aria-label="Anchor">#&lt;/a>Redirecting with GitHub Pages&lt;/h3>
+&lt;h3 id="redirecting-with-github-pages" class="my-8 md:my-12 flex items-center justify-center">
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
+href="#redirecting-with-github-pages" aria-label="Anchor">Redirecting with GitHub Pages&lt;/a>
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+&lt;/h3>
 &lt;p>The HTTP Location header isn&amp;rsquo;t the only way of redirecting to a URL. Another method is to use JavaScript, and the
 simplest way to achieve this is:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="ln" id="hl-4-1">&lt;a class="lnlinks" href="#hl-4-1">1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">body&lt;/span> &lt;span class="na">onload&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;window.location = &amp;#39;https://example.com/&amp;#39;&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
@@ -289,7 +320,12 @@ alt="GitHub Pages configuration with custom domain and enforced HTTPS"loading="l
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&amp;#x1f389;&lt;/p>
 &lt;p>If a browser respects the meta refresh tag, then it works. When it doesn&amp;rsquo;t, the user has an option to manually click on
 the &amp;ldquo;Redirect&amp;rdquo; link.&lt;/p>
-&lt;h2 id="conclusion" >&lt;a href="#conclusion" aria-label="Anchor">#&lt;/a>Conclusion&lt;/h2>
+&lt;h2 id="conclusion" class="my-8 md:my-12 flex items-center justify-center">
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
+href="#conclusion" aria-label="Anchor">Conclusion&lt;/a>
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+&lt;/h2>
 &lt;p>Redirects via GitHub Pages is not an ideal solution. Having to use meta&amp;rsquo;s &lt;code>http-equiv=&amp;quot;refresh&amp;quot;&lt;/code>, instead of the proper
 301 Moved Permanently makes me sad. Having said that, personally, I&amp;rsquo;d prefer to use GitHub Pages, as the backing
 service, rather than Redir 301.&lt;/p>

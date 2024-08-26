@@ -2,18 +2,33 @@
 &lt;a href="https://www.yubico.com/products/yubikey-5-overview/">Yubikey&lt;/a>. After over two years I already forgot how &lt;em>tedious&lt;/em> that
 can be&amp;hellip; I&amp;rsquo;m writing this blog post to create a clear trace of what I needed to do today and hopefully, when the time
 comes to set up &lt;em>an another&lt;/em> key, it&amp;rsquo;ll be as easy as opening up a blog entry.&lt;/p>
-&lt;h2 id="in-general" >&lt;a href="#in-general" aria-label="Anchor">#&lt;/a>In general&lt;/h2>
+&lt;h2 id="in-general" class="my-8 md:my-12 flex items-center justify-center">
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
+href="#in-general" aria-label="Anchor">In general&lt;/a>
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+&lt;/h2>
 &lt;p>I started to learn about security keys a few years back. I read &amp;ldquo;&lt;a href="https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/45409.pdf">Security Keys: Practical Cryptographic Second
 Factors for the Modern Web&lt;/a>&amp;rdquo;
 research paper by Google, explaining how they work and how they made them &amp;ldquo;fool-proof&amp;rdquo;. The article is very detailed and
 yet written in a easy-to-follow way. If you&amp;rsquo;re interested in security, then give it a try!&lt;/p>
 &lt;p>The rest of this article is a ramp about configuring a new key. If you don&amp;rsquo;t have one/not having issues with one at the
 moment, you can give it amiss.&lt;/p>
-&lt;h2 id="setting-up-a-new-key" >&lt;a href="#setting-up-a-new-key" aria-label="Anchor">#&lt;/a>Setting up a new key&lt;/h2>
+&lt;h2 id="setting-up-a-new-key" class="my-8 md:my-12 flex items-center justify-center">
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
+href="#setting-up-a-new-key" aria-label="Anchor">Setting up a new key&lt;/a>
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+&lt;/h2>
 &lt;p>&lt;a href="https://www.yubico.com/">Yubico&lt;/a> offers &lt;a href="https://www.yubico.com/support/download/">great software&lt;/a> for managing your
 keys. If you&amp;rsquo;re planning on using yours as a &lt;a href="https://en.wikipedia.org/wiki/Multi-factor_authentication">2FA&lt;/a> method or
 &lt;a href="https://www.yubico.com/resources/glossary/fido-2/">FIDO2&lt;/a>, then you are a happier person.&lt;/p>
-&lt;h3 id="yubikey--macos" >&lt;a href="#yubikey--macos" aria-label="Anchor">#&lt;/a>Yubikey &amp;amp; macOS&lt;/h3>
+&lt;h3 id="yubikey--macos" class="my-8 md:my-12 flex items-center justify-center">
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
+href="#yubikey--macos" aria-label="Anchor">Yubikey &amp;amp; macOS&lt;/a>
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+&lt;/h3>
 &lt;p>To start with, I could not make the key detectable by &lt;a href="https://gnupg.org/">GnuPG&lt;/a>. I was getting &amp;ldquo;Operation not
 supported by device&amp;rdquo; error.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="ln" id="hl-0-1">&lt;a class="lnlinks" href="#hl-0-1">1&lt;/a>&lt;/span>&lt;span class="cl">gpg --card-status
@@ -22,7 +37,12 @@ supported by device&amp;rdquo; error.&lt;/p>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Then I found DataDog&amp;rsquo;s Yubikey
 &lt;a href="https://github.com/DataDog/yubikey/blob/master/docs/troubleshooting.md">troubleshooting guide&lt;/a>. It fixed my problem &amp;ndash;
 a config file was missing in my GnuPG home.&lt;/p>
-&lt;h3 id="yubikey--openpgp" >&lt;a href="#yubikey--openpgp" aria-label="Anchor">#&lt;/a>Yubikey &amp;amp; OpenPGP&lt;/h3>
+&lt;h3 id="yubikey--openpgp" class="my-8 md:my-12 flex items-center justify-center">
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
+href="#yubikey--openpgp" aria-label="Anchor">Yubikey &amp;amp; OpenPGP&lt;/a>
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+&lt;/h3>
 &lt;p>Working with &lt;code>gpg&lt;/code> sucks.&lt;/p>
 &lt;p>The tool is very advanced and offering a lot of features, so naturally its CLI is complex, to say the least. As it was
 before, so it was now, I was saved by
@@ -30,7 +50,12 @@ before, so it was now, I was saved by
 &lt;p>It encompasses everything: from generating keys, to rotating keys. It also offers different solutions depending on how
 much you care about security. I &lt;strong>highly&lt;/strong> encourage you to configure your key with this guide.&lt;/p>
 &lt;p>It got me through most of the OpenPGP stuff pretty smoothly. Again, I was lost on making the key work with &lt;code>gpg-agent&lt;/code>.&lt;/p>
-&lt;h3 id="yubikey--ssh" >&lt;a href="#yubikey--ssh" aria-label="Anchor">#&lt;/a>Yubikey &amp;amp; SSH&lt;/h3>
+&lt;h3 id="yubikey--ssh" class="my-8 md:my-12 flex items-center justify-center">
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
+href="#yubikey--ssh" aria-label="Anchor">Yubikey &amp;amp; SSH&lt;/a>
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+&lt;/h3>
 &lt;p>Once all three keys (Signing, Encryption, Authentication) are correctly set up, it&amp;rsquo;s the moment for the agent. I always
 miss two parts: &lt;strong>configuring gpg-agent&lt;/strong> and &lt;strong>enabling SSH for gpg-agent&lt;/strong>.&lt;/p>
 &lt;p>The first one requires these few lines at the end of your &lt;code>rc&lt;/code> file. I use Z shell, so it&amp;rsquo;s &lt;code>.zshrc&lt;/code> for me.&lt;/p>
@@ -44,7 +69,12 @@ miss two parts: &lt;strong>configuring gpg-agent&lt;/strong> and &lt;strong>enab
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Cool. The last and yet &lt;strong>very important step&lt;/strong> is to relaunch the agent:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="ln" id="hl-3-1">&lt;a class="lnlinks" href="#hl-3-1">1&lt;/a>&lt;/span>&lt;span class="cl">gpgconf --kill gpg-agent
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>It should hopefully work.&lt;/p>
-&lt;h3 id="tips" >&lt;a href="#tips" aria-label="Anchor">#&lt;/a>Tips&lt;/h3>
+&lt;h3 id="tips" class="my-8 md:my-12 flex items-center justify-center">
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
+href="#tips" aria-label="Anchor">Tips&lt;/a>
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+&lt;/h3>
 &lt;ol>
 &lt;li>To get public SSH key run: &lt;code>ssh-add -L&lt;/code>.&lt;/li>
 &lt;/ol>

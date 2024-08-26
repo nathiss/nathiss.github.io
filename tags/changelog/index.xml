@@ -2,7 +2,12 @@
 I liked the idea, but my gut feeling was that the future project contributors won&amp;rsquo;t keep the changelog always up-to-date
 and it&amp;rsquo;s quality will decline over time. This article proposes a feature which enforces changelog updates, when it&amp;rsquo;s
 required to do so.&lt;/p>
-&lt;h2 id="whats-a-changelog" >&lt;a href="#whats-a-changelog" aria-label="Anchor">#&lt;/a>What&amp;rsquo;s a changelog&lt;/h2>
+&lt;h2 id="whats-a-changelog" class="my-8 md:my-12 flex items-center justify-center">
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
+href="#whats-a-changelog" aria-label="Anchor">What&amp;rsquo;s a changelog&lt;/a>
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+&lt;/h2>
 &lt;blockquote>
 &lt;p>A &lt;strong>changelog&lt;/strong> is a log or record of all notable changes made to a project. The project is often a website or
 software project, and the changelog usually includes records of changes such as bug fixes, new features, etc.&lt;/p>
@@ -70,7 +75,12 @@ Here&amp;rsquo;s an example of a changelog with two entries:&lt;/p>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-25">&lt;a class="lnlinks" href="#hl-1-25">25&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="gu">### Fixed
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-26">&lt;a class="lnlinks" href="#hl-1-26">26&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="gu">&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-27">&lt;a class="lnlinks" href="#hl-1-27">27&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="k">-&lt;/span> Typo in project&amp;#39;s title in docs.
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="keeping-a-changelog-up-to-date" >&lt;a href="#keeping-a-changelog-up-to-date" aria-label="Anchor">#&lt;/a>Keep(ing) a changelog up-to-date&lt;/h2>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="keeping-a-changelog-up-to-date" class="my-8 md:my-12 flex items-center justify-center">
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
+href="#keeping-a-changelog-up-to-date" aria-label="Anchor">Keep(ing) a changelog up-to-date&lt;/a>
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+&lt;/h2>
 &lt;p>When releasing a new package version one needs to remember to update the version in two places: &lt;code>pyproject.toml&lt;/code> and
 &lt;code>Changelog.md&lt;/code>. Also, there&amp;rsquo;s no mechanism to enforce that behavior; we could create a workflow step to validate that
 both places are in sync, but relaying on CI to inform contributors about the necessary changes seems far from ideal.&lt;/p>
@@ -126,7 +136,12 @@ this dependency. &lt;code>MANIFEST.in&lt;/code> contains include/exclude patters
 manifest:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-text" data-lang="text">&lt;span class="line">&lt;span class="ln" id="hl-4-1">&lt;a class="lnlinks" href="#hl-4-1">1&lt;/a>&lt;/span>&lt;span class="cl"># ...
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-4-2">&lt;a class="lnlinks" href="#hl-4-2">2&lt;/a>&lt;/span>&lt;span class="cl">include Changelog.md
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="accessing-project-version-from-sphinx" >&lt;a href="#accessing-project-version-from-sphinx" aria-label="Anchor">#&lt;/a>Accessing project version from Sphinx&lt;/h3>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="accessing-project-version-from-sphinx" class="my-8 md:my-12 flex items-center justify-center">
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
+href="#accessing-project-version-from-sphinx" aria-label="Anchor">Accessing project version from Sphinx&lt;/a>
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+&lt;/h3>
 &lt;p>&lt;a href="https://www.sphinx-doc.org/en/master/">Sphinx&lt;/a> is a most popular tool for generating documentation out of Python source
 files. It keeps its configuration in the &lt;code>conf.py&lt;/code> file, which has two special attributes related to the project&amp;rsquo;s
 version:&lt;/p>
@@ -192,7 +207,12 @@ and &lt;code>setup.py&lt;/code>.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-text" data-lang="text">&lt;span class="line">&lt;span class="ln" id="hl-8-1">&lt;a class="lnlinks" href="#hl-8-1">1&lt;/a>&lt;/span>&lt;span class="cl"># ...
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-8-2">&lt;a class="lnlinks" href="#hl-8-2">2&lt;/a>&lt;/span>&lt;span class="cl">include Changelog.md
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-8-3">&lt;a class="lnlinks" href="#hl-8-3">3&lt;/a>&lt;/span>&lt;span class="cl">include version.py
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="afterthought" >&lt;a href="#afterthought" aria-label="Anchor">#&lt;/a>Afterthought&lt;/h2>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="afterthought" class="my-8 md:my-12 flex items-center justify-center">
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
+href="#afterthought" aria-label="Anchor">Afterthought&lt;/a>
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+&lt;/h2>
 &lt;p>Maintaining a changelog can make a project easier to understand. Hopefully, with the changes proposed in this article
 you&amp;rsquo;ll find changelogs more manageable. This feature does not enforce changelog updates from the contributors &amp;ndash; they
 will only need to do so, when they want to release a new version of the package.&lt;/p>
