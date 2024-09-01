@@ -17,8 +17,8 @@ those interested here&amp;rsquo;s a spoiler.&lt;/p>
 &lt;summary class="collapse-title text-spoiler-content flex gap-1 items-center !my-0 !text-lg">Spoiler!&lt;/summary>
 &lt;div class="collapsible-content p-4 w-full">
 &lt;div class="mt-2 w-full text-base-content markdown-body">&lt;p>This is the end result:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1724783067164757462">
-#figure-svg-1724783067164757462 + svg {
+&lt;figure>&lt;style id="figure-svg-1725192345058261158">
+#figure-svg-1725192345058261158 + svg {
 width: 180px;
 height: 180px;
 }
@@ -135,8 +135,8 @@ point.&lt;/li>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-5">&lt;a class="lnlinks" href="#hl-1-5">5&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="nt">&amp;lt;path&lt;/span> &lt;span class="na">d=&lt;/span>&lt;span class="s">&amp;#34;M 0,0 L -1,0 A 1,1,0,0,1,0,-1 z&amp;#34;&lt;/span> &lt;span class="na">fill=&lt;/span>&lt;span class="s">&amp;#34;DarkSalmon&amp;#34;&lt;/span> &lt;span class="na">stroke=&lt;/span>&lt;span class="s">&amp;#34;black&amp;#34;&lt;/span> &lt;span class="na">stroke-width=&lt;/span>&lt;span class="s">&amp;#34;0.01&amp;#34;&lt;/span> &lt;span class="nt">/&amp;gt;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-6">&lt;a class="lnlinks" href="#hl-1-6">6&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="nt">&amp;lt;/svg&amp;gt;&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>It renders to:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1724783067165726388">
-#figure-svg-1724783067165726388 + svg {
+&lt;figure>&lt;style id="figure-svg-1725192345059150441">
+#figure-svg-1725192345059150441 + svg {
 width: 180px;
 height: 180px;
 }
@@ -163,8 +163,8 @@ its &lt;code>viewBox&lt;/code> and the stroke lines get cut off at $(-1, 0)$, $(
 coordinates of the &lt;a href="https://www.w3.org/TR/SVG2/paths.html#PathDataEllipticalArcCommands">elliptical arc curve&lt;/a> command of the &lt;em>previous&lt;/em> element.&lt;/p>
 &lt;p>&lt;em>Ok, but how to divide these slices into halves?&lt;/em> &amp;mdash; you may ask.&lt;/p>
 &lt;p>To do that we need to find the points in the middle of the arcs.&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1724783067166121810">
-#figure-svg-1724783067166121810 + svg {
+&lt;figure>&lt;style id="figure-svg-1725192345059524892">
+#figure-svg-1725192345059524892 + svg {
 width: 180px;
 height: 180px;
 }
@@ -200,8 +200,8 @@ r_1 = 1
 $$&lt;/p>
 &lt;p>Fortunately &amp;mdash; since the circle&amp;rsquo;s middle point is $(0, 0)$ and the arc points are in the middle of their arcs &amp;mdash; we
 know that the absolute value of their coordinates is the same. So, our diagram simplifies to:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1724783067166347543">
-#figure-svg-1724783067166347543 + svg {
+&lt;figure>&lt;style id="figure-svg-1725192345059738953">
+#figure-svg-1725192345059738953 + svg {
 width: 180px;
 height: 180px;
 }
@@ -247,8 +247,8 @@ a &amp;amp;= \sqrt{\frac{1}{2}}
 \end{aligned}
 $$&lt;/p>
 &lt;p>By adding four more pizza slices we get:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1724783067166610205">
-#figure-svg-1724783067166610205 + svg {
+&lt;figure>&lt;style id="figure-svg-1725192345059959665">
+#figure-svg-1725192345059959665 + svg {
 width: 180px;
 height: 180px;
 }
@@ -277,8 +277,8 @@ obvious ways of selecting division points: equal radii, or equal areas. Equal ra
 first.&lt;/p>
 &lt;p>If the outermost circle has a radius of $1$, then the middle circle will have a radius of $0.\overline{6}$, and the
 smallest one will have $0.\overline{3}$.&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1724783067166824136">
-#figure-svg-1724783067166824136 + svg {
+&lt;figure>&lt;style id="figure-svg-1725192345060172423">
+#figure-svg-1725192345060172423 + svg {
 width: 180px;
 height: 180px;
 }
@@ -354,8 +354,8 @@ r_2 = \sqrt{\frac{2}{3}}
 \end{aligned}
 $$&lt;/p>
 &lt;p>Which gives us this avatar:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1724783067167031986">
-#figure-svg-1724783067167031986 + svg {
+&lt;figure>&lt;style id="figure-svg-1725192345060381394">
+#figure-svg-1725192345060381394 + svg {
 width: 180px;
 height: 180px;
 }
@@ -411,8 +411,8 @@ r_3 = \sqrt{\frac{1}{3}}
 $$&lt;/p>
 &lt;p>Which is also not ideal, but the other way around&amp;hellip; I was tinkering with the radii a bit and I think I found a &lt;a href="https://en.wikipedia.org/wiki/Arithmetic_mean">middle
 ground&lt;/a> with which I&amp;rsquo;m happy.&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1724783067167275993">
-#figure-svg-1724783067167275993 + svg {
+&lt;figure>&lt;style id="figure-svg-1725192345060595565">
+#figure-svg-1725192345060595565 + svg {
 width: 180px;
 height: 180px;
 }
@@ -496,8 +496,8 @@ to.&lt;/p>
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-14">&lt;a class="lnlinks" href="#hl-2-14">14&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="fm">format!&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;hsl(&lt;/span>&lt;span class="si">{h}&lt;/span>&lt;span class="s">, &lt;/span>&lt;span class="si">{s}&lt;/span>&lt;span class="s">%, &lt;/span>&lt;span class="si">{l}&lt;/span>&lt;span class="s">%)&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-15">&lt;a class="lnlinks" href="#hl-2-15">15&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Alright, let&amp;rsquo;s generate an avatar for &lt;code>&amp;quot;foo&amp;quot;&lt;/code> and see how it looks like.&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1724783067167708233">
-#figure-svg-1724783067167708233 + svg {
+&lt;figure>&lt;style id="figure-svg-1725192345060824333">
+#figure-svg-1725192345060824333 + svg {
 width: 180px;
 height: 180px;
 }
@@ -593,8 +593,8 @@ colors come from that theme. We can do that by folding all hash bytes into a sin
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-31">&lt;a class="lnlinks" href="#hl-3-31">31&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="fm">unimplemented!&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Generate SVG paths.&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-32">&lt;a class="lnlinks" href="#hl-3-32">32&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This code renders:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1724783067168006483">
-#figure-svg-1724783067168006483 + svg {
+&lt;figure>&lt;style id="figure-svg-1725192345061107593">
+#figure-svg-1725192345061107593 + svg {
 width: 180px;
 height: 180px;
 }
@@ -696,8 +696,8 @@ would be a XOR-fold of all bytes that represent a single ring &amp;mdash; and ch
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-4-38">&lt;a class="lnlinks" href="#hl-4-38">38&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="fm">unimplemented!&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Generate SVG paths.&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-4-39">&lt;a class="lnlinks" href="#hl-4-39">39&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>With the final touch we get:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1724783067168264467">
-#figure-svg-1724783067168264467 + svg {
+&lt;figure>&lt;style id="figure-svg-1725192345061576901">
+#figure-svg-1725192345061576901 + svg {
 width: 180px;
 height: 180px;
 }
@@ -773,8 +773,8 @@ enhance it, I&amp;rsquo;d love to hear from you/check out your PRs.&lt;/p>
 &lt;code>sweep-flag&lt;/code> parameter. It allows you to determine, whether an arc should be a smiley face or a sad face. If the
 parameter is &lt;code>1&lt;/code> &amp;mdash; as it is in our case &amp;mdash; then the arc is a sad face. However, if you&amp;rsquo;d flip the flags to be &lt;code>0&lt;/code>,
 then all arcs become smiley faces&amp;hellip;&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1724783067168559560">
-#figure-svg-1724783067168559560 + svg {
+&lt;figure>&lt;style id="figure-svg-1725192345061826548">
+#figure-svg-1725192345061826548 + svg {
 width: 180px;
 height: 180px;
 }
@@ -882,8 +882,7 @@ href="#cancellable-crate" aria-label="Anchor">Cancellable crate&lt;/a>
 &lt;/h2>
 &lt;p>Network functionalities in game servers (listeners, TCP streams, etc.) await for some input and &lt;em>usually&lt;/em> yield a
 result.&lt;/p>
-&lt;div class="table-responsive">
-&lt;table>
+&lt;div class="table-responsive">&lt;table>
 &lt;thead>
 &lt;tr>
 &lt;th>Component&lt;/th>
@@ -1297,8 +1296,7 @@ mutation primitive. To generate a random rectangle we need have the following:&l
 &lt;li>fill color.&lt;/li>
 &lt;/ul>
 &lt;p>&lt;em>Fill color&lt;/em> is pretty straightforward, but other values have some constraints they need to meet. An image we&amp;rsquo;ll be
-mutating has width and height &amp;ndash; let&amp;rsquo;s assume it&amp;rsquo;s &lt;span class="font-monospace">n&lt;/span>
-and &lt;span class="font-monospace">m&lt;/span>
+mutating has width and height &amp;ndash; let&amp;rsquo;s assume it&amp;rsquo;s &lt;span class="font-monospace">n&lt;/span> and &lt;span class="font-monospace">m&lt;/span>
 respectively. Coordinates of one of the corners, in our case it&amp;rsquo;s going to be top-left, are limited by the image
 dimensions. Width and height are limited by both image dimensions, and the coordinates we just generated.&lt;/p>
 &lt;p>$$
@@ -1309,8 +1307,7 @@ height \in \lbrack 1 .. m - y + 1 \lbrack \newline
 $$&lt;/p>
 &lt;p>Why coordinates intervals are right-open? Because if the mutator selects the very right or bottom edge, then the
 rectangle would need to have zero width/height. By not right-closing the intervals, we ensure that there&amp;rsquo;s at least one
-pixel which can be mutated &amp;#x1f44c;. Similarly both &lt;span class="font-monospace">width&lt;/span>
-and &lt;span class="font-monospace">height&lt;/span>
+pixel which can be mutated &amp;#x1f44c;. Similarly both &lt;span class="font-monospace">width&lt;/span> and &lt;span class="font-monospace">height&lt;/span>
 intervals are right-open to ensure that the rectangle will not overflow the image.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="line">&lt;span class="ln" id="hl-3-1">&lt;a class="lnlinks" href="#hl-3-1"> 1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="k">struct&lt;/span> &lt;span class="nc">RandomRectangle&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-2">&lt;a class="lnlinks" href="#hl-3-2"> 2&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">x&lt;/span>: &lt;span class="kt">usize&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w">

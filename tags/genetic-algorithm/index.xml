@@ -303,8 +303,7 @@ mutation primitive. To generate a random rectangle we need have the following:&l
 &lt;li>fill color.&lt;/li>
 &lt;/ul>
 &lt;p>&lt;em>Fill color&lt;/em> is pretty straightforward, but other values have some constraints they need to meet. An image we&amp;rsquo;ll be
-mutating has width and height &amp;ndash; let&amp;rsquo;s assume it&amp;rsquo;s &lt;span class="font-monospace">n&lt;/span>
-and &lt;span class="font-monospace">m&lt;/span>
+mutating has width and height &amp;ndash; let&amp;rsquo;s assume it&amp;rsquo;s &lt;span class="font-monospace">n&lt;/span> and &lt;span class="font-monospace">m&lt;/span>
 respectively. Coordinates of one of the corners, in our case it&amp;rsquo;s going to be top-left, are limited by the image
 dimensions. Width and height are limited by both image dimensions, and the coordinates we just generated.&lt;/p>
 &lt;p>$$
@@ -315,8 +314,7 @@ height \in \lbrack 1 .. m - y + 1 \lbrack \newline
 $$&lt;/p>
 &lt;p>Why coordinates intervals are right-open? Because if the mutator selects the very right or bottom edge, then the
 rectangle would need to have zero width/height. By not right-closing the intervals, we ensure that there&amp;rsquo;s at least one
-pixel which can be mutated &amp;#x1f44c;. Similarly both &lt;span class="font-monospace">width&lt;/span>
-and &lt;span class="font-monospace">height&lt;/span>
+pixel which can be mutated &amp;#x1f44c;. Similarly both &lt;span class="font-monospace">width&lt;/span> and &lt;span class="font-monospace">height&lt;/span>
 intervals are right-open to ensure that the rectangle will not overflow the image.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="line">&lt;span class="ln" id="hl-3-1">&lt;a class="lnlinks" href="#hl-3-1"> 1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="k">struct&lt;/span> &lt;span class="nc">RandomRectangle&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-2">&lt;a class="lnlinks" href="#hl-3-2"> 2&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">x&lt;/span>: &lt;span class="kt">usize&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w">

@@ -41,8 +41,7 @@ href="#cancellable-crate" aria-label="Anchor">Cancellable crate&lt;/a>
 &lt;/h2>
 &lt;p>Network functionalities in game servers (listeners, TCP streams, etc.) await for some input and &lt;em>usually&lt;/em> yield a
 result.&lt;/p>
-&lt;div class="table-responsive">
-&lt;table>
+&lt;div class="table-responsive">&lt;table>
 &lt;thead>
 &lt;tr>
 &lt;th>Component&lt;/th>

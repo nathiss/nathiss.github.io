@@ -1,4 +1,139 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blog on MadeByMe</title><link>https://madebyme.today/blog/</link><description>Recent content in Blog on MadeByMe</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright 2023-2024, Kamil Rusin</copyright><lastBuildDate>Sat, 25 Feb 2023 20:14:43 +0100</lastBuildDate><atom:link href="https://madebyme.today/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>How to Become Immortal 101: Shamir's Secret Sharing</title><link>https://madebyme.today/blog/shamirs-secret-sharing/</link><pubDate>Wed, 21 Aug 2024 19:55:43 +0200</pubDate><guid>https://madebyme.today/blog/shamirs-secret-sharing/</guid><category>Algorithm</category><description>&lt;p>Have you ever wondered how to protect your master password from getting lost? Or how to create a &lt;em>perfect&lt;/em> democracy
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blog on MadeByMe</title><link>https://madebyme.today/blog/</link><description>Recent content in Blog on MadeByMe</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright 2023-2024, Kamil Rusin</copyright><lastBuildDate>Sat, 25 Feb 2023 20:14:43 +0100</lastBuildDate><atom:link href="https://madebyme.today/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>On 6-Point Grading Scale</title><link>https://madebyme.today/blog/on-6-point-grading-scale/</link><pubDate>Sun, 01 Sep 2024 13:57:34 +0200</pubDate><guid>https://madebyme.today/blog/on-6-point-grading-scale/</guid><description>&lt;p>During my 12&amp;ndash;year journey through formal education I became very familiar with 6&amp;ndash;point grading scale. It&amp;rsquo;s one of
+those things you are exposed to so early in life, that you accept it as a truth about the world. And for me,
+empirically, it made sense. I could always say if something was &lt;em>excellent&lt;/em>, &lt;em>very good&lt;/em>, &lt;em>good&lt;/em>, &lt;em>acceptable&lt;/em>, &lt;em>bad&lt;/em>,
+or &lt;em>tragic&lt;/em>.&lt;/p>
+&lt;p>My worldview shifted a little when I went to a university; higher education institutions in my country use 5&amp;ndash;point
+grading scale. I remember one lecture in one of my B.Sc. classes during which the professor said: &lt;em>People can grade with
+a scale up to 6 points of precision. Anything more is arbitrary.&lt;/em> This offsite comment stuck with me for over 5 years.
+Now I&amp;rsquo;ve decided to dig a little.&lt;/p>
+&lt;p>What is a grade?&lt;/p>
+&lt;p>Grades are a way for teachers to report student performance. Most simply, they indicate if a student scored below the
+threshold (i.e. failed) or above the threshold (i.e. passed). Most grading systems split the latter into additional
+scales reporting the achieved level of course mastery, like: &lt;em>borderline&lt;/em>, &lt;em>passing&lt;/em>, &lt;em>passing (top)&lt;/em>.&lt;/p>
+&lt;p>Grading scales used in education vary greatly between countries. Figure below shows a distribution of grading scales
+used in schools below university level in various countries.&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/p>
+&lt;div id="distribution-of-grading-scales">
+&lt;table class="charts-css column show-heading show-labels show-primary-axis data-outside">
+&lt;caption>Distribution of grading scales in countries&lt;/caption>
+&lt;tr>
+&lt;th scope="row" class="chart-label">12-pt&lt;/th>
+&lt;td style="--size: 0.03448276">&lt;span class="data">1&lt;/span>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th scope="row" class="chart-label">10-pt&lt;/th>
+&lt;td style="--size: 0.44827586">&lt;span class="data">13&lt;/span>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th scope="row" class="chart-label">7-pt&lt;/th>
+&lt;td style="--size: 0.17241379">&lt;span class="data">4&lt;/span>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th scope="row" class="chart-label">6-pt&lt;/th>
+&lt;td style="--size: 0.79310345">&lt;span class="data">23&lt;/span>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th scope="row" class="chart-label">5-pt&lt;/th>
+&lt;td style="--size: 1">&lt;span class="data inside">29&lt;/span>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th scope="row" class="chart-label">4-pt&lt;/th>
+&lt;td style="--size: 0.20689655">&lt;span class="data">6&lt;/span>&lt;/td>
+&lt;/tr>
+&lt;/table>
+&lt;/div>
+&lt;p>While most countries use either 5&amp;ndash;point or 6&amp;ndash;point scale, there are some which use 10&amp;ndash;point, or even 12&amp;ndash;point scale.
+10&amp;ndash;point scale seems like a reasonable choice. We have 10 fingers in our hands and the base 10 number system is the
+most popular in daily use.&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup> Also, 10&amp;ndash;point scale can trivially expand into 100&amp;ndash;point scale, which is percentage.
+It makes a lot of sense to represents test scores as a percentage, as percentage &lt;em>is&lt;/em> data normalized to 0&amp;ndash;100 range.
+If a test is long, representing grade as a score over maximum score may not be clear. Say, $\frac{53}{71}$. Is it good?
+If so, how &lt;em>good&lt;/em> is it? Now, let&amp;rsquo;s consider 75%. It spells out so much more, because we&amp;rsquo;re used to the fact that 100%
+is maximum.&lt;/p>
+&lt;p>What does 75% say about the level of achievement? In this case it&amp;rsquo;s easy; the student commands $\frac{3}{4}$ of the
+material very well. Not everything has been mastered (relative to, say, 95%) but, definitely, more than half of learning
+has been done. Yet, what&amp;rsquo;s the difference between 63% and 64%? Is the latter better? Probably. If so, &lt;em>how&lt;/em> exactly is
+it better? Percentage scale is too wide for humans to understand clearly. It introduces ambiguities which can be
+exploited: &lt;mark>if the level of achievement for certain percentages is vague, students might be tempted to
+discuss their grade with the teacher to eke out a few percentage points.&lt;/mark>&lt;sup id="fnref:3">&lt;a href="#fn:3" class="footnote-ref" role="doc-noteref">3&lt;/a>&lt;/sup>&lt;/p>
+&lt;p>Also, as noted in &lt;a href="https://www.uu.se/download/18.75e37daa18e79b469f416aa5/1711880052799/c_743216-l_1-k_guidance-for-choosing-a-grading-scale.pdf">Guideline for choosing a grading scale&lt;/a>, use of a multi-level scale increases the risk that
+assessments will focus on things that are easy to measure fairly rather than on meaningful tasks. Teachers might be
+tempted to choose an assessment that will fully reflect on a wide grading scale, making measurement of student
+achievement secondary.&lt;/p>
+&lt;p>Another thing to consider is failing grades. Many education systems&lt;sup id="fnref:4">&lt;a href="#fn:4" class="footnote-ref" role="doc-noteref">4&lt;/a>&lt;/sup> use multi-level scale for failing grades but,
+usually, they do not provide distinction between the levels. Let&amp;rsquo;s say we&amp;rsquo;re considering 10-point grading scale and
+grades below 5 are failing grades. What&amp;rsquo;s the difference between 1 and 4? In both cases in means that the student did
+not achieve the required level of course mastery. But does a student with 1 achieved even &lt;em>less&lt;/em> than a student with 4?
+Both of them still failed &amp;mdash; and, probably, will have to retake the examination &amp;mdash; but the student with lower grade is
+punished more strongly.&lt;/p>
+&lt;p>With multiple failing grades, mathematically, failing a class is more likely than passing a class. If the final grade is
+a grade point average (GPA), then scoring 1, rather than 4, impacts the final grade. Even if both students retake the
+exam and get 8, the student who initially scored 1 will get 4.5 (let&amp;rsquo;s be generous and say 5), while the student with 4
+gets 6 as their GPA.&lt;sup id="fnref:5">&lt;a href="#fn:5" class="footnote-ref" role="doc-noteref">5&lt;/a>&lt;/sup> &lt;mark>We don&amp;rsquo;t need multiple failing grades, as they only penalize students who started
+the course poorly.&lt;/mark> This is why many countries, which were using 10-point grading scale with multiple
+failing grades in the past have discarded lower grades, leaving only one failing grade in the scale.&lt;/p>
+&lt;p>Having a wide spectrum of passing grades also creates a side effect. Due to stress of performing &lt;em>good&lt;/em> in school,
+students take on trying to chase better grades. When LLMs (especially ChatGPT) became popular, students have started to
+use these tools to cheat on exams, or decrease homework load by querying LLMs to generate ready-to-hand-in essays.
+Rather than thinking about how to prevent students from cheating, we should be asking &lt;em>why&lt;/em> they are cheating in the
+first place. Chasing the good grades in a part of what &lt;em>why&lt;/em>.&lt;sup id="fnref:6">&lt;a href="#fn:6" class="footnote-ref" role="doc-noteref">6&lt;/a>&lt;/sup>&lt;/p>
+&lt;h2 id="conclusions" class="my-8 md:my-12 flex items-center justify-center">
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
+href="#conclusions" aria-label="Anchor">Conclusions&lt;/a>
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+&lt;/h2>
+&lt;p>Grading scales vary greatly between countries and between education levels. Some countries that were using 10-point
+grading scale historically, now moved to 6-point or even 5-point grading scales, by discarding bottom failing grades.
+Wide grading scales (especially 10-point) make assessment design easier, but they introduce a risk of focusing more on
+the examination method itself, rather than on measurements it provides.&lt;/p>
+&lt;p>For someone not actively involved in education my recommendation &amp;mdash; my major was not education, so take it with a grain
+of salt, rather than a godsend truth &amp;mdash; after researching this topic a bit is to use 10-point grading scale for
+automated processes, and to use 6-point grading scale for anything you&amp;rsquo;d like to categorize to decrease mental overhead.
+If I ask you what do you think about a book you&amp;rsquo;ve last read, you can probably tell if it was &lt;em>excellent&lt;/em>, &lt;em>very good&lt;/em>,
+&lt;em>good&lt;/em>, &lt;em>acceptable&lt;/em>, &lt;em>bad&lt;/em>, or &lt;em>tragic&lt;/em>.&lt;/p>
+&lt;h2 id="ps" class="my-8 md:my-12 flex items-center justify-center">
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+&lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
+href="#ps" aria-label="Anchor">PS&lt;/a>
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+&lt;/h2>
+&lt;p>Today is September 1&lt;sup>st&lt;/sup> and many student across the world are just starting another school year.
+Allow me to say to all of you: godspeed! Focus on nurturing yourself into a self-sufficient adult. Grades are signals
+for you to measure and iterate on your performance, they are not the primary goal of education. May this new school year
+be extraordinary, whatever that means for you.&lt;/p>
+&lt;span class="text-primary">Kamil&lt;/span>
+&lt;!-- Footnotes -->
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>Source for the chart is &lt;a href="https://en.wikipedia.org/wiki/Grading_systems_by_country">Grading systems by country&lt;/a> on Wikipedia. The articles does not list all countries and
+several that are listed have inconsistencies in their grading systems, which makes it difficult to fold them into a
+single category.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:2">
+&lt;p>This sentence might sound like &lt;em>tomayto, tomahto&lt;/em>. One of the hypotheses on why we use base 10 is that &lt;a href="https://math.stackexchange.com/a/8745">we have 10
+fingers&lt;/a>. However, it is unproven; it might be that the civilization using base
+10 have used a bigger army diplomacy and conquered others.&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:3">
+&lt;p>This problem has been considered by the &lt;a href="https://www.uu.se/">Uppsala University&lt;/a> in Sweden when they were designing their
+&lt;a href="https://www.uu.se/download/18.75e37daa18e79b469f416aa5/1711880052799/c_743216-l_1-k_guidance-for-choosing-a-grading-scale.pdf">Guideline for choosing a grading scale&lt;/a>. See also Schinske, J. &amp;amp; Tanner, K. &lt;em>Teaching more by grading less (or
+differently)&lt;/em>. CBE - Life Sciences Education, 13(2), 159-166 on &lt;a href="https://www.lifescied.org/doi/10.1187/cbe.cbe-14-03-0054">lifescied.org&lt;/a>.&amp;#160;&lt;a href="#fnref:3" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:4">
+&lt;p>Notable examples being: Brazil, Denmark, France, Germany, Italy, Latvia, Lithuania, Spain, The Netherlands. See
+&lt;a href="https://en.wikipedia.org/wiki/Grading_systems_by_country">Grading systems by country&lt;/a>.&amp;#160;&lt;a href="#fnref:4" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:5">
+&lt;p>Another thing to consider with multiple failing grades is that GPA does not always guarantee a passing grade after
+an exam retake. Say, a person scored 1 and then 7. GPA from these two is 4, which is still a failing grade.&amp;#160;&lt;a href="#fnref:5" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:6">
+&lt;p>Research done by &lt;a href="https://ed.stanford.edu/faculty/dpope">Denise Pope, Ph.D.&lt;/a>, a co-founder of &lt;a href="https://challengesuccess.org">Challenge Success&lt;/a>, and published in February edition of
+&lt;a href="https://hechingerreport.org/">The Hechinger Report&lt;/a>.&amp;#160;&lt;a href="#fnref:6" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description></item><item><title>How to Become Immortal 101: Shamir's Secret Sharing</title><link>https://madebyme.today/blog/shamirs-secret-sharing/</link><pubDate>Wed, 21 Aug 2024 19:55:43 +0200</pubDate><guid>https://madebyme.today/blog/shamirs-secret-sharing/</guid><category>Algorithm</category><description>&lt;p>Have you ever wondered how to protect your master password from getting lost? Or how to create a &lt;em>perfect&lt;/em> democracy
 where nuke access is shared between most important people in the government &lt;em>equally&lt;/em>? Or how to achieve immortality by
 splitting your soul and putting the pieces into objects? &amp;#x1fa84;&lt;/p>
 &lt;p>If so, then you&amp;rsquo;ve come to the right place. Join me, my friend, on this discovery of &lt;a href="https://en.wikipedia.org/wiki/Shamir%27s_secret_sharing">Shamir&amp;rsquo;s secret sharing&lt;/a>.&lt;/p>
@@ -860,8 +995,7 @@ href="#setting-up-custom-domain-for-github-pages" aria-label="Anchor">Setting up
 &lt;/h2>
 &lt;p>GitHub Pages supports custom domains with very little config; you, as the owner, only need to set up these DNS
 records:&lt;/p>
-&lt;div class="table-responsive">
-&lt;table>
+&lt;div class="table-responsive">&lt;table>
 &lt;thead>
 &lt;tr>
 &lt;th>Name&lt;/th>
@@ -973,8 +1107,7 @@ href="#redir-301" aria-label="Anchor">Redir 301&lt;/a>
 &lt;/h3>
 &lt;p>&lt;a href="https://redir301.link/">Redir 301&lt;/a> is a service that uses DNS records to redirect subdomains to URLs. It requires two
 DNS records in order to work:&lt;/p>
-&lt;div class="table-responsive">
-&lt;table>
+&lt;div class="table-responsive">&lt;table>
 &lt;thead>
 &lt;tr>
 &lt;th>Name&lt;/th>
@@ -1061,8 +1194,7 @@ had some issues with making the &lt;code>calendar.aster176.messwithdns.com&lt;/c
 &lt;code>example.madebyme.today&lt;/code> from now on.&lt;/p>
 &lt;p>Let&amp;rsquo;s set up required DNS records first, to give them time to propagate. Since I already have my domain configured to
 be used by GitHub Pages, I only really need to add one more record:&lt;/p>
-&lt;div class="table-responsive">
-&lt;table>
+&lt;div class="table-responsive">&lt;table>
 &lt;thead>
 &lt;tr>
 &lt;th>Name&lt;/th>

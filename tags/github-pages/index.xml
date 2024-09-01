@@ -29,8 +29,7 @@ href="#setting-up-custom-domain-for-github-pages" aria-label="Anchor">Setting up
 &lt;/h2>
 &lt;p>GitHub Pages supports custom domains with very little config; you, as the owner, only need to set up these DNS
 records:&lt;/p>
-&lt;div class="table-responsive">
-&lt;table>
+&lt;div class="table-responsive">&lt;table>
 &lt;thead>
 &lt;tr>
 &lt;th>Name&lt;/th>
@@ -142,8 +141,7 @@ href="#redir-301" aria-label="Anchor">Redir 301&lt;/a>
 &lt;/h3>
 &lt;p>&lt;a href="https://redir301.link/">Redir 301&lt;/a> is a service that uses DNS records to redirect subdomains to URLs. It requires two
 DNS records in order to work:&lt;/p>
-&lt;div class="table-responsive">
-&lt;table>
+&lt;div class="table-responsive">&lt;table>
 &lt;thead>
 &lt;tr>
 &lt;th>Name&lt;/th>
@@ -230,8 +228,7 @@ had some issues with making the &lt;code>calendar.aster176.messwithdns.com&lt;/c
 &lt;code>example.madebyme.today&lt;/code> from now on.&lt;/p>
 &lt;p>Let&amp;rsquo;s set up required DNS records first, to give them time to propagate. Since I already have my domain configured to
 be used by GitHub Pages, I only really need to add one more record:&lt;/p>
-&lt;div class="table-responsive">
-&lt;table>
+&lt;div class="table-responsive">&lt;table>
 &lt;thead>
 &lt;tr>
 &lt;th>Name&lt;/th>
