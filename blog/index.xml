@@ -443,9 +443,10 @@ count entries.&lt;/li>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-6">&lt;a class="lnlinks" href="#hl-3-6">6&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="k">assert&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="mi">42&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>It can happen. This is why Python needs to generate this overhead of loading and calling a callable for every call of
 the function.&lt;/p>
-&lt;p>OK, it all sound very neat. Calling a callable does create an overhead and it&amp;rsquo;s reasonable to assume that the difference
-we saw at the beginning of this post is a result of this overhead. However, are we sure that &lt;code>dict()&lt;/code> internally calls
-the same code, as &lt;code>{}&lt;/code> does? &lt;code>dict&lt;/code> is a class and, luckily, the &lt;a href="https://docs.python.org/3/library/dis.html#dis.dis">&lt;code>dis.dis&lt;/code>&lt;/a> function can compile classes to bytecode.&lt;/p>
+&lt;p>OK, it all sounds very neat. Calling a callable does create an overhead and it&amp;rsquo;s reasonable to assume that the
+difference we saw at the beginning of this post is a result of this overhead. However, are we sure that &lt;code>dict()&lt;/code>
+internally calls the same code, as &lt;code>{}&lt;/code> does? &lt;code>dict&lt;/code> is a class and, luckily, the &lt;a href="https://docs.python.org/3/library/dis.html#dis.dis">&lt;code>dis.dis&lt;/code>&lt;/a> function can compile
+classes to bytecode.&lt;/p>
 &lt;div class="alert alert-info text-left text-text flex flex-col items-start gap-0" >
 &lt;h6 class="text-info-content flex gap-1 items-center !my-0 !text-lg">&lt;span class="">&lt;svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
 &lt;path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
