@@ -597,8 +597,8 @@ href="#throwing-dice-of-other-shapes" aria-label="Anchor">Throwing dice of other
 &lt;p>It&amp;rsquo;d be nice to have mutators other than &lt;code>RectangleMutator&lt;/code>, which are able to mutate images with different shapes, but
 I&amp;rsquo;m not going to cover them here. The reason is simple &amp;ndash; they operate under the same rules: you need to define
 boundaries first and then you need to draw the desired shape. I&amp;rsquo;ve implemented two other mutators: &lt;code>TriangleMutator&lt;/code> and
-&lt;code>CircleMutator&lt;/code>. Their sources can be found
-&lt;a href="https://github.com/nathiss/franklin/tree/73aa8dada3e8c3cae9aff5e24637785268e3527a/src/mutators">here&lt;/a>.&lt;/p>
+&lt;code>CircleMutator&lt;/code>. Their sources can be found on
+&lt;a href="https://github.com/nathiss/franklin/tree/73aa8dada3e8c3cae9aff5e24637785268e3527a/src/mutators">github.com/nathiss/franklin&lt;/a>.&lt;/p>
 &lt;h2 id="afterword" class="my-8 md:my-12 flex items-center justify-center">
 &lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
 &lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
@@ -608,10 +608,10 @@ href="#afterword" aria-label="Anchor">Afterword&lt;/a>
 &lt;p>You might&amp;rsquo;ve noticed that the code examples of this article are not strictly bounded together, meaning you cannot just
 copy them to have a working example. A bunch of things like: &lt;code>Random&lt;/code> implementation, loading the original image,
 mutation loop, and the whole &lt;code>impl Image&lt;/code> block are missing. If you want to have a working solution it&amp;rsquo;s
-&lt;a href="https://github.com/nathiss/franklin/tree/73aa8dada3e8c3cae9aff5e24637785268e3527a">here&lt;/a> &lt;em>(locked down to the newest
-commit at the moment of writing &amp;ndash; 73aa8da)&lt;/em>. The goal of this series is not to go through every single line of code to
-build a working utility, but rather to present an idea. So, moving forward all future articles from this series will
-also be done in that style.&lt;/p>
+&lt;a href="https://github.com/nathiss/franklin/tree/73aa8dada3e8c3cae9aff5e24637785268e3527a">github.com/nathiss/franklin&lt;/a>
+&lt;em>(locked down to the newest commit at the moment of writing &amp;ndash; 73aa8da)&lt;/em>. The goal of this series is not to go through
+every single line of code to build a working utility, but rather to present an idea. So, moving forward all future
+articles from this series will also be done in that style.&lt;/p>
 &lt;!-- markdownlint-disable line-length -->
 &lt;figure class="img-thumbnail">&lt;img src="https://madebyme.today/blog/franklin/randomness-of-life/alexander-grey-2eAkk5lIkC8-unsplash.webp"
 alt="Randomness of Life" class="img-thumbnail"loading="lazy"
@@ -627,11 +627,11 @@ alt="Randomness of Life" class="img-thumbnail"loading="lazy"
 &lt;ol>
 &lt;li id="fn:1">
 &lt;p>Usually the generation is generated randomly. See
-&lt;a href="https://en.wikipedia.org/wiki/Genetic_algorithm#Initialization">here&lt;/a>.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;a href="https://en.wikipedia.org/wiki/Genetic_algorithm#Initialization">Genetic_algorithm&lt;/a>.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;li id="fn:2">
 &lt;p>&lt;code>Random&lt;/code> is a project-private utility class. Source can be found
-&lt;a href="https://github.com/nathiss/franklin/blob/73aa8dada3e8c3cae9aff5e24637785268e3527a/src/util/random.rs">here&lt;/a>.&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;a href="https://github.com/nathiss/franklin/blob/73aa8dada3e8c3cae9aff5e24637785268e3527a/src/util/random.rs">github.com/nathiss/franklin&lt;/a>.&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
 &lt;/div></description></item><item><title>Art From Chaos</title><link>https://madebyme.today/blog/franklin/art-from-chaos/</link><pubDate>Sat, 04 Mar 2023 14:50:59 +0100</pubDate><guid>https://madebyme.today/blog/franklin/art-from-chaos/</guid><category>Genetic Algorithm</category><category>Art</category><category>Algorithm</category><description>&lt;p>Making art is hard. Drawing pictures is tedious. With programming, however, we can automate things. The point of
