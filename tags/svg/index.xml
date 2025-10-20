@@ -17,8 +17,8 @@ those interested here&amp;rsquo;s a spoiler.&lt;/p>
 &lt;summary class="collapse-title text-spoiler-content flex gap-1 items-center !my-0 !text-lg">Spoiler!&lt;/summary>
 &lt;div class="collapsible-content p-4 w-full">
 &lt;div class="mt-2 w-full text-base-content markdown-body">&lt;p>This is the end result:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1760317747534634909">
-#figure-svg-1760317747534634909 + svg {
+&lt;figure>&lt;style id="figure-svg-1760922652718594853">
+#figure-svg-1760922652718594853 + svg {
 width: 180px;
 height: 180px;
 }
@@ -135,8 +135,8 @@ point.&lt;/li>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-5">&lt;a class="lnlinks" href="#hl-1-5">5&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="nt">&amp;lt;path&lt;/span> &lt;span class="na">d=&lt;/span>&lt;span class="s">&amp;#34;M 0,0 L -1,0 A 1,1,0,0,1,0,-1 z&amp;#34;&lt;/span> &lt;span class="na">fill=&lt;/span>&lt;span class="s">&amp;#34;DarkSalmon&amp;#34;&lt;/span> &lt;span class="na">stroke=&lt;/span>&lt;span class="s">&amp;#34;black&amp;#34;&lt;/span> &lt;span class="na">stroke-width=&lt;/span>&lt;span class="s">&amp;#34;0.01&amp;#34;&lt;/span> &lt;span class="nt">/&amp;gt;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-6">&lt;a class="lnlinks" href="#hl-1-6">6&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="nt">&amp;lt;/svg&amp;gt;&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>It renders to:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1760317747535528713">
-#figure-svg-1760317747535528713 + svg {
+&lt;figure>&lt;style id="figure-svg-1760922652719482851">
+#figure-svg-1760922652719482851 + svg {
 width: 180px;
 height: 180px;
 }
@@ -163,8 +163,8 @@ its &lt;code>viewBox&lt;/code> and the stroke lines get cut off at $(-1, 0)$, $(
 coordinates of the &lt;a href="https://www.w3.org/TR/SVG2/paths.html#PathDataEllipticalArcCommands">elliptical arc curve&lt;/a> command of the &lt;em>previous&lt;/em> element.&lt;/p>
 &lt;p>&lt;em>Ok, but how to divide these slices into halves?&lt;/em> &amp;mdash; you may ask.&lt;/p>
 &lt;p>To do that we need to find the points in the middle of the arcs.&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1760317747536020057">
-#figure-svg-1760317747536020057 + svg {
+&lt;figure>&lt;style id="figure-svg-1760922652719834678">
+#figure-svg-1760922652719834678 + svg {
 width: 180px;
 height: 180px;
 }
@@ -200,8 +200,8 @@ r_1 = 1
 $$&lt;/p>
 &lt;p>Fortunately &amp;mdash; since the circle&amp;rsquo;s middle point is $(0, 0)$ and the arc points are in the middle of their arcs &amp;mdash; we
 know that the absolute value of their coordinates is the same. So, our diagram simplifies to:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1760317747536235899">
-#figure-svg-1760317747536235899 + svg {
+&lt;figure>&lt;style id="figure-svg-1760922652720031506">
+#figure-svg-1760922652720031506 + svg {
 width: 180px;
 height: 180px;
 }
@@ -247,8 +247,8 @@ a &amp;amp;= \sqrt{\frac{1}{2}}
 \end{aligned}
 $$&lt;/p>
 &lt;p>By adding four more pizza slices we get:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1760317747536489370">
-#figure-svg-1760317747536489370 + svg {
+&lt;figure>&lt;style id="figure-svg-1760922652720251226">
+#figure-svg-1760922652720251226 + svg {
 width: 180px;
 height: 180px;
 }
@@ -277,8 +277,8 @@ obvious ways of selecting division points: equal radii, or equal areas. Equal ra
 first.&lt;/p>
 &lt;p>If the outermost circle has a radius of $1$, then the middle circle will have a radius of $0.\overline{6}$, and the
 smallest one will have $0.\overline{3}$.&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1760317747536706054">
-#figure-svg-1760317747536706054 + svg {
+&lt;figure>&lt;style id="figure-svg-1760922652720442133">
+#figure-svg-1760922652720442133 + svg {
 width: 180px;
 height: 180px;
 }
@@ -354,8 +354,8 @@ r_2 = \sqrt{\frac{2}{3}}
 \end{aligned}
 $$&lt;/p>
 &lt;p>Which gives us this avatar:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1760317747536908541">
-#figure-svg-1760317747536908541 + svg {
+&lt;figure>&lt;style id="figure-svg-1760922652720634181">
+#figure-svg-1760922652720634181 + svg {
 width: 180px;
 height: 180px;
 }
@@ -411,8 +411,8 @@ r_3 = \sqrt{\frac{1}{3}}
 $$&lt;/p>
 &lt;p>Which is also not ideal, but the other way around&amp;hellip; I was tinkering with the radii a bit and I think I found a &lt;a href="https://en.wikipedia.org/wiki/Arithmetic_mean">middle
 ground&lt;/a> with which I&amp;rsquo;m happy.&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1760317747537132227">
-#figure-svg-1760317747537132227 + svg {
+&lt;figure>&lt;style id="figure-svg-1760922652720824957">
+#figure-svg-1760922652720824957 + svg {
 width: 180px;
 height: 180px;
 }
@@ -496,8 +496,8 @@ to.&lt;/p>
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-14">&lt;a class="lnlinks" href="#hl-2-14">14&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="fm">format!&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;hsl(&lt;/span>&lt;span class="si">{h}&lt;/span>&lt;span class="s">, &lt;/span>&lt;span class="si">{s}&lt;/span>&lt;span class="s">%, &lt;/span>&lt;span class="si">{l}&lt;/span>&lt;span class="s">%)&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-15">&lt;a class="lnlinks" href="#hl-2-15">15&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Alright, let&amp;rsquo;s generate an avatar for &lt;code>&amp;quot;foo&amp;quot;&lt;/code> and see how it looks like.&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1760317747537356124">
-#figure-svg-1760317747537356124 + svg {
+&lt;figure>&lt;style id="figure-svg-1760922652721056350">
+#figure-svg-1760922652721056350 + svg {
 width: 180px;
 height: 180px;
 }
@@ -593,8 +593,8 @@ colors come from that theme. We can do that by folding all hash bytes into a sin
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-31">&lt;a class="lnlinks" href="#hl-3-31">31&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="fm">unimplemented!&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Generate SVG paths.&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-32">&lt;a class="lnlinks" href="#hl-3-32">32&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This code renders:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1760317747538084439">
-#figure-svg-1760317747538084439 + svg {
+&lt;figure>&lt;style id="figure-svg-1760922652721776404">
+#figure-svg-1760922652721776404 + svg {
 width: 180px;
 height: 180px;
 }
@@ -696,8 +696,8 @@ would be a XOR-fold of all bytes that represent a single ring &amp;mdash; and ch
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-4-38">&lt;a class="lnlinks" href="#hl-4-38">38&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="fm">unimplemented!&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Generate SVG paths.&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-4-39">&lt;a class="lnlinks" href="#hl-4-39">39&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>With the final touch we get:&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1760317747538518767">
-#figure-svg-1760317747538518767 + svg {
+&lt;figure>&lt;style id="figure-svg-1760922652722281317">
+#figure-svg-1760922652722281317 + svg {
 width: 180px;
 height: 180px;
 }
@@ -773,8 +773,8 @@ enhance it, I&amp;rsquo;d love to hear from you/check out your PRs.&lt;/p>
 &lt;code>sweep-flag&lt;/code> parameter. It allows you to determine, whether an arc should be a smiley face or a sad face. If the
 parameter is &lt;code>1&lt;/code> &amp;mdash; as it is in our case &amp;mdash; then the arc is a sad face. However, if you&amp;rsquo;d flip the flags to be &lt;code>0&lt;/code>,
 then all arcs become smiley faces&amp;hellip;&lt;/p>
-&lt;figure>&lt;style id="figure-svg-1760317747539360658">
-#figure-svg-1760317747539360658 + svg {
+&lt;figure>&lt;style id="figure-svg-1760922652722566530">
+#figure-svg-1760922652722566530 + svg {
 width: 180px;
 height: 180px;
 }
