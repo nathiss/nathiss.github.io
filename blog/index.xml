@@ -4180,7 +4180,7 @@ class="week border bg-base-200 p-1 mt-1 me-1 mb-0 float-start border-base-200"ti
 &lt;div tabindex="0"
 class="week border bg-base-200 p-1 mt-1 me-1 mb-0 float-start border-base-200"title="2025-12-08"data-week-start-date="2025-12-08">&lt;/div>&lt;/div>&lt;div class="dropdown dropdown-bottom dropdown-hover my-0">
 &lt;div tabindex="0"
-class="week border bg-base-200 p-1 mt-1 me-1 mb-0 float-start border-base-200 opacity-35"title="2025-12-15"data-week-start-date="2025-12-15">&lt;/div>&lt;/div>&lt;div class="dropdown dropdown-bottom dropdown-hover my-0">
+class="week border bg-base-200 p-1 mt-1 me-1 mb-0 float-start border-base-200"title="2025-12-15"data-week-start-date="2025-12-15">&lt;/div>&lt;/div>&lt;div class="dropdown dropdown-bottom dropdown-hover my-0">
 &lt;div tabindex="0"
 class="week border bg-base-200 p-1 mt-1 me-1 mb-0 float-start border-base-200 opacity-35"title="2025-12-22"data-week-start-date="2025-12-22">&lt;/div>&lt;/div>&lt;div class="dropdown dropdown-bottom dropdown-hover my-0">
 &lt;div tabindex="0"
