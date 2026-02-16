@@ -4198,7 +4198,7 @@ class="week border bg-base-200 p-1 mt-1 me-1 mb-0 float-start border-base-200"ti
 &lt;div tabindex="0"
 class="week border bg-base-200 p-1 mt-1 me-1 mb-0 float-start border-base-200"title="2026-02-09"data-week-start-date="2026-02-09">&lt;/div>&lt;/div>&lt;div class="dropdown dropdown-bottom dropdown-hover my-0">
 &lt;div tabindex="0"
-class="week border bg-base-200 p-1 mt-1 me-1 mb-0 float-start border-base-200 opacity-35"title="2026-02-16"data-week-start-date="2026-02-16">&lt;/div>&lt;/div>&lt;div class="dropdown dropdown-bottom dropdown-hover my-0">
+class="week border bg-base-200 p-1 mt-1 me-1 mb-0 float-start border-base-200"title="2026-02-16"data-week-start-date="2026-02-16">&lt;/div>&lt;/div>&lt;div class="dropdown dropdown-bottom dropdown-hover my-0">
 &lt;div tabindex="0"
 class="week border bg-base-200 p-1 mt-1 me-1 mb-0 float-start border-base-200 opacity-35"title="2026-02-23"data-week-start-date="2026-02-23">&lt;/div>&lt;/div>&lt;div class="dropdown dropdown-bottom dropdown-hover my-0">
 &lt;div tabindex="0"
