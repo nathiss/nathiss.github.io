@@ -1,153 +1,153 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Crates on MadeByMe</title><link>https://madebyme.today/tags/crates/</link><description>Recent content in Crates on MadeByMe</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright 2023-2025, Kamil Rusin</copyright><lastBuildDate>Wed, 26 Jul 2023 09:08:18 +0200</lastBuildDate><atom:link href="https://madebyme.today/tags/crates/index.xml" rel="self" type="application/rss+xml"/><item><title>Cancellable</title><link>https://madebyme.today/projects/cancellable/</link><pubDate>Wed, 26 Jul 2023 09:08:18 +0200</pubDate><guid>https://madebyme.today/projects/cancellable/</guid><category>Rust</category><category>Crates</category><category>Open Source</category><description>&lt;p>Recently I&amp;rsquo;m investing a lot of time into developing a game server in &lt;a href="https://www.rust-lang.org/">Rust&lt;/a>. I started with
-implementing network layer based on &lt;a href="https://en.wikipedia.org/wiki/WebSocket">WebSockets&lt;/a>. It&amp;rsquo;s far from being ready,
-but I developed a helper crate for creating detached, cancellable services.&lt;/p>
-&lt;h2 id="game-server-backstory" class="my-8 md:my-12 flex items-center justify-center">
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Crates on MadeByMe</title><link>https://madebyme.today/tags/crates/</link><description>Recent content in Crates on MadeByMe</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright 2023-2025, Kamil Rusin</copyright><lastBuildDate>Wed, 26 Jul 2023 09:08:18 +0200</lastBuildDate><atom:link href="https://madebyme.today/tags/crates/index.xml" rel="self" type="application/rss+xml"/><item><title>Cancellable</title><link>https://madebyme.today/projects/cancellable/</link><pubDate>Wed, 26 Jul 2023 09:08:18 +0200</pubDate><guid>https://madebyme.today/projects/cancellable/</guid><category>Rust</category><category>Crates</category><category>Open Source</category><description>&lt;p&gt;Recently I&amp;rsquo;m investing a lot of time into developing a game server in &lt;a href="https://www.rust-lang.org/"&gt;Rust&lt;/a&gt;. I started with
+implementing network layer based on &lt;a href="https://en.wikipedia.org/wiki/WebSocket"&gt;WebSockets&lt;/a&gt;. It&amp;rsquo;s far from being ready,
+but I developed a helper crate for creating detached, cancellable services.&lt;/p&gt;
+&lt;h2 id="game-server-backstory" class="my-8 md:my-12 flex items-center justify-center"&gt;
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" /&gt;
 &lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
-href="#game-server-backstory" aria-label="Anchor">Game server backstory&lt;/a>
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;/h2>
-&lt;p>The idea of developing an authoritative game server always seemed appealing to me. Network programming, however, has
-many pitfalls:&lt;/p>
-&lt;ul>
-&lt;li>Server need to validate all use inputs to protect game state from bad actors.&lt;/li>
-&lt;li>Ill-formed data sent by one client &lt;em>should&lt;/em> not deny service for another player.&lt;/li>
-&lt;li>&lt;a href="https://en.wikipedia.org/wiki/Async/await">Async programming&lt;/a> is hard in general.&lt;/li>
-&lt;/ul>
-&lt;p>So, in the past I have had many attempts to develop a game server. Each improving on mistakes made in the previous one.&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/nathiss/spectrum-old">spectrum-old&lt;/a> &amp;ndash; A real-time multiplayer browser game,&lt;/li>
-&lt;li>&lt;a href="https://github.com/nathiss/Fusion-cpp">Fusion-cpp&lt;/a> &amp;ndash; This is the source code of the server for the Fusion game,&lt;/li>
-&lt;li>&lt;em>[private repo]&lt;/em>,&lt;/li>
-&lt;li>&lt;em>[private repo]&lt;/em>,&lt;/li>
-&lt;li>&lt;em>[private repo]&lt;/em>.&lt;/li>
-&lt;/ul>
-&lt;p>And now I&amp;rsquo;m working on another. :thumbs_up:&lt;/p>
-&lt;p>This time, improvements over the previous one are creating implementation that depend on traits and organizing TODOs to
-a single GitHub project.&lt;/p>
-&lt;!-- markdownlint-disable no-bare-urls -->
-&lt;figure>&lt;a href="https://xkcd.com/1906/" class="hide-external" target="_blank">&lt;img src="https://imgs.xkcd.com/comics/making_progress.png"
+href="#game-server-backstory" aria-label="Anchor"&gt;Game server backstory&lt;/a&gt;
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" /&gt;
+&lt;/h2&gt;
+&lt;p&gt;The idea of developing an authoritative game server always seemed appealing to me. Network programming, however, has
+many pitfalls:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Server need to validate all use inputs to protect game state from bad actors.&lt;/li&gt;
+&lt;li&gt;Ill-formed data sent by one client &lt;em&gt;should&lt;/em&gt; not deny service for another player.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Async/await"&gt;Async programming&lt;/a&gt; is hard in general.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So, in the past I have had many attempts to develop a game server. Each improving on mistakes made in the previous one.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/nathiss/spectrum-old"&gt;spectrum-old&lt;/a&gt; &amp;ndash; A real-time multiplayer browser game,&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/nathiss/Fusion-cpp"&gt;Fusion-cpp&lt;/a&gt; &amp;ndash; This is the source code of the server for the Fusion game,&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;[private repo]&lt;/em&gt;,&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;[private repo]&lt;/em&gt;,&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;[private repo]&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And now I&amp;rsquo;m working on another. :thumbs_up:&lt;/p&gt;
+&lt;p&gt;This time, improvements over the previous one are creating implementation that depend on traits and organizing TODOs to
+a single GitHub project.&lt;/p&gt;
+&lt;!-- markdownlint-disable no-bare-urls --&gt;
+&lt;figure&gt;&lt;a href="https://xkcd.com/1906/" class="hide-external" target="_blank"&gt;&lt;img src="https://imgs.xkcd.com/comics/making_progress.png"
 alt="xkcd: Making Progress"loading="lazy"
-/>&lt;/a>&lt;figcaption>
-&lt;h4>Making Progress&lt;/h4>&lt;p>xkcd #1906&lt;/p>
-&lt;/figcaption>
-&lt;/figure>
-&lt;!-- markdownlint-enable no-bare-urls -->
-&lt;h2 id="cancellable-crate" class="my-8 md:my-12 flex items-center justify-center">
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+/&gt;&lt;/a&gt;&lt;figcaption&gt;
+&lt;h4&gt;Making Progress&lt;/h4&gt;&lt;p&gt;xkcd #1906&lt;/p&gt;
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;!-- markdownlint-enable no-bare-urls --&gt;
+&lt;h2 id="cancellable-crate" class="my-8 md:my-12 flex items-center justify-center"&gt;
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" /&gt;
 &lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
-href="#cancellable-crate" aria-label="Anchor">Cancellable crate&lt;/a>
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;/h2>
-&lt;p>Network functionalities in game servers (listeners, TCP streams, etc.) await for some input and &lt;em>usually&lt;/em> yield a
-result.&lt;/p>
-&lt;div class="table-responsive">&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Component&lt;/th>
-&lt;th>Input&lt;/th>
-&lt;th>Output&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>Listener&lt;/td>
-&lt;td>new incoming connection&lt;/td>
-&lt;td>&lt;code>Client&lt;/code> object&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>TCP Stream&lt;/td>
-&lt;td>data package&lt;/td>
-&lt;td>parsed &lt;code>ClientMessage&lt;/code> model&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>Ping service&lt;/td>
-&lt;td>timer tick&lt;/td>
-&lt;td>new ping frame&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;/div>
-&lt;p>We can define a &lt;code>trait&lt;/code> that will describe common interface for all of them:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="line">&lt;span class="ln" id="hl-0-1">&lt;a class="lnlinks" href="#hl-0-1">1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="cp">#[async_trait::async_trait]&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-2">&lt;a class="lnlinks" href="#hl-0-2">2&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">pub&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">trait&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">Cancellable&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-3">&lt;a class="lnlinks" href="#hl-0-3">3&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">type&lt;/span> &lt;span class="nb">Result&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-4">&lt;a class="lnlinks" href="#hl-0-4">4&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">type&lt;/span> &lt;span class="nc">Error&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-5">&lt;a class="lnlinks" href="#hl-0-5">5&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-6">&lt;a class="lnlinks" href="#hl-0-6">6&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">async&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">fn&lt;/span> &lt;span class="nf">run&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="o">&amp;amp;&lt;/span>&lt;span class="k">mut&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>-&amp;gt; &lt;span class="nb">Result&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="n">CancellationResult&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="bp">Self&lt;/span>::&lt;span class="nb">Result&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="bp">Self&lt;/span>::&lt;span class="n">Error&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-7">&lt;a class="lnlinks" href="#hl-0-7">7&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Method &lt;code>run&lt;/code> performs a single unit of work of the service. Internally it can &lt;code>await&lt;/code> for the input to be available and
-then return its result. If the returned value is &lt;code>Err(Self::Error)&lt;/code> then the service completes. If it succeeds, then it
-should return &lt;code>Ok(CancellationResult)&lt;/code>. &lt;code>CancellationResult&lt;/code> is an enum defined as follows:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="line">&lt;span class="ln" id="hl-1-1">&lt;a class="lnlinks" href="#hl-1-1"> 1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="k">pub&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">enum&lt;/span> &lt;span class="nc">CancellationResult&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="n">T&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-2">&lt;a class="lnlinks" href="#hl-1-2"> 2&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">Item&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">T&lt;/span>&lt;span class="p">),&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-3">&lt;a class="lnlinks" href="#hl-1-3"> 3&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">Continue&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-4">&lt;a class="lnlinks" href="#hl-1-4"> 4&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">Break&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-5">&lt;a class="lnlinks" href="#hl-1-5"> 5&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-6">&lt;a class="lnlinks" href="#hl-1-6"> 6&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-7">&lt;a class="lnlinks" href="#hl-1-7"> 7&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">impl&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="n">T&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">CancellationResult&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="n">T&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-8">&lt;a class="lnlinks" href="#hl-1-8"> 8&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">pub&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">fn&lt;/span> &lt;span class="nf">item&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">t&lt;/span>: &lt;span class="nc">impl&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nb">Into&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="n">T&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>-&amp;gt; &lt;span class="nc">Self&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-9">&lt;a class="lnlinks" href="#hl-1-9"> 9&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="bp">Self&lt;/span>::&lt;span class="n">Item&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">t&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">into&lt;/span>&lt;span class="p">())&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-10">&lt;a class="lnlinks" href="#hl-1-10">10&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-1-11">&lt;a class="lnlinks" href="#hl-1-11">11&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Enum&amp;rsquo;s variant control whether the service will continue to perform its work. If the service produces a value, then it
-should wrap it as &lt;code>CancellableResult::Item(t)&lt;/code>; it&amp;rsquo;s also a signal that the service should continue to work. If no
-value is available, but the service should continue then it returns &lt;code>CancellableResult::Continue&lt;/code> (similar to
-&lt;a href="https://doc.rust-lang.org/stable/std/task/enum.Poll.html#variant.Pending">&lt;code>Poll::Pending&lt;/code>&lt;/a>).&lt;/p>
-&lt;p>If the service finishes its work successfully (e.g. when the peer closes the connection) then the service should return
-&lt;code>CancellableResult::Break&lt;/code>.&lt;/p>
-&lt;p>&lt;code>Cancellable&lt;/code> trait has methods for spawning the service as a detached, background task:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="line">&lt;span class="ln" id="hl-2-1">&lt;a class="lnlinks" href="#hl-2-1"> 1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="cp">#[async_trait::async_trait]&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-2">&lt;a class="lnlinks" href="#hl-2-2"> 2&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">pub&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">trait&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">Cancellable&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-3">&lt;a class="lnlinks" href="#hl-2-3"> 3&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="c1">// ...
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-4">&lt;a class="lnlinks" href="#hl-2-4"> 4&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-5">&lt;a class="lnlinks" href="#hl-2-5"> 5&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">async&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">fn&lt;/span> &lt;span class="nf">spawn&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">mut&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">cancellation_token&lt;/span>: &lt;span class="nc">CancellationToken&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>-&amp;gt; &lt;span class="nc">CancellableHandle&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="bp">Self&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-6">&lt;a class="lnlinks" href="#hl-2-6"> 6&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="c1">// ...
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-7">&lt;a class="lnlinks" href="#hl-2-7"> 7&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-8">&lt;a class="lnlinks" href="#hl-2-8"> 8&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-9">&lt;a class="lnlinks" href="#hl-2-9"> 9&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">async&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">fn&lt;/span> &lt;span class="nf">spawn_with_callback&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="n">F&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-10">&lt;a class="lnlinks" href="#hl-2-10">10&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">mut&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-11">&lt;a class="lnlinks" href="#hl-2-11">11&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">cancellation_token&lt;/span>: &lt;span class="nc">CancellationToken&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-12">&lt;a class="lnlinks" href="#hl-2-12">12&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">mut&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">callback&lt;/span>: &lt;span class="nc">F&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-13">&lt;a class="lnlinks" href="#hl-2-13">13&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>-&amp;gt; &lt;span class="nc">CancellableHandle&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="bp">Self&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-14">&lt;a class="lnlinks" href="#hl-2-14">14&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">where&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-15">&lt;a class="lnlinks" href="#hl-2-15">15&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">F&lt;/span>: &lt;span class="nb">FnMut&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">Self&lt;/span>::&lt;span class="nb">Result&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>-&amp;gt; &lt;span class="nb">Result&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="p">(),&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="bp">Self&lt;/span>::&lt;span class="nb">Result&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-16">&lt;a class="lnlinks" href="#hl-2-16">16&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-17">&lt;a class="lnlinks" href="#hl-2-17">17&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="c1">// ...
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-18">&lt;a class="lnlinks" href="#hl-2-18">18&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-19">&lt;a class="lnlinks" href="#hl-2-19">19&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Both return a handle, which can be awaited for the service to complete, &lt;span class="text-decoration-underline">once it has been
-cancelled&lt;/span>!&lt;/p>
-&lt;p>If the service produces results, then it can be spawned with &lt;code>spawn_with_callback&lt;/code>, to consume them. If the callback
-returns &lt;code>Err(Self::Result)&lt;/code> then the service completes immediately.&lt;/p>
-&lt;p>This setup offers a way of detaching services which perform work &amp;ldquo;on their own&amp;rdquo;, but sometimes services &lt;em>need&lt;/em> to accept
+href="#cancellable-crate" aria-label="Anchor"&gt;Cancellable crate&lt;/a&gt;
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" /&gt;
+&lt;/h2&gt;
+&lt;p&gt;Network functionalities in game servers (listeners, TCP streams, etc.) await for some input and &lt;em&gt;usually&lt;/em&gt; yield a
+result.&lt;/p&gt;
+&lt;div class="table-responsive"&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Component&lt;/th&gt;
+&lt;th&gt;Input&lt;/th&gt;
+&lt;th&gt;Output&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Listener&lt;/td&gt;
+&lt;td&gt;new incoming connection&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Client&lt;/code&gt; object&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;TCP Stream&lt;/td&gt;
+&lt;td&gt;data package&lt;/td&gt;
+&lt;td&gt;parsed &lt;code&gt;ClientMessage&lt;/code&gt; model&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Ping service&lt;/td&gt;
+&lt;td&gt;timer tick&lt;/td&gt;
+&lt;td&gt;new ping frame&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;We can define a &lt;code&gt;trait&lt;/code&gt; that will describe common interface for all of them:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-rust" data-lang="rust"&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-0-1"&gt;&lt;a class="lnlinks" href="#hl-0-1"&gt;1&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt;#[async_trait::async_trait]&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-0-2"&gt;&lt;a class="lnlinks" href="#hl-0-2"&gt;2&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="k"&gt;pub&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;trait&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Cancellable&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-0-3"&gt;&lt;a class="lnlinks" href="#hl-0-3"&gt;3&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;type&lt;/span&gt; &lt;span class="nb"&gt;Result&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-0-4"&gt;&lt;a class="lnlinks" href="#hl-0-4"&gt;4&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;type&lt;/span&gt; &lt;span class="nc"&gt;Error&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-0-5"&gt;&lt;a class="lnlinks" href="#hl-0-5"&gt;5&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-0-6"&gt;&lt;a class="lnlinks" href="#hl-0-6"&gt;6&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;async&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;fn&lt;/span&gt; &lt;span class="nf"&gt;run&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="k"&gt;mut&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-&amp;gt; &lt;span class="nb"&gt;Result&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;CancellationResult&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="bp"&gt;Self&lt;/span&gt;::&lt;span class="nb"&gt;Result&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="bp"&gt;Self&lt;/span&gt;::&lt;span class="n"&gt;Error&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-0-7"&gt;&lt;a class="lnlinks" href="#hl-0-7"&gt;7&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Method &lt;code&gt;run&lt;/code&gt; performs a single unit of work of the service. Internally it can &lt;code&gt;await&lt;/code&gt; for the input to be available and
+then return its result. If the returned value is &lt;code&gt;Err(Self::Error)&lt;/code&gt; then the service completes. If it succeeds, then it
+should return &lt;code&gt;Ok(CancellationResult)&lt;/code&gt;. &lt;code&gt;CancellationResult&lt;/code&gt; is an enum defined as follows:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-rust" data-lang="rust"&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-1-1"&gt;&lt;a class="lnlinks" href="#hl-1-1"&gt; 1&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;pub&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;enum&lt;/span&gt; &lt;span class="nc"&gt;CancellationResult&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-1-2"&gt;&lt;a class="lnlinks" href="#hl-1-2"&gt; 2&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Item&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-1-3"&gt;&lt;a class="lnlinks" href="#hl-1-3"&gt; 3&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Continue&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-1-4"&gt;&lt;a class="lnlinks" href="#hl-1-4"&gt; 4&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Break&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-1-5"&gt;&lt;a class="lnlinks" href="#hl-1-5"&gt; 5&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-1-6"&gt;&lt;a class="lnlinks" href="#hl-1-6"&gt; 6&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-1-7"&gt;&lt;a class="lnlinks" href="#hl-1-7"&gt; 7&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="k"&gt;impl&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;CancellationResult&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-1-8"&gt;&lt;a class="lnlinks" href="#hl-1-8"&gt; 8&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;pub&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;fn&lt;/span&gt; &lt;span class="nf"&gt;item&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;: &lt;span class="nc"&gt;impl&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;Into&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-&amp;gt; &lt;span class="nc"&gt;Self&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-1-9"&gt;&lt;a class="lnlinks" href="#hl-1-9"&gt; 9&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="bp"&gt;Self&lt;/span&gt;::&lt;span class="n"&gt;Item&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;into&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-1-10"&gt;&lt;a class="lnlinks" href="#hl-1-10"&gt;10&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-1-11"&gt;&lt;a class="lnlinks" href="#hl-1-11"&gt;11&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Enum&amp;rsquo;s variant control whether the service will continue to perform its work. If the service produces a value, then it
+should wrap it as &lt;code&gt;CancellableResult::Item(t)&lt;/code&gt;; it&amp;rsquo;s also a signal that the service should continue to work. If no
+value is available, but the service should continue then it returns &lt;code&gt;CancellableResult::Continue&lt;/code&gt; (similar to
+&lt;a href="https://doc.rust-lang.org/stable/std/task/enum.Poll.html#variant.Pending"&gt;&lt;code&gt;Poll::Pending&lt;/code&gt;&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;If the service finishes its work successfully (e.g. when the peer closes the connection) then the service should return
+&lt;code&gt;CancellableResult::Break&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Cancellable&lt;/code&gt; trait has methods for spawning the service as a detached, background task:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-rust" data-lang="rust"&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-2-1"&gt;&lt;a class="lnlinks" href="#hl-2-1"&gt; 1&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt;#[async_trait::async_trait]&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-2-2"&gt;&lt;a class="lnlinks" href="#hl-2-2"&gt; 2&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="k"&gt;pub&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;trait&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Cancellable&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-2-3"&gt;&lt;a class="lnlinks" href="#hl-2-3"&gt; 3&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;// ...
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-2-4"&gt;&lt;a class="lnlinks" href="#hl-2-4"&gt; 4&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-2-5"&gt;&lt;a class="lnlinks" href="#hl-2-5"&gt; 5&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;async&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;fn&lt;/span&gt; &lt;span class="nf"&gt;spawn&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;mut&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;cancellation_token&lt;/span&gt;: &lt;span class="nc"&gt;CancellationToken&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-&amp;gt; &lt;span class="nc"&gt;CancellableHandle&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="bp"&gt;Self&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-2-6"&gt;&lt;a class="lnlinks" href="#hl-2-6"&gt; 6&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;// ...
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-2-7"&gt;&lt;a class="lnlinks" href="#hl-2-7"&gt; 7&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-2-8"&gt;&lt;a class="lnlinks" href="#hl-2-8"&gt; 8&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-2-9"&gt;&lt;a class="lnlinks" href="#hl-2-9"&gt; 9&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;async&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;fn&lt;/span&gt; &lt;span class="nf"&gt;spawn_with_callback&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;F&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-2-10"&gt;&lt;a class="lnlinks" href="#hl-2-10"&gt;10&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;mut&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-2-11"&gt;&lt;a class="lnlinks" href="#hl-2-11"&gt;11&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;cancellation_token&lt;/span&gt;: &lt;span class="nc"&gt;CancellationToken&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-2-12"&gt;&lt;a class="lnlinks" href="#hl-2-12"&gt;12&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;mut&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;callback&lt;/span&gt;: &lt;span class="nc"&gt;F&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-2-13"&gt;&lt;a class="lnlinks" href="#hl-2-13"&gt;13&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-&amp;gt; &lt;span class="nc"&gt;CancellableHandle&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="bp"&gt;Self&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-2-14"&gt;&lt;a class="lnlinks" href="#hl-2-14"&gt;14&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;where&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-2-15"&gt;&lt;a class="lnlinks" href="#hl-2-15"&gt;15&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;F&lt;/span&gt;: &lt;span class="nb"&gt;FnMut&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;Self&lt;/span&gt;::&lt;span class="nb"&gt;Result&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-&amp;gt; &lt;span class="nb"&gt;Result&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="bp"&gt;Self&lt;/span&gt;::&lt;span class="nb"&gt;Result&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-2-16"&gt;&lt;a class="lnlinks" href="#hl-2-16"&gt;16&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-2-17"&gt;&lt;a class="lnlinks" href="#hl-2-17"&gt;17&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;// ...
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-2-18"&gt;&lt;a class="lnlinks" href="#hl-2-18"&gt;18&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-2-19"&gt;&lt;a class="lnlinks" href="#hl-2-19"&gt;19&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Both return a handle, which can be awaited for the service to complete, &lt;span class="text-decoration-underline"&gt;once it has been
+cancelled&lt;/span&gt;!&lt;/p&gt;
+&lt;p&gt;If the service produces results, then it can be spawned with &lt;code&gt;spawn_with_callback&lt;/code&gt;, to consume them. If the callback
+returns &lt;code&gt;Err(Self::Result)&lt;/code&gt; then the service completes immediately.&lt;/p&gt;
+&lt;p&gt;This setup offers a way of detaching services which perform work &amp;ldquo;on their own&amp;rdquo;, but sometimes services &lt;em&gt;need&lt;/em&gt; to accept
 additional data. An example is TCP stream: it reads data packages from a peer and consumes them via callback. However,
-if the server decides the connection should be terminated, then the service should complete its work.&lt;/p>
-&lt;p>Enter&amp;hellip;&lt;/p>
-&lt;h3 id="communicating-with-detached-service" class="my-8 md:my-12 flex items-center justify-center">
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+if the server decides the connection should be terminated, then the service should complete its work.&lt;/p&gt;
+&lt;p&gt;Enter&amp;hellip;&lt;/p&gt;
+&lt;h3 id="communicating-with-detached-service" class="my-8 md:my-12 flex items-center justify-center"&gt;
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" /&gt;
 &lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
-href="#communicating-with-detached-service" aria-label="Anchor">Communicating with detached service&lt;/a>
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;/h3>
-&lt;p>When we spawn the service task we already get a handle:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="line">&lt;span class="ln" id="hl-3-1">&lt;a class="lnlinks" href="#hl-3-1">1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="kd">let&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">token&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">CancellableToken&lt;/span>::&lt;span class="n">new&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-2">&lt;a class="lnlinks" href="#hl-3-2">2&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-3">&lt;a class="lnlinks" href="#hl-3-3">3&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="kd">let&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">handle&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">service&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">spawn&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">token&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">clone&lt;/span>&lt;span class="p">()).&lt;/span>&lt;span class="k">await&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The handle can be used as an interface to send data to its service.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="line">&lt;span class="ln" id="hl-4-1">&lt;a class="lnlinks" href="#hl-4-1">1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="n">handle&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">update&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">ConnectionStatus&lt;/span>::&lt;span class="n">TerminatedByServer&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">reason&lt;/span>&lt;span class="p">));&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The actual interface needs to be implementation-dependent &amp;ndash; defined in the &lt;code>Cancellable&lt;/code> trait. By easily extending
-the trait we get:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="line">&lt;span class="ln" id="hl-5-1">&lt;a class="lnlinks" href="#hl-5-1">1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="cp">#[async_trait::async_trait]&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-5-2">&lt;a class="lnlinks" href="#hl-5-2">2&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">pub&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">trait&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">Cancellable&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-5-3">&lt;a class="lnlinks" href="#hl-5-3">3&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="c1">// ...
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-5-4">&lt;a class="lnlinks" href="#hl-5-4">4&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">type&lt;/span> &lt;span class="nc">Handle&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-5-5">&lt;a class="lnlinks" href="#hl-5-5">5&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-5-6">&lt;a class="lnlinks" href="#hl-5-6">6&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">async&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">fn&lt;/span> &lt;span class="nf">new_handle&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="o">&amp;amp;&lt;/span>&lt;span class="k">mut&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>-&amp;gt; &lt;span class="nc">Self&lt;/span>::&lt;span class="n">Handle&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-5-7">&lt;a class="lnlinks" href="#hl-5-7">7&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>When the service is spawned (either by &lt;code>spawn&lt;/code> or &lt;code>spawn_with_callback&lt;/code>), the method will call &lt;code>new_handle&lt;/code> to construct
-the handle. The handle is owned by &lt;code>CancellableHandle&lt;/code>, which implements &lt;code>Deref&lt;/code> for &lt;code>Self::Handle&lt;/code> type. With that
-setup, we can define a channel by which spawner can communicate with spawnee.&lt;/p>
-&lt;p>I like the final product, so I&amp;rsquo;ve packaged it as a crate. It&amp;rsquo;s available on
-&lt;a href="https://crates.io/crates/cancellable">crates.io&lt;/a>.&lt;/p>
-&lt;p>&amp;#x1f30a;&lt;/p></description></item></channel></rss>
+href="#communicating-with-detached-service" aria-label="Anchor"&gt;Communicating with detached service&lt;/a&gt;
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" /&gt;
+&lt;/h3&gt;
+&lt;p&gt;When we spawn the service task we already get a handle:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-rust" data-lang="rust"&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-3-1"&gt;&lt;a class="lnlinks" href="#hl-3-1"&gt;1&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="kd"&gt;let&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;token&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;CancellableToken&lt;/span&gt;::&lt;span class="n"&gt;new&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-3-2"&gt;&lt;a class="lnlinks" href="#hl-3-2"&gt;2&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-3-3"&gt;&lt;a class="lnlinks" href="#hl-3-3"&gt;3&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="kd"&gt;let&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;handle&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;service&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;spawn&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;token&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;clone&lt;/span&gt;&lt;span class="p"&gt;()).&lt;/span&gt;&lt;span class="k"&gt;await&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The handle can be used as an interface to send data to its service.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-rust" data-lang="rust"&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-4-1"&gt;&lt;a class="lnlinks" href="#hl-4-1"&gt;1&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;handle&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;update&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ConnectionStatus&lt;/span&gt;::&lt;span class="n"&gt;TerminatedByServer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;reason&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The actual interface needs to be implementation-dependent &amp;ndash; defined in the &lt;code&gt;Cancellable&lt;/code&gt; trait. By easily extending
+the trait we get:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-rust" data-lang="rust"&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-5-1"&gt;&lt;a class="lnlinks" href="#hl-5-1"&gt;1&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt;#[async_trait::async_trait]&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-5-2"&gt;&lt;a class="lnlinks" href="#hl-5-2"&gt;2&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="k"&gt;pub&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;trait&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Cancellable&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-5-3"&gt;&lt;a class="lnlinks" href="#hl-5-3"&gt;3&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;// ...
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-5-4"&gt;&lt;a class="lnlinks" href="#hl-5-4"&gt;4&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;type&lt;/span&gt; &lt;span class="nc"&gt;Handle&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-5-5"&gt;&lt;a class="lnlinks" href="#hl-5-5"&gt;5&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-5-6"&gt;&lt;a class="lnlinks" href="#hl-5-6"&gt;6&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;async&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;fn&lt;/span&gt; &lt;span class="nf"&gt;new_handle&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="k"&gt;mut&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-&amp;gt; &lt;span class="nc"&gt;Self&lt;/span&gt;::&lt;span class="n"&gt;Handle&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-5-7"&gt;&lt;a class="lnlinks" href="#hl-5-7"&gt;7&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;When the service is spawned (either by &lt;code&gt;spawn&lt;/code&gt; or &lt;code&gt;spawn_with_callback&lt;/code&gt;), the method will call &lt;code&gt;new_handle&lt;/code&gt; to construct
+the handle. The handle is owned by &lt;code&gt;CancellableHandle&lt;/code&gt;, which implements &lt;code&gt;Deref&lt;/code&gt; for &lt;code&gt;Self::Handle&lt;/code&gt; type. With that
+setup, we can define a channel by which spawner can communicate with spawnee.&lt;/p&gt;
+&lt;p&gt;I like the final product, so I&amp;rsquo;ve packaged it as a crate. It&amp;rsquo;s available on
+&lt;a href="https://crates.io/crates/cancellable"&gt;crates.io&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&amp;#x1f30a;&lt;/p&gt;</description></item></channel></rss>

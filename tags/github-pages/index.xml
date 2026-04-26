@@ -1,334 +1,334 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>GitHub Pages on MadeByMe</title><link>https://madebyme.today/tags/github-pages/</link><description>Recent content in GitHub Pages on MadeByMe</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright 2023-2025, Kamil Rusin</copyright><lastBuildDate>Thu, 04 Jan 2024 14:52:47 +0100</lastBuildDate><atom:link href="https://madebyme.today/tags/github-pages/index.xml" rel="self" type="application/rss+xml"/><item><title>Redirecting Subdomains to URLs</title><link>https://madebyme.today/blog/redirecting-subdomains-to-urls/</link><pubDate>Thu, 04 Jan 2024 14:52:47 +0100</pubDate><guid>https://madebyme.today/blog/redirecting-subdomains-to-urls/</guid><category>GitHub</category><category>GitHub Pages</category><category>DNS</category><category>HTTP</category><description>&lt;p>This blog is hosted on &lt;a href="https://github.com/nathiss/nathiss.github.io">GitHub Pages&lt;/a>. The service offers free static
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>GitHub Pages on MadeByMe</title><link>https://madebyme.today/tags/github-pages/</link><description>Recent content in GitHub Pages on MadeByMe</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright 2023-2025, Kamil Rusin</copyright><lastBuildDate>Thu, 04 Jan 2024 14:52:47 +0100</lastBuildDate><atom:link href="https://madebyme.today/tags/github-pages/index.xml" rel="self" type="application/rss+xml"/><item><title>Redirecting Subdomains to URLs</title><link>https://madebyme.today/blog/redirecting-subdomains-to-urls/</link><pubDate>Thu, 04 Jan 2024 14:52:47 +0100</pubDate><guid>https://madebyme.today/blog/redirecting-subdomains-to-urls/</guid><category>GitHub</category><category>GitHub Pages</category><category>DNS</category><category>HTTP</category><description>&lt;p&gt;This blog is hosted on &lt;a href="https://github.com/nathiss/nathiss.github.io"&gt;GitHub Pages&lt;/a&gt;. The service offers free static
 website hosting (TLS included!). The way it works is that GitHub issues a dedicated subdomain for each hosted website;
-for this one it&amp;rsquo;s: &lt;a href="https://nathiss.github.io/">nathiss.github.io&lt;/a>. However, if you try to access it you&amp;rsquo;ll be
-redirected to &lt;a href="https://madebyme.today/">madebyme.today&lt;/a> instead.&lt;/p>
-&lt;p>I&amp;rsquo;ve set up a custom domain, and GitHub is kind enough to respond with
-&lt;a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301">301 Moved Permanently&lt;/a> to requests using the old
-subdomain.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="ln" id="hl-0-1">&lt;a class="lnlinks" href="#hl-0-1"> 1&lt;/a>&lt;/span>&lt;span class="cl">$ curl -i https://nathiss.github.io/
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-2">&lt;a class="lnlinks" href="#hl-0-2"> 2&lt;/a>&lt;/span>&lt;span class="cl">HTTP/2 &lt;span class="m">301&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-3">&lt;a class="lnlinks" href="#hl-0-3"> 3&lt;/a>&lt;/span>&lt;span class="cl">server: GitHub.com
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-4">&lt;a class="lnlinks" href="#hl-0-4"> 4&lt;/a>&lt;/span>&lt;span class="cl">content-type: text/html
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-5">&lt;a class="lnlinks" href="#hl-0-5"> 5&lt;/a>&lt;/span>&lt;span class="cl">location: https://madebyme.today/
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-6">&lt;a class="lnlinks" href="#hl-0-6"> 6&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="c1"># ...&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-7">&lt;a class="lnlinks" href="#hl-0-7"> 7&lt;/a>&lt;/span>&lt;span class="cl">content-length: &lt;span class="m">162&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-8">&lt;a class="lnlinks" href="#hl-0-8"> 8&lt;/a>&lt;/span>&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-9">&lt;a class="lnlinks" href="#hl-0-9"> 9&lt;/a>&lt;/span>&lt;span class="cl">&amp;lt;html&amp;gt;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-10">&lt;a class="lnlinks" href="#hl-0-10">10&lt;/a>&lt;/span>&lt;span class="cl">&amp;lt;head&amp;gt;&amp;lt;title&amp;gt;301 Moved Permanently&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-11">&lt;a class="lnlinks" href="#hl-0-11">11&lt;/a>&lt;/span>&lt;span class="cl">&amp;lt;body&amp;gt;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-12">&lt;a class="lnlinks" href="#hl-0-12">12&lt;/a>&lt;/span>&lt;span class="cl">&amp;lt;center&amp;gt;&amp;lt;h1&amp;gt;301 Moved Permanently&amp;lt;/h1&amp;gt;&amp;lt;/center&amp;gt;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-13">&lt;a class="lnlinks" href="#hl-0-13">13&lt;/a>&lt;/span>&lt;span class="cl">&amp;lt;hr&amp;gt;&amp;lt;center&amp;gt;nginx&amp;lt;/center&amp;gt;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-14">&lt;a class="lnlinks" href="#hl-0-14">14&lt;/a>&lt;/span>&lt;span class="cl">&amp;lt;/body&amp;gt;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-15">&lt;a class="lnlinks" href="#hl-0-15">15&lt;/a>&lt;/span>&lt;span class="cl">&amp;lt;/html&amp;gt;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Let&amp;rsquo;s take a closer look and see how it&amp;rsquo;s done.&lt;/p>
-&lt;h2 id="setting-up-custom-domain-for-github-pages" class="my-8 md:my-12 flex items-center justify-center">
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+for this one it&amp;rsquo;s: &lt;a href="https://nathiss.github.io/"&gt;nathiss.github.io&lt;/a&gt;. However, if you try to access it you&amp;rsquo;ll be
+redirected to &lt;a href="https://madebyme.today/"&gt;madebyme.today&lt;/a&gt; instead.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve set up a custom domain, and GitHub is kind enough to respond with
+&lt;a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301"&gt;301 Moved Permanently&lt;/a&gt; to requests using the old
+subdomain.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-0-1"&gt;&lt;a class="lnlinks" href="#hl-0-1"&gt; 1&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;$ curl -i https://nathiss.github.io/
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-0-2"&gt;&lt;a class="lnlinks" href="#hl-0-2"&gt; 2&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;HTTP/2 &lt;span class="m"&gt;301&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-0-3"&gt;&lt;a class="lnlinks" href="#hl-0-3"&gt; 3&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;server: GitHub.com
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-0-4"&gt;&lt;a class="lnlinks" href="#hl-0-4"&gt; 4&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;content-type: text/html
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-0-5"&gt;&lt;a class="lnlinks" href="#hl-0-5"&gt; 5&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;location: https://madebyme.today/
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-0-6"&gt;&lt;a class="lnlinks" href="#hl-0-6"&gt; 6&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# ...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-0-7"&gt;&lt;a class="lnlinks" href="#hl-0-7"&gt; 7&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;content-length: &lt;span class="m"&gt;162&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-0-8"&gt;&lt;a class="lnlinks" href="#hl-0-8"&gt; 8&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-0-9"&gt;&lt;a class="lnlinks" href="#hl-0-9"&gt; 9&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&amp;lt;html&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-0-10"&gt;&lt;a class="lnlinks" href="#hl-0-10"&gt;10&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&amp;lt;head&amp;gt;&amp;lt;title&amp;gt;301 Moved Permanently&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-0-11"&gt;&lt;a class="lnlinks" href="#hl-0-11"&gt;11&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&amp;lt;body&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-0-12"&gt;&lt;a class="lnlinks" href="#hl-0-12"&gt;12&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&amp;lt;center&amp;gt;&amp;lt;h1&amp;gt;301 Moved Permanently&amp;lt;/h1&amp;gt;&amp;lt;/center&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-0-13"&gt;&lt;a class="lnlinks" href="#hl-0-13"&gt;13&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&amp;lt;hr&amp;gt;&amp;lt;center&amp;gt;nginx&amp;lt;/center&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-0-14"&gt;&lt;a class="lnlinks" href="#hl-0-14"&gt;14&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&amp;lt;/body&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-0-15"&gt;&lt;a class="lnlinks" href="#hl-0-15"&gt;15&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&amp;lt;/html&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Let&amp;rsquo;s take a closer look and see how it&amp;rsquo;s done.&lt;/p&gt;
+&lt;h2 id="setting-up-custom-domain-for-github-pages" class="my-8 md:my-12 flex items-center justify-center"&gt;
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" /&gt;
 &lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
-href="#setting-up-custom-domain-for-github-pages" aria-label="Anchor">Setting up custom domain for GitHub Pages&lt;/a>
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;/h2>
-&lt;p>GitHub Pages supports custom domains with very little config; you, as the owner, only need to set up these DNS
-records:&lt;/p>
-&lt;div class="table-responsive">&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Name&lt;/th>
-&lt;th>Type&lt;/th>
-&lt;th>Content/Target&lt;/th>
-&lt;th>TTL&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>@&lt;/td>
-&lt;td>A&lt;/td>
-&lt;td>185.199.108.153&lt;/td>
-&lt;td>600&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>@&lt;/td>
-&lt;td>A&lt;/td>
-&lt;td>185.199.109.153&lt;/td>
-&lt;td>600&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>@&lt;/td>
-&lt;td>A&lt;/td>
-&lt;td>185.199.110.153&lt;/td>
-&lt;td>600&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>@&lt;/td>
-&lt;td>A&lt;/td>
-&lt;td>185.199.111.153&lt;/td>
-&lt;td>600&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>@&lt;/td>
-&lt;td>AAAA&lt;/td>
-&lt;td>2606:50c0:8000::153&lt;/td>
-&lt;td>600&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>@&lt;/td>
-&lt;td>AAAA&lt;/td>
-&lt;td>2606:50c0:8001::153&lt;/td>
-&lt;td>600&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>@&lt;/td>
-&lt;td>AAAA&lt;/td>
-&lt;td>2606:50c0:8002::153&lt;/td>
-&lt;td>600&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>@&lt;/td>
-&lt;td>AAAA&lt;/td>
-&lt;td>2606:50c0:8003::153&lt;/td>
-&lt;td>600&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>www&lt;/td>
-&lt;td>CNAME&lt;/td>
-&lt;td>&amp;lt;username&amp;gt;.github.io.&lt;/td>
-&lt;td>600&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;/div>
-&lt;p>&amp;hellip; and create the &lt;code>CNAME&lt;/code> file in the root of your repository with the new domain:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-txt" data-lang="txt">&lt;span class="line">&lt;span class="ln" id="hl-1-1">&lt;a class="lnlinks" href="#hl-1-1">1&lt;/a>&lt;/span>&lt;span class="cl">example.com
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The last thing to do is to enable GitHub Pages for your repository. GitHub will validate DNS records and serve the
-website under the configured domain. Anyone accessing &lt;code>https://example.com&lt;/code> will see your website.&lt;/p>
-&lt;p>It&amp;rsquo;s pretty well explained in &lt;a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages">About custom domains and GitHub Pages&lt;/a>,
-and &lt;a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site">Managing a custom domain for your GitHub Pages site&lt;/a>.&lt;/p>
-&lt;div class="alert alert-info text-left text-text flex flex-col items-start gap-0" >
-&lt;h6 class="text-info-content flex gap-1 items-center !my-0 !text-lg">&lt;span class="">&lt;svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
-&lt;path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
-&lt;/svg>&lt;/span>Note&lt;/h6>
-&lt;div class="collapsible-content w-full">
-&lt;div class="mt-2 w-full text-base-content markdown-body">&lt;p>Optionally, you may want to verify your domain for GitHub Pages; it prevents other users from taking over your
-domain. It can happen when your GitHub Pages site gets disabled one way or another.&lt;/p>
-&lt;p>See &lt;a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages">Verifying your custom domain for GitHub Pages&lt;/a>
-for details.&lt;/p>
-&lt;/div>
-&lt;/div>
-&lt;/div>
-&lt;h2 id="using-domains-as-aliases" class="my-8 md:my-12 flex items-center justify-center">
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+href="#setting-up-custom-domain-for-github-pages" aria-label="Anchor"&gt;Setting up custom domain for GitHub Pages&lt;/a&gt;
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" /&gt;
+&lt;/h2&gt;
+&lt;p&gt;GitHub Pages supports custom domains with very little config; you, as the owner, only need to set up these DNS
+records:&lt;/p&gt;
+&lt;div class="table-responsive"&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Name&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Content/Target&lt;/th&gt;
+&lt;th&gt;TTL&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;@&lt;/td&gt;
+&lt;td&gt;A&lt;/td&gt;
+&lt;td&gt;185.199.108.153&lt;/td&gt;
+&lt;td&gt;600&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;@&lt;/td&gt;
+&lt;td&gt;A&lt;/td&gt;
+&lt;td&gt;185.199.109.153&lt;/td&gt;
+&lt;td&gt;600&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;@&lt;/td&gt;
+&lt;td&gt;A&lt;/td&gt;
+&lt;td&gt;185.199.110.153&lt;/td&gt;
+&lt;td&gt;600&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;@&lt;/td&gt;
+&lt;td&gt;A&lt;/td&gt;
+&lt;td&gt;185.199.111.153&lt;/td&gt;
+&lt;td&gt;600&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;@&lt;/td&gt;
+&lt;td&gt;AAAA&lt;/td&gt;
+&lt;td&gt;2606:50c0:8000::153&lt;/td&gt;
+&lt;td&gt;600&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;@&lt;/td&gt;
+&lt;td&gt;AAAA&lt;/td&gt;
+&lt;td&gt;2606:50c0:8001::153&lt;/td&gt;
+&lt;td&gt;600&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;@&lt;/td&gt;
+&lt;td&gt;AAAA&lt;/td&gt;
+&lt;td&gt;2606:50c0:8002::153&lt;/td&gt;
+&lt;td&gt;600&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;@&lt;/td&gt;
+&lt;td&gt;AAAA&lt;/td&gt;
+&lt;td&gt;2606:50c0:8003::153&lt;/td&gt;
+&lt;td&gt;600&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;www&lt;/td&gt;
+&lt;td&gt;CNAME&lt;/td&gt;
+&lt;td&gt;&amp;lt;username&amp;gt;.github.io.&lt;/td&gt;
+&lt;td&gt;600&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;&amp;hellip; and create the &lt;code&gt;CNAME&lt;/code&gt; file in the root of your repository with the new domain:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-txt" data-lang="txt"&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-1-1"&gt;&lt;a class="lnlinks" href="#hl-1-1"&gt;1&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;example.com
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The last thing to do is to enable GitHub Pages for your repository. GitHub will validate DNS records and serve the
+website under the configured domain. Anyone accessing &lt;code&gt;https://example.com&lt;/code&gt; will see your website.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s pretty well explained in &lt;a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages"&gt;About custom domains and GitHub Pages&lt;/a&gt;,
+and &lt;a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site"&gt;Managing a custom domain for your GitHub Pages site&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="alert alert-info text-left text-text flex flex-col items-start gap-0" &gt;
+&lt;h6 class="text-info-content flex gap-1 items-center !my-0 !text-lg"&gt;&lt;span class=""&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4"&gt;
+&lt;path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" /&gt;
+&lt;/svg&gt;&lt;/span&gt;Note&lt;/h6&gt;
+&lt;div class="collapsible-content w-full"&gt;
+&lt;div class="mt-2 w-full text-base-content markdown-body"&gt;&lt;p&gt;Optionally, you may want to verify your domain for GitHub Pages; it prevents other users from taking over your
+domain. It can happen when your GitHub Pages site gets disabled one way or another.&lt;/p&gt;
+&lt;p&gt;See &lt;a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages"&gt;Verifying your custom domain for GitHub Pages&lt;/a&gt;
+for details.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id="using-domains-as-aliases" class="my-8 md:my-12 flex items-center justify-center"&gt;
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" /&gt;
 &lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
-href="#using-domains-as-aliases" aria-label="Anchor">Using domains as aliases&lt;/a>
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;/h2>
-&lt;p>Recently I came up with an idea to configure subdomains, that will redirect to a few tools I&amp;rsquo;d like to make accessible
-online. For example &lt;code>calendar.madebyme.today&lt;/code> could be a redirect to my GCalendar.&lt;/p>
-&lt;p>However, &lt;a href="https://en.wikipedia.org/wiki/Domain_Name_System">DNS&lt;/a> can&amp;rsquo;t be used like that. It&amp;rsquo;s a
-&lt;a href="https://en.wikipedia.org/wiki/Name_resolution_(computer_systems)">name resolution system&lt;/a> &amp;ndash; it knowns nothing about
-HTTP. If I&amp;rsquo;d host my own web server, then I could configure it to do redirects with the proper 301 status code.&lt;/p>
-&lt;p>Snippet below shows an example config with
-&lt;a href="http://nginx.org/en/docs/http/ngx_http_core_module.html#server_name">Nginx&amp;rsquo;s &lt;code>server_name&lt;/code>&lt;/a>.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-txt" data-lang="txt">&lt;span class="line">&lt;span class="ln" id="hl-2-1">&lt;a class="lnlinks" href="#hl-2-1">1&lt;/a>&lt;/span>&lt;span class="cl">server {
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-2">&lt;a class="lnlinks" href="#hl-2-2">2&lt;/a>&lt;/span>&lt;span class="cl"> server_name calendar.madebyme.today;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-3">&lt;a class="lnlinks" href="#hl-2-3">3&lt;/a>&lt;/span>&lt;span class="cl"> return 301 https://example.com/;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-2-4">&lt;a class="lnlinks" href="#hl-2-4">4&lt;/a>&lt;/span>&lt;span class="cl">}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>However, that&amp;rsquo;s not the case and, as far as I know, GitHub does not provide any way of setting up HTTP redirects for
-GitHub Pages.&lt;/p>
-&lt;h3 id="redir-301" class="my-8 md:my-12 flex items-center justify-center">
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+href="#using-domains-as-aliases" aria-label="Anchor"&gt;Using domains as aliases&lt;/a&gt;
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" /&gt;
+&lt;/h2&gt;
+&lt;p&gt;Recently I came up with an idea to configure subdomains, that will redirect to a few tools I&amp;rsquo;d like to make accessible
+online. For example &lt;code&gt;calendar.madebyme.today&lt;/code&gt; could be a redirect to my GCalendar.&lt;/p&gt;
+&lt;p&gt;However, &lt;a href="https://en.wikipedia.org/wiki/Domain_Name_System"&gt;DNS&lt;/a&gt; can&amp;rsquo;t be used like that. It&amp;rsquo;s a
+&lt;a href="https://en.wikipedia.org/wiki/Name_resolution_(computer_systems)"&gt;name resolution system&lt;/a&gt; &amp;ndash; it knowns nothing about
+HTTP. If I&amp;rsquo;d host my own web server, then I could configure it to do redirects with the proper 301 status code.&lt;/p&gt;
+&lt;p&gt;Snippet below shows an example config with
+&lt;a href="http://nginx.org/en/docs/http/ngx_http_core_module.html#server_name"&gt;Nginx&amp;rsquo;s &lt;code&gt;server_name&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-txt" data-lang="txt"&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-2-1"&gt;&lt;a class="lnlinks" href="#hl-2-1"&gt;1&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;server {
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-2-2"&gt;&lt;a class="lnlinks" href="#hl-2-2"&gt;2&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt; server_name calendar.madebyme.today;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-2-3"&gt;&lt;a class="lnlinks" href="#hl-2-3"&gt;3&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt; return 301 https://example.com/;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-2-4"&gt;&lt;a class="lnlinks" href="#hl-2-4"&gt;4&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;However, that&amp;rsquo;s not the case and, as far as I know, GitHub does not provide any way of setting up HTTP redirects for
+GitHub Pages.&lt;/p&gt;
+&lt;h3 id="redir-301" class="my-8 md:my-12 flex items-center justify-center"&gt;
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" /&gt;
 &lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
-href="#redir-301" aria-label="Anchor">Redir 301&lt;/a>
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;/h3>
-&lt;p>&lt;a href="https://redir301.link/">Redir 301&lt;/a> is a service that uses DNS records to redirect subdomains to URLs. It requires two
-DNS records in order to work:&lt;/p>
-&lt;div class="table-responsive">&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Name&lt;/th>
-&lt;th>Type&lt;/th>
-&lt;th>Content/Target&lt;/th>
-&lt;th>TTL&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>subdomain&lt;/td>
-&lt;td>CNAME&lt;/td>
-&lt;td>redir301.link.&lt;/td>
-&lt;td>600&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>301.subdomain&lt;/td>
-&lt;td>TXT&lt;/td>
-&lt;td>&amp;lt;destination URL&amp;gt;&lt;/td>
-&lt;td>600&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;/div>
-&lt;p>Let&amp;rsquo;s test it, shall we?&lt;/p>
-&lt;p>I&amp;rsquo;d very much prefer not to mess with my current DNS records, so let&amp;rsquo;s use &lt;a href="https://messwithdns.net/">mess with dns&lt;/a> for
-this experiment.&lt;/p>
-&lt;div class="alert alert-tip text-left text-text flex flex-col items-start gap-0" >
-&lt;h6 class="text-tip-content flex gap-1 items-center !my-0 !text-lg">&lt;span class="">&lt;svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-&lt;path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.047 8.287 8.287 0 0 0 9 9.601a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48Z" />
-&lt;path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 0 0 .495-7.468 5.99 5.99 0 0 0-1.925 3.547 5.975 5.975 0 0 1-2.133-1.001A3.75 3.75 0 0 0 12 18Z" />
-&lt;/svg>&lt;/span>Tip&lt;/h6>
-&lt;div class="collapsible-content w-full">
-&lt;div class="mt-2 w-full text-base-content markdown-body">If you&amp;rsquo;re planning on changing your DNS records and are unsure about the changes, then I&amp;rsquo;d suggest to do so first via
-&lt;a href="https://messwithdns.net/">mess with dns&lt;/a>, a tool by &lt;a href="https://jvns.ca/">Julia Evans&lt;/a> and
-&lt;a href="https://marieflanagan.com/">Marie Claire LeBlanc Flanagan&lt;/a>. It&amp;rsquo;s a service for performing experiments with DNS. Anyone
-can set up their DNS records and test with them for free.&lt;/div>
-&lt;/div>
-&lt;/div>
-&lt;p>By following the guide we&amp;rsquo;ve got:&lt;/p>
-&lt;figure>&lt;a href="mess_with_dns.png" class="hide-external" >&lt;img src="https://madebyme.today/blog/redirecting-subdomains-to-urls/mess_with_dns.png"
+href="#redir-301" aria-label="Anchor"&gt;Redir 301&lt;/a&gt;
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" /&gt;
+&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://redir301.link/"&gt;Redir 301&lt;/a&gt; is a service that uses DNS records to redirect subdomains to URLs. It requires two
+DNS records in order to work:&lt;/p&gt;
+&lt;div class="table-responsive"&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Name&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Content/Target&lt;/th&gt;
+&lt;th&gt;TTL&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;subdomain&lt;/td&gt;
+&lt;td&gt;CNAME&lt;/td&gt;
+&lt;td&gt;redir301.link.&lt;/td&gt;
+&lt;td&gt;600&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;301.subdomain&lt;/td&gt;
+&lt;td&gt;TXT&lt;/td&gt;
+&lt;td&gt;&amp;lt;destination URL&amp;gt;&lt;/td&gt;
+&lt;td&gt;600&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;Let&amp;rsquo;s test it, shall we?&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;d very much prefer not to mess with my current DNS records, so let&amp;rsquo;s use &lt;a href="https://messwithdns.net/"&gt;mess with dns&lt;/a&gt; for
+this experiment.&lt;/p&gt;
+&lt;div class="alert alert-tip text-left text-text flex flex-col items-start gap-0" &gt;
+&lt;h6 class="text-tip-content flex gap-1 items-center !my-0 !text-lg"&gt;&lt;span class=""&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6"&gt;
+&lt;path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.047 8.287 8.287 0 0 0 9 9.601a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48Z" /&gt;
+&lt;path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 0 0 .495-7.468 5.99 5.99 0 0 0-1.925 3.547 5.975 5.975 0 0 1-2.133-1.001A3.75 3.75 0 0 0 12 18Z" /&gt;
+&lt;/svg&gt;&lt;/span&gt;Tip&lt;/h6&gt;
+&lt;div class="collapsible-content w-full"&gt;
+&lt;div class="mt-2 w-full text-base-content markdown-body"&gt;If you&amp;rsquo;re planning on changing your DNS records and are unsure about the changes, then I&amp;rsquo;d suggest to do so first via
+&lt;a href="https://messwithdns.net/"&gt;mess with dns&lt;/a&gt;, a tool by &lt;a href="https://jvns.ca/"&gt;Julia Evans&lt;/a&gt; and
+&lt;a href="https://marieflanagan.com/"&gt;Marie Claire LeBlanc Flanagan&lt;/a&gt;. It&amp;rsquo;s a service for performing experiments with DNS. Anyone
+can set up their DNS records and test with them for free.&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;By following the guide we&amp;rsquo;ve got:&lt;/p&gt;
+&lt;figure&gt;&lt;a href="mess_with_dns.png" class="hide-external" &gt;&lt;img src="https://madebyme.today/blog/redirecting-subdomains-to-urls/mess_with_dns.png"
 alt="mess with dns configuration for Redir 301"loading="lazy"
-/>&lt;/a>&lt;figcaption>
-&lt;p>Click on the image for the full size.&lt;/p>
-&lt;/figcaption>
-&lt;/figure>
-&lt;p>Let&amp;rsquo;s wait for the DNS records to propagate&amp;hellip; &amp;#x1f553;&lt;/p>
-&lt;p>&amp;hellip;and when we request the subdomain:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="ln" id="hl-3-1">&lt;a class="lnlinks" href="#hl-3-1"> 1&lt;/a>&lt;/span>&lt;span class="cl">$ curl -i http://calendar.aster176.messwithdns.com
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-2">&lt;a class="lnlinks" href="#hl-3-2"> 2&lt;/a>&lt;/span>&lt;span class="cl">HTTP/1.1 &lt;span class="m">301&lt;/span> Moved Permanently
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-3">&lt;a class="lnlinks" href="#hl-3-3"> 3&lt;/a>&lt;/span>&lt;span class="cl">Date: Thu, &lt;span class="m">04&lt;/span> Jan &lt;span class="m">2024&lt;/span> 09:47:53 GMT
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-4">&lt;a class="lnlinks" href="#hl-3-4"> 4&lt;/a>&lt;/span>&lt;span class="cl">Server: Apache
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-5">&lt;a class="lnlinks" href="#hl-3-5"> 5&lt;/a>&lt;/span>&lt;span class="cl">Location: https://example.com/
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-6">&lt;a class="lnlinks" href="#hl-3-6"> 6&lt;/a>&lt;/span>&lt;span class="cl">Cache-Control: no-cache, no-store, must-revalidate
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-7">&lt;a class="lnlinks" href="#hl-3-7"> 7&lt;/a>&lt;/span>&lt;span class="cl">Pragma: no-cache
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-8">&lt;a class="lnlinks" href="#hl-3-8"> 8&lt;/a>&lt;/span>&lt;span class="cl">Expires: &lt;span class="m">0&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-9">&lt;a class="lnlinks" href="#hl-3-9"> 9&lt;/a>&lt;/span>&lt;span class="cl">Transfer-Encoding: chunked
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-3-10">&lt;a class="lnlinks" href="#hl-3-10">10&lt;/a>&lt;/span>&lt;span class="cl">Content-Type: application/cgi
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&amp;hellip;it returns 301 with the &lt;a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Location">Location&lt;/a> header
-:thumbs_up:&lt;/p>
-&lt;p>It&amp;rsquo;s worth to point out that it does not support HTTPS, only HTTP. It&amp;rsquo;s a Redir 301 limitation; the free tier of the
-service does not offer TLS certificates.&lt;/p>
-&lt;p>Additionally, as stated by the owner, a &amp;ldquo;fair use&amp;rdquo; policy applies to Redir 301. There&amp;rsquo;s a non-zero cost to run the
-service, so if you decide on using the system, please consider donating the maintainer. See &lt;a href="https://redir301.link/" class="hide-external">https://redir301.link/&lt;/a>
-for details.&lt;/p>
-&lt;h3 id="redirecting-with-github-pages" class="my-8 md:my-12 flex items-center justify-center">
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+/&gt;&lt;/a&gt;&lt;figcaption&gt;
+&lt;p&gt;Click on the image for the full size.&lt;/p&gt;
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Let&amp;rsquo;s wait for the DNS records to propagate&amp;hellip; &amp;#x1f553;&lt;/p&gt;
+&lt;p&gt;&amp;hellip;and when we request the subdomain:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-3-1"&gt;&lt;a class="lnlinks" href="#hl-3-1"&gt; 1&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;$ curl -i http://calendar.aster176.messwithdns.com
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-3-2"&gt;&lt;a class="lnlinks" href="#hl-3-2"&gt; 2&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;HTTP/1.1 &lt;span class="m"&gt;301&lt;/span&gt; Moved Permanently
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-3-3"&gt;&lt;a class="lnlinks" href="#hl-3-3"&gt; 3&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;Date: Thu, &lt;span class="m"&gt;04&lt;/span&gt; Jan &lt;span class="m"&gt;2024&lt;/span&gt; 09:47:53 GMT
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-3-4"&gt;&lt;a class="lnlinks" href="#hl-3-4"&gt; 4&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;Server: Apache
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-3-5"&gt;&lt;a class="lnlinks" href="#hl-3-5"&gt; 5&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;Location: https://example.com/
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-3-6"&gt;&lt;a class="lnlinks" href="#hl-3-6"&gt; 6&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;Cache-Control: no-cache, no-store, must-revalidate
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-3-7"&gt;&lt;a class="lnlinks" href="#hl-3-7"&gt; 7&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;Pragma: no-cache
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-3-8"&gt;&lt;a class="lnlinks" href="#hl-3-8"&gt; 8&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;Expires: &lt;span class="m"&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-3-9"&gt;&lt;a class="lnlinks" href="#hl-3-9"&gt; 9&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;Transfer-Encoding: chunked
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-3-10"&gt;&lt;a class="lnlinks" href="#hl-3-10"&gt;10&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;Content-Type: application/cgi
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&amp;hellip;it returns 301 with the &lt;a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Location"&gt;Location&lt;/a&gt; header
+:thumbs_up:&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s worth to point out that it does not support HTTPS, only HTTP. It&amp;rsquo;s a Redir 301 limitation; the free tier of the
+service does not offer TLS certificates.&lt;/p&gt;
+&lt;p&gt;Additionally, as stated by the owner, a &amp;ldquo;fair use&amp;rdquo; policy applies to Redir 301. There&amp;rsquo;s a non-zero cost to run the
+service, so if you decide on using the system, please consider donating the maintainer. See &lt;a href="https://redir301.link/" class="hide-external"&gt;https://redir301.link/&lt;/a&gt;
+for details.&lt;/p&gt;
+&lt;h3 id="redirecting-with-github-pages" class="my-8 md:my-12 flex items-center justify-center"&gt;
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" /&gt;
 &lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
-href="#redirecting-with-github-pages" aria-label="Anchor">Redirecting with GitHub Pages&lt;/a>
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;/h3>
-&lt;p>The HTTP Location header isn&amp;rsquo;t the only way of redirecting to a URL. Another method is to use JavaScript, and the
-simplest way to achieve this is:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="ln" id="hl-4-1">&lt;a class="lnlinks" href="#hl-4-1">1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">body&lt;/span> &lt;span class="na">onload&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;window.location = &amp;#39;https://example.com/&amp;#39;&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-4-2">&lt;a class="lnlinks" href="#hl-4-2">2&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="c">&amp;lt;!-- ... --&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-4-3">&lt;a class="lnlinks" href="#hl-4-3">3&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This approach is not recommended, because users might have disabled JavaScript in their browsers.&lt;/p>
-&lt;p>Yet another way is to inform the browser to perform the redirection for us; that can be done via the
-&lt;a href="https://en.wikipedia.org/wiki/Meta_refresh">meta refresh&lt;/a> tag:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="ln" id="hl-5-1">&lt;a class="lnlinks" href="#hl-5-1">1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">meta&lt;/span> &lt;span class="na">http-equiv&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;refresh&amp;#34;&lt;/span> &lt;span class="na">content&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;0; url=https://example.com/&amp;#34;&lt;/span> &lt;span class="p">/&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>To use this, we need to set up a website under &lt;code>calendar.aster176.messwithdns.com&lt;/code>, that will have the correct meta
-refresh tag. However, due to the fact that the domain &lt;code>madebyme.today&lt;/code> is already associated with my GitHub account, I
-had some issues with making the &lt;code>calendar.aster176.messwithdns.com&lt;/code> subdomain work. As a workaround I&amp;rsquo;ll switch to
-&lt;code>example.madebyme.today&lt;/code> from now on.&lt;/p>
-&lt;p>Let&amp;rsquo;s set up required DNS records first, to give them time to propagate. Since I already have my domain configured to
-be used by GitHub Pages, I only really need to add one more record:&lt;/p>
-&lt;div class="table-responsive">&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Name&lt;/th>
-&lt;th>Type&lt;/th>
-&lt;th>Content/Target&lt;/th>
-&lt;th>TTL&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>example&lt;/td>
-&lt;td>CNAME&lt;/td>
-&lt;td>nathiss.github.io.&lt;/td>
-&lt;td>1h&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;/div>
-&lt;p>With that out of the way, we can create a new repo.&lt;/p>
-&lt;p>We need two files:&lt;/p>
-&lt;ul>
-&lt;li>
-&lt;p>&lt;code>index.html&lt;/code> with the meta tag:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="ln" id="hl-6-1">&lt;a class="lnlinks" href="#hl-6-1"> 1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="cp">&amp;lt;!DOCTYPE html&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-6-2">&lt;a class="lnlinks" href="#hl-6-2"> 2&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">html&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-6-3">&lt;a class="lnlinks" href="#hl-6-3"> 3&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">head&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-6-4">&lt;a class="lnlinks" href="#hl-6-4"> 4&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">meta&lt;/span> &lt;span class="na">charset&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;utf-8&amp;#34;&lt;/span> &lt;span class="p">/&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-6-5">&lt;a class="lnlinks" href="#hl-6-5"> 5&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">meta&lt;/span> &lt;span class="na">http-equiv&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;refresh&amp;#34;&lt;/span> &lt;span class="na">content&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;0; url=https://example.com/&amp;#34;&lt;/span> &lt;span class="p">/&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-6-6">&lt;a class="lnlinks" href="#hl-6-6"> 6&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">link&lt;/span> &lt;span class="na">href&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;https://example.com&amp;#34;&lt;/span> &lt;span class="na">rel&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;canonical&amp;#34;&lt;/span> &lt;span class="p">/&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-6-7">&lt;a class="lnlinks" href="#hl-6-7"> 7&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">title&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>Redirecting to https://example.com&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">title&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-6-8">&lt;a class="lnlinks" href="#hl-6-8"> 8&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">head&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-6-9">&lt;a class="lnlinks" href="#hl-6-9"> 9&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-6-10">&lt;a class="lnlinks" href="#hl-6-10">10&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">a&lt;/span> &lt;span class="na">href&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;https://example.com/&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>Redirect&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">a&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-6-11">&lt;a class="lnlinks" href="#hl-6-11">11&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-6-12">&lt;a class="lnlinks" href="#hl-6-12">12&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">html&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;li>
-&lt;p>&lt;code>CNAME&lt;/code> to point to GitHub which subdomain it should use:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-txt" data-lang="txt">&lt;span class="line">&lt;span class="ln" id="hl-7-1">&lt;a class="lnlinks" href="#hl-7-1">1&lt;/a>&lt;/span>&lt;span class="cl">example.madebyme.today
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;/ul>
-&lt;p>See the full setup here: &lt;a href="https://github.com/nathiss/redirect-example">redirect-example&lt;/a>.&lt;/p>
-&lt;p>Alright, let&amp;rsquo;s see if our new DNS record has propagated:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="ln" id="hl-8-1">&lt;a class="lnlinks" href="#hl-8-1">1&lt;/a>&lt;/span>&lt;span class="cl">$ dig example.madebyme.today CNAME +noall +answer
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-8-2">&lt;a class="lnlinks" href="#hl-8-2">2&lt;/a>&lt;/span>&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-8-3">&lt;a class="lnlinks" href="#hl-8-3">3&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="p">;&lt;/span> &amp;lt;&amp;lt;&amp;gt;&amp;gt; DiG 9.10.6 &amp;lt;&amp;lt;&amp;gt;&amp;gt; example.madebyme.today CNAME +noall +answer
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-8-4">&lt;a class="lnlinks" href="#hl-8-4">4&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="p">;;&lt;/span> global options: +cmd
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-8-5">&lt;a class="lnlinks" href="#hl-8-5">5&lt;/a>&lt;/span>&lt;span class="cl">example.madebyme.today. &lt;span class="m">3233&lt;/span> IN CNAME nathiss.github.io.
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>It has indeed.&lt;/p>
-&lt;p>The last thing to do, is to enable GitHub Pages for the new repo. Go to &lt;code>Settings &amp;gt; Pages&lt;/code>.&lt;/p>
-&lt;figure>&lt;a href="gh_pages_enable.png" class="hide-external" >&lt;img src="https://madebyme.today/blog/redirecting-subdomains-to-urls/gh_pages_enable.png"
+href="#redirecting-with-github-pages" aria-label="Anchor"&gt;Redirecting with GitHub Pages&lt;/a&gt;
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" /&gt;
+&lt;/h3&gt;
+&lt;p&gt;The HTTP Location header isn&amp;rsquo;t the only way of redirecting to a URL. Another method is to use JavaScript, and the
+simplest way to achieve this is:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-4-1"&gt;&lt;a class="lnlinks" href="#hl-4-1"&gt;1&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;body&lt;/span&gt; &lt;span class="na"&gt;onload&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;window.location = &amp;#39;https://example.com/&amp;#39;&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-4-2"&gt;&lt;a class="lnlinks" href="#hl-4-2"&gt;2&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="c"&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-4-3"&gt;&lt;a class="lnlinks" href="#hl-4-3"&gt;3&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;body&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This approach is not recommended, because users might have disabled JavaScript in their browsers.&lt;/p&gt;
+&lt;p&gt;Yet another way is to inform the browser to perform the redirection for us; that can be done via the
+&lt;a href="https://en.wikipedia.org/wiki/Meta_refresh"&gt;meta refresh&lt;/a&gt; tag:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-5-1"&gt;&lt;a class="lnlinks" href="#hl-5-1"&gt;1&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;meta&lt;/span&gt; &lt;span class="na"&gt;http-equiv&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;refresh&amp;#34;&lt;/span&gt; &lt;span class="na"&gt;content&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;0; url=https://example.com/&amp;#34;&lt;/span&gt; &lt;span class="p"&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To use this, we need to set up a website under &lt;code&gt;calendar.aster176.messwithdns.com&lt;/code&gt;, that will have the correct meta
+refresh tag. However, due to the fact that the domain &lt;code&gt;madebyme.today&lt;/code&gt; is already associated with my GitHub account, I
+had some issues with making the &lt;code&gt;calendar.aster176.messwithdns.com&lt;/code&gt; subdomain work. As a workaround I&amp;rsquo;ll switch to
+&lt;code&gt;example.madebyme.today&lt;/code&gt; from now on.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s set up required DNS records first, to give them time to propagate. Since I already have my domain configured to
+be used by GitHub Pages, I only really need to add one more record:&lt;/p&gt;
+&lt;div class="table-responsive"&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Name&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Content/Target&lt;/th&gt;
+&lt;th&gt;TTL&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;example&lt;/td&gt;
+&lt;td&gt;CNAME&lt;/td&gt;
+&lt;td&gt;nathiss.github.io.&lt;/td&gt;
+&lt;td&gt;1h&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;With that out of the way, we can create a new repo.&lt;/p&gt;
+&lt;p&gt;We need two files:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;index.html&lt;/code&gt; with the meta tag:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-6-1"&gt;&lt;a class="lnlinks" href="#hl-6-1"&gt; 1&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-6-2"&gt;&lt;a class="lnlinks" href="#hl-6-2"&gt; 2&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;html&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-6-3"&gt;&lt;a class="lnlinks" href="#hl-6-3"&gt; 3&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;head&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-6-4"&gt;&lt;a class="lnlinks" href="#hl-6-4"&gt; 4&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;meta&lt;/span&gt; &lt;span class="na"&gt;charset&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;utf-8&amp;#34;&lt;/span&gt; &lt;span class="p"&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-6-5"&gt;&lt;a class="lnlinks" href="#hl-6-5"&gt; 5&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;meta&lt;/span&gt; &lt;span class="na"&gt;http-equiv&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;refresh&amp;#34;&lt;/span&gt; &lt;span class="na"&gt;content&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;0; url=https://example.com/&amp;#34;&lt;/span&gt; &lt;span class="p"&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-6-6"&gt;&lt;a class="lnlinks" href="#hl-6-6"&gt; 6&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;link&lt;/span&gt; &lt;span class="na"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;https://example.com&amp;#34;&lt;/span&gt; &lt;span class="na"&gt;rel&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;canonical&amp;#34;&lt;/span&gt; &lt;span class="p"&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-6-7"&gt;&lt;a class="lnlinks" href="#hl-6-7"&gt; 7&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;title&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Redirecting to https://example.com&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;title&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-6-8"&gt;&lt;a class="lnlinks" href="#hl-6-8"&gt; 8&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;head&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-6-9"&gt;&lt;a class="lnlinks" href="#hl-6-9"&gt; 9&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;body&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-6-10"&gt;&lt;a class="lnlinks" href="#hl-6-10"&gt;10&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;a&lt;/span&gt; &lt;span class="na"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;https://example.com/&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Redirect&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;a&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-6-11"&gt;&lt;a class="lnlinks" href="#hl-6-11"&gt;11&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;body&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-6-12"&gt;&lt;a class="lnlinks" href="#hl-6-12"&gt;12&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;html&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;CNAME&lt;/code&gt; to point to GitHub which subdomain it should use:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-txt" data-lang="txt"&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-7-1"&gt;&lt;a class="lnlinks" href="#hl-7-1"&gt;1&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;example.madebyme.today
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;See the full setup here: &lt;a href="https://github.com/nathiss/redirect-example"&gt;redirect-example&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Alright, let&amp;rsquo;s see if our new DNS record has propagated:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-8-1"&gt;&lt;a class="lnlinks" href="#hl-8-1"&gt;1&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;$ dig example.madebyme.today CNAME +noall +answer
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-8-2"&gt;&lt;a class="lnlinks" href="#hl-8-2"&gt;2&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-8-3"&gt;&lt;a class="lnlinks" href="#hl-8-3"&gt;3&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;;&lt;/span&gt; &amp;lt;&amp;lt;&amp;gt;&amp;gt; DiG 9.10.6 &amp;lt;&amp;lt;&amp;gt;&amp;gt; example.madebyme.today CNAME +noall +answer
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-8-4"&gt;&lt;a class="lnlinks" href="#hl-8-4"&gt;4&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;;;&lt;/span&gt; global options: +cmd
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-8-5"&gt;&lt;a class="lnlinks" href="#hl-8-5"&gt;5&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;example.madebyme.today. &lt;span class="m"&gt;3233&lt;/span&gt; IN CNAME nathiss.github.io.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;It has indeed.&lt;/p&gt;
+&lt;p&gt;The last thing to do, is to enable GitHub Pages for the new repo. Go to &lt;code&gt;Settings &amp;gt; Pages&lt;/code&gt;.&lt;/p&gt;
+&lt;figure&gt;&lt;a href="gh_pages_enable.png" class="hide-external" &gt;&lt;img src="https://madebyme.today/blog/redirecting-subdomains-to-urls/gh_pages_enable.png"
 alt="GitHub Pages configuration for redirect-example repository"loading="lazy"
-/>&lt;/a>&lt;figcaption>
-&lt;p>Click on the image for the full size.&lt;/p>
-&lt;/figcaption>
-&lt;/figure>
-&lt;p>Select a branch and a folder your site will be served from. GitHub automatically picks up custom domain name configured
-in the &lt;code>CNAME&lt;/code> file. Wait a moment for it to perform some DNS checks and to provision a new TLS certificate for your
-subdomain, then enable HTTPS enforcement for your site.&lt;/p>
-&lt;figure>&lt;a href="gh_pages_custom_domain.png" class="hide-external" >&lt;img src="https://madebyme.today/blog/redirecting-subdomains-to-urls/gh_pages_custom_domain.png"
+/&gt;&lt;/a&gt;&lt;figcaption&gt;
+&lt;p&gt;Click on the image for the full size.&lt;/p&gt;
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Select a branch and a folder your site will be served from. GitHub automatically picks up custom domain name configured
+in the &lt;code&gt;CNAME&lt;/code&gt; file. Wait a moment for it to perform some DNS checks and to provision a new TLS certificate for your
+subdomain, then enable HTTPS enforcement for your site.&lt;/p&gt;
+&lt;figure&gt;&lt;a href="gh_pages_custom_domain.png" class="hide-external" &gt;&lt;img src="https://madebyme.today/blog/redirecting-subdomains-to-urls/gh_pages_custom_domain.png"
 alt="GitHub Pages configuration with custom domain and enforced HTTPS"loading="lazy"
-/>&lt;/a>&lt;figcaption>
-&lt;p>Click on the image for the full size.&lt;/p>
-&lt;/figcaption>
-&lt;/figure>
-&lt;p>All parts should be in place, let&amp;rsquo;s check if it works:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="ln" id="hl-9-1">&lt;a class="lnlinks" href="#hl-9-1"> 1&lt;/a>&lt;/span>&lt;span class="cl">$ curl -i https://example.madebyme.today/
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-9-2">&lt;a class="lnlinks" href="#hl-9-2"> 2&lt;/a>&lt;/span>&lt;span class="cl">HTTP/2 &lt;span class="m">200&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-9-3">&lt;a class="lnlinks" href="#hl-9-3"> 3&lt;/a>&lt;/span>&lt;span class="cl">server: GitHub.com
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-9-4">&lt;a class="lnlinks" href="#hl-9-4"> 4&lt;/a>&lt;/span>&lt;span class="cl">content-type: text/html&lt;span class="p">;&lt;/span> &lt;span class="nv">charset&lt;/span>&lt;span class="o">=&lt;/span>utf-8
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-9-5">&lt;a class="lnlinks" href="#hl-9-5"> 5&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="c1"># ...&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-9-6">&lt;a class="lnlinks" href="#hl-9-6"> 6&lt;/a>&lt;/span>&lt;span class="cl">content-length: &lt;span class="m">356&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-9-7">&lt;a class="lnlinks" href="#hl-9-7"> 7&lt;/a>&lt;/span>&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-9-8">&lt;a class="lnlinks" href="#hl-9-8"> 8&lt;/a>&lt;/span>&lt;span class="cl">&amp;lt;!DOCTYPE html&amp;gt;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-9-9">&lt;a class="lnlinks" href="#hl-9-9"> 9&lt;/a>&lt;/span>&lt;span class="cl">&amp;lt;html&amp;gt;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-9-10">&lt;a class="lnlinks" href="#hl-9-10">10&lt;/a>&lt;/span>&lt;span class="cl"> &amp;lt;head&amp;gt;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-9-11">&lt;a class="lnlinks" href="#hl-9-11">11&lt;/a>&lt;/span>&lt;span class="cl"> &amp;lt;meta &lt;span class="nv">charset&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;utf-8&amp;#34;&lt;/span> /&amp;gt;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-9-12">&lt;a class="lnlinks" href="#hl-9-12">12&lt;/a>&lt;/span>&lt;span class="cl"> &amp;lt;meta http-equiv&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;refresh&amp;#34;&lt;/span> &lt;span class="nv">content&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;0; url=https://example.com/&amp;#34;&lt;/span> /&amp;gt;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-9-13">&lt;a class="lnlinks" href="#hl-9-13">13&lt;/a>&lt;/span>&lt;span class="cl"> &amp;lt;link &lt;span class="nv">href&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;https://example.com&amp;#34;&lt;/span> &lt;span class="nv">rel&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;canonical&amp;#34;&lt;/span> /&amp;gt;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-9-14">&lt;a class="lnlinks" href="#hl-9-14">14&lt;/a>&lt;/span>&lt;span class="cl"> &amp;lt;title&amp;gt;Redirecting to https://example.com&amp;lt;/title&amp;gt;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-9-15">&lt;a class="lnlinks" href="#hl-9-15">15&lt;/a>&lt;/span>&lt;span class="cl"> &amp;lt;/head&amp;gt;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-9-16">&lt;a class="lnlinks" href="#hl-9-16">16&lt;/a>&lt;/span>&lt;span class="cl"> &amp;lt;body&amp;gt;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-9-17">&lt;a class="lnlinks" href="#hl-9-17">17&lt;/a>&lt;/span>&lt;span class="cl"> &amp;lt;a &lt;span class="nv">href&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;https://example.com/&amp;#34;&lt;/span>&amp;gt;Redirect&amp;lt;/a&amp;gt;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-9-18">&lt;a class="lnlinks" href="#hl-9-18">18&lt;/a>&lt;/span>&lt;span class="cl"> &amp;lt;/body&amp;gt;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-9-19">&lt;a class="lnlinks" href="#hl-9-19">19&lt;/a>&lt;/span>&lt;span class="cl">&amp;lt;/html&amp;gt;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&amp;#x1f389;&lt;/p>
-&lt;p>If a browser respects the meta refresh tag, then it works. When it doesn&amp;rsquo;t, the user has an option to manually click on
-the &amp;ldquo;Redirect&amp;rdquo; link.&lt;/p>
-&lt;h2 id="conclusion" class="my-8 md:my-12 flex items-center justify-center">
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+/&gt;&lt;/a&gt;&lt;figcaption&gt;
+&lt;p&gt;Click on the image for the full size.&lt;/p&gt;
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;All parts should be in place, let&amp;rsquo;s check if it works:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-9-1"&gt;&lt;a class="lnlinks" href="#hl-9-1"&gt; 1&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;$ curl -i https://example.madebyme.today/
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-9-2"&gt;&lt;a class="lnlinks" href="#hl-9-2"&gt; 2&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;HTTP/2 &lt;span class="m"&gt;200&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-9-3"&gt;&lt;a class="lnlinks" href="#hl-9-3"&gt; 3&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;server: GitHub.com
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-9-4"&gt;&lt;a class="lnlinks" href="#hl-9-4"&gt; 4&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;content-type: text/html&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="nv"&gt;charset&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;utf-8
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-9-5"&gt;&lt;a class="lnlinks" href="#hl-9-5"&gt; 5&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# ...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-9-6"&gt;&lt;a class="lnlinks" href="#hl-9-6"&gt; 6&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;content-length: &lt;span class="m"&gt;356&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-9-7"&gt;&lt;a class="lnlinks" href="#hl-9-7"&gt; 7&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-9-8"&gt;&lt;a class="lnlinks" href="#hl-9-8"&gt; 8&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&amp;lt;!DOCTYPE html&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-9-9"&gt;&lt;a class="lnlinks" href="#hl-9-9"&gt; 9&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&amp;lt;html&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-9-10"&gt;&lt;a class="lnlinks" href="#hl-9-10"&gt;10&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt; &amp;lt;head&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-9-11"&gt;&lt;a class="lnlinks" href="#hl-9-11"&gt;11&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt; &amp;lt;meta &lt;span class="nv"&gt;charset&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;utf-8&amp;#34;&lt;/span&gt; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-9-12"&gt;&lt;a class="lnlinks" href="#hl-9-12"&gt;12&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt; &amp;lt;meta http-equiv&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;refresh&amp;#34;&lt;/span&gt; &lt;span class="nv"&gt;content&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;0; url=https://example.com/&amp;#34;&lt;/span&gt; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-9-13"&gt;&lt;a class="lnlinks" href="#hl-9-13"&gt;13&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt; &amp;lt;link &lt;span class="nv"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;https://example.com&amp;#34;&lt;/span&gt; &lt;span class="nv"&gt;rel&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;canonical&amp;#34;&lt;/span&gt; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-9-14"&gt;&lt;a class="lnlinks" href="#hl-9-14"&gt;14&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt; &amp;lt;title&amp;gt;Redirecting to https://example.com&amp;lt;/title&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-9-15"&gt;&lt;a class="lnlinks" href="#hl-9-15"&gt;15&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt; &amp;lt;/head&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-9-16"&gt;&lt;a class="lnlinks" href="#hl-9-16"&gt;16&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt; &amp;lt;body&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-9-17"&gt;&lt;a class="lnlinks" href="#hl-9-17"&gt;17&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt; &amp;lt;a &lt;span class="nv"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;https://example.com/&amp;#34;&lt;/span&gt;&amp;gt;Redirect&amp;lt;/a&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-9-18"&gt;&lt;a class="lnlinks" href="#hl-9-18"&gt;18&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt; &amp;lt;/body&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-9-19"&gt;&lt;a class="lnlinks" href="#hl-9-19"&gt;19&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&amp;lt;/html&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&amp;#x1f389;&lt;/p&gt;
+&lt;p&gt;If a browser respects the meta refresh tag, then it works. When it doesn&amp;rsquo;t, the user has an option to manually click on
+the &amp;ldquo;Redirect&amp;rdquo; link.&lt;/p&gt;
+&lt;h2 id="conclusion" class="my-8 md:my-12 flex items-center justify-center"&gt;
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" /&gt;
 &lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
-href="#conclusion" aria-label="Anchor">Conclusion&lt;/a>
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;/h2>
-&lt;p>Redirects via GitHub Pages is not an ideal solution. Having to use meta&amp;rsquo;s &lt;code>http-equiv=&amp;quot;refresh&amp;quot;&lt;/code>, instead of the proper
+href="#conclusion" aria-label="Anchor"&gt;Conclusion&lt;/a&gt;
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" /&gt;
+&lt;/h2&gt;
+&lt;p&gt;Redirects via GitHub Pages is not an ideal solution. Having to use meta&amp;rsquo;s &lt;code&gt;http-equiv=&amp;quot;refresh&amp;quot;&lt;/code&gt;, instead of the proper
 301 Moved Permanently makes me sad. Having said that, personally, I&amp;rsquo;d prefer to use GitHub Pages, as the backing
-service, rather than Redir 301.&lt;/p>
-&lt;p>The only benefit of Redir 301 over GitHub Pages is the 301 status code with the Location header. However, it&amp;rsquo;s
-reasonable to assume that &lt;em>vast majority&lt;/em> of modern browsers supports (and does not block) the meta refresh tag.&lt;/p>
-&lt;p>I think GitHub Pages can prove to be a more reliable service in the long run, plus it provisions free TLS certificates
-out-of-the-box.&lt;/p>
-&lt;p>I&amp;rsquo;d love to hear about other approaches of doing domain-to-URL redirects without a self-hosted web server. Let me know
-in the comments what works for you.&lt;/p></description></item></channel></rss>
+service, rather than Redir 301.&lt;/p&gt;
+&lt;p&gt;The only benefit of Redir 301 over GitHub Pages is the 301 status code with the Location header. However, it&amp;rsquo;s
+reasonable to assume that &lt;em&gt;vast majority&lt;/em&gt; of modern browsers supports (and does not block) the meta refresh tag.&lt;/p&gt;
+&lt;p&gt;I think GitHub Pages can prove to be a more reliable service in the long run, plus it provisions free TLS certificates
+out-of-the-box.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;d love to hear about other approaches of doing domain-to-URL redirects without a self-hosted web server. Let me know
+in the comments what works for you.&lt;/p&gt;</description></item></channel></rss>

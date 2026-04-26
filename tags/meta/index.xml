@@ -1,140 +1,140 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Meta on MadeByMe</title><link>https://madebyme.today/tags/meta/</link><description>Recent content in Meta on MadeByMe</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright 2023-2025, Kamil Rusin</copyright><lastBuildDate>Sat, 25 Feb 2023 20:14:43 +0100</lastBuildDate><atom:link href="https://madebyme.today/tags/meta/index.xml" rel="self" type="application/rss+xml"/><item><title>Beginnings Are Hard</title><link>https://madebyme.today/blog/beginnings-are-hard/</link><pubDate>Sat, 25 Feb 2023 20:14:43 +0100</pubDate><guid>https://madebyme.today/blog/beginnings-are-hard/</guid><category>meta</category><category>Polaris</category><description>&lt;p>Well it took some time (almost 6 years) to create a personal blog, but here we are.&lt;/p>
-&lt;h2 id="how-did-we-come-here" class="my-8 md:my-12 flex items-center justify-center">
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Meta on MadeByMe</title><link>https://madebyme.today/tags/meta/</link><description>Recent content in Meta on MadeByMe</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright 2023-2025, Kamil Rusin</copyright><lastBuildDate>Sat, 25 Feb 2023 20:14:43 +0100</lastBuildDate><atom:link href="https://madebyme.today/tags/meta/index.xml" rel="self" type="application/rss+xml"/><item><title>Beginnings Are Hard</title><link>https://madebyme.today/blog/beginnings-are-hard/</link><pubDate>Sat, 25 Feb 2023 20:14:43 +0100</pubDate><guid>https://madebyme.today/blog/beginnings-are-hard/</guid><category>meta</category><category>Polaris</category><description>&lt;p&gt;Well it took some time (almost 6 years) to create a personal blog, but here we are.&lt;/p&gt;
+&lt;h2 id="how-did-we-come-here" class="my-8 md:my-12 flex items-center justify-center"&gt;
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" /&gt;
 &lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
-href="#how-did-we-come-here" aria-label="Anchor">How did we come here?&lt;/a>
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;/h2>
-&lt;p>This is not the first attempt on creating my own website. On my &lt;a href="https://github.com/nathiss">GitHub&lt;/a> there are many
-(most of them private) repos, which contains some sort of &lt;em>personal website&lt;/em>. All of them abandoned, but not this one!&lt;/p>
-&lt;p>&amp;hellip; at least not yet. ✌(-‿-)✌ However I&amp;rsquo;m optimistic.&lt;/p>
-&lt;p>To better understand why I have such high hopes for this project let&amp;rsquo;s go down the rabbit hole and analyze its ancestors
-and try to point out why they failed.&lt;/p>
-&lt;h3 id="platform-1-0x52-django-22" class="my-8 md:my-12 flex items-center justify-center">
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+href="#how-did-we-come-here" aria-label="Anchor"&gt;How did we come here?&lt;/a&gt;
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" /&gt;
+&lt;/h2&gt;
+&lt;p&gt;This is not the first attempt on creating my own website. On my &lt;a href="https://github.com/nathiss"&gt;GitHub&lt;/a&gt; there are many
+(most of them private) repos, which contains some sort of &lt;em&gt;personal website&lt;/em&gt;. All of them abandoned, but not this one!&lt;/p&gt;
+&lt;p&gt;&amp;hellip; at least not yet. ✌(-‿-)✌ However I&amp;rsquo;m optimistic.&lt;/p&gt;
+&lt;p&gt;To better understand why I have such high hopes for this project let&amp;rsquo;s go down the rabbit hole and analyze its ancestors
+and try to point out why they failed.&lt;/p&gt;
+&lt;h3 id="platform-1-0x52-django-22" class="my-8 md:my-12 flex items-center justify-center"&gt;
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" /&gt;
 &lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
-href="#platform-1-0x52-django-22" aria-label="Anchor">Platform 1: 0x52 (Django 2.2)&lt;/a>
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;/h3>
-&lt;p>&lt;a href="https://www.djangoproject.com/">Django&lt;/a> is one of the first tools I&amp;rsquo;ve ever used to create something on the web.&lt;/p>
-&lt;blockquote>
-&lt;p>Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design.
+href="#platform-1-0x52-django-22" aria-label="Anchor"&gt;Platform 1: 0x52 (Django 2.2)&lt;/a&gt;
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" /&gt;
+&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://www.djangoproject.com/"&gt;Django&lt;/a&gt; is one of the first tools I&amp;rsquo;ve ever used to create something on the web.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design.
 Built by experienced developers, it takes care of much of the hassle of web development, so you can focus on writing
-your app without needing to reinvent the wheel. It’s free and open source.&lt;br>
-~ &lt;a href="https://www.djangoproject.com/">Django website&lt;/a>&lt;/p>
-&lt;/blockquote>
-&lt;p>Using that framework I&amp;rsquo;ve built a web journal. The idea was that at any moment I could use one of my devices to create
+your app without needing to reinvent the wheel. It’s free and open source.&lt;br&gt;
+~ &lt;a href="https://www.djangoproject.com/"&gt;Django website&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Using that framework I&amp;rsquo;ve built a web journal. The idea was that at any moment I could use one of my devices to create
 a new journal entry. They were automatically sorted by creation date and tagged with tokens retrieved from the entry&amp;rsquo;s
-content. The latter deserves a bit more digging into, so let&amp;rsquo;s consider the following entry:&lt;/p>
-&lt;blockquote>
-&lt;p>Lorem ipsum @dolor sit amet, consectetur adipiscing elit. Aliquam sed eleifend magna. @Quisque venenatis ex ex, a
-suscipit purus iaculis ac. Sed @lacinia tincidunt nunc vitae consectetur.&lt;/p>
-&lt;/blockquote>
-&lt;p>A tag is a sequence of characters between &lt;code>'@'&lt;/code> and one of &lt;code>',&amp;lt;.&amp;gt;/?;:\'&amp;quot;[{]}\\|()=+#$%^&amp;amp;*~\r\n '&lt;/code>. When an entry was
-either created or modified, then the logic extracted tags from content:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="ln" id="hl-0-1">&lt;a class="lnlinks" href="#hl-0-1">1&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="nd">@staticmethod&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-2">&lt;a class="lnlinks" href="#hl-0-2">2&lt;/a>&lt;/span>&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">extract_tag_names&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">text&lt;/span>&lt;span class="p">):&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-3">&lt;a class="lnlinks" href="#hl-0-3">3&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="n">words&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">re&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">split&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">Tag&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">escape_delimiters&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">Tag&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">TAG_DELIMITERS&lt;/span>&lt;span class="p">),&lt;/span> &lt;span class="n">text&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-4">&lt;a class="lnlinks" href="#hl-0-4">4&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="n">words&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">list&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">filter&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kc">None&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">words&lt;/span>&lt;span class="p">))&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln" id="hl-0-5">&lt;a class="lnlinks" href="#hl-0-5">5&lt;/a>&lt;/span>&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="n">tag_name&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">:]&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">lower&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="k">for&lt;/span> &lt;span class="n">tag_name&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="n">words&lt;/span> &lt;span class="k">if&lt;/span> &lt;span class="n">tag_name&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">startswith&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">Tag&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">TAG_SYMBOL&lt;/span>&lt;span class="p">)]&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>It worked pretty well. I could create a new tag or use an already existing one. When the tag was orphaned &lt;em>(meaning it
-was referenced by no entry)&lt;/em> the logic was able to take care of that too. &amp;#x1f440;&lt;/p>
-&lt;p>The solution was designed to be used by more that one user: each person would have an account and they would be able to
-access only their own entries and tags.&lt;/p>
-&lt;p>What happened with that project? I used it for a while, but after some time I wasn&amp;rsquo;t really actively adding new entries,
+content. The latter deserves a bit more digging into, so let&amp;rsquo;s consider the following entry:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Lorem ipsum @dolor sit amet, consectetur adipiscing elit. Aliquam sed eleifend magna. @Quisque venenatis ex ex, a
+suscipit purus iaculis ac. Sed @lacinia tincidunt nunc vitae consectetur.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;A tag is a sequence of characters between &lt;code&gt;'@'&lt;/code&gt; and one of &lt;code&gt;',&amp;lt;.&amp;gt;/?;:\'&amp;quot;[{]}\\|()=+#$%^&amp;amp;*~\r\n '&lt;/code&gt;. When an entry was
+either created or modified, then the logic extracted tags from content:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-0-1"&gt;&lt;a class="lnlinks" href="#hl-0-1"&gt;1&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nd"&gt;@staticmethod&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-0-2"&gt;&lt;a class="lnlinks" href="#hl-0-2"&gt;2&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;extract_tag_names&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-0-3"&gt;&lt;a class="lnlinks" href="#hl-0-3"&gt;3&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;words&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;re&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Tag&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;escape_delimiters&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Tag&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;TAG_DELIMITERS&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-0-4"&gt;&lt;a class="lnlinks" href="#hl-0-4"&gt;4&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;words&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;filter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kc"&gt;None&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;words&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln" id="hl-0-5"&gt;&lt;a class="lnlinks" href="#hl-0-5"&gt;5&lt;/a&gt;&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;tag_name&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;lower&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;tag_name&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;words&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;tag_name&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;startswith&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Tag&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;TAG_SYMBOL&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;It worked pretty well. I could create a new tag or use an already existing one. When the tag was orphaned &lt;em&gt;(meaning it
+was referenced by no entry)&lt;/em&gt; the logic was able to take care of that too. &amp;#x1f440;&lt;/p&gt;
+&lt;p&gt;The solution was designed to be used by more that one user: each person would have an account and they would be able to
+access only their own entries and tags.&lt;/p&gt;
+&lt;p&gt;What happened with that project? I used it for a while, but after some time I wasn&amp;rsquo;t really actively adding new entries,
 so it just fated away. Also it was more of a personal utility website, than a blog. It was publicly available on
-&lt;a href="https://www.heroku.com/">Heroku&lt;/a> until quite recently actually. I took down the website when &lt;a href="https://help.heroku.com/RSBRUH58/removal-of-heroku-free-product-plans-faq">Heroku announced their
-removal of free product plans&lt;/a>.&lt;/p>
-&lt;h3 id="platform-2-titan-aspnet" class="my-8 md:my-12 flex items-center justify-center">
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+&lt;a href="https://www.heroku.com/"&gt;Heroku&lt;/a&gt; until quite recently actually. I took down the website when &lt;a href="https://help.heroku.com/RSBRUH58/removal-of-heroku-free-product-plans-faq"&gt;Heroku announced their
+removal of free product plans&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id="platform-2-titan-aspnet" class="my-8 md:my-12 flex items-center justify-center"&gt;
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" /&gt;
 &lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
-href="#platform-2-titan-aspnet" aria-label="Anchor">Platform 2: Titan (ASP.NET)&lt;/a>
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;/h3>
-&lt;p>This was &lt;em>an another&lt;/em> iteration of personal website development. I&amp;rsquo;ve decided to use
-&lt;a href="https://en.wikipedia.org/wiki/.NET">.NET&lt;/a> for this one, because earlier in that year I got my first job in the field
-and I was hyped to build something with the technology we used at work &lt;em>(we were developing a few solutions and one of
-them was built on top of &lt;a href="https://en.wikipedia.org/wiki/.NET_Framework">.NET Framework&lt;/a>)&lt;/em>.&lt;/p>
-&lt;p>Sadly I deleted the source code some time ago as a part of my GitHub purge, but I remember quite vividly the problem(s)
-with this one. In a sentence: it was too overengineered.&lt;/p>
-&lt;blockquote>
-&lt;p>the strategy is definitely: first make it work, then make it right, and, finally, make it fast.&lt;br>
-~ &amp;ldquo;The C Language and Models for Systems Programming&amp;rdquo; in Byte magazine (August 1983)&lt;/p>
-&lt;/blockquote>
-&lt;p>I wanted to use &lt;a href="https://en.wikipedia.org/wiki/JSON_Web_Token">JWT&lt;/a> as a user authentication method. I&amp;rsquo;ve read on many
+href="#platform-2-titan-aspnet" aria-label="Anchor"&gt;Platform 2: Titan (ASP.NET)&lt;/a&gt;
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" /&gt;
+&lt;/h3&gt;
+&lt;p&gt;This was &lt;em&gt;an another&lt;/em&gt; iteration of personal website development. I&amp;rsquo;ve decided to use
+&lt;a href="https://en.wikipedia.org/wiki/.NET"&gt;.NET&lt;/a&gt; for this one, because earlier in that year I got my first job in the field
+and I was hyped to build something with the technology we used at work &lt;em&gt;(we were developing a few solutions and one of
+them was built on top of &lt;a href="https://en.wikipedia.org/wiki/.NET_Framework"&gt;.NET Framework&lt;/a&gt;)&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Sadly I deleted the source code some time ago as a part of my GitHub purge, but I remember quite vividly the problem(s)
+with this one. In a sentence: it was too overengineered.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;the strategy is definitely: first make it work, then make it right, and, finally, make it fast.&lt;br&gt;
+~ &amp;ldquo;The C Language and Models for Systems Programming&amp;rdquo; in Byte magazine (August 1983)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I wanted to use &lt;a href="https://en.wikipedia.org/wiki/JSON_Web_Token"&gt;JWT&lt;/a&gt; as a user authentication method. I&amp;rsquo;ve read on many
 places on the web that it&amp;rsquo;s a bad idea, but still I was devoted to make it work. One of the issues I was aware of was
-that you cannot &lt;em>easily&lt;/em> and &lt;em>permanently&lt;/em> logout a user when using JWT.&lt;/p>
-&lt;p>In a nutshell JWT are tokens stored on the client-side. However, due to encryption, they can only be read by the
+that you cannot &lt;em&gt;easily&lt;/em&gt; and &lt;em&gt;permanently&lt;/em&gt; logout a user when using JWT.&lt;/p&gt;
+&lt;p&gt;In a nutshell JWT are tokens stored on the client-side. However, due to encryption, they can only be read by the
 service. So with each request the client sends its token to the sever (like a cookie, you might say). If the token is
-well-formed, then the server, with quite high certainty, can assume it wasn&amp;rsquo;t tinkered with.&lt;/p>
-&lt;p>Going back to logout issue: to ensure that session will not last indefinitely the server could add &lt;code>&amp;quot;expiryDate&amp;quot;&lt;/code> field
+well-formed, then the server, with quite high certainty, can assume it wasn&amp;rsquo;t tinkered with.&lt;/p&gt;
+&lt;p&gt;Going back to logout issue: to ensure that session will not last indefinitely the server could add &lt;code&gt;&amp;quot;expiryDate&amp;quot;&lt;/code&gt; field
 to payload and check its value with each request and respond accordingly. That works pretty well. The client has no way
-of modifying &lt;code>&amp;quot;expiryDate&amp;quot;&lt;/code>.&lt;/p>
-&lt;p>Yet it&amp;rsquo;s much harder to kill the session before token expiries. My attempt was to add a new field to token&amp;rsquo;s payload
+of modifying &lt;code&gt;&amp;quot;expiryDate&amp;quot;&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Yet it&amp;rsquo;s much harder to kill the session before token expiries. My attempt was to add a new field to token&amp;rsquo;s payload
 which would indicate that its no longer valid and send it back to the client. The problem though is that the client does
-not &lt;strong>need&lt;/strong> to use the new token. It still can use the old one and, since we don&amp;rsquo;t store session information on the
-server, the service has not way of detecting that. &amp;#x1f4a2;&lt;/p>
-&lt;p>The solution I came up with was to use &lt;a href="https://redis.io/">Redis&lt;/a>. To store that information on the server-side.&lt;/p>
-&lt;blockquote>
-&lt;p>&lt;strong>Redis:&lt;/strong>
+not &lt;strong&gt;need&lt;/strong&gt; to use the new token. It still can use the old one and, since we don&amp;rsquo;t store session information on the
+server, the service has not way of detecting that. &amp;#x1f4a2;&lt;/p&gt;
+&lt;p&gt;The solution I came up with was to use &lt;a href="https://redis.io/"&gt;Redis&lt;/a&gt;. To store that information on the server-side.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Redis:&lt;/strong&gt;
 The open source, in-memory data store used by millions of developers as a database, cache, streaming engine,
-and message broker.&lt;/p>
-&lt;/blockquote>
-&lt;p>Once the server decides the user should be logged out, it will store JWT&amp;rsquo;s ID in Redis alongside with an indication of
-whether the session has ended.&lt;/p>
-&lt;p>Can you see now when I said it was overengineered? So many complex solutions for a logout functionality. The project
-ended because I was too wornout to finish it.&lt;/p>
-&lt;h3 id="platform-3-polaris-react" class="my-8 md:my-12 flex items-center justify-center">
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+and message broker.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Once the server decides the user should be logged out, it will store JWT&amp;rsquo;s ID in Redis alongside with an indication of
+whether the session has ended.&lt;/p&gt;
+&lt;p&gt;Can you see now when I said it was overengineered? So many complex solutions for a logout functionality. The project
+ended because I was too wornout to finish it.&lt;/p&gt;
+&lt;h3 id="platform-3-polaris-react" class="my-8 md:my-12 flex items-center justify-center"&gt;
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" /&gt;
 &lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
-href="#platform-3-polaris-react" aria-label="Anchor">Platform 3: Polaris (React)&lt;/a>
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;/h3>
-&lt;p>I&amp;rsquo;m actually quite proud of this one. It&amp;rsquo;s a static website running on &lt;a href="https://reactjs.org/">React&lt;/a> and hosting my
+href="#platform-3-polaris-react" aria-label="Anchor"&gt;Platform 3: Polaris (React)&lt;/a&gt;
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" /&gt;
+&lt;/h3&gt;
+&lt;p&gt;I&amp;rsquo;m actually quite proud of this one. It&amp;rsquo;s a static website running on &lt;a href="https://reactjs.org/"&gt;React&lt;/a&gt; and hosting my
 vector graphics. It&amp;rsquo;s painfully simple, but that was kinda the point. I wanted to have a way of hosting those images
-ASAP, hence React and GitHub Pages, &lt;a href="https://polaris.madebyme.today/">where the website is actually hosted&lt;/a>.&lt;/p>
-&lt;p>It wasn&amp;rsquo;t my first contact with technologies used in frontend, but it was the first time when I used &lt;em>state of the art&lt;/em>
-tools for a new website. My knowledge of &lt;a href="https://nodejs.org/en/">NodeJS&lt;/a> and utilities built on top of it was
-practically nonexistent. That changed once I&amp;rsquo;ve written Polaris; now I&amp;rsquo;m just new to this stuff.&lt;/p>
-&lt;!-- markdownlint-disable no-bare-urls -->
-&lt;figure class="img-thumbnail">&lt;a href="https://polaris.madebyme.today/" class="hide-external" target="_blank">&lt;img src="https://madebyme.today/blog/beginnings-are-hard/steam-on-the-horizon-small.webp"
+ASAP, hence React and GitHub Pages, &lt;a href="https://polaris.madebyme.today/"&gt;where the website is actually hosted&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;It wasn&amp;rsquo;t my first contact with technologies used in frontend, but it was the first time when I used &lt;em&gt;state of the art&lt;/em&gt;
+tools for a new website. My knowledge of &lt;a href="https://nodejs.org/en/"&gt;NodeJS&lt;/a&gt; and utilities built on top of it was
+practically nonexistent. That changed once I&amp;rsquo;ve written Polaris; now I&amp;rsquo;m just new to this stuff.&lt;/p&gt;
+&lt;!-- markdownlint-disable no-bare-urls --&gt;
+&lt;figure class="img-thumbnail"&gt;&lt;a href="https://polaris.madebyme.today/" class="hide-external" target="_blank"&gt;&lt;img src="https://madebyme.today/blog/beginnings-are-hard/steam-on-the-horizon-small.webp"
 alt="Steam on the horizon" class="img-thumbnail"loading="lazy"
-/>&lt;/a>&lt;figcaption>
-&lt;h4>Steam on the horizon&lt;/h4>
-&lt;/figcaption>
-&lt;/figure>
-&lt;!-- markdownlint-enable no-bare-urls -->
-&lt;p>I don&amp;rsquo;t have much more to say here other that, it was a while when I&amp;rsquo;ve used &lt;a href="https://inkscape.org/">Inkscape&lt;/a> to create
+/&gt;&lt;/a&gt;&lt;figcaption&gt;
+&lt;h4&gt;Steam on the horizon&lt;/h4&gt;
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;!-- markdownlint-enable no-bare-urls --&gt;
+&lt;p&gt;I don&amp;rsquo;t have much more to say here other that, it was a while when I&amp;rsquo;ve used &lt;a href="https://inkscape.org/"&gt;Inkscape&lt;/a&gt; to create
 those images and when I needed to use it again, for the sake of this blog, it was terrifying to see how much one can
-forget what one has learned. ಠ_ಠ&lt;/p>
-&lt;h3 id="platforms-long-forgotten" class="my-8 md:my-12 flex items-center justify-center">
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+forget what one has learned. ಠ_ಠ&lt;/p&gt;
+&lt;h3 id="platforms-long-forgotten" class="my-8 md:my-12 flex items-center justify-center"&gt;
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" /&gt;
 &lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
-href="#platforms-long-forgotten" aria-label="Anchor">Platforms long forgotten&lt;/a>
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;/h3>
-&lt;p>There were many more projects which aimed to create my personal space on the web, but only these mentioned above are
-still remembered by me enough to write a few sentences about.&lt;/p>
-&lt;p>It&amp;rsquo;s safe to say they all suffered from the same fundamental flaws:&lt;/p>
-&lt;ul>
-&lt;li>they were too complex,&lt;/li>
-&lt;li>they were trying to solve all possible future problem without aiming to deliver the most basic functionality,&lt;/li>
-&lt;li>backend is hard.&lt;/li>
-&lt;/ul>
-&lt;p>This blog, on the other hand, is a static content website build with &lt;a href="https://gohugo.io/">Hugo&lt;/a>. I think to some extend
+href="#platforms-long-forgotten" aria-label="Anchor"&gt;Platforms long forgotten&lt;/a&gt;
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" /&gt;
+&lt;/h3&gt;
+&lt;p&gt;There were many more projects which aimed to create my personal space on the web, but only these mentioned above are
+still remembered by me enough to write a few sentences about.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s safe to say they all suffered from the same fundamental flaws:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;they were too complex,&lt;/li&gt;
+&lt;li&gt;they were trying to solve all possible future problem without aiming to deliver the most basic functionality,&lt;/li&gt;
+&lt;li&gt;backend is hard.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This blog, on the other hand, is a static content website build with &lt;a href="https://gohugo.io/"&gt;Hugo&lt;/a&gt;. I think to some extend
 I was aware that tools like Hugo existed, but I&amp;rsquo;ve never considered using them. I cannot really explain as to why; maybe
-I was trying too hard to use a new fancy tool I&amp;rsquo;ve just learned about.&lt;/p>
-&lt;h2 id="the-goal-and-future-of-this-project" class="my-8 md:my-12 flex items-center justify-center">
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
+I was trying too hard to use a new fancy tool I&amp;rsquo;ve just learned about.&lt;/p&gt;
+&lt;h2 id="the-goal-and-future-of-this-project" class="my-8 md:my-12 flex items-center justify-center"&gt;
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" /&gt;
 &lt;a class="font-bold text-center w-full md:w-fit mx-4 !no-underline !link-neutral"
-href="#the-goal-and-future-of-this-project" aria-label="Anchor">The goal and future of this project&lt;/a>
-&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" />
-&lt;/h2>
-&lt;p>The goal of this project is to create an archive for stuff I&amp;rsquo;m going to learn. It&amp;rsquo;s still unclear as to what I&amp;rsquo;m going
-to post on this blog, but it&amp;rsquo;s safe to say that it&amp;rsquo;s going to be techy.&lt;/p>
-&lt;p>I cannot say with any amount of certainty how often I&amp;rsquo;ll be writing new articles. I&amp;rsquo;m really looking forward to making
-new content though. I believe it will also tilt me significantly into learning about new things.&lt;/p>
-&lt;p>There are still some adjustments I need to make on the website, I&amp;rsquo;m probably going to focus on them before I&amp;rsquo;ll work on
-new articles, but in general it is functionally complete.&lt;/p>
-&lt;p>So as of now, thank you for reading.&lt;/p>
-&lt;p>&amp;#x1f30a;&lt;/p></description></item></channel></rss>
+href="#the-goal-and-future-of-this-project" aria-label="Anchor"&gt;The goal and future of this project&lt;/a&gt;
+&lt;hr class="w-1/12 border-neutral shrink-0 hidden md:block" /&gt;
+&lt;/h2&gt;
+&lt;p&gt;The goal of this project is to create an archive for stuff I&amp;rsquo;m going to learn. It&amp;rsquo;s still unclear as to what I&amp;rsquo;m going
+to post on this blog, but it&amp;rsquo;s safe to say that it&amp;rsquo;s going to be techy.&lt;/p&gt;
+&lt;p&gt;I cannot say with any amount of certainty how often I&amp;rsquo;ll be writing new articles. I&amp;rsquo;m really looking forward to making
+new content though. I believe it will also tilt me significantly into learning about new things.&lt;/p&gt;
+&lt;p&gt;There are still some adjustments I need to make on the website, I&amp;rsquo;m probably going to focus on them before I&amp;rsquo;ll work on
+new articles, but in general it is functionally complete.&lt;/p&gt;
+&lt;p&gt;So as of now, thank you for reading.&lt;/p&gt;
+&lt;p&gt;&amp;#x1f30a;&lt;/p&gt;</description></item></channel></rss>
